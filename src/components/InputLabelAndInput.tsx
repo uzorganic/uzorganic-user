@@ -3,14 +3,31 @@ import styled from 'styled-components';
 interface Props {
   label: string;
   placeholder: string;
+  inputType?: string;
+
+  value: string;
+  setValue: (value: string) => void;
 }
 
-export const InputLabelAndInput = ({ label, placeholder }: Props) => {
+export const InputLabelAndInput = ({
+  label,
+  placeholder,
+  inputType = 'text',
+
+  value,
+  setValue,
+}: Props) => {
   return (
     <InputLabelAndInputStyled>
       <p>{label}</p>
       <div className="vertical__line" />
-      <input type="text" id="input" placeholder={placeholder} />
+      <input
+        type={inputType}
+        id="input"
+        placeholder={placeholder}
+        value={value || ''}
+        onChange={e => setValue && setValue(e.target.value)}
+      />
     </InputLabelAndInputStyled>
   );
 };
@@ -67,6 +84,12 @@ const InputLabelAndInputStyled = styled.div`
 
     &::placeholder {
       color: #bbbbbb;
+    }
+
+    &[type='number']::-webkit-inner-spin-button,
+    &[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 `;

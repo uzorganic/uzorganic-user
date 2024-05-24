@@ -1,5 +1,5 @@
 const developmentHost = 'http://localhost:4000';
-const productionHost = 'https://api.example.com';
+const productionHost = 'https://api.uzorganic.com';
 
 export const baseURL =
   process.env.NODE_ENV === 'production' ? productionHost : developmentHost;

@@ -5,10 +5,13 @@ import { useRouter } from 'next/router';
 
 import { PrivacyPolicy } from './PrivacyPolicy';
 
+import { PrivacyPolicy } from './PrivacyPolicy';
+
+import { instance } from '@/api/axios';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';
 import { InputLabelAndTextarea } from '@/components/InputLabelAndTextarea';
-import { Checkbox, Modal } from 'antd';
+import { Checkbox, Form, message, Modal } from 'antd';
 import styled from 'styled-components';
 
 export const ContactForm = () => {
@@ -16,6 +19,51 @@ export const ContactForm = () => {
   const { locale } = router;
 
   const [open, setOpen] = useState(false);
+
+  const [form] = Form.useForm();
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const sendContact = async (values: any) => {
+    try {
+      await instance.post('/contact', values);
+
+      form.resetFields();
+
+      messageApi.success(
+        locale === 'en'
+          ? 'Successfully sent. We will contact you as soon as possible.'
+          : '성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다.',
+      );
+    } catch (error) {
+      messageApi.error(
+        locale === 'en'
+          ? 'Failed to send. Please try again later.'
+          : '전송에 실패했습니다. 잠시 후 다시 시도해주세요.',
+      );
+      return;
+    }
+  };
+
+  const onFinish = (values: any) => {
+    if (!values.name || !values.phone || !values.email || !values.content) {
+      messageApi.error(
+        locale === 'en'
+          ? 'Please fill in all the information.'
+          : '모든 정보를 입력해주세요.',
+      );
+      return;
+    } else if (!values.agree) {
+      messageApi.error(
+        locale === 'en'
+          ? 'Please agree to the collection and use of personal information.'
+          : '개인정보 수집 및 이용에 동의해주세요.',
+      );
+      return;
+    }
+
+    sendContact(values);
+  };
 
   return (
     <ContactFormStyled>
@@ -42,52 +90,86 @@ export const ContactForm = () => {
           )}
         </h1>
 
-        <div className="form__container">
-          <div className="form__left">
-            <InputLabelAndInput
-              label={locale === 'en' ? 'Name' : '성 함'}
-              placeholder={
-                locale === 'en' ? 'Enter your name' : '성함을 입력해주세요'
-              }
-            />
-            <InputLabelAndInput
-              label={locale === 'en' ? 'Number' : '전 화 번 호'}
-              placeholder={
-                locale === 'en'
-                  ? 'Enter your phone number'
-                  : '전화번호를 입력해주세요'
-              }
-            />
-            <InputLabelAndInput
-              label={locale === 'en' ? 'Email' : '이 메 일'}
-              placeholder="id@example.com"
-            />
+        <Form
+          form={form}
+          onFinish={values => {
+            onFinish(values);
+          }}
+        >
+          <div className="form__container">
+            <div className="form__left">
+              <Form.Item name="name" noStyle>
+                <InputLabelAndInput
+                  label={locale === 'en' ? 'Name' : '성 함'}
+                  placeholder={
+                    locale === 'en' ? 'Enter your name' : '성함을 입력해주세요'
+                  }
+                  value={form.getFieldValue('name')}
+                  setValue={value => form.setFieldsValue({ name: value })}
+                />
+              </Form.Item>
+
+              <Form.Item name="phone" noStyle>
+                <InputLabelAndInput
+                  label={locale === 'en' ? 'Number' : '전 화 번 호'}
+                  placeholder={
+                    locale === 'en'
+                      ? 'Enter your phone number'
+                      : '전화번호를 입력해주세요'
+                  }
+                  inputType="number"
+                  value={form.getFieldValue('phone')}
+                  setValue={value => form.setFieldsValue({ phone: value })}
+                />
+              </Form.Item>
+
+              <Form.Item name="email" noStyle>
+                <InputLabelAndInput
+                  label={locale === 'en' ? 'Email' : '이 메 일'}
+                  placeholder="id@example.com"
+                  value={form.getFieldValue('email')}
+                  setValue={value => form.setFieldsValue({ email: value })}
+                />
+              </Form.Item>
+            </div>
+
+            <div className="form__right">
+              <Form.Item name="content" noStyle>
+                <InputLabelAndTextarea
+                  label={locale === 'en' ? 'Content' : '내 용'}
+                  placeholder={
+                    locale === 'en'
+                      ? 'Enter the content you want to inquire about'
+                      : '문의하실 내용을 입력해주세요'
+                  }
+                  value={form.getFieldValue('content')}
+                  setValue={value => form.setFieldsValue({ content: value })}
+                />
+              </Form.Item>
+            </div>
           </div>
 
-          <div className="form__right">
-            <InputLabelAndTextarea
-              label={locale === 'en' ? 'Content' : '내 용'}
-              placeholder={
-                locale === 'en'
-                  ? 'Enter the content you want to inquire about'
-                  : '문의하실 내용을 입력해주세요'
-              }
+          <div className="checkbox__container">
+            <Form.Item name="agree" valuePropName="checked" noStyle>
+              <Checkbox className="checkbox" />
+            </Form.Item>
+
+            <p onClick={() => setOpen(true)}>
+              {locale === 'en'
+                ? 'I agree to the collection and use of personal information.'
+                : '개인정보 수집 및 이용에 동의합니다.'}
+            </p>
+          </div>
+
+          <div className="button__container">
+            <HoverArrowButton
+              text={locale === 'en' ? 'SEND' : '보내기'}
+              onClick={() => {
+                form.submit();
+              }}
             />
           </div>
-        </div>
-
-        <div className="checkbox__container">
-          <Checkbox className="checkbox" />
-          <p onClick={() => setOpen(true)}>
-            {locale === 'en'
-              ? 'I agree to the collection and use of personal information.'
-              : '개인정보 수집 및 이용에 동의합니다.'}
-          </p>
-        </div>
-
-        <div className="button__container">
-          <HoverArrowButton text={locale === 'en' ? 'SEND' : '보내기'} />
-        </div>
+        </Form>
       </div>
 
       <Modal
@@ -99,6 +181,8 @@ export const ContactForm = () => {
       >
         <PrivacyPolicy />
       </Modal>
+
+      {contextHolder}
 
       {/* <div className="footer__container">
         <p>회사소개</p>

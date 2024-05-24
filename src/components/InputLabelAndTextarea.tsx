@@ -3,14 +3,28 @@ import styled from 'styled-components';
 interface Props {
   label: string;
   placeholder: string;
+
+  value: string;
+  setValue: (value: string) => void;
 }
 
-export const InputLabelAndTextarea = ({ label, placeholder }: Props) => {
+export const InputLabelAndTextarea = ({
+  label,
+  placeholder,
+
+  value,
+  setValue,
+}: Props) => {
   return (
     <InputLabelAndTextareaStyled>
       <p>{label}</p>
       <div className="vertical__line" />
-      <textarea id="textarea" placeholder={placeholder} />
+      <textarea
+        id="textarea"
+        placeholder={placeholder}
+        value={value || ''}
+        onChange={e => setValue && setValue(e.target.value)}
+      />
     </InputLabelAndTextareaStyled>
   );
 };

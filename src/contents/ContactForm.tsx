@@ -5,8 +5,6 @@ import { useRouter } from 'next/router';
 
 import { PrivacyPolicy } from './PrivacyPolicy';
 
-import { PrivacyPolicy } from './PrivacyPolicy';
-
 import { instance } from '@/api/axios';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';

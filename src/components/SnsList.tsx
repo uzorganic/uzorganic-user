@@ -43,14 +43,14 @@ export const SnsList = ({
       $hoverColor={hoverColor}
       $gap={gap}
     >
-      {/* <div
+      <div
         className={`icon ${hoveredIcon === 'mail' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('mail')}
         onMouseLeave={handleMouseLeave}
         onClick={() => router.push('/contact')}
       >
         <Mail />
-      </div> */}
+      </div>
 
       <div
         className={`icon ${hoveredIcon === 'instagram' ? 'hover' : ''}`}

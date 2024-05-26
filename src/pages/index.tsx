@@ -408,7 +408,7 @@ const Home = () => {
         }
       />
 
-      {/* <ContactForm /> */}
+      <ContactForm />
     </HomeLayoutStyled>
   );
 };

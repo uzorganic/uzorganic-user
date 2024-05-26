@@ -1,15 +1,21 @@
+import { useState } from 'react';
+
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+
+import { PrivacyPolicy } from './PrivacyPolicy';
 
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';
 import { InputLabelAndTextarea } from '@/components/InputLabelAndTextarea';
-import { Checkbox } from 'antd';
+import { Checkbox, Modal } from 'antd';
 import styled from 'styled-components';
 
 export const ContactForm = () => {
   const router = useRouter();
   const { locale } = router;
+
+  const [open, setOpen] = useState(false);
 
   return (
     <ContactFormStyled>
@@ -72,7 +78,7 @@ export const ContactForm = () => {
 
         <div className="checkbox__container">
           <Checkbox className="checkbox" />
-          <p>
+          <p onClick={() => setOpen(true)}>
             {locale === 'en'
               ? 'I agree to the collection and use of personal information.'
               : '개인정보 수집 및 이용에 동의합니다.'}
@@ -83,6 +89,16 @@ export const ContactForm = () => {
           <HoverArrowButton text={locale === 'en' ? 'SEND' : '보내기'} />
         </div>
       </div>
+
+      <Modal
+        className="privacy__modal"
+        open={open}
+        onCancel={() => setOpen(false)}
+        footer={null}
+        width={'80%'}
+      >
+        <PrivacyPolicy />
+      </Modal>
 
       {/* <div className="footer__container">
         <p>회사소개</p>
@@ -150,6 +166,8 @@ const ContactFormStyled = styled.div`
       gap: 0.8rem;
 
       margin-bottom: 1.5rem;
+
+      cursor: pointer;
 
       .checkbox {
         font-size: 1.25rem;

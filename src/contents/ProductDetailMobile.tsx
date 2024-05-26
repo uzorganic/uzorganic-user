@@ -466,6 +466,20 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
 
       {locale === 'ko' ? (
         <ImageOverlayChild
+          src={'/images/store/all_detail_footer.jpg'}
+          width="100%"
+          height={'57rem'}
+        />
+      ) : (
+        <ImageOverlayChild
+          src={'/images/store/all_detail_footer_en.jpg'}
+          width="100%"
+          height={'57rem'}
+        />
+      )}
+
+      {locale === 'ko' ? (
+        <ImageOverlayChild
           src={`/images/store/product${id}/1_5.jpg`}
           width="100%"
           height={['87.9rem', '85.9rem', '81rem', '70.5rem', '75.5rem'][id - 1]}

@@ -378,6 +378,20 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
+              src={'/images/store/all_detail_footer.jpg'}
+              width="100%"
+              height={'71.25rem'}
+            />
+          ) : (
+            <ImageOverlayChild
+              src={'/images/store/all_detail_footer_en.jpg'}
+              width="100%"
+              height={'71.25rem'}
+            />
+          )}
+
+          {locale === 'ko' ? (
+            <ImageOverlayChild
               src={`/images/store/product${id}/1_5.jpg`}
               width="100%"
               height={
@@ -545,6 +559,8 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
     .right {
       padding: 7rem 2.5rem;
 
+      max-height: none;
+
       .step__container {
         display: flex;
         flex-direction: column;
@@ -569,12 +585,16 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
     flex-direction: column;
 
     width: 40.625%;
-    /* height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`}; */
-    height: fit-content;
+    max-height: ${({ $headerHeight }) =>
+      `calc(100vh - ${$headerHeight}px - 4.75rem)`};
+    height: 100%;
 
     padding: 0rem 7.5rem;
+    padding-bottom: 3rem;
 
     color: #403b35;
+
+    overflow-y: auto;
 
     h1 {
       font-size: 2.75rem;

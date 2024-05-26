@@ -22,7 +22,7 @@ export const Menu = ({ open, setOpen }: Props) => {
     { name: '브랜드', enName: 'BRAND', path: '/brand' },
     // { name: '갤러리', path: '/gallery' },
     { name: '라벤더', enName: 'LAVENDER', path: '/lavender' },
-    // { name: '문의하기', enName: 'CONTACT', path: '/contact' },
+    { name: '문의하기', enName: 'CONTACT', path: '/contact' },
   ];
 
   useEffect(() => {

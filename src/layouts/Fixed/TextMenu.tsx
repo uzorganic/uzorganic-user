@@ -18,9 +18,9 @@ export const FixedTextMenu = () => {
       <p onClick={() => router.push('/lavender')}>
         {locale === 'en' ? 'LAVENDER' : '라벤더'}
       </p>
-      {/* <p onClick={() => router.push('/contact')}>
+      <p onClick={() => router.push('/contact')}>
         {locale === 'en' ? 'CONTACT US' : '문의하기'}
-      </p> */}
+      </p>
     </FixedTextMenuStyled>
   );
 };

@@ -25,14 +25,18 @@ export const Version1Footer = () => {
           {locale === 'en' ? (
             <>
               <p onClick={() => router.push('/brand')}>COMPANY</p>
-              {/* <p>AGREEMENT</p>
-              <p>PRIVACY POLICY</p> */}
+              {/* <p>AGREEMENT</p> */}
+              <p onClick={() => router.push('/privacy_policy')}>
+                PRIVACY POLICY
+              </p>
             </>
           ) : (
             <>
               <p onClick={() => router.push('/brand')}>회사소개</p>
-              {/* <p>이용약관</p>
-              <p>개인정보처리방침</p> */}
+              {/* <p>이용약관</p> */}
+              <p onClick={() => router.push('/privacy_policy')}>
+                개인정보처리방침
+              </p>
             </>
           )}
         </div>

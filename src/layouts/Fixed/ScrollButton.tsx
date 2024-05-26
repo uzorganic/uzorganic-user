@@ -11,7 +11,7 @@ export const FixedScrollButton = ({
   isScroll,
   setIsScroll,
 }: ScrollButtonProps) => {
-  const pageLength = 3;
+  const pageLength = 4;
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {

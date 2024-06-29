@@ -3,16 +3,24 @@ import { QueryClientProvider } from '@tanstack/react-query';
 
 import type { AppProps } from 'next/app';
 
+import '@/styles/fonts.css';
+import '@/styles/globals.css';
+
+import { WebLayout } from '@/layouts/web';
 import { antdThemeConfig } from '@/theme/config';
 import { ConfigProvider } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ConfigProvider locale={koKR} theme={antdThemeConfig}>
-      <QueryClientProvider client={client}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
-    </ConfigProvider>
+    <>
+      <ConfigProvider locale={koKR} theme={antdThemeConfig}>
+        <QueryClientProvider client={client}>
+          <WebLayout>
+            <Component {...pageProps} />
+          </WebLayout>
+        </QueryClientProvider>
+      </ConfigProvider>
+    </>
   );
 }

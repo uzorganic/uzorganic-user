@@ -13,8 +13,8 @@ export const FixedMenu = () => {
 
 const FixedMenuStyled = styled.div`
   position: fixed;
-  top: calc(2rem + 5rem);
-  left: 2rem;
+  top: calc(var(--fixed-padding) + 2rem + 1.875rem);
+  left: var(--fixed-padding);
 
   z-index: 10;
 

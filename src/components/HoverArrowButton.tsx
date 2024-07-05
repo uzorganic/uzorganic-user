@@ -4,11 +4,13 @@ import styled from 'styled-components';
 
 interface Props {
   text: string;
+
+  width?: string;
 }
 
-export const HoverArrowButton = ({ text }: Props) => {
+export const HoverArrowButton = ({ text, width }: Props) => {
   return (
-    <HoverArrowButtonStyled>
+    <HoverArrowButtonStyled width={width}>
       <p>{text} </p>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
@@ -20,10 +22,12 @@ export const HoverArrowButton = ({ text }: Props) => {
   );
 };
 
-const HoverArrowButtonStyled = styled.div`
+const HoverArrowButtonStyled = styled.div<{ width?: string }>`
   position: relative;
 
   display: inline-block;
+
+  width: ${({ width }) => width || 'auto'};
 
   cursor: pointer;
 

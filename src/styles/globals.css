@@ -5,6 +5,10 @@
   box-sizing: border-box;
 
   font-family: 'NotosansKR-Regular', sans-serif;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (max-width: 1920px) {

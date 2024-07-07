@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app';
 
 import '@/styles/fonts.css';
 import '@/styles/globals.css';
+import '@/styles/value.css';
 
 import { WebLayout } from '@/layouts/web';
 import { antdThemeConfig } from '@/theme/config';

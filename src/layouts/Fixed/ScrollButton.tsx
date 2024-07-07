@@ -25,8 +25,8 @@ export const ScrollButton = () => {
 
 const ScrollButtonStyled = styled.div`
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: var(--fixed-padding);
+  right: var(--fixed-padding);
 
   z-index: 10;
 

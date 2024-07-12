@@ -9,12 +9,14 @@ export const FixedLogo = ({}: Props) => {
     <FixedLogoStyled>
       <div className="fixed__logo">
         <Image
-          src="/images/logo/I'm_ORGANIC_LOGO.png"
+          src="/images/logo/logo.png"
           alt="Logo"
           fill
           style={{
             objectFit: 'contain',
           }}
+          sizes="100%"
+          priority
         />
       </div>
     </FixedLogoStyled>

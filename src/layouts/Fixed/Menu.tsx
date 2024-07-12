@@ -1,9 +1,20 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import styled from 'styled-components';
 
 export const FixedMenu = () => {
+  const router = useRouter();
+
   return (
     <FixedMenuStyled>
-      <p>스토어</p>
+      <p
+        onClick={() => {
+          router.push('/store');
+        }}
+      >
+        스토어
+      </p>
       <p>갤러리</p>
       <p>브랜드</p>
       <p>커뮤니티</p>
@@ -26,5 +37,7 @@ const FixedMenuStyled = styled.div`
   p {
     color: #fff;
     font-size: 1.5rem;
+
+    cursor: pointer;
   }
 `;

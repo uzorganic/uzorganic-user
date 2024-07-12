@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 
-export const ScrollButton = () => {
+export const FixedScrollButton = () => {
   const pageLength = 5;
   const [currentPage, setCurrentPage] = useState(0);
 

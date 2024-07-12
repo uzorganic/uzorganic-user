@@ -20,7 +20,6 @@ const InputLabelAndTextareaStyled = styled.div`
   align-items: self-start;
   gap: 1.875rem;
 
-  width: 33.75rem;
   height: 100%;
 
   padding: 1.5rem;
@@ -51,7 +50,7 @@ const InputLabelAndTextareaStyled = styled.div`
     outline: none;
     resize: none;
 
-    width: 100%;
+    width: 20rem;
     height: 100%;
 
     margin-top: -0.3rem;

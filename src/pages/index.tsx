@@ -5,9 +5,10 @@ import { FractionSwiper } from '@/components/FractionSwiper';
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ContactForm } from '@/contents/ContactForm';
+import { HomeLayout } from '@/layouts/HomeLayout';
 import { YoutubeFilled } from '@ant-design/icons';
 
-export default function Home() {
+const Home = () => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -51,4 +52,8 @@ export default function Home() {
       <ContactForm />
     </>
   );
-}
+};
+
+Home.layout = (page: React.ReactNode) => <HomeLayout>{page}</HomeLayout>;
+
+export default Home;

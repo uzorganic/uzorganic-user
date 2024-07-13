@@ -1,14 +1,11 @@
-const StorePage = () => {
-  return (
-    <div className="store__container">
-      <div className="store__top">ALL</div>
-      <div className="store__content">
-        <div className="store__content__left"></div>
-        <div className="store__content__right"></div>
-        <div></div>
-      </div>
-    </div>
-  );
+import { StoreLayout } from '@/layouts/StoreLayout';
+
+interface Props {
+  headerHeight: number | null;
+}
+
+const StorePage = ({ headerHeight }: Props) => {
+  return <StoreLayout headerHeight={headerHeight} />;
 };
 
 StorePage.layoutFillColor = 'black';

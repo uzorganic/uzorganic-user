@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { HeaderWithLogoAndMenu } from './Fixed/HeaderWithLogoAndMenu';
 
@@ -11,27 +11,43 @@ interface Props {
 }
 
 export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
+  const [headerHeight, setHeaderHeight] = useState<number | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const updateHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.clientHeight);
+      }
+    };
+
+    updateHeight();
+
+    window.addEventListener('resize', updateHeight);
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, []);
+
   return (
-    <ContentLayoutStyled
-      headerHeight={headerRef.current?.clientHeight}
-      $fillColor={fillColor}
-    >
+    <ContentLayoutStyled headerHeight={headerHeight} $fillColor={fillColor}>
       <div className="fixed__header" ref={headerRef}>
-        <HeaderWithLogoAndMenu />
+        <HeaderWithLogoAndMenu className="header" />
       </div>
-      <div className="content__layout">{children}</div>
+      <div className="content__layout">
+        {React.cloneElement(children as React.ReactElement, {
+          headerHeight,
+        })}
+      </div>
     </ContentLayoutStyled>
   );
 };
 
 const ContentLayoutStyled = styled.div<{
-  headerHeight?: number;
+  headerHeight: number | null;
   $fillColor?: string;
 }>`
-  img {
-    /* fillColor가 있다면 */
+  .header img {
     filter: ${({ $fillColor }) =>
       $fillColor === 'black' ? 'invert(1)' : 'none'};
   }
@@ -46,6 +62,7 @@ const ContentLayoutStyled = styled.div<{
   }
 
   .content__layout {
-    padding-top: ${({ headerHeight }) => headerHeight}px;
+    margin-top: ${({ headerHeight }) => headerHeight}px;
+    /* margin-top: calc(2.75rem + var(--fixed-padding) * 2); */
   }
 `;

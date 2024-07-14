@@ -16,3 +16,9 @@
   font-weight: 300;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Oranienbaum-Regular';
+  src: url('/fonts/Oranienbaum-Regular.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}

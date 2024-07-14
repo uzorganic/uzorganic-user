@@ -2,9 +2,13 @@ import Image from 'next/image';
 
 import styled from 'styled-components';
 
-export const HeaderWithLogoAndMenu = () => {
+interface Props {
+  className?: string;
+}
+
+export const HeaderWithLogoAndMenu = ({ className }: Props) => {
   return (
-    <HeaderWithLogoAndMenuStyled>
+    <HeaderWithLogoAndMenuStyled className={className}>
       <div className="right">
         <Image
           src="/images/icons/menu.png"
@@ -48,7 +52,7 @@ const HeaderWithLogoAndMenuStyled = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: var(--basic-padding);
+  padding: var(--fixed-padding);
 
   background-color: var(--content-main-color);
 

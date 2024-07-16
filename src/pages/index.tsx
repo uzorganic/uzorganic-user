@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <>
-      <FractionSwiper>
+      <FractionSwiper effect="fade">
         <FullScreenImage src="/images/main/1.png" alt="1" />
         <FullScreenImage src="/images/main/2.png" alt="2" />
         <FullScreenImage src="/images/main/3.png" alt="3" />

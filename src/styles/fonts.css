@@ -5,6 +5,12 @@
   font-style: normal;
 }
 @font-face {
+  font-family: 'NotoSansKR-Medium';
+  src: url('/fonts/NotoSansKR-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
   font-family: 'NotoSansKR-Regular';
   src: url('/fonts/NotoSansKR-Regular.ttf') format('truetype');
   font-weight: 400;

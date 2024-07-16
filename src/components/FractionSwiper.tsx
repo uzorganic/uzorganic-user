@@ -3,27 +3,48 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 
 interface Props {
   children: React.ReactNode[] | React.ReactNode;
+
+  autoplay?: boolean;
+  loop?: boolean;
+  effect?: 'slide' | 'fade';
+
+  controller?: any;
+  setController?: any;
+
+  ref?: any;
 }
 
-export const FractionSwiper = ({ children }: Props) => {
+export const FractionSwiper = ({
+  children,
+  autoplay = true,
+  loop = true,
+  effect = 'slide',
+  controller,
+  setController,
+  ref,
+}: Props) => {
   return (
     <FractionSwiperStyled>
       <Swiper
-        autoplay={{
-          delay: 3000,
+        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        loop={loop}
+        autoplay={autoplay ? { delay: 3000 } : false}
+        controller={controller}
+        onSwiper={setController}
+        effect={effect}
+        pagination={{ type: 'fraction' }}
+        navigation={{
+          nextEl: '.next__button',
+          prevEl: '.prev__button',
         }}
-        loop={true}
-        effect="fade"
-        pagination={{
-          type: 'fraction',
-        }}
-        modules={[Autoplay, EffectFade, Pagination]}
         className="mySwiper"
+        ref={ref}
       >
         {Array.isArray(children) ? (
           children.map((child, index) => (

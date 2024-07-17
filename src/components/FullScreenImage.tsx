@@ -5,25 +5,27 @@ import styled from 'styled-components';
 interface Props {
   src: string;
   alt: string;
+
+  height?: string;
 }
 
-export const FullScreenImage = ({ src, alt }: Props) => {
+export const FullScreenImage = ({ src, alt, height = '100vh' }: Props) => {
   return (
-    <FullScreenImageStyled>
+    <FullScreenImageStyled height={height}>
       <Image
         src={src}
         alt={alt}
         fill
-        style={{
-          objectFit: 'cover',
-        }}
+        sizes="100%"
+        style={{ objectFit: 'cover' }}
+        priority
       />
     </FullScreenImageStyled>
   );
 };
 
-const FullScreenImageStyled = styled.div`
+const FullScreenImageStyled = styled.div<{ height: string }>`
   position: relative;
 
-  height: 100vh;
+  height: ${({ height }) => height};
 `;

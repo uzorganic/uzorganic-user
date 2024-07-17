@@ -30,7 +30,7 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
   }, []);
 
   return (
-    <ContentLayoutStyled headerHeight={headerHeight} $fillColor={fillColor}>
+    <ContentLayoutStyled $headerHeight={headerHeight} $fillColor={fillColor}>
       <div className="fixed__header" ref={headerRef}>
         <HeaderWithLogoAndMenu className="header" />
       </div>
@@ -44,7 +44,7 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
 };
 
 const ContentLayoutStyled = styled.div<{
-  headerHeight: number | null;
+  $headerHeight: number | null;
   $fillColor?: string;
 }>`
   .header img {
@@ -62,7 +62,7 @@ const ContentLayoutStyled = styled.div<{
   }
 
   .content__layout {
-    margin-top: ${({ headerHeight }) => headerHeight}px;
+    margin-top: ${({ $headerHeight }) => $headerHeight}px;
     /* margin-top: calc(2.75rem + var(--fixed-padding) * 2); */
   }
 `;

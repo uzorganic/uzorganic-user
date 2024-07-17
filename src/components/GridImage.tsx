@@ -12,7 +12,7 @@ export const GridImage = () => {
   ];
 
   return (
-    <GridImageStyle>
+    <GridImageStyled>
       {dummy.map((item, index) => (
         <div className="item" key={index}>
           <div className="image">
@@ -28,11 +28,11 @@ export const GridImage = () => {
           <p className="title">title</p>
         </div>
       ))}
-    </GridImageStyle>
+    </GridImageStyled>
   );
 };
 
-const GridImageStyle = styled.div`
+const GridImageStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6.25rem;

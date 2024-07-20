@@ -2,22 +2,21 @@ import Image from 'next/image';
 
 import styled from 'styled-components';
 
-export const GridImage = () => {
-  const dummy = [
-    '/images/store/shampoo1.png',
-    '/images/store/shampoo2.png',
-    '/images/store/oil1.png',
-    '/images/store/oil2.png',
-    '/images/store/mask1.png',
-  ];
+interface Props {
+  productList: {
+    title: string;
+    img: string;
+  }[];
+}
 
+export const GridImage = ({ productList }: Props) => {
   return (
     <GridImageStyled>
-      {dummy.map((item, index) => (
+      {productList.map((item, index) => (
         <div className="item" key={index}>
           <div className="image">
             <Image
-              src={item}
+              src={item.img}
               alt="Thumbnail"
               fill
               sizes="100%"
@@ -25,7 +24,7 @@ export const GridImage = () => {
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <p className="title">title</p>
+          <p className="title">{item.title}</p>
         </div>
       ))}
     </GridImageStyled>

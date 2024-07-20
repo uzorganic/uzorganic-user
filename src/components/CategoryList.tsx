@@ -2,14 +2,17 @@ import { useState } from 'react';
 
 import styled from 'styled-components';
 
-export const CategoryList = () => {
-  const dummy = ['모두보기', '헤어케어', '스킨케어', '바디케어'];
+interface Props {
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+}
 
-  const [active, setActive] = useState(0);
+export const CategoryList = ({ active, setActive }: Props) => {
+  const categoryList = ['모두보기', '헤어케어', '스킨케어'];
 
   return (
     <CategoryListStyle>
-      {dummy.map((item, index) => (
+      {categoryList.map((item, index) => (
         <div
           className={`item ${active === index ? 'active' : ''}`}
           key={index}

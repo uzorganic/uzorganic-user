@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { CategoryList } from '@/components/CategoryList';
 import { GridImage } from '@/components/GridImage';
 import { ImageWithOverlay } from '@/components/ImageWithOverlay';
@@ -9,9 +11,54 @@ interface Props {
 }
 
 export const StoreLayout = ({ headerHeight }: Props) => {
+  const [active, setActive] = useState(0);
+
+  const dummyCategory1 = {
+    img: '/images/main/1.png',
+    title: 'All',
+    description: '자연에서 온 순수함을 담다',
+  };
+  const dummyCategory2 = {
+    img: '/images/main/2.png',
+    title: '헤어케어',
+    description: '헤어케어 제품입니다.',
+  };
+  const dummyCategory3 = {
+    img: '/images/main/3.png',
+    title: '스킨케어',
+    description: '스킨케어 제품입니다.',
+  };
+  const dummyCategoryList = [dummyCategory1, dummyCategory2, dummyCategory3];
+
+  const dummyProduct1 = {
+    title: '샴푸1',
+    img: '/images/store/shampoo1.png',
+  };
+  const dummyProduct2 = {
+    title: '샴푸2',
+    img: '/images/store/shampoo2.png',
+  };
+  const dummyProduct3 = {
+    title: '오일1',
+    img: '/images/store/oil1.png',
+  };
+  const dummyProduct4 = {
+    title: '오일2',
+    img: '/images/store/oil2.png',
+  };
+  const dummyProduct5 = {
+    title: '마스크1',
+    img: '/images/store/mask1.png',
+  };
+  const dummyProductList = [
+    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4, dummyProduct5],
+    [dummyProduct3, dummyProduct4],
+    [dummyProduct5],
+  ];
+
   return (
     <StoreLayoutStyle headerHeight={headerHeight}>
-      <p className="top">ALL</p>
+      <p className="top">{dummyCategoryList[active].title}</p>
       <div className="content">
         <div className="left">
           <div className="banner">
@@ -19,8 +66,10 @@ export const StoreLayout = ({ headerHeight }: Props) => {
               img="/images/main/1.png"
               leftTop={
                 <div className="banner__text">
-                  <p className="title">ALL</p>
-                  <p className="description">자연에서 온 순수함을 담다</p>
+                  <p className="title">{dummyCategoryList[active].title}</p>
+                  <p className="description">
+                    {dummyCategoryList[active].description}
+                  </p>
                 </div>
               }
             />
@@ -28,13 +77,13 @@ export const StoreLayout = ({ headerHeight }: Props) => {
         </div>
         <div className="right">
           <div className="category">
-            <CategoryList />
+            <CategoryList active={active} setActive={setActive} />
           </div>
           <div className="product">
-            <GridImage />
+            <GridImage productList={dummyProductList[active]} />
           </div>
           <div className="pagination">
-            <Pagination defaultCurrent={1} total={50} />
+            <Pagination defaultCurrent={1} total={5} />
           </div>
         </div>
       </div>
@@ -56,6 +105,7 @@ const StoreLayoutStyle = styled.div<{
 
     font-size: 3.125rem;
     font-family: 'Oranienbaum-Regular', sans-serif;
+    line-height: 3.625rem;
   }
 
   .content {
@@ -90,6 +140,7 @@ const StoreLayoutStyle = styled.div<{
           .title {
             font-size: 3.125rem;
             font-family: 'Oranienbaum-Regular', sans-serif;
+            line-height: 3.625rem;
           }
 
           .description {

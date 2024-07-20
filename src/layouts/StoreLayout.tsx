@@ -52,19 +52,20 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyProductList = [
     [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4, dummyProduct5],
-    [dummyProduct1, dummyProduct2,dummyProduct3, dummyProduct4],
+    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4],
     [dummyProduct5],
   ];
 
   return (
     <StoreLayoutStyle headerHeight={headerHeight}>
-      <p className={`top ${active === 0 ? 'all': ''}`}
-      >{dummyCategoryList[active].title}</p>
+      <p className={`top ${active === 0 ? 'all' : ''}`}>
+        {dummyCategoryList[active].title}
+      </p>
       <div className="content">
         <div className="left">
           <div className="banner">
             <ImageWithOverlay
-              img="/images/main/1.png"
+              img={dummyCategoryList[active].img}
               leftTop={
                 <div className="banner__text">
                   <p className="title">{dummyCategoryList[active].title}</p>

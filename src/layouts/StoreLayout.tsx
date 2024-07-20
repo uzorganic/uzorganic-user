@@ -20,45 +20,46 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyCategory2 = {
     img: '/images/main/2.png',
-    title: '헤어케어',
-    description: '헤어케어 제품입니다.',
+    title: '헤어케어 ',
+    description: '자연의 힘으로, 건강한 모발을',
   };
   const dummyCategory3 = {
     img: '/images/main/3.png',
     title: '스킨케어',
-    description: '스킨케어 제품입니다.',
+    description: '건강한 피부를 위한 선택',
   };
   const dummyCategoryList = [dummyCategory1, dummyCategory2, dummyCategory3];
 
   const dummyProduct1 = {
-    title: '샴푸1',
+    title: '프롬 라벤더 샴푸',
     img: '/images/store/shampoo1.png',
   };
   const dummyProduct2 = {
-    title: '샴푸2',
+    title: '프롬 라벤더 트리트먼트',
     img: '/images/store/shampoo2.png',
   };
   const dummyProduct3 = {
-    title: '오일1',
+    title: '프롬 라벤더 헤어 오일',
     img: '/images/store/oil1.png',
   };
   const dummyProduct4 = {
-    title: '오일2',
+    title: '프롬 라벤더 헤어 미스트',
     img: '/images/store/oil2.png',
   };
   const dummyProduct5 = {
-    title: '마스크1',
+    title: '라벤더 솔루션 마스크팩',
     img: '/images/store/mask1.png',
   };
   const dummyProductList = [
     [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4, dummyProduct5],
-    [dummyProduct3, dummyProduct4],
+    [dummyProduct1, dummyProduct2,dummyProduct3, dummyProduct4],
     [dummyProduct5],
   ];
 
   return (
     <StoreLayoutStyle headerHeight={headerHeight}>
-      <p className="top">{dummyCategoryList[active].title}</p>
+      <p className={`top ${active === 0 ? 'all': ''}`}
+      >{dummyCategoryList[active].title}</p>
       <div className="content">
         <div className="left">
           <div className="banner">
@@ -102,10 +103,13 @@ const StoreLayoutStyle = styled.div<{
 
   .top {
     padding-left: 3.125rem;
-
+    color: #484036;
     font-size: 3.125rem;
-    font-family: 'Oranienbaum-Regular', sans-serif;
     line-height: 3.625rem;
+  }
+
+  .all {
+    font-family: 'Oranienbaum-Regular', sans-serif;
   }
 
   .content {

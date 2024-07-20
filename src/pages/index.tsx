@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { CenterTitleAndButton } from '@/components/CenterTitleAndButton';
-import { FractionSwiper } from '@/components/FractionSwiper';
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
+import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
 import { ContactForm } from '@/contents/ContactForm';
 import { HomeLayout } from '@/layouts/HomeLayout';
 import { YoutubeFilled } from '@ant-design/icons';

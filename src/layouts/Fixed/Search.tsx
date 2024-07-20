@@ -5,16 +5,8 @@ import styled from 'styled-components';
 export const FixedSearch = () => {
   return (
     <SearchStyled>
-      <div className="search__button">
-        <Image
-          src="/images/icons/search.png"
-          alt="Search"
-          fill
-          style={{
-            objectFit: 'contain',
-          }}
-          sizes="100%"
-        />
+      <div className="icon">
+        <Image src="/images/icons/search.png" alt="Search" fill sizes="100%" />
       </div>
     </SearchStyled>
   );
@@ -27,12 +19,16 @@ const SearchStyled = styled.div`
 
   z-index: 10;
 
-  .search__button {
+  .icon {
     position: relative;
 
     width: 2rem;
     height: 2rem;
 
     cursor: pointer;
+
+    img {
+      object-fit: contain;
+    }
   }
 `;

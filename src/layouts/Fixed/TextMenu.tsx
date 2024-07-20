@@ -1,28 +1,21 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 
-export const FixedMenu = () => {
+export const FixedTextMenu = () => {
   const router = useRouter();
 
   return (
-    <FixedMenuStyled>
-      <p
-        onClick={() => {
-          router.push('/store');
-        }}
-      >
-        스토어
-      </p>
-      <p>갤러리</p>
-      <p>브랜드</p>
-      <p>커뮤니티</p>
-    </FixedMenuStyled>
+    <FixedTextMenuStyled>
+      <p onClick={() => router.push('/store')}>스토어</p>
+      <p onClick={() => router.push('/store/1')}>갤러리</p>
+      <p onClick={() => router.push('/brand')}>브랜드</p>
+      {/* <p>커뮤니티</p> */}
+    </FixedTextMenuStyled>
   );
 };
 
-const FixedMenuStyled = styled.div`
+const FixedTextMenuStyled = styled.div`
   position: fixed;
   top: calc(var(--fixed-padding) + 2rem + 1.875rem);
   left: var(--fixed-padding);

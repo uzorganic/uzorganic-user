@@ -1,16 +1,27 @@
 import styled from 'styled-components';
 
-export const StepTypography = () => {
+interface Props {
+  step: number;
+  title: string;
+  link: string;
+  content: React.ReactNode;
+}
+
+export const StepTypography = ({ step, title, link, content }: Props) => {
   return (
     <StepTypographyStyled>
       <h3>
-        STEP 1. <span> 프롬 라벤더 샴푸</span>
+        STEP {step}.{' '}
+        <span
+          onClick={() => {
+            window.open(link, '_blank');
+          }}
+        >
+          {' '}
+          {title}
+        </span>
       </h3>
-      <p>두피에 쌓인 각질과 여러 오염 물질을</p>
-      <div className="one__line">
-        <h3>자극 없이 깨끗하게 클렌징</h3>
-        <p>해주는 두피 청정 샴푸입니다.</p>
-      </div>
+      {content}
     </StepTypographyStyled>
   );
 };

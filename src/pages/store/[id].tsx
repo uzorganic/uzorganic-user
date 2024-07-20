@@ -1,11 +1,15 @@
 import { useRef } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { DualTypography } from '@/components/DualTypography';
 import { FullScreenImage } from '@/components/FullScreenImage';
+import { ImageWithOverlay } from '@/components/ImageWithOverlay';
 import { ProductInfo } from '@/components/ProductInfo';
 import { StepTypography } from '@/components/StepTypography';
 import { ArrowNavigationSwiper } from '@/components/Swiper/ArrowNavigationSwiper';
 import { SquarePaginationSwiper } from '@/components/Swiper/SquarePaginationSwiper';
+import { link } from 'fs';
 import styled from 'styled-components';
 
 interface Props {
@@ -13,89 +17,176 @@ interface Props {
 }
 
 const StoreDetail = ({ headerHeight = 0 }: Props) => {
+  const router = useRouter();
+  const { id } = router.query as unknown as { id: number };
+
   const ref = useRef<HTMLDivElement>(null);
+
+  if (!id) {
+    return null;
+  }
+
+  const dummyProduct1 = {
+    firstImages: [
+      '/images/main/1.png',
+      '/images/main/2.png',
+      '/images/main/3.png',
+    ],
+    firstProductInfo: {
+      title: '프롬 라벤더 샴푸',
+      description: '설페이트, 실리콘 프리 · 천연 아로마 오일 향 · 비건 포뮬라',
+      content: (
+        <>
+          자연에서 온 라벤더수와 라벤더 오일을 담아 <br />
+          건강한 두피와 모발 컨디션을 조성해주는 <br />
+          두피 청정 라벤더 샴푸
+        </>
+      ),
+      volume: '500ml',
+      link: 'https://www.naver.com',
+    },
+    secondImages: ['/images/main/1.png', '/images/main/2.png'],
+    secondTexts: [
+      {
+        title: '자연유래 추출물 11',
+        description: '엄선된 12가지의 자연유래 추출물로 매일 사용해도 자극없이',
+        contents: (
+          <>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+          </>
+        ),
+      },
+      {
+        title: '자연유래 추출물 11',
+        description: '엄선된 12가지의 자연유래 추출물로 매일 사용해도 자극없이',
+        contents: (
+          <>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+            <p>· 구기자추출물</p>
+          </>
+        ),
+      },
+    ],
+    thirdImage: '/images/main/3.png',
+    thirdText: {
+      title: '은은하게 퍼지는 라벤더 향',
+      description: '천연 100% 라벤더향으로 차분한 클렌징 시간을 선사합니다.',
+    },
+    forthText: {
+      description: '두피 청정 라벤더 솔루션',
+      step: {
+        1: {
+          title: '프롬 라벤더 샴푸',
+          link: 'https://www.naver.com',
+          content: (
+            <>
+              <p>두피에 쌓인 각질과 여러 오염 물질을</p>
+              <div className="one__line">
+                <h3>자극 없이 깨끗하게 클렌징</h3>
+                <p>해주는 두피 청정 샴푸입니다.</p>
+              </div>
+            </>
+          ),
+        },
+        2: {
+          title: '프롬 라벤더 샴푸',
+          link: 'https://www.naver.com',
+          content: (
+            <>
+              <p>두피에 쌓인 각질과 여러 오염 물질을</p>
+              <div className="one__line">
+                <h3>자극 없이 깨끗하게 클렌징</h3>
+                <p>해주는 두피 청정 샴푸입니다.</p>
+              </div>
+            </>
+          ),
+        },
+        3: {
+          title: '프롬 라벤더 샴푸',
+          link: 'https://www.naver.com',
+          content: (
+            <>
+              <p>두피에 쌓인 각질과 여러 오염 물질을</p>
+              <div className="one__line">
+                <h3>자극 없이 깨끗하게 클렌징</h3>
+                <p>해주는 두피 청정 샴푸입니다.</p>
+              </div>
+            </>
+          ),
+        },
+      },
+    },
+  };
+
+  const dummyProductList = [dummyProduct1];
 
   return (
     <StoreDetailStyle $headerHeight={headerHeight}>
       <div className="first one__page">
         <SquarePaginationSwiper className="half">
-          <FullScreenImage
-            src="/images/main/1.png"
-            alt="1"
-            height={`calc(100vh - ${headerHeight}px)`}
-          />
-          <FullScreenImage
-            src="/images/main/2.png"
-            alt="2"
-            height={`calc(100vh - ${headerHeight}px)`}
-          />
-          <FullScreenImage
-            src="/images/main/3.png"
-            alt="3"
-            height={`calc(100vh - ${headerHeight}px)`}
-          />
+          {dummyProductList[id - 1].firstImages.map((image, index) => (
+            <FullScreenImage
+              key={index}
+              src={image}
+              alt={`${index}`}
+              height={`calc(100vh - ${headerHeight}px)`}
+            />
+          ))}
         </SquarePaginationSwiper>
 
-        <ProductInfo className="half" headerHeight={headerHeight} />
+        <ProductInfo
+          className="half"
+          headerHeight={headerHeight}
+          title={dummyProductList[id - 1].firstProductInfo.title}
+          description={dummyProductList[id - 1].firstProductInfo.description}
+          content={dummyProductList[id - 1].firstProductInfo.content}
+          volume={dummyProductList[id - 1].firstProductInfo.volume}
+          link={dummyProductList[id - 1].firstProductInfo.link}
+        />
       </div>
 
       <div className="second one__page">
         <h1 ref={ref}>건강한 성분을 듬뿍</h1>
         <ArrowNavigationSwiper>
-          <div
-            className="container"
-            style={{
-              height: `calc((100vh - ${headerHeight}px - ${ref.current?.clientHeight}px - 3.125rem * 3))`,
-            }}
-          >
-            <FullScreenImage
-              src="/images/main/1.png"
-              alt="1"
-              height={`calc((100vh - ${headerHeight}px - ${ref.current?.clientHeight}px - 3.125rem * 4) / 2)`}
-            />
-            <div className="text__content">
-              <h2>자연유래 추출물 11</h2>
-              <h3>엄선된 12가지의 자연유래 추출물로 매일 사용해도 자극없이</h3>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
+          {dummyProductList[id - 1].secondImages.map((image, index) => (
+            <div className="container" key={index}>
+              <FullScreenImage
+                src={image}
+                alt={`${index}`}
+                height={`calc((100vh - ${headerHeight}px - ${ref.current?.clientHeight}px - 3.125rem * 4) / 2)`}
+              />
+              <div className="text__content">
+                <h2>{dummyProductList[id - 1].secondTexts[index].title}</h2>
+                <h3>
+                  {dummyProductList[id - 1].secondTexts[index].description}
+                </h3>
+                {dummyProductList[id - 1].secondTexts[index].contents}
+              </div>
             </div>
-          </div>
-          <div
-            className="container"
-            style={{
-              height: `calc((100vh - ${headerHeight}px - ${ref.current?.clientHeight}px - 3.125rem * 3))`,
-            }}
-          >
-            <FullScreenImage
-              src="/images/main/2.png"
-              alt="2"
-              height={`calc((100vh - ${headerHeight}px - ${ref.current?.clientHeight}px - 3.125rem * 4) / 2)`}
-            />
-            <div className="text__content">
-              <h2>자연유래 추출물 11</h2>
-              <h3>엄선된 12가지의 자연유래 추출물로 매일 사용해도 자극없이</h3>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
-              <p>· 구기자추출물</p>
-            </div>
-          </div>
+          ))}
         </ArrowNavigationSwiper>
       </div>
 
-      <div className="one__page">
-        <FullScreenImage src="/images/main/3.png" alt="3" height="44.125rem" />
+      <div className="">
+        <FullScreenImage
+          src={dummyProductList[id - 1].thirdImage}
+          alt="3"
+          height="44.125rem"
+        />
 
         <DualTypography
           className="dual__typography"
-          primaryText="은은하게 퍼지는 라벤더 향"
-          secondaryText="천연 100% 라벤더향으로 차분한 클렌징 시간을 선사합니다."
+          primaryText={dummyProductList[id - 1].thirdText.title}
+          secondaryText={dummyProductList[id - 1].thirdText.description}
         />
       </div>
 
-      <div className="forth one__page pc">
+      <div className="forth pc">
         <h1>함께 사용해보세요</h1>
         <div className="container">
           <div className="half"></div>
@@ -104,29 +195,43 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
             <div className="line" />
 
             <div className="step__container">
-              <StepTypography />
-              <StepTypography />
-              <StepTypography />
-              <StepTypography />
+              {Object.entries(dummyProductList[id - 1].forthText.step).map(
+                ([key, value]) => (
+                  <StepTypography
+                    key={key}
+                    step={parseInt(key)}
+                    title={value.title}
+                    link={value.link}
+                    content={value.content}
+                  />
+                ),
+              )}
             </div>
           </div>
         </div>
       </div>
 
       <div className="forth mobile">
-        <div className="one__page forth__top">
+        <div className="forth__top">
           <h1>함께 사용해보세요</h1>
         </div>
 
-        <div className="one__page forth__bottom">
+        <div className="forth__bottom">
           <h2>두피 청정 라벤더 솔루션</h2>
           <div className="line" />
 
           <div className="step__container">
-            <StepTypography />
-            <StepTypography />
-            <StepTypography />
-            <StepTypography />
+            {Object.entries(dummyProductList[id - 1].forthText.step).map(
+              ([key, value]) => (
+                <StepTypography
+                  key={key}
+                  step={parseInt(key)}
+                  title={value.title}
+                  link={value.link}
+                  content={value.content}
+                />
+              ),
+            )}
           </div>
         </div>
       </div>
@@ -168,6 +273,9 @@ const StoreDetailStyle = styled.div<{
     .container {
       display: flex;
       flex-direction: column;
+      height: calc(
+        100vh - ${({ $headerHeight }) => $headerHeight}px - 3.125rem * 3
+      );
 
       .text__content {
         display: flex;

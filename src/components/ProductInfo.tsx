@@ -3,23 +3,38 @@ import styled from 'styled-components';
 interface Props {
   headerHeight: number;
 
+  title: string;
+  description: string;
+  content: React.ReactNode;
+  volume: string;
+  link: string;
+
   className?: string;
 }
 
-export const ProductInfo = ({ headerHeight = 0, className }: Props) => {
+export const ProductInfo = ({
+  headerHeight = 0,
+
+  title,
+  description,
+  content,
+  volume,
+  link,
+
+  className,
+}: Props) => {
   return (
     <ProductInfoStyled $headerHeight={headerHeight} className={className}>
-      <h1 className="title">프롬 라벤더 샴푸</h1>
-      <p className="description">
-        설페이트, 실리콘 프리 · 천연 아로마 오일 향 · 비건 포뮬라
-      </p>
-      <h2 className="content">
-        자연에서 온 라벤더수와 라벤더 오일을 담아 <br />
-        건강한 두피와 모발 컨디션을 조성해주는 <br />
-        두피 청정 라벤더 샴푸
-      </h2>
-      <h3 className="volume">{'< 200ml >'}</h3>
-      <div className="buy__button">
+      <h1 className="title">{title}</h1>
+      <p className="description">{description}</p>
+      <h2 className="content">{content}</h2>
+      <h3 className="volume">{`< ${volume} >`}</h3>
+      <div
+        className="buy__button"
+        onClick={() => {
+          window.open(link, '_blank');
+        }}
+      >
         구매하러 가기
         <span>→</span>
       </div>

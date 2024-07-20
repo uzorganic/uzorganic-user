@@ -1,19 +1,27 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 
 interface Props {
   productList: {
+    id: number;
     title: string;
     img: string;
   }[];
 }
 
 export const GridImage = ({ productList }: Props) => {
+  const router = useRouter();
+
   return (
     <GridImageStyled>
       {productList.map((item, index) => (
-        <div className="item" key={index}>
+        <div
+          className="item"
+          key={index}
+          onClick={() => router.push(`/store/${item.id}`)}
+        >
           <div className="image">
             <Image
               src={item.img}
@@ -37,6 +45,8 @@ const GridImageStyled = styled.div`
   gap: 6.25rem;
 
   .item {
+    cursor: pointer;
+
     .image {
       position: relative;
 

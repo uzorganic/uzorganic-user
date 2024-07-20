@@ -31,22 +31,27 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   const dummyCategoryList = [dummyCategory1, dummyCategory2, dummyCategory3];
 
   const dummyProduct1 = {
+    id: 1,
     title: '프롬 라벤더 샴푸',
     img: '/images/store/shampoo1.png',
   };
   const dummyProduct2 = {
+    id: 2,
     title: '프롬 라벤더 트리트먼트',
     img: '/images/store/shampoo2.png',
   };
   const dummyProduct3 = {
+    id: 3,
     title: '프롬 라벤더 헤어 오일',
     img: '/images/store/oil1.png',
   };
   const dummyProduct4 = {
+    id: 4,
     title: '프롬 라벤더 헤어 미스트',
     img: '/images/store/oil2.png',
   };
   const dummyProduct5 = {
+    id: 5,
     title: '라벤더 솔루션 마스크팩',
     img: '/images/store/mask1.png',
   };

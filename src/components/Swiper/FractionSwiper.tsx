@@ -13,11 +13,6 @@ interface Props {
   autoplay?: boolean;
   loop?: boolean;
   effect?: 'slide' | 'fade';
-
-  controller?: any;
-  setController?: any;
-
-  ref?: any;
 }
 
 export const FractionSwiper = ({
@@ -25,9 +20,6 @@ export const FractionSwiper = ({
   autoplay = true,
   loop = true,
   effect = 'slide',
-  controller,
-  setController,
-  ref,
 }: Props) => {
   return (
     <FractionSwiperStyled>
@@ -35,8 +27,6 @@ export const FractionSwiper = ({
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         loop={loop}
         autoplay={autoplay ? { delay: 3000 } : false}
-        controller={controller}
-        onSwiper={setController}
         effect={effect}
         pagination={{ type: 'fraction' }}
         navigation={{
@@ -44,7 +34,6 @@ export const FractionSwiper = ({
           prevEl: '.prev__button',
         }}
         className="mySwiper"
-        ref={ref}
       >
         {Array.isArray(children) ? (
           children.map((child, index) => (

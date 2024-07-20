@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 
-import { ArrowNavigationSwiper } from '@/components/ArrowNavigationSwiper';
 import { DualTypography } from '@/components/DualTypography';
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { ProductInfo } from '@/components/ProductInfo';
-import { SquarePaginationSwiper } from '@/components/SquarePaginationSwiper';
 import { StepTypography } from '@/components/StepTypography';
+import { ArrowNavigationSwiper } from '@/components/Swiper/ArrowNavigationSwiper';
+import { SquarePaginationSwiper } from '@/components/Swiper/SquarePaginationSwiper';
 import styled from 'styled-components';
 
 interface Props {
@@ -138,7 +138,7 @@ const StoreDetailStyle = styled.div<{
   $headerHeight: number;
 }>`
   .one__page {
-    height: calc(100vh - ${({ $headerHeight }) => $headerHeight}px);
+    height: calc(100dvh - ${({ $headerHeight }) => $headerHeight}px);
   }
 
   .half {

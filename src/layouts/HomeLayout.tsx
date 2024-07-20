@@ -1,7 +1,7 @@
 import { FixedLogo } from './Fixed/Logo';
-import { FixedMenu } from './Fixed/Menu';
 import { FixedScrollButton } from './Fixed/ScrollButton';
 import { FixedSearch } from './Fixed/Search';
+import { FixedTextMenu } from './Fixed/TextMenu';
 
 interface Props {
   children: React.ReactNode;
@@ -10,9 +10,9 @@ interface Props {
 export const HomeLayout = ({ children }: Props) => {
   return (
     <>
-      <FixedLogo />
+      <FixedLogo top left />
       <FixedSearch />
-      <FixedMenu />
+      <FixedTextMenu />
       <FixedScrollButton />
       {children}
     </>

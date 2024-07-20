@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 
@@ -7,6 +8,8 @@ interface Props {
 }
 
 export const HeaderWithLogoAndMenu = ({ className }: Props) => {
+  const router = useRouter();
+
   return (
     <HeaderWithLogoAndMenuStyled className={className}>
       <div className="right">
@@ -15,9 +18,7 @@ export const HeaderWithLogoAndMenu = ({ className }: Props) => {
           alt="Menu"
           fill
           sizes="100%"
-          style={{
-            objectFit: 'contain',
-          }}
+          style={{ objectFit: 'contain' }}
         />
       </div>
       <div className="center">
@@ -26,10 +27,9 @@ export const HeaderWithLogoAndMenu = ({ className }: Props) => {
           alt="Logo"
           fill
           sizes="100%"
-          style={{
-            objectFit: 'contain',
-          }}
+          style={{ objectFit: 'contain' }}
           priority
+          onClick={() => router.push('/')}
         />
       </div>
       <div className="left">
@@ -38,9 +38,7 @@ export const HeaderWithLogoAndMenu = ({ className }: Props) => {
           alt="Search"
           fill
           sizes="100%"
-          style={{
-            objectFit: 'contain',
-          }}
+          style={{ objectFit: 'contain' }}
         />
       </div>
     </HeaderWithLogoAndMenuStyled>

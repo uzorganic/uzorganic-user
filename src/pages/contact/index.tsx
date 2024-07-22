@@ -3,6 +3,7 @@ import { FixedIcon } from '@/layouts/Fixed/Icon';
 import { FixedLanguage } from '@/layouts/Fixed/Language';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
+import { Version1Footer } from '@/layouts/Footer/Version1';
 
 const ContactPage = () => {
   return (
@@ -13,6 +14,8 @@ const ContactPage = () => {
       <FixedIcon src="/images/icons/search.png" top right />
 
       <ContactForm />
+
+      <Version1Footer />
     </>
   );
 };

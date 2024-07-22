@@ -189,9 +189,9 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           ),
         },
         3: {
-          title: '프롬 라벤더 헤어 오일',
-          enTitle: 'From Lavender Hair Oil',
-          router: '3',
+          title: '프롬 라벤더 헤어 미스트',
+          enTitle: 'From Lavender Hair Mist',
+          router: '4',
           content: (
             <>
               <div className="one__line">
@@ -218,7 +218,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         4: {
           title: '프롬 라벤더 오일',
           enTitle: 'From Lavender Oil',
-          router: '4',
+          router: '3',
           content: (
             <>
               <div className="one__line">
@@ -435,9 +435,9 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           ),
         },
         3: {
-          title: '프롬 라벤더 헤어 오일',
-          enTitle: 'From Lavender Hair Oil',
-          router: '3',
+          title: '프롬 라벤더 헤어 미스트',
+          enTitle: 'From Lavender Hair Mist',
+          router: '4',
           content: (
             <>
               <div className="one__line">
@@ -464,7 +464,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         4: {
           title: '프롬 라벤더 오일',
           enTitle: 'From Lavender Oil',
-          router: '4',
+          router: '3',
           content: (
             <>
               <div className="one__line">
@@ -626,9 +626,9 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           ),
         },
         3: {
-          title: '프롬 라벤더 헤어 오일',
-          enTitle: 'From Lavender Hair Oil',
-          router: '3',
+          title: '프롬 라벤더 헤어 미스트',
+          enTitle: 'From Lavender Hair Mist',
+          router: '4',
           content: (
             <>
               <div className="one__line">
@@ -655,7 +655,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         4: {
           title: '프롬 라벤더 오일',
           enTitle: 'From Lavender Oil',
-          router: '4',
+          router: '3',
           content: (
             <>
               <div className="one__line">
@@ -843,9 +843,9 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           ),
         },
         3: {
-          title: '프롬 라벤더 헤어 오일',
-          enTitle: 'From Lavender Hair Oil',
-          router: '3',
+          title: '프롬 라벤더 헤어 미스트',
+          enTitle: 'From Lavender Hair Mist',
+          router: '4',
           content: (
             <>
               <div className="one__line">
@@ -872,7 +872,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         4: {
           title: '프롬 라벤더 오일',
           enTitle: 'From Lavender Oil',
-          router: '4',
+          router: '3',
           content: (
             <>
               <div className="one__line">
@@ -1040,9 +1040,9 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           ),
         },
         3: {
-          title: '프롬 라벤더 헤어 오일',
-          enTitle: 'From Lavender Hair Oil',
-          router: '3',
+          title: '프롬 라벤더 헤어 미스트',
+          enTitle: 'From Lavender Hair Mist',
+          router: '4',
           content: (
             <>
               <div className="one__line">
@@ -1069,7 +1069,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         4: {
           title: '프롬 라벤더 오일',
           enTitle: 'From Lavender Oil',
-          router: '4',
+          router: '3',
           content: (
             <>
               <div className="one__line">

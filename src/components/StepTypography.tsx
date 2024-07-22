@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 import styled from 'styled-components';
 
 interface Props {
@@ -10,15 +8,13 @@ interface Props {
 }
 
 export const StepTypography = ({ step, title, id, content }: Props) => {
-  const router = useRouter();
-
   return (
     <StepTypographyStyled>
       <h3>
         STEP {step}.{' '}
         <span
           onClick={() => {
-            router.replace(`${id}`);
+            window.open(`${id}`);
           }}
         >
           {' '}

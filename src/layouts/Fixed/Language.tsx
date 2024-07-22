@@ -47,7 +47,7 @@ export const FixedLanguage = ({
           });
         }}
       >
-        <div className="language">{locale?.toUpperCase()}</div>
+        <div className="language">{locale === 'ko' ? 'EN' : 'KO'}</div>
       </FixedIcon>
     </FixedLanguageStyled>
   );

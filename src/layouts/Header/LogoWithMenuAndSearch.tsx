@@ -47,7 +47,11 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
 
       <div className="right">
         <div className="language">
-          <Link href={asPath} locale={locale === 'en' ? 'ko' : 'en'}>
+          <Link
+            href={asPath}
+            locale={locale === 'en' ? 'ko' : 'en'}
+            style={{ textDecoration: 'none' }}
+          >
             <div className="image__wrapper">
               <Image
                 src="/images/icons/public.svg"
@@ -57,7 +61,7 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
                 style={{ objectFit: 'contain' }}
               />
             </div>
-            <div className="language">{locale?.toUpperCase()}</div>
+            <div className="language">{locale === 'ko' ? 'EN' : 'KO'}</div>
           </Link>
         </div>
         <div className="image__wrapper">

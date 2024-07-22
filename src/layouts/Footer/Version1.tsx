@@ -74,8 +74,15 @@ const FooterStyled = styled.footer`
     width: 78.75rem;
     height: 7.875rem;
 
+    @media (max-width: 960px) {
+      width: 100%;
+      height: 6rem;
+    }
+
     img {
       opacity: 0.3;
+
+      object-fit: contain;
     }
   }
 `;

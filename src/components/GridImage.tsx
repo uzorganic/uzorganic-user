@@ -43,8 +43,12 @@ export const GridImage = ({ productList }: Props) => {
 
 const GridImageStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 6.25rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media (max-width: 960px) {
     grid-template-columns: repeat(1, 1fr);
@@ -58,6 +62,11 @@ const GridImageStyled = styled.div`
 
       width: 31.25rem;
       height: 40.625rem;
+
+      @media (max-width: 1200px) {
+        /* width: 100%;
+        height: 31.25rem; */
+      }
 
       @media (max-width: 960px) {
         width: 100%;

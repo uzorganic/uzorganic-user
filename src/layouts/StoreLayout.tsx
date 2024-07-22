@@ -72,8 +72,8 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     img: '/images/store/mask1.png',
   };
   const dummyProductList = [
-    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4, dummyProduct5],
-    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4],
+    [dummyProduct1, dummyProduct2, dummyProduct4, dummyProduct3, dummyProduct5],
+    [dummyProduct1, dummyProduct2, dummyProduct4, dummyProduct3],
     [dummyProduct5],
   ];
 

@@ -8,6 +8,8 @@ interface Props {
   width?: string;
   height?: string;
 
+  brightness?: number;
+
   children?: React.ReactNode;
 
   top?: string;
@@ -28,6 +30,8 @@ export const ImageOverlayChild = ({
   width = '2rem',
   height = '2rem',
 
+  brightness = 1,
+
   children,
 
   top,
@@ -44,12 +48,13 @@ export const ImageOverlayChild = ({
       className={className}
       width={width}
       height={height}
-      top={top}
-      bottom={bottom}
-      left={left}
-      right={right}
-      centerVertical={centerVertical}
-      centerHorizontal={centerHorizontal}
+      $brightness={brightness}
+      $top={top}
+      $bottom={bottom}
+      $left={left}
+      $right={right}
+      $centerVertical={centerVertical}
+      $centerHorizontal={centerHorizontal}
     >
       <Image src={src} alt="Image" fill sizes="100%" priority />
       <div className="children">{children}</div>
@@ -61,29 +66,37 @@ const ImageOverlayChildStyled = styled.div<{
   width: string;
   height: string;
 
-  top: string | undefined;
-  bottom: string | undefined;
-  left: string | undefined;
-  right: string | undefined;
-  centerVertical: boolean;
-  centerHorizontal: boolean;
+  $brightness: number;
+
+  $top: string | undefined;
+  $bottom: string | undefined;
+  $left: string | undefined;
+  $right: string | undefined;
+  $centerVertical: boolean;
+  $centerHorizontal: boolean;
 }>`
   position: relative;
 
   width: ${({ width }) => width};
   height: ${({ height }) => height};
 
+  img {
+    object-fit: cover;
+
+    filter: brightness(${({ $brightness }) => $brightness});
+  }
+
   .children {
     position: absolute;
 
-    top: ${({ top }) => top};
-    bottom: ${({ bottom }) => bottom};
-    left: ${({ left }) => left};
-    right: ${({ right }) => right};
+    top: ${({ $top }) => $top};
+    bottom: ${({ $bottom }) => $bottom};
+    left: ${({ $left }) => $left};
+    right: ${({ $right }) => $right};
 
-    ${({ centerVertical }) =>
-      centerVertical && 'top: 50%; transform: translateY(-50%);'}
-    ${({ centerHorizontal }) =>
-      centerHorizontal && 'left: 50%; transform: translateX(-50%);'}
+    ${({ $centerVertical }) =>
+      $centerVertical && 'top: 50%; transform: translateY(-50%);'}
+    ${({ $centerHorizontal }) =>
+      $centerHorizontal && 'left: 50%; transform: translateX(-50%);'}
   }
 `;

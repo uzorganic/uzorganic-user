@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { HeaderWithLogoAndMenu } from './Fixed/HeaderWithLogoAndMenu';
+import { LogoWithMenuAndSearch } from './Header/LogoWithMenuAndSearch';
 
 import styled from 'styled-components';
 
@@ -30,9 +30,9 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
   }, []);
 
   return (
-    <ContentLayoutStyled $headerHeight={headerHeight} $fillColor={fillColor}>
+    <ContentLayoutStyled $headerHeight={headerHeight}>
       <div className="fixed__header" ref={headerRef}>
-        <HeaderWithLogoAndMenu className="header" />
+        <LogoWithMenuAndSearch fillColor={fillColor} />
       </div>
       <div className="content__layout">
         {React.cloneElement(children as React.ReactElement, {
@@ -45,13 +45,7 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
 
 const ContentLayoutStyled = styled.div<{
   $headerHeight: number | null;
-  $fillColor?: string;
 }>`
-  .header img {
-    filter: ${({ $fillColor }) =>
-      $fillColor === 'black' ? 'invert(1)' : 'none'};
-  }
-
   .fixed__header {
     position: fixed;
     top: 0;

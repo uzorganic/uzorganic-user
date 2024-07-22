@@ -11,7 +11,7 @@ export const IconAndText = ({ icon, text }: Props) => {
   return (
     <IconAndTextStyled>
       <div className="icon">
-        <Image src={icon} alt="icon" fill />
+        <Image src={icon} alt="icon" fill sizes="100%" priority />
       </div>
       <p>{text}</p>
     </IconAndTextStyled>

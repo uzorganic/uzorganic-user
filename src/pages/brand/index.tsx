@@ -3,18 +3,14 @@ import Image from 'next/image';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
 import { FixedIcon } from '@/layouts/Fixed/Icon';
+import { FixedLogo } from '@/layouts/Fixed/Logo';
+import { MenuButton } from '@/layouts/Fixed/MenuButton';
 
 const BrandPage = () => {
   return (
     <>
-      <FixedIcon src="/images/icons/menu.png" top left />
-      <FixedIcon
-        src="/images/logo/logo.png"
-        top
-        centerHorizontal
-        width="19.5rem"
-        height="2rem"
-      />
+      <MenuButton top left />
+      <FixedLogo top centerHorizontal />
       <FixedIcon src="/images/icons/search.png" top right />
 
       <SwiperComponent

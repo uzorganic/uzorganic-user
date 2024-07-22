@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import styled from 'styled-components';
 
 interface Props {
@@ -23,6 +25,9 @@ export const ProductInfo = ({
 
   className,
 }: Props) => {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <ProductInfoStyled $headerHeight={headerHeight} className={className}>
       <h1 className="title">{title}</h1>
@@ -35,7 +40,7 @@ export const ProductInfo = ({
           window.open(link, '_blank');
         }}
       >
-        구매하러 가기
+        {locale === 'ko' ? '구매하러 가기' : 'Go to buy'}
         <span>→</span>
       </div>
     </ProductInfoStyled>
@@ -55,7 +60,7 @@ const ProductInfoStyled = styled.div<{
   width: 50%;
   height: calc(100vh - ${({ $headerHeight }) => $headerHeight}px);
 
-  background-color: #a4aeae;
+  background-color: #7f766b;
 
   color: #fff;
 

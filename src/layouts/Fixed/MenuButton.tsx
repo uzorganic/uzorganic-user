@@ -1,0 +1,46 @@
+import { useState } from 'react';
+
+import { FixedIcon } from './Icon';
+
+import { Menu } from '@/contents/Menu';
+import styled from 'styled-components';
+
+interface Props {
+  top?: boolean;
+  bottom?: boolean;
+  left?: boolean;
+  right?: boolean;
+  centerVertical?: boolean;
+  centerHorizontal?: boolean;
+}
+
+export const MenuButton = ({
+  top = false,
+  bottom = false,
+  left = false,
+  right = false,
+  centerVertical = false,
+  centerHorizontal = false,
+}: Props) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <MenuButtonStyled>
+      <FixedIcon
+        src="/images/icons/menu.png"
+        top={top}
+        bottom={bottom}
+        left={left}
+        right={right}
+        centerVertical={centerVertical}
+        centerHorizontal={centerHorizontal}
+        disable={open}
+        onClick={() => setOpen(!open)}
+      />
+
+      <Menu open={open} setOpen={setOpen} />
+    </MenuButtonStyled>
+  );
+};
+
+const MenuButtonStyled = styled.div``;

@@ -25,7 +25,6 @@ export const ArrowNavigationSwiper = ({
       <p className="prev__button">{'<'}</p>
       <Swiper
         modules={[Navigation, Pagination]}
-        loop
         controller={controller}
         onSwiper={setController}
         navigation={{
@@ -67,7 +66,12 @@ const ArrowNavigationSwiperStyled = styled.div`
     color: #000;
     cursor: pointer;
   }
+
   .swiper-button-lock {
     display: block;
+  }
+
+  @media (max-width: 960px) {
+    gap: 2.5rem;
   }
 `;

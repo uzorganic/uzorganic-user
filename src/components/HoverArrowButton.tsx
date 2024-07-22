@@ -33,7 +33,7 @@ const HoverArrowButtonStyled = styled.div<{ width?: string }>`
 
   border: 0.125rem solid #fff;
 
-  padding: 1rem 4rem;
+  padding: 1rem 5rem;
 
   p {
     color: #fff;

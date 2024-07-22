@@ -4,13 +4,18 @@ import styled from 'styled-components';
 
 export const FixedTextMenu = () => {
   const router = useRouter();
+  const { locale } = router;
 
   return (
     <FixedTextMenuStyled>
-      <p onClick={() => router.push('/store')}>스토어</p>
-      <p onClick={() => router.push('/store/1')}>갤러리</p>
-      <p onClick={() => router.push('/brand')}>브랜드</p>
-      {/* <p>커뮤니티</p> */}
+      <p onClick={() => router.push('/store')}>
+        {locale === 'en' ? 'STORE' : '스토어'}
+      </p>
+      {/* <p onClick={() => router.push('/store/1')}>갤러리</p>
+      <p onClick={() => router.push('/brand')}>브랜드</p> */}
+      <p onClick={() => router.push('/contact')}>
+        {locale === 'en' ? 'CONTACT US' : '문의하기'}
+      </p>
     </FixedTextMenuStyled>
   );
 };

@@ -31,7 +31,7 @@ const InputLabelAndTextareaStyled = styled.div`
   p {
     text-align: justify;
 
-    width: 4.5rem;
+    width: 6rem;
 
     color: #fff;
     font-size: 1.75rem;

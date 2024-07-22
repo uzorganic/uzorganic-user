@@ -39,6 +39,35 @@ const nextConfig = {
     'rc-upload',
     'rc-util',
   ],
+
+  compiler: {
+    styledComponents: true,
+  },
+
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
+    return config;
+  },
+
+  i18n: {
+    locales: ['en', 'ko'],
+    defaultLocale: 'ko',
+
+    // domains: [
+    //   {
+    //     domain: 'en.example.com',
+    //     defaultLocale: 'en',
+    //   },
+    //   {
+    //     domain: 'example.com',
+    //     defaultLocale: 'ko',
+    //   },
+    // ],
+  },
 };
 
 export default nextConfig;

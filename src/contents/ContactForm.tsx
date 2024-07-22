@@ -1,67 +1,90 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { HoverArrowButton } from '@/components/HoverArrowButton';
-import { IconAndText } from '@/components/IconAndText';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';
 import { InputLabelAndTextarea } from '@/components/InputLabelAndTextarea';
-import { SnsList } from '@/components/SnsList';
+import { Checkbox } from 'antd';
 import styled from 'styled-components';
 
 export const ContactForm = () => {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <ContactFormStyled>
-      <Image src="/images/main/5.png" alt="5" fill />
+      <Image src="/images/main/5.png" alt="5" fill sizes="100%" priority />
 
       <div className="center">
         <h1 className="title">
-          정성을 다해
-          <br />
-          답변해 드리겠습니다
+          {locale === 'en' ? (
+            'We will respond'
+          ) : (
+            <>
+              정성을 다해
+              <br />
+              답변해 드리겠습니다
+            </>
+          )}
         </h1>
 
         <div className="form__container">
           <div className="form__left">
             <InputLabelAndInput
-              label="성 함"
-              placeholder="성함을 입력해주세요"
+              label={locale === 'en' ? 'Name' : '성 함'}
+              placeholder={
+                locale === 'en' ? 'Enter your name' : '성함을 입력해주세요'
+              }
             />
             <InputLabelAndInput
-              label="전 화 번 호"
-              placeholder="전화번호를 입력해주세요"
+              label={locale === 'en' ? 'Number' : '전 화 번 호'}
+              placeholder={
+                locale === 'en'
+                  ? 'Enter your phone number'
+                  : '전화번호를 입력해주세요'
+              }
             />
-            <InputLabelAndInput label="이 메 일" placeholder="id@example.com" />
+            <InputLabelAndInput
+              label={locale === 'en' ? 'Email' : '이 메 일'}
+              placeholder="id@example.com"
+            />
           </div>
 
           <div className="form__right">
             <InputLabelAndTextarea
-              label="내 용"
-              placeholder="문의하실 내용을 입력해주세요"
+              label={locale === 'en' ? 'Content' : '내 용'}
+              placeholder={
+                locale === 'en'
+                  ? 'Enter the content you want to inquire about'
+                  : '문의하실 내용을 입력해주세요'
+              }
             />
           </div>
         </div>
 
         <div className="checkbox__container">
-          <IconAndText
-            icon="/images/icons/check.png"
-            text="개인정보 수집 및 이용에 동의합니다."
-          />
+          <Checkbox className="checkbox" />
+          <p>
+            {locale === 'en'
+              ? 'I agree to the collection and use of personal information.'
+              : '개인정보 수집 및 이용에 동의합니다.'}
+          </p>
         </div>
 
         <div className="button__container">
-          <HoverArrowButton text="보내기" width="33.75rem" />
+          <HoverArrowButton
+            text={locale === 'en' ? 'Send' : '보내기'}
+            width="33.75rem"
+          />
         </div>
       </div>
 
-      <div className="sns__container">
-        <SnsList />
-      </div>
-
-      <div className="footer__container">
+      {/* <div className="footer__container">
         <p>회사소개</p>
         <p>이용안내</p>
         <p>이용약관</p>
         <p>개인정보처리방침</p>
-      </div>
+      </div> */}
     </ContactFormStyled>
   );
 };
@@ -112,7 +135,18 @@ const ContactFormStyled = styled.div`
       align-items: center;
       justify-content: center;
 
+      gap: 0.8rem;
+
       margin-bottom: 1.5rem;
+
+      .checkbox {
+        font-size: 1.25rem;
+      }
+
+      p {
+        color: #fff;
+        font-size: 1.25rem;
+      }
     }
 
     .button__container {
@@ -120,12 +154,6 @@ const ContactFormStyled = styled.div`
       justify-content: center;
       align-items: center;
     }
-  }
-
-  .sns__container {
-    position: absolute;
-    bottom: var(--fixed-padding);
-    left: var(--fixed-padding);
   }
 
   .footer__container {

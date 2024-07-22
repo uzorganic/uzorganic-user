@@ -1,0 +1,101 @@
+import { useEffect, useState } from 'react';
+
+import { useRouter } from 'next/router';
+
+import { SnsList } from '@/components/SnsList';
+import { FixedChild } from '@/layouts/Fixed/Child';
+import { FixedLogo } from '@/layouts/Fixed/Logo';
+import styled from 'styled-components';
+
+interface Props {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+export const Menu = ({ open, setOpen }: Props) => {
+  const router = useRouter();
+  const { locale } = router;
+
+  const [active, setActive] = useState(0);
+
+  const menuList = [
+    { name: '스토어', enName: 'STORE', path: '/store' },
+    // { name: '브랜드', path: '/brand' },
+    // { name: '갤러리', path: '/gallery' },
+    { name: '문의하기', enName: 'CONTACT', path: '/contact' },
+  ];
+
+  useEffect(() => {
+    const path = router.pathname;
+
+    const index = menuList.findIndex(item => item.path === path);
+
+    if (index !== -1) {
+      setActive(index);
+    }
+  }, [router.pathname]);
+
+  return (
+    <MenuStyled open={open} onClick={() => setOpen(!open)}>
+      <FixedLogo top left />
+
+      <FixedChild bottom left>
+        <SnsList color="#929292" hoverColor="#484036" />
+      </FixedChild>
+
+      <div className="menu__list">
+        {menuList.map((item, index) => (
+          <div
+            key={index}
+            className={`item ${index === active ? 'active' : ''}`}
+            onClick={() => router.push(item.path)}
+          >
+            {locale === 'en' ? item.enName : item.name}
+          </div>
+        ))}
+      </div>
+    </MenuStyled>
+  );
+};
+
+const MenuStyled = styled.div<{
+  open: boolean;
+}>`
+  display: ${({ open }) => (open ? 'block' : 'none')};
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(243, 240, 235, 0.85);
+
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+
+    width: 100%;
+    height: 100%;
+
+    .item {
+      padding: 0 3rem;
+
+      color: #484036;
+      font-size: 6.25rem;
+
+      cursor: pointer;
+    }
+
+    .active {
+      font-family: 'NotoSansKR-ExtraBold';
+      border-bottom: 0.5rem solid #9f7bac;
+    }
+  }
+`;

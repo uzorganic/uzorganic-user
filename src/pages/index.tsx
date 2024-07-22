@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { CenterTitleAndButton } from '@/components/CenterTitleAndButton';
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
@@ -9,6 +11,8 @@ import { HomeLayout } from '@/layouts/HomeLayout';
 import { YoutubeFilled } from '@ant-design/icons';
 
 const Home = () => {
+  const router = useRouter();
+  const { locale } = router;
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -17,25 +21,39 @@ const Home = () => {
         <FullScreenImage src="/images/main/1.png" alt="1" />
         <FullScreenImage src="/images/main/2.png" alt="2" />
         <FullScreenImage src="/images/main/3.png" alt="3" />
-        <FullScreenImage src="/images/main/4.png" alt="4" />
       </FractionSwiper>
 
-      <CenterTitleAndButton
+      {/* <CenterTitleAndButton
         imageSrc="/images/main/2.png"
         title="회사 소개"
         description="I’m ORGANIC의 풍부한 경험으로 세계적인 천연물 기업으로 나아가겠습니다."
         buttonComponent={<HoverArrowButton text="바로가기" />}
-      />
-      <CenterTitleAndButton
+      /> */}
+
+      {/* <CenterTitleAndButton
         imageSrc="/images/main/3.png"
         title="특허 / 인증"
         description="여러 분야의 전문가들이 만나 확실한 제품을 만듭니다."
         buttonComponent={<HoverArrowButton text="바로가기" />}
+      /> */}
+
+      <CenterTitleAndButton
+        imageSrc="/images/main/9.png"
+        title="LAVENDER"
+        description={
+          locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'
+        }
+        buttonComponent={<HoverArrowButton text="보러가기" />}
       />
+
       <CenterTitleAndButton
         imageSrc="/images/main/4.png"
-        title="유튜브"
-        description="유튜브에서 최신 소식을 확인해보세요!"
+        title={locale === 'en' ? 'YouTube' : '유튜브'}
+        description={
+          locale === 'en'
+            ? 'Check out the latest news on YouTube!'
+            : '유튜브에서 최신 소식을 확인해보세요!'
+        }
         buttonComponent={
           <YoutubeFilled
             onMouseEnter={() => setIsHover(true)}

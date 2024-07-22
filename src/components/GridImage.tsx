@@ -7,12 +7,14 @@ interface Props {
   productList: {
     id: number;
     title: string;
+    enTitle: string;
     img: string;
   }[];
 }
 
 export const GridImage = ({ productList }: Props) => {
   const router = useRouter();
+  const { locale } = router;
 
   return (
     <GridImageStyled>
@@ -32,7 +34,7 @@ export const GridImage = ({ productList }: Props) => {
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <p className="title">{item.title}</p>
+          <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
         </div>
       ))}
     </GridImageStyled>
@@ -44,6 +46,10 @@ const GridImageStyled = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 6.25rem;
 
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .item {
     cursor: pointer;
 
@@ -52,6 +58,11 @@ const GridImageStyled = styled.div`
 
       width: 31.25rem;
       height: 40.625rem;
+
+      @media (max-width: 960px) {
+        width: 100%;
+        height: 31.25rem;
+      }
     }
 
     .title {

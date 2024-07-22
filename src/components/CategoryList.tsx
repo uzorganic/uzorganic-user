@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import styled from 'styled-components';
 
 interface Props {
@@ -8,7 +10,23 @@ interface Props {
 }
 
 export const CategoryList = ({ active, setActive }: Props) => {
-  const categoryList = ['모두보기', '헤어케어', '스킨케어'];
+  const router = useRouter();
+  const { locale } = router;
+
+  const categoryList = [
+    {
+      title: '모두보기',
+      enTitle: 'All',
+    },
+    {
+      title: '헤어케어',
+      enTitle: 'Hair Care',
+    },
+    {
+      title: '스킨케어',
+      enTitle: 'Skin Care',
+    },
+  ];
 
   return (
     <CategoryListStyle>
@@ -18,7 +36,7 @@ export const CategoryList = ({ active, setActive }: Props) => {
           key={index}
           onClick={() => setActive(index)}
         >
-          <p className="title">{item}</p>
+          <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
           <div className="underline" />
         </div>
       ))}

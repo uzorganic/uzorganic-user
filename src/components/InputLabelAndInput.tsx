@@ -31,7 +31,7 @@ const InputLabelAndInputStyled = styled.div`
   p {
     text-align: justify;
 
-    width: 7.5rem;
+    width: 8rem;
 
     color: #fff;
     font-size: 1.7rem;
@@ -57,6 +57,8 @@ const InputLabelAndInputStyled = styled.div`
     outline: none;
 
     flex: 1;
+
+    width: 20rem;
 
     background-color: transparent;
 

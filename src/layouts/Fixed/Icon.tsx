@@ -5,6 +5,8 @@ import styled from 'styled-components';
 interface Props {
   src: string;
 
+  children?: React.ReactNode;
+
   top?: boolean;
   bottom?: boolean;
   left?: boolean;
@@ -15,6 +17,8 @@ interface Props {
   width?: string;
   height?: string;
 
+  disable?: boolean;
+
   onClick?: () => void;
 
   className?: string;
@@ -22,6 +26,8 @@ interface Props {
 
 export const FixedIcon = ({
   src,
+
+  children,
 
   top = false,
   bottom = false,
@@ -33,6 +39,8 @@ export const FixedIcon = ({
   width = '2rem',
   height = '2rem',
 
+  disable = false,
+
   onClick,
 
   className,
@@ -40,49 +48,55 @@ export const FixedIcon = ({
   return (
     <FixedLogoStyled
       className={className}
-      top={top}
-      bottom={bottom}
-      left={left}
-      right={right}
-      centerVertical={centerVertical}
-      centerHorizontal={centerHorizontal}
+      $top={top}
+      $bottom={bottom}
+      $left={left}
+      $right={right}
+      $centerVertical={centerVertical}
+      $centerHorizontal={centerHorizontal}
       width={width}
       height={height}
-      onClick={!!onClick}
+      $disable={disable}
+      onClick={onClick}
     >
       <div className="icon">
         <Image src={src} alt="Icon" fill sizes="100%" priority />
       </div>
+      {children}
     </FixedLogoStyled>
   );
 };
 
 const FixedLogoStyled = styled.div<{
-  top: boolean;
-  bottom: boolean;
-  left: boolean;
-  right: boolean;
-  centerVertical: boolean;
-  centerHorizontal: boolean;
+  $top: boolean;
+  $bottom: boolean;
+  $left: boolean;
+  $right: boolean;
+  $centerVertical: boolean;
+  $centerHorizontal: boolean;
 
   width: string;
   height: string;
 
-  onClick?: boolean;
+  $disable: boolean;
+
+  onClick?: () => void;
 }>`
+  display: ${({ $disable }) => ($disable ? 'none' : 'block')};
+
   position: fixed;
-  ${({ top }) => top && 'top: var(--fixed-padding);'}
-  ${({ bottom }) => bottom && 'bottom: var(--fixed-padding);'}
-  ${({ left }) => left && 'left: var(--fixed-padding);'}
-  ${({ right }) => right && 'right: var(--fixed-padding);'}
 
-  ${({ centerVertical }) => centerVertical && 'top: 50%;'}
-  ${({ centerVertical }) => centerVertical && 'transform: translateY(-50%);'}
-  ${({ centerHorizontal }) => centerHorizontal && 'left: 50%;'}
-  ${({ centerHorizontal }) =>
-    centerHorizontal && 'transform: translateX(-50%);'}
+  ${({ $top }) => $top && 'top: var(--fixed-padding);'}
+  ${({ $bottom }) => $bottom && 'bottom: var(--fixed-padding);'}
+  ${({ $left }) => $left && 'left: var(--fixed-padding);'}
+  ${({ $right }) => $right && 'right: var(--fixed-padding);'}
+
+  ${({ $centerVertical }) => $centerVertical && 'top: 50%;'}
+  ${({ $centerVertical }) => $centerVertical && 'transform: translateY(-50%);'}
+  ${({ $centerHorizontal }) => $centerHorizontal && 'left: 50%;'}
+  ${({ $centerHorizontal }) =>
+    $centerHorizontal && 'transform: translateX(-50%);'}
   
-
   z-index: 10;
 
   .icon {

@@ -8,10 +8,9 @@ export const Version1Footer = () => {
     <FooterStyled>
       <ImageOverlayChild
         className="footer__overlay"
-        src="/images/footer/1.png"
+        src="/images/footer/1.jpg"
         width="100%"
         height="26.25rem"
-        brightness={0.7}
       >
         <div className="sns__container">
           <SnsList color="#f2efe9" hoverColor="#eee" gap="3.75rem" />

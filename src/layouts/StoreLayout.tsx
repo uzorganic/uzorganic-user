@@ -23,21 +23,21 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     title: 'All',
     enTitle: 'All',
     description: '자연에서 온 순수함을 담다',
-    enDescription: 'Pureness from nature',
+    enDescription: 'Embracing the Purity of Nature',
   };
   const dummyCategory2 = {
     img: '/images/store/2.png',
     title: '헤어케어 ',
     enTitle: 'Hair Care',
     description: '자연의 힘으로, 건강한 모발을',
-    enDescription: 'For healthy hair with the power of nature',
+    enDescription: 'Healthy Hair Powered by Nature',
   };
   const dummyCategory3 = {
     img: '/images/store/3.png',
     title: '스킨케어',
     enTitle: 'Skin Care',
     description: '건강한 피부를 위한 선택',
-    enDescription: 'For healthy skin',
+    enDescription: 'The Choice for Healthy Skin',
   };
   const dummyCategoryList = [dummyCategory1, dummyCategory2, dummyCategory3];
 

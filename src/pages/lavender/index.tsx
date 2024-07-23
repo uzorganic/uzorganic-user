@@ -1,11 +1,13 @@
-import { ContactForm } from '@/contents/ContactForm';
+import { ImageOverlayChild } from '@/components/ImageOverlayChild';
+import { LavenderDescription } from '@/contents/LavenderDescription';
+import { LavenderInteraction } from '@/contents/LavenderInteraction';
 import { FixedIcon } from '@/layouts/Fixed/Icon';
 import { FixedLanguage } from '@/layouts/Fixed/Language';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
 import { Version1Footer } from '@/layouts/Footer/Version1';
 
-const ContactPage = () => {
+const LavenderPage = () => {
   return (
     <>
       <MenuButton top left />
@@ -13,13 +15,15 @@ const ContactPage = () => {
       <FixedLanguage top right />
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
-      <ContactForm />
+      <LavenderInteraction />
+
+      <LavenderDescription />
 
       <Version1Footer />
     </>
   );
 };
 
-ContactPage.layout = (page: React.ReactNode) => page;
+LavenderPage.layout = (page: React.ReactNode) => page;
 
-export default ContactPage;
+export default LavenderPage;

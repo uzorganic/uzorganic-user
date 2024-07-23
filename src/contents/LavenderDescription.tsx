@@ -1,0 +1,74 @@
+import { ImageOverlayChild } from '@/components/ImageOverlayChild';
+import styled from 'styled-components';
+
+export const LavenderDescription = () => {
+  return (
+    <LavenderDescriptionStyled>
+      <div className="right">
+        <ImageOverlayChild
+          src="/images/lavender/1.png"
+          width="100%"
+          height="100vh"
+        />
+      </div>
+      <div className="left">
+        <h1>프롬 라벤더 헤어 라인</h1>
+        <p>FROM LAVENDER HAIR LINE</p>
+        <h2>
+          자연 그대로의 100% 라벤더 향으로 건강한 머릿결을 선사합니다. <br />
+          라벤더의 진정 효과와 향기로운 아로마는 스트레스를 완화하고,
+          <br />
+          두피를 순하게 진정시키며, 모발을 부드럽고 윤기 있게 가꿔줍니다.
+          <br />
+          프롬 라벤더 헤어 라인은 자연의 생명력을 그대로 담아
+          <br />
+          매일의 헤어 케어를 특별하게 만들어 드립니다.
+        </h2>
+      </div>
+    </LavenderDescriptionStyled>
+  );
+};
+
+const LavenderDescriptionStyled = styled.div`
+  display: flex;
+  align-items: center;
+
+  height: 100vh;
+
+  background: #f3f0eb;
+
+  .right {
+    width: 50%;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 50%;
+
+    padding: 0 6.5rem;
+
+    color: #484036;
+
+    h1 {
+      font-size: 2.5rem;
+      font-family: 'NotoSansKR-Bold';
+      margin: 0;
+      margin-bottom: 0.625rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      font-family: 'NotoSansKR-Light';
+      margin: 0;
+      margin-bottom: 3.75rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin: 0;
+    }
+  }
+`;

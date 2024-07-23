@@ -49,6 +49,8 @@ export const ArrowNavigationSwiper = ({
 };
 
 const ArrowNavigationSwiperStyled = styled.div`
+  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,9 +63,10 @@ const ArrowNavigationSwiperStyled = styled.div`
 
   .prev__button,
   .next__button {
+    color: #000;
     font-size: 5rem;
     font-family: 'Oranienbaum-Regular';
-    color: #000;
+
     cursor: pointer;
   }
 
@@ -72,6 +75,20 @@ const ArrowNavigationSwiperStyled = styled.div`
   }
 
   @media (max-width: 960px) {
-    gap: 2.5rem;
+    .prev__button {
+      position: absolute;
+      top: 50%;
+      left: 1.875rem;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+
+    .next__button {
+      position: absolute;
+      top: 50%;
+      right: 1.875rem;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
   }
 `;

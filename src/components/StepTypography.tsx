@@ -29,7 +29,7 @@ export const StepTypography = ({ step, title, id, content }: Props) => {
 const StepTypographyStyled = styled.div`
   padding-left: 0.625rem;
 
-  color: #fff;
+  color: #484036;
 
   h3 {
     font-size: 1.5rem;
@@ -38,7 +38,7 @@ const StepTypographyStyled = styled.div`
 
     span {
       font-family: 'NotoSansKR-Bold';
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #484036;
 
       cursor: pointer;
     }

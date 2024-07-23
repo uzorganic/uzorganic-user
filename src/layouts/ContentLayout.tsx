@@ -67,5 +67,9 @@ const ContentLayoutStyled = styled.div<{
 
   .footer__gap {
     height: 25rem;
+
+    @media (max-width: 960px) {
+      height: 0;
+    }
   }
 `;

@@ -6,7 +6,7 @@ export const FixedSearch = () => {
   return (
     <SearchStyled>
       <div className="icon">
-        <Image src="/images/icons/search.png" alt="Search" fill sizes="100%" />
+        <Image src="/images/icons/search.svg" alt="Search" fill sizes="100%" />
       </div>
     </SearchStyled>
   );

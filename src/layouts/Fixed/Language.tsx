@@ -62,7 +62,7 @@ const FixedLanguageStyled = styled.div<{
     justify-content: center;
     flex-direction: column;
 
-    right: calc(var(--fixed-padding) * 2 + 1.25rem);
+    /* right: calc(var(--fixed-padding) * 2 + 1.25rem); */
 
     .icon {
       img {

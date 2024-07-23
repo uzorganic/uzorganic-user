@@ -89,6 +89,8 @@ const ImageOverlayChildStyled = styled.div<{
   .children {
     position: absolute;
 
+    width: 100%;
+
     top: ${({ $top }) => $top};
     bottom: ${({ $bottom }) => $bottom};
     left: ${({ $left }) => $left};

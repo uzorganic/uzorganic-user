@@ -14,7 +14,7 @@ export const HomeLayout = ({ children }: Props) => {
     <>
       <FixedLogo top left />
       <FixedLanguage top right />
-      <FixedSearch />
+      {/* <FixedSearch /> */}
       <FixedTextMenu />
       {/* <FixedScrollButton /> */}
       {children}

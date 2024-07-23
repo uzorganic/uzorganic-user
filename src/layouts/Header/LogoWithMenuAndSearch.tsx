@@ -24,7 +24,7 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
       <div className="image__wrapper">
         {!menuOpen && (
           <Image
-            src="/images/icons/menu.png"
+            src="/images/icons/menu.svg"
             alt="Menu"
             fill
             sizes="100%"
@@ -64,15 +64,15 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
             <div className="language">{locale === 'ko' ? 'EN' : 'KO'}</div>
           </Link>
         </div>
-        <div className="image__wrapper">
+        {/* <div className="image__wrapper">
           <Image
-            src="/images/icons/search.png"
+            src="/images/icons/search.svg"
             alt="Search"
             fill
             sizes="100%"
             style={{ objectFit: 'contain' }}
           />
-        </div>
+        </div> */}
       </div>
 
       <Menu open={menuOpen} setOpen={setMenuOpen} />

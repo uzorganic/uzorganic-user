@@ -22,6 +22,108 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
     return null;
   }
 
+  const step = {
+    1: {
+      title: '프롬 라벤더 샴푸',
+      enTitle: 'From Lavender Shampoo',
+      router: '1',
+      content: (
+        <>
+          <p>두피에 쌓인 각질과 여러 오염 물질을</p>
+          <div className="one__line">
+            <h3>자극 없이 깨끗하게 클렌징</h3>
+            <p>해주는 두피 청정 샴푸입니다.</p>
+          </div>
+        </>
+      ),
+      enContent: (
+        <>
+          <p>
+            This scalp purifying shampoo cleanses away dead skin cells and
+            various impurities from the scalp gently and thoroughly.
+          </p>
+        </>
+      ),
+    },
+    2: {
+      title: '프롬 라벤더 트리트먼트',
+      enTitle: 'From Lavender Treatment',
+      router: '2',
+      content: (
+        <>
+          <p>
+            비타민 E와 영양소가 풍부한 식물성 오일이 샴푸 후 부스스한 모발에
+          </p>
+          <div className="one__line">
+            <h3>윤기 코팅막을 형성</h3>
+            <p>해 수분과 차분함을 더해줍니다.</p>
+          </div>
+        </>
+      ),
+      enContent: (
+        <>
+          <p>
+            Enriched with Vitamin E and nutrients, this plant-based oil
+            treatment forms a glossy coating on frizzy hair after shampooing,
+            adding moisture and smoothness.
+          </p>
+        </>
+      ),
+    },
+    3: {
+      title: '프롬 라벤더 헤어 미스트',
+      enTitle: 'From Lavender Hair Mist',
+      router: '4',
+      content: (
+        <>
+          <div className="one__line">
+            <p>산뜻한 워터 입자로 모발 사이사이에&nbsp;</p>
+            <h3>촘촘하게 영양을 공급</h3>
+            <p>해 줍니다.</p>
+          </div>
+          <p>
+            드라이 후 또는 모발이 건조할 때 수시로 사용하여 수분을 보충해
+            주세요.
+          </p>
+        </>
+      ),
+      enContent: (
+        <>
+          <p>
+            With its refreshing water-like texture, this hair oil provides deep
+            nourishment to each strand. Use it after drying or whenever your
+            hair feels dry to replenish moisture.
+          </p>
+        </>
+      ),
+    },
+    4: {
+      title: '프롬 라벤더 오일',
+      enTitle: 'From Lavender Oil',
+      router: '3',
+      content: (
+        <>
+          <div className="one__line">
+            <p>7가지 식물성 오일이&nbsp;</p>
+            <h3>수분과 영양을 모발 속 깊은 곳까지</h3>
+            <p>채워줍니다.</p>
+          </div>
+          <p>젖은 모발 또는 건조된 모발에 소량만으로도 뭉치지 않고</p>
+          <p>자연스러운 윤기를 더해줍니다.</p>
+        </>
+      ),
+      enContent: (
+        <>
+          <p>
+            Contains 7 types of vegetable oils to deliver deep moisture and
+            nutrition to hair. Just a small amount adds natural shine to wet or
+            dry hair without causing clumps.
+          </p>
+        </>
+      ),
+    },
+  };
+
   const dummyProduct1 = {
     firstImages: [
       '/images/store/shampoo1.png',
@@ -66,8 +168,6 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
         description:
           '뛰어난 진정 효능을 갖고 있어 예민해진 두피 진정에 도움을 줍니다.',
         enDescription: 'Helps to soothe sensitive scalp with excellent effect.',
-        contents: <></>,
-        enContents: <></>,
       },
       {
         title: '나이아신아마이드',
@@ -76,8 +176,6 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           '모발 건강에 필수적인 비타민B 복합체 중 하나로 피부의 천연 지질 (세라마이드) 장벽에 영양을 공급해 두피 활력에 도움을 줍니다.',
         enDescription:
           "One of the essential vitamin B complexes for hair health, it nourishes the skin's natural lipid (ceramide) barrier, helping to revitalize the scalp.",
-        contents: <></>,
-        enContents: <></>,
       },
       {
         title: '자연유래 추출물 12',
@@ -125,8 +223,6 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           '실리콘같이 인공 합성 성분이 아닌, 식물유래 계면활성제를 사용했습니다. 우리 피부과 유사한 약산성 pH 설계로 무너진 두피 유수분 밸런를 바로 잡아줘 자극 없이 두피와 모발을 케어해 건강한 환경을 유지하도록 도와줍니다.',
         enDescription:
           'We use plant-derived surfactants instead of synthetic ingredients like silicone. With a mild acidic pH design similar to our skin, it helps restore the oil and moisture balance of the scalp without irritation, ca ring for your scalp and hair to maintain a healthy environment.',
-        contents: <></>,
-        enContents: <></>,
       },
     ],
     thirdImage: '/images/store/product1/5.png',
@@ -140,107 +236,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
     forthText: {
       description: '두피 청정 라벤더 솔루션',
       enDescription: 'Scalp-cleansing lavender solution',
-      step: {
-        1: {
-          title: '프롬 라벤더 샴푸',
-          enTitle: 'From Lavender Shampoo',
-          router: '1',
-          content: (
-            <>
-              <p>두피에 쌓인 각질과 여러 오염 물질을</p>
-              <div className="one__line">
-                <h3>자극 없이 깨끗하게 클렌징</h3>
-                <p>해주는 두피 청정 샴푸입니다.</p>
-              </div>
-            </>
-          ),
-          enContent: (
-            <>
-              <p>
-                This scalp purifying shampoo cleanses away dead skin cells and
-                various impurities from the scalp gently and thoroughly.
-              </p>
-            </>
-          ),
-        },
-        2: {
-          title: '프롬 라벤더 트리트먼트',
-          enTitle: 'From Lavender Treatment',
-          router: '2',
-          content: (
-            <>
-              <p>
-                비타민 E와 영양소가 풍부한 식물성 오일이 샴푸 후 부스스한 모발에
-              </p>
-              <div className="one__line">
-                <h3>윤기 코팅막을 형성</h3>
-                <p>해 수분과 차분함을 더해줍니다.</p>
-              </div>
-            </>
-          ),
-          enContent: (
-            <>
-              <p>
-                Enriched with Vitamin E and nutrients, this plant-based oil
-                treatment forms a glossy coating on frizzy hair after
-                shampooing, adding moisture and smoothness.
-              </p>
-            </>
-          ),
-        },
-        3: {
-          title: '프롬 라벤더 헤어 미스트',
-          enTitle: 'From Lavender Hair Mist',
-          router: '4',
-          content: (
-            <>
-              <div className="one__line">
-                <p>산뜻한 워터 입자로 모발 사이사이에&nbsp;</p>
-                <h3>촘촘하게 영양을 공급</h3>
-                <p>해 줍니다.</p>
-              </div>
-              <p>
-                드라이 후 또는 모발이 건조할 때 수시로 사용하여 수분을 보충해
-                주세요.
-              </p>
-            </>
-          ),
-          enContent: (
-            <>
-              <p>
-                With its refreshing water-like texture, this hair oil provides
-                deep nourishment to each strand. Use it after drying or whenever
-                your hair feels dry to replenish moisture.
-              </p>
-            </>
-          ),
-        },
-        4: {
-          title: '프롬 라벤더 오일',
-          enTitle: 'From Lavender Oil',
-          router: '3',
-          content: (
-            <>
-              <div className="one__line">
-                <p>7가지 식물성 오일이&nbsp;</p>
-                <h3>수분과 영양을 모발 속 깊은 곳까지</h3>
-                <p>채워줍니다.</p>
-              </div>
-              <p>젖은 모발 또는 건조된 모발에 소량만으로도 뭉치지 않고</p>
-              <p>자연스러운 윤기를 더해줍니다.</p>
-            </>
-          ),
-          enContent: (
-            <>
-              <p>
-                Contains 7 types of vegetable oils to deliver deep moisture and
-                nutrition to hair. Just a small amount adds natural shine to wet
-                or dry hair without causing clumps.
-              </p>
-            </>
-          ),
-        },
-      },
+      step: step,
     },
   };
 
@@ -1166,9 +1162,15 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
                             .enDescription
                     }
                   />
-                  {locale === 'ko'
-                    ? dummyProductList[id - 1].secondTexts[index].contents
-                    : dummyProductList[id - 1].secondTexts[index].enContents}
+                  {dummyProductList[id - 1].secondTexts[index].contents && (
+                    <>
+                      {/* {locale === 'ko'
+                        ? dummyProductList[id - 1].secondTexts[index].contents
+                        : dummyProductList[id - 1].secondTexts[index]
+                            .enContents} */}
+                      hi
+                    </>
+                  )}
                 </div>
               </div>
             ))}
@@ -1201,46 +1203,61 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
       {id != 5 && (
         <>
           <div className="forth pc">
-            <h1>
-              {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
-            </h1>
-            <div className="container">
-              <div className="half"></div>
-              <div className="half right">
-                <h2 className="space">
-                  {locale === 'ko'
-                    ? dummyProductList[id - 1].forthText.description
-                    : dummyProductList[id - 1].forthText.enDescription}
-                </h2>
-                <div className="line" />
+            <div className="left">
+              <FullScreenImage
+                src="/images/store/4.png"
+                alt="4"
+                height="100%"
+              />
+            </div>
 
-                <div className="step__container">
-                  {Object.entries(dummyProductList[id - 1].forthText.step).map(
-                    ([key, value]) => (
-                      <StepTypography
-                        key={key}
-                        step={parseInt(key)}
-                        title={locale === 'ko' ? value.title : value.enTitle}
-                        id={value.router}
-                        content={
-                          locale === 'ko' ? value.content : value.enContent
-                        }
-                      />
-                    ),
-                  )}
-                </div>
+            <div className="right">
+              <h1>
+                {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
+              </h1>
+
+              <h2 className="space">
+                {locale === 'ko'
+                  ? dummyProductList[id - 1].forthText.description
+                  : dummyProductList[id - 1].forthText.enDescription}
+              </h2>
+
+              <div className="line" />
+
+              <div className="step__container">
+                {Object.entries(dummyProductList[id - 1].forthText.step).map(
+                  ([key, value]) => (
+                    <StepTypography
+                      key={key}
+                      step={parseInt(key)}
+                      title={locale === 'ko' ? value.title : value.enTitle}
+                      id={value.router}
+                      content={
+                        locale === 'ko' ? value.content : value.enContent
+                      }
+                    />
+                  ),
+                )}
               </div>
             </div>
           </div>
 
           <div className="forth mobile">
-            <div className="forth__top">
-              <h1>
-                {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
-              </h1>
+            <div className="top">
+              <ImageOverlayChild
+                src="/images/store/5.png"
+                width="100%"
+                height="100%"
+                top="4rem"
+                centerHorizontal
+              >
+                <h1>
+                  {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
+                </h1>
+              </ImageOverlayChild>
             </div>
 
-            <div className="forth__bottom">
+            <div className="bottom">
               <h2>
                 {locale === 'ko'
                   ? dummyProductList[id - 1].forthText.description
@@ -1364,8 +1381,6 @@ const StoreDetailStyle = styled.div<{
 
         gap: 1.25rem;
 
-        overflow-y: auto;
-
         h2 {
           color: #484036;
 
@@ -1375,11 +1390,13 @@ const StoreDetailStyle = styled.div<{
 
         h3 {
           text-align: center;
+
           max-width: 77.5rem;
 
           color: #777777;
 
-          font-size: 1.875rem;
+          font-size: 1.5rem;
+          font-family: 'NotoSansKR-Light';
         }
 
         p {
@@ -1415,27 +1432,29 @@ const StoreDetailStyle = styled.div<{
 
   .forth {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-    padding-top: 3.125rem;
+    height: auto;
 
-    background-color: #a4aeae;
-
-    h1 {
-      text-align: center;
-      color: #fff;
-      font-size: 2.5rem;
-      font-family: 'NotoSansKR-Bold';
+    .left {
+      width: 50%;
     }
 
-    .container {
-      display: flex;
+    .right {
+      width: 50%;
+      height: 100%;
 
-      padding: 3.5rem;
+      padding: 7rem;
+
+      h1 {
+        margin-bottom: 2.5rem;
+
+        color: #484036;
+        font-size: 2.5rem;
+        font-family: 'NotoSansKR-Bold';
+      }
 
       h2 {
-        color: #fff;
+        color: #484036;
         font-size: 1.875rem;
         font-family: 'NotoSansKR-Bold';
       }
@@ -1446,7 +1465,7 @@ const StoreDetailStyle = styled.div<{
 
         margin: 1.5rem 0;
 
-        background-color: #fff;
+        background-color: #484036;
       }
 
       .space {
@@ -1484,10 +1503,6 @@ const StoreDetailStyle = styled.div<{
     }
   }
 
-  .pc {
-    display: block;
-  }
-
   .mobile {
     display: none;
   }
@@ -1512,19 +1527,31 @@ const StoreDetailStyle = styled.div<{
     }
 
     .forth {
-      background-color: #484036;
+      .top {
+        height: 100vb;
 
-      .container {
-        flex-direction: column;
+        .children {
+          text-align: center;
+
+          width: 100%;
+
+          h1 {
+            margin-bottom: 2.5rem;
+
+            color: #fff;
+            font-size: 2.75rem;
+            font-family: 'NotoSansKR-Bold';
+          }
+        }
       }
 
-      .forth__bottom {
+      .bottom {
         padding: 4.625rem;
 
         background-color: #a4aeae;
 
         h2 {
-          color: #fff;
+          color: #484036;
           font-size: 1.875rem;
           font-family: 'NotoSansKR-Bold';
         }
@@ -1535,7 +1562,7 @@ const StoreDetailStyle = styled.div<{
 
           margin: 1.5rem 0;
 
-          background-color: #fff;
+          background-color: #484036;
         }
 
         .step__container {

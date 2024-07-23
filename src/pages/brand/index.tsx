@@ -11,7 +11,7 @@ const BrandPage = () => {
     <>
       <MenuButton top left />
       <FixedLogo top centerHorizontal />
-      <FixedIcon src="/images/icons/search.png" top right />
+      {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
       <SwiperComponent
         effect="fade"

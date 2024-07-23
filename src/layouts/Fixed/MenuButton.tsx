@@ -27,7 +27,7 @@ export const MenuButton = ({
   return (
     <MenuButtonStyled>
       <FixedIcon
-        src="/images/icons/menu.png"
+        src="/images/icons/menu.svg"
         top={top}
         bottom={bottom}
         left={left}

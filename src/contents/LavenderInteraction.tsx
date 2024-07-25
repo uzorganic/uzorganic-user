@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import styled from 'styled-components';
 
 export const LavenderInteraction = () => {
+  const router = useRouter();
+  const { locale } = router;
+
   const [currentSection, setCurrentSection] = useState(1);
   const [sectionCount, setSectionCount] = useState(0);
 
@@ -11,15 +16,29 @@ export const LavenderInteraction = () => {
     const scrollHandler = () => {
       const scrollY = window.scrollY;
 
-      if (scrollY < window.innerHeight) {
-        setCurrentSection(1);
+      if (window.innerWidth > 960) {
+        if (scrollY < window.innerHeight) {
+          setCurrentSection(1);
+        } else {
+          setCurrentSection(2);
+        }
       } else {
-        setCurrentSection(2);
+        if (scrollY < window.innerHeight) {
+          setCurrentSection(1);
+        } else if (scrollY < window.innerHeight * 2) {
+          setCurrentSection(2);
+        } else {
+          setCurrentSection(3);
+        }
       }
     };
 
     const sections = document.querySelectorAll('.section');
-    setSectionCount(sections.length);
+    if (window.innerWidth < 960) {
+      setSectionCount(sections.length);
+    } else {
+      setSectionCount(sections.length - 1);
+    }
 
     window.addEventListener('scroll', scrollHandler);
 
@@ -30,7 +49,7 @@ export const LavenderInteraction = () => {
 
   return (
     <LavenderInteractionStyled
-      style={{ height: `${sectionCount * 100 + 100}vh` }}
+      style={{ height: `${sectionCount * 100 + 50}vh` }}
     >
       <div className="background__image">
         <ImageOverlayChild
@@ -42,47 +61,149 @@ export const LavenderInteraction = () => {
 
       <div
         className="content"
-        style={{ height: `${sectionCount * 100 + 100}vh` }}
+        style={{ height: `${sectionCount * 100 + 50}vh` }}
       >
         <div className={`section ${currentSection === 1 ? 'in' : 'out'}`}>
           <div className="intro">
             <h1 className="fade move first">LAVENDER</h1>
-            <h2 className="fade move first">우리의 첫번째 자연,</h2>
+            <h2 className="fade move first">
+              {locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'}
+            </h2>
             <p className="fade move second">
-              저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을 추구하는
-              모든 이들과 함께합니다.
+              {locale === 'en'
+                ? 'Our journey accompanies all who seek skin health and beauty within the cycle of nature.'
+                : '저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을 추구하는 모든 이들과 함께합니다.'}
             </p>
           </div>
         </div>
 
         <div className={`section ${currentSection === 2 ? 'in' : 'out'}`}>
           <div className="last">
-            <h1 className="fade move first">자연의 힘</h1>
+            <h1 className="fade move first">
+              {locale === 'en' ? 'The Power of Nature' : '자연의 힘'}
+            </h1>
             <p className="fade move second">
-              저희는 한여름의 뜨거운 태양 아래서도 평온하게 피어나는 라벤더에서
-              강인함과 치유력을 발견했습니다.
-              <br />
-              라벤더는 지중해 지역이 원산지인 허브로, 고대 로마인들이 목욕물에
-              넣어 사용하던 것에서 이름이 유래했습니다.
-              <br />
-              수세기 동안 약용 및 미용 목적으로 널리 사용되어 왔으며, 오늘날에도
-              다양한 형태로 활용되고 있는 재료입니다.
+              {locale === 'en' ? (
+                <>
+                  We have discovered strength and healing properties in
+                  lavender, which blooms peacefully even under the scorching
+                  summer sun.
+                  <br />
+                  Lavender is an herb native to the Mediterranean region, named
+                  after the ancient Romans who used it in their bathwater.
+                  <br />
+                  For centuries, it has been widely used for medicinal and
+                  cosmetic purposes and continues to be utilized in various
+                  forms today.
+                </>
+              ) : (
+                <>
+                  저희는 한여름의 뜨거운 태양 아래서도 평온하게 피어나는
+                  라벤더에서 강인함과 치유력을 발견했습니다.
+                  <br />
+                  라벤더는 지중해 지역이 원산지인 허브로, 고대 로마인들이
+                  목욕물에 넣어 사용하던 것에서 이름이 유래했습니다.
+                  <br />
+                  수세기 동안 약용 및 미용 목적으로 널리 사용되어 왔으며,
+                  오늘날에도 다양한 형태로 활용되고 있는 재료입니다.
+                </>
+              )}
             </p>
-            <div className="fade move third item__list">
+            <div className="fade move third item__list pc">
               <div className="item">
                 <div className="ellipse" />
                 <h2>BODY / SKIN</h2>
-                <p>항염 및 항균 작용, 관절염, 근육통증 완화</p>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Anti-inflammatory and antibacterial effects,
+                      <br />
+                      relief of arthritis and muscle pain
+                    </>
+                  ) : (
+                    '항염 및 항균 작용, 관절염, 근육통증 완화'
+                  )}
+                </p>
               </div>
               <div className="item">
                 <div className="ellipse" />
                 <h2>HAIR</h2>
-                <p>두피 혈액 순환 촉진, 모발 강화 및 윤기</p>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Promotes blood circulation in the scalp,
+                      <br />
+                      strengthens hair, and adds shine{' '}
+                    </>
+                  ) : (
+                    '두피 혈액 순환 촉진, 모발 강화 및 윤기'
+                  )}
+                </p>
               </div>
               <div className="item">
                 <div className="ellipse" />
                 <h2>MIND</h2>
-                <p>심신 진정 및 기분 개선, 불면증 완화</p>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Calms the mind and body, <br />
+                      improves mood, alleviates insomnia{' '}
+                    </>
+                  ) : (
+                    '심신 진정 및 기분 개선, 불면증 완화'
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={`section ${currentSection === 3 ? 'in' : 'out'}`}>
+          <div className="final">
+            <div className="fade move third item__list">
+              <div className="item">
+                <div className="ellipse" />
+                <h2>BODY / SKIN</h2>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Anti-inflammatory and antibacterial effects,
+                      <br />
+                      relief of arthritis and muscle pain
+                    </>
+                  ) : (
+                    '항염 및 항균 작용, 관절염, 근육통증 완화'
+                  )}
+                </p>
+              </div>
+              <div className="item">
+                <div className="ellipse" />
+                <h2>HAIR</h2>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Promotes blood circulation in the scalp,
+                      <br />
+                      strengthens hair, and adds shine{' '}
+                    </>
+                  ) : (
+                    '두피 혈액 순환 촉진, 모발 강화 및 윤기'
+                  )}
+                </p>
+              </div>
+              <div className="item">
+                <div className="ellipse" />
+                <h2>MIND</h2>
+                <p>
+                  {locale === 'en' ? (
+                    <>
+                      Calms the mind and body, <br />
+                      improves mood, alleviates insomnia{' '}
+                    </>
+                  ) : (
+                    '심신 진정 및 기분 개선, 불면증 완화'
+                  )}
+                </p>
               </div>
             </div>
           </div>
@@ -94,7 +215,6 @@ export const LavenderInteraction = () => {
 
 const LavenderInteractionStyled = styled.div`
   position: relative;
-  height: 200vh;
 
   .background__image {
     position: sticky;
@@ -148,7 +268,8 @@ const LavenderInteractionStyled = styled.div`
         }
       }
 
-      .last {
+      .last,
+      .final {
         h1 {
           font-size: 2.25rem;
           font-family: 'NotoSansKR-Bold';
@@ -179,8 +300,6 @@ const LavenderInteractionStyled = styled.div`
 
             gap: 1.125rem;
 
-            margin-bottom: 3.125rem;
-
             h2 {
               font-size: 1.875rem;
               font-family: 'NotoSansKR-Bold';
@@ -193,6 +312,21 @@ const LavenderInteractionStyled = styled.div`
               border-radius: 50%;
               background-color: white;
             }
+          }
+        }
+
+        @media (max-width: 960px) {
+          padding: 0 7.75rem;
+
+          .item__list {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              margin: 0;
+            }
+
+            gap: 4.875rem;
           }
         }
       }
@@ -212,17 +346,21 @@ const LavenderInteractionStyled = styled.div`
             moveIn 1s forwards;
 
           &.first {
-            animation-delay: 0.3s;
+            /* animation-delay: 0.3s; */
           }
 
           &.second {
-            animation-delay: 0.6s;
+            animation-delay: 0.3s;
           }
 
           &.third {
-            animation-delay: 1.2s;
+            animation-delay: 0.8s;
           }
         }
+      }
+
+      &.out {
+        display: none;
       }
     }
   }
@@ -248,6 +386,16 @@ const LavenderInteractionStyled = styled.div`
   @keyframes moveOut {
     to {
       transform: translateY(3.125rem);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .section {
+      &.in {
+        .item__list.pc {
+          display: none;
+        }
+      }
     }
   }
 `;

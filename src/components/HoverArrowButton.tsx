@@ -6,11 +6,13 @@ interface Props {
   text: string;
 
   width?: string;
+
+  onClick?: () => void;
 }
 
-export const HoverArrowButton = ({ text, width }: Props) => {
+export const HoverArrowButton = ({ text, width, onClick }: Props) => {
   return (
-    <HoverArrowButtonStyled width={width}>
+    <HoverArrowButtonStyled width={width} onClick={onClick}>
       <p>{text} </p>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">

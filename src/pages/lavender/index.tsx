@@ -16,7 +16,6 @@ const LavenderPage = () => {
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
       <LavenderInteraction />
-
       <LavenderDescription />
 
       <Version1Footer />

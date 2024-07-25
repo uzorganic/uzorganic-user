@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Instagram from '@/assets/images/icons/instagram.svg';
-import Telegram from '@/assets/images/icons/telegram.svg';
+import Mail from '@/assets/images/icons/mail.svg';
 import Youtube from '@/assets/images/icons/youtube.svg';
 
 import styled from 'styled-components';
@@ -31,11 +31,11 @@ export const SnsList = ({
   return (
     <SnsListStyled $color={color} $hoverColor={hoverColor} $gap={gap}>
       <div
-        className={`icon ${hoveredIcon === 'telegram' ? 'hover' : ''}`}
-        onMouseEnter={() => handleMouseEnter('telegram')}
+        className={`icon ${hoveredIcon === 'mail' ? 'hover' : ''}`}
+        onMouseEnter={() => handleMouseEnter('mail')}
         onMouseLeave={handleMouseLeave}
       >
-        <Telegram />
+        <Mail />
       </div>
 
       <div

@@ -25,6 +25,22 @@ export const Version1Footer = () => {
       <div className="logo">
         <FullScreenImage src="/images/logo/logo.svg" alt="logo" height="100%" />
       </div>
+
+      <div
+        className="go__top"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }}
+      >
+        <ImageOverlayChild
+          src="/images/footer/arrow_forward.svg"
+          width="2.25rem"
+          height="7.75rem"
+        />
+      </div>
     </FooterStyled>
   );
 };
@@ -83,5 +99,14 @@ const FooterStyled = styled.footer`
 
       object-fit: contain;
     }
+  }
+
+  .go__top {
+    position: absolute;
+
+    top: 2.25rem;
+    right: 2.5rem;
+
+    cursor: pointer;
   }
 `;

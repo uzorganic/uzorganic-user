@@ -13,6 +13,7 @@ import { YoutubeFilled } from '@ant-design/icons';
 const Home = () => {
   const router = useRouter();
   const { locale } = router;
+
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -43,7 +44,12 @@ const Home = () => {
         description={
           locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'
         }
-        buttonComponent={<HoverArrowButton text="보러가기" />}
+        buttonComponent={
+          <HoverArrowButton
+            text={locale === 'en' ? 'Go to see' : '보러가기'}
+            onClick={() => router.push('/lavender')}
+          />
+        }
       />
 
       <CenterTitleAndButton

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -17,6 +17,29 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   const { locale } = router;
 
   const [active, setActive] = useState(0);
+
+  const [iShow, setIShow] = useState(false);
+  console.log(iShow);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const contentTop = document
+        .querySelector('.content')
+        ?.getBoundingClientRect().top;
+
+      if (contentTop && contentTop < headerHeight!) {
+        setIShow(true);
+      } else {
+        setIShow(false);
+      }
+    };
+
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, [headerHeight]);
 
   const dummyCategory1 = {
     img: '/images/store/1.png',
@@ -92,7 +115,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
             <ImageWithOverlay
               img={dummyCategoryList[active].img}
               leftTop={
-                <div className="banner__text">
+                <div className={`banner__text ${iShow ? 'show' : ''}`}>
                   <p className="title">
                     {locale === 'ko'
                       ? dummyCategoryList[active].title
@@ -172,6 +195,8 @@ const StoreLayoutStyle = styled.div<{
 
           padding: 1.25rem 2.5rem;
 
+          opacity: 0;
+
           color: #fff;
 
           .title {
@@ -183,6 +208,12 @@ const StoreLayoutStyle = styled.div<{
           .description {
             font-size: 1.25rem;
           }
+        }
+
+        .show {
+          opacity: 1;
+
+          transition: opacity 0.5s;
         }
       }
     }

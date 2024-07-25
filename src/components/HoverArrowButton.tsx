@@ -6,13 +6,27 @@ interface Props {
   text: string;
 
   width?: string;
+  color?: string;
 
   onClick?: () => void;
+
+  className?: string;
 }
 
-export const HoverArrowButton = ({ text, width, onClick }: Props) => {
+export const HoverArrowButton = ({
+  text,
+  width,
+  color = '#fff',
+  onClick,
+  className,
+}: Props) => {
   return (
-    <HoverArrowButtonStyled width={width} onClick={onClick}>
+    <HoverArrowButtonStyled
+      className={className}
+      width={width}
+      $color={color}
+      onClick={onClick}
+    >
       <p>{text} </p>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
@@ -24,7 +38,7 @@ export const HoverArrowButton = ({ text, width, onClick }: Props) => {
   );
 };
 
-const HoverArrowButtonStyled = styled.div<{ width?: string }>`
+const HoverArrowButtonStyled = styled.div<{ width?: string; $color: string }>`
   position: relative;
 
   display: inline-block;
@@ -33,12 +47,12 @@ const HoverArrowButtonStyled = styled.div<{ width?: string }>`
 
   cursor: pointer;
 
-  border: 0.125rem solid #fff;
+  border: 0.125rem solid ${({ $color }) => $color};
 
   padding: 1rem 5rem;
 
   p {
-    color: #fff;
+    color: ${({ $color }) => $color};
     font-size: 1.5rem;
   }
 
@@ -48,7 +62,7 @@ const HoverArrowButtonStyled = styled.div<{ width?: string }>`
     right: 1.5rem;
     transform: translateY(-50%);
 
-    color: #fff;
+    color: ${({ $color }) => $color};
     font-size: 1.5rem;
   }
 
@@ -59,7 +73,7 @@ const HoverArrowButtonStyled = styled.div<{ width?: string }>`
 
   &:hover {
     border: 0.125rem solid transparent;
-    border-bottom: 0.125rem solid #fff;
+    border-bottom: 0.125rem solid ${({ $color }) => $color};
 
     .standard__arrow__button {
       display: none;

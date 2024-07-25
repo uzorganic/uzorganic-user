@@ -68,12 +68,21 @@ const FixedLanguageStyled = styled.div<{
       img {
         filter: ${({ $invert }) => ($invert ? 'invert(1)' : 'none')};
       }
+
+      @media (max-width: 960px) {
+        width: 3rem;
+        height: 3rem;
+      }
     }
 
     .language {
       color: ${({ $invert }) => ($invert ? '#000' : '#fff')};
       font-size: 0.875rem;
       font-family: 'NotoSansKR-Medium';
+
+      @media (max-width: 960px) {
+        font-size: 1.75rem;
+      }
     }
   }
 `;

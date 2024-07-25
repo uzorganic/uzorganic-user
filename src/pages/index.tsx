@@ -20,8 +20,8 @@ const Home = () => {
     <>
       <FractionSwiper effect="fade">
         <FullScreenImage src="/images/main/1.png" alt="1" />
-        <FullScreenImage src="/images/main/2.png" alt="2" />
-        <FullScreenImage src="/images/main/3.png" alt="3" />
+        <FullScreenImage src="/images/main/2.jpg" alt="2" />
+        <FullScreenImage src="/images/main/3.jpg" alt="3" />
       </FractionSwiper>
 
       {/* <CenterTitleAndButton
@@ -39,7 +39,7 @@ const Home = () => {
       /> */}
 
       <CenterTitleAndButton
-        imageSrc="/images/main/9.png"
+        imageSrc="/images/main/9.jpg"
         title="LAVENDER"
         description={
           locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'

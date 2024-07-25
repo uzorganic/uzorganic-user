@@ -27,6 +27,7 @@ export const MenuButton = ({
   return (
     <MenuButtonStyled>
       <FixedIcon
+        className="menu__button"
         src="/images/icons/menu.svg"
         top={top}
         bottom={bottom}
@@ -43,4 +44,13 @@ export const MenuButton = ({
   );
 };
 
-const MenuButtonStyled = styled.div``;
+const MenuButtonStyled = styled.div`
+  @media (max-width: 960px) {
+    .menu__button {
+      .icon {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+  }
+`;

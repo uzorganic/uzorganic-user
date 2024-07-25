@@ -21,7 +21,7 @@ const BrandPage = () => {
         paginationType="custom"
       >
         <ImageOverlayChild
-          src="/images/brand/1.png"
+          src="/images/brand/1.jpg"
           width="100%"
           height="100vh"
           centerVertical
@@ -45,37 +45,37 @@ const BrandPage = () => {
           </div>
         </ImageOverlayChild>
         <ImageOverlayChild
-          src="/images/brand/2.png"
+          src="/images/brand/2.jpg"
           width="100%"
-          height="100vh"
+          height="100dvh"
           centerVertical
           centerHorizontal
         ></ImageOverlayChild>
         <ImageOverlayChild
-          src="/images/brand/3.png"
+          src="/images/brand/3.jpg"
           width="100%"
-          height="100vh"
+          height="100dvh"
           centerVertical
           centerHorizontal
         ></ImageOverlayChild>
         <ImageOverlayChild
-          src="/images/brand/4.png"
+          src="/images/brand/4.jpg"
           width="100%"
-          height="100vh"
+          height="100dvh"
           centerVertical
           centerHorizontal
         ></ImageOverlayChild>
         <ImageOverlayChild
-          src="/images/brand/5.png"
+          src="/images/brand/5.jpg"
           width="100%"
-          height="100vh"
+          height="100dvh"
           centerVertical
           centerHorizontal
         ></ImageOverlayChild>
         <ImageOverlayChild
           src="/images/brand/6.png"
           width="100%"
-          height="100vh"
+          height="100dvh"
           centerVertical
           centerHorizontal
         ></ImageOverlayChild>

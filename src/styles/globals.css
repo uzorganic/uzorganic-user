@@ -4,7 +4,7 @@
 
   box-sizing: border-box;
 
-  font-family: 'NotosansKR-Regular', sans-serif;
+  font-family: 'NotoSansKR-Light', sans-serif;
 
   &::-webkit-scrollbar-thumb {
     background-color: #f1f1f1;

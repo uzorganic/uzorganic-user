@@ -11,6 +11,7 @@ export const LavenderDescription = () => {
     <LavenderDescriptionStyled>
       <div className="right">
         <ImageOverlayChild
+          className="description__image"
           src="/images/lavender/1.png"
           width="100%"
           height="100vh"
@@ -97,6 +98,40 @@ const LavenderDescriptionStyled = styled.div`
       margin: 0;
 
       margin-top: 3.75rem;
+    }
+  }
+
+  @media (max-width: 960px) {
+    display: block;
+    height: auto;
+
+    .right {
+      width: 100%;
+
+      .description__image {
+        height: 50vh;
+      }
+    }
+
+    .left {
+      width: 100%;
+      height: 50vh;
+
+      padding: 0 5rem;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+
+        margin-top: 2.5rem;
+      }
     }
   }
 `;

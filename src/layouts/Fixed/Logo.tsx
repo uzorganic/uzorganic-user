@@ -11,6 +11,8 @@ interface Props {
   right?: boolean;
   centerVertical?: boolean;
   centerHorizontal?: boolean;
+
+  className?: string;
 }
 
 export const FixedLogo = ({
@@ -20,12 +22,15 @@ export const FixedLogo = ({
   right = false,
   centerVertical = false,
   centerHorizontal = false,
+
+  className,
 }: Props) => {
   const router = useRouter();
 
   return (
     <FixedLogoStyled>
       <FixedIcon
+        className={className}
         src="/images/logo/logo.svg"
         top={top}
         bottom={bottom}
@@ -43,4 +48,11 @@ export const FixedLogo = ({
 
 const FixedLogoStyled = styled.div`
   cursor: pointer;
+
+  @media (max-width: 960px) {
+    .icon {
+      width: 29.25rem;
+      height: 3rem;
+    }
+  }
 `;

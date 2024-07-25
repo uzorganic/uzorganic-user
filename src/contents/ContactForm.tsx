@@ -113,6 +113,7 @@ const ContactFormStyled = styled.div`
     .title {
       color: #fff;
       font-size: 5rem;
+      font-family: 'NotoSansKR-Bold';
 
       margin-bottom: 5rem;
     }

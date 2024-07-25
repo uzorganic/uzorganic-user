@@ -13,6 +13,9 @@ export const FixedTextMenu = () => {
       </p>
       {/* <p onClick={() => router.push('/store/1')}>갤러리</p>
       <p onClick={() => router.push('/brand')}>브랜드</p> */}
+      <p onClick={() => router.push('/lavender')}>
+        {locale === 'en' ? 'LAVENDER' : '라벤더'}
+      </p>
       <p onClick={() => router.push('/contact')}>
         {locale === 'en' ? 'CONTACT US' : '문의하기'}
       </p>
@@ -25,6 +28,10 @@ const FixedTextMenuStyled = styled.div`
   top: calc(var(--fixed-padding) + 2rem + 1.875rem);
   left: var(--fixed-padding);
 
+  @media (max-width: 960px) {
+    top: calc(var(--fixed-padding) + 3rem + 1.875rem);
+  }
+
   z-index: 10;
 
   display: flex;
@@ -35,6 +42,11 @@ const FixedTextMenuStyled = styled.div`
   p {
     color: #fff;
     font-size: 1.5rem;
+
+    @media (max-width: 960px) {
+      font-size: 2rem;
+      font-family: 'NotoSansKR-Medium';
+    }
 
     cursor: pointer;
   }

@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -14,6 +16,22 @@ const BrandPage = () => {
   const router = useRouter();
   const { locale } = router;
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 960);
+  };
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <BrandPageStyled>
       <MenuButton top left />
@@ -28,7 +46,7 @@ const BrandPage = () => {
         navigation
       >
         <ImageOverlayChild
-          src="/images/brand/1.jpg"
+          src={isMobile ? '/images/brand/mb_1.jpg' : '/images/brand/1.jpg'}
           width="100%"
           height="100vh"
           centerVertical
@@ -44,9 +62,9 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src="/images/brand/2.jpg"
+          src={isMobile ? '/images/brand/mb_2.jpg' : '/images/brand/2.jpg'}
           width="100%"
-          height="100dvh"
+          height="100vh"
           className="second"
         >
           <div className="text__container">
@@ -68,14 +86,11 @@ const BrandPage = () => {
               ) : (
                 <>
                   아임 오가닉은 자연의 힘으로 피부 건강을 책임지는 유기농 오일
-                  및 천연 제품을 제조하는 기업입니다.
-                  <br />
+                  및 천연 제품을 제조하는 기업입니다. <br />
                   저희의 이야기는 자연을 존중하고 자연의 시간을 따르는 깊은
-                  철학에서 시작됩니다.
-                  <br />
+                  철학에서 시작됩니다. <br />
                   자연이 제공하는 최고의 선물을 담아내기 위해 최선을 다하고
-                  있으며,
-                  <br />
+                  있으며, <br />
                   이는 저희의 모든 제품에 고스란히 반영되어 있습니다.
                 </>
               )}
@@ -86,9 +101,9 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src="/images/brand/3.jpg"
+          src={isMobile ? '/images/brand/mb_3.jpg' : '/images/brand/3.jpg'}
           width="100%"
-          height="100dvh"
+          height="100vh"
           className="second"
         >
           <div className="text__container">
@@ -111,17 +126,13 @@ const BrandPage = () => {
               ) : (
                 <>
                   자연이 가진 힘을 믿고 존중하는 아임 오가닉은 합성 방부제를
-                  철저히 배제하고,
-                  <br />
+                  철저히 배제하고, <br />
                   자연에서 얻은 최고 품질의 재료들만을 사용하여 제품을
-                  처방합니다.
-                  <br />
+                  처방합니다. <br />
                   이러한 접근 방식은 피부에 순하면서도 효과적인 제품을 만들어
-                  내는 저희의 핵심 원칙입니다.
-                  <br />
+                  내는 저희의 핵심 원칙입니다. <br />
                   저희는 고객의 피부가 본연의 건강함을 되찾고 유지할 수 있도록
-                  돕기 위해
-                  <br />
+                  돕기 위해 <br />
                   끊임없이 연구하고 노력하겠습니다.
                 </>
               )}
@@ -132,9 +143,9 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src="/images/brand/4.jpg"
+          src={isMobile ? '/images/brand/mb_4.jpg' : '/images/brand/4.jpg'}
           width="100%"
-          height="100dvh"
+          height="100vh"
           className="third"
         >
           <div className="third__item">
@@ -151,8 +162,7 @@ const BrandPage = () => {
                   'Ethical Certification and Sustainable Development'
                 ) : (
                   <>
-                    윤리적 인증과
-                    <br />
+                    윤리적 인증과 <br />
                     지속 가능한 발전
                   </>
                 )}
@@ -168,13 +178,11 @@ const BrandPage = () => {
                   </>
                 ) : (
                   <>
-                    아임 오가닉은 유기농, 비건 및 할랄 인증을 받은 제품으로,
+                    아임 오가닉은 유기농, 비건 및 할랄 인증을 받은 제품으로,{' '}
                     <br />
-                    윤리적이고 지속 가능한 가치를 실현하고 있습니다.
-                    <br />
+                    윤리적이고 지속 가능한 가치를 실현하고 있습니다. <br />
                     저희는 동물 실험을 하지 않으며, 동물성 성분을 사용하지 않는
-                    것을
-                    <br />
+                    것을 <br />
                     원칙으로 삼아 환경을 보호하고 모든 생명체의 권리를 존중하고
                     있습니다.
                   </>
@@ -186,9 +194,9 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src="/images/brand/5.jpg"
+          src={isMobile ? '/images/brand/mb_5.jpg' : '/images/brand/5.jpg'}
           width="100%"
-          height="100dvh"
+          height="100vh"
           centerVertical
           centerHorizontal
           className="forth"
@@ -205,8 +213,7 @@ const BrandPage = () => {
                   Our partnership with MEHRIGIYO in Uzbekistan is a key pillar
                   of I&apos;m Organic. By strengthening our skincare product
                   line with MEHRIGIYO&rsquo;s healthy organic ingredients, we
-                  develop exceptional products using superior technology.
-                  <br />
+                  develop exceptional products using superior technology. <br />{' '}
                   <br />
                   Additionally, we promote sustainable development through
                   collaboration with local communities. We promise to continue
@@ -215,17 +222,12 @@ const BrandPage = () => {
               ) : (
                 <>
                   우즈베키스탄의 MEHRIGIYO 회사와의 파트너십은 아임 오가닉의
-                  중요한 축입니다.
-                  <br />
+                  중요한 축입니다. <br />
                   MEHRIGIYO의 건강한 유기농 원료로 스킨케어 제품 라인을
-                  강화하고,
-                  <br />
-                  우수한 기술로 뛰어난 제품을 개발하고 있습니다.
-                  <br />
-                  <br />
+                  강화하고, <br />
+                  우수한 기술로 뛰어난 제품을 개발하고 있습니다. <br /> <br />
                   또한, 지역 사회와의 협력을 통해 지속 가능한 개발을 촉진하고
-                  있으며,
-                  <br />
+                  있으며, <br />
                   앞으로도 지속적으로 새로운 제품을 개발하여 고객에게 제공할
                   것을 약속합니다.
                 </>
@@ -237,9 +239,9 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src="/images/brand/6.png"
+          src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
           width="100%"
-          height="100dvh"
+          height="100vh"
           centerVertical
           centerHorizontal
           className="fifth"
@@ -257,11 +259,46 @@ const BrandPage = () => {
             ) : (
               <>
                 아임 오가닉은 단순히 제품을 만드는 것을 넘어, 자연과 사람
-                모두에게 이로운 가치를 실현하는 기업입니다.
-                <br />
+                모두에게 이로운 가치를 실현하는 기업입니다. <br />
                 저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을
-                추구하는 모든 이들과 함께합니다.
-                <br />
+                추구하는 모든 이들과 함께합니다. <br />
+                아임 오가닉과 함께 자연의 선물을 경험하고, 건강한 피부로 빛나는
+                하루를 만나보세요.
+              </>
+            )}
+          </div>
+          <ImageOverlayChild
+            src="/images/logo/logo.svg"
+            width="46.875rem"
+            height="4.875rem"
+          />
+        </ImageOverlayChild>
+
+        <ImageOverlayChild
+          src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
+          width="100%"
+          height="100vh"
+          centerVertical
+          centerHorizontal
+          className="fifth"
+          key={'fifth'}
+        >
+          <div className="description">
+            {locale === 'en' ? (
+              <>
+                I&apos;m Organic is a company that goes beyond simply making
+                products, realizing values that are beneficial to both nature
+                and people. Our journey is with all who seek skin health and
+                beauty within the cycle of nature. Experience nature&apos;s
+                gifts with I&apos;m Organic and enjoy radiant days with healthy
+                skin.
+              </>
+            ) : (
+              <>
+                아임 오가닉은 단순히 제품을 만드는 것을 넘어, 자연과 사람
+                모두에게 이로운 가치를 실현하는 기업입니다. <br />
+                저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을
+                추구하는 모든 이들과 함께합니다. <br />
                 아임 오가닉과 함께 자연의 선물을 경험하고, 건강한 피부로 빛나는
                 하루를 만나보세요.
               </>
@@ -344,6 +381,9 @@ const BrandPageStyled = styled.div`
         font-family: 'NotoSansKR-Medium';
 
         @media (max-width: 960px) {
+          br {
+            display: none;
+          }
           width: 53rem;
         }
       }
@@ -385,6 +425,25 @@ const BrandPageStyled = styled.div`
         width: 50%;
         height: 100%;
       }
+
+      @media (max-width: 960px) {
+        flex-direction: column;
+
+        .left {
+          width: 100%;
+          height: 50%;
+          padding-top: 15rem;
+        }
+
+        .right {
+          width: 100%;
+          height: 50%;
+
+          padding: 0 2.5rem;
+
+          gap: 1.875rem;
+        }
+      }
     }
   }
 
@@ -409,6 +468,21 @@ const BrandPageStyled = styled.div`
 
         color: #fff;
         font-family: 'NotoSansKR-Medium';
+
+        @media (max-width: 960px) {
+          br {
+            display: none;
+          }
+
+          .title {
+            font-size: 4.5rem;
+          }
+
+          right: 0;
+
+          width: 100%;
+          padding: 0 2.5rem;
+        }
       }
     }
   }
@@ -430,6 +504,14 @@ const BrandPageStyled = styled.div`
         color: #fff;
         text-align: center;
         line-height: 5rem;
+      }
+
+      @media (max-width: 960px) {
+        padding: 0 2.5rem;
+
+        br {
+          display: none;
+        }
       }
     }
   }

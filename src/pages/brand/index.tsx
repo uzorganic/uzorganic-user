@@ -150,11 +150,13 @@ const BrandPage = () => {
         >
           <div className="third__item">
             <div className="left">
-              <ImageOverlayChild
-                src="/images/brand/7.png"
-                width="37.25rem"
-                height="29.25rem"
-              />
+              {isMobile || (
+                <ImageOverlayChild
+                  src="/images/brand/7.png"
+                  width="37.25rem"
+                  height="29.25rem"
+                />
+              )}
             </div>
             <div className="right">
               <h1 className="title">

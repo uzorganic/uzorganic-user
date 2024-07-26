@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
 import styled from 'styled-components';
 import 'swiper/css';
@@ -13,7 +13,6 @@ import {
   Navigation,
   Pagination,
 } from 'swiper/modules';
-import { SwiperOptions } from 'swiper/types';
 
 interface Props {
   children: React.ReactNode[] | React.ReactNode;
@@ -34,7 +33,7 @@ interface Props {
   paginationType?: 'bullets' | 'fraction' | 'progressbar' | 'custom';
   customPagination?: string;
 
-  options?: SwiperOptions;
+  options?: SwiperProps;
 
   className?: string;
 }
@@ -63,48 +62,63 @@ export const SwiperComponent = ({
   className,
 }: Props) => {
   return (
-    <Swiper
-      modules={[Autoplay, EffectFade, Mousewheel, Navigation, Pagination]}
-      loop={loop}
-      autoplay={autoplay ? { delay: duration } : false}
-      effect={effect}
-      mousewheel={mousewheel}
-      direction={direction}
-      navigation={
-        navigation
-          ? {
-              nextEl: '.next__button',
-              prevEl: '.prev__button',
-            }
-          : false
-      }
-      pagination={
-        pagination
-          ? {
-              clickable: true,
-              type: paginationType,
-              renderCustom: (swiper, current, total) => {
-                return customPagination
-                  ? customPagination
-                  : `
-                      <span class="swiper-pagination-current">${current}</span>
-                    `;
-              },
-            }
-          : false
-      }
-      {...options}
-      className={className}
-    >
-      {Array.isArray(children) ? (
-        children.map((child, index) => (
-          <SwiperSlide key={index}>{child}</SwiperSlide>
-        ))
-      ) : (
-        <SwiperSlide>{children}</SwiperSlide>
-      )}
-    </Swiper>
+    <SwiperComponentStyled>
+      <Swiper
+        modules={[Autoplay, EffectFade, Mousewheel, Navigation, Pagination]}
+        slidesPerView={'auto'}
+        autoHeight={true}
+        loop={loop}
+        autoplay={autoplay ? { delay: duration } : false}
+        effect={effect}
+        mousewheel={
+          mousewheel
+            ? {
+                releaseOnEdges: true,
+                thresholdDelta: 10,
+              }
+            : false
+        }
+        direction={direction}
+        navigation={
+          navigation
+            ? {
+                nextEl: '.next__button',
+                prevEl: '.prev__button',
+              }
+            : false
+        }
+        pagination={
+          pagination
+            ? {
+                clickable: true,
+                type: paginationType,
+                renderCustom: (swiper, current, total) => {
+                  return customPagination
+                    ? customPagination
+                    : `
+            <span class="swiper-pagination-current">${current}</span>
+            `;
+                },
+              }
+            : false
+        }
+        {...options}
+        className={className}
+      >
+        {Array.isArray(children) ? (
+          children.map((child, index) => (
+            <SwiperSlide key={index}>{child}</SwiperSlide>
+          ))
+        ) : (
+          <SwiperSlide>{children}</SwiperSlide>
+        )}
+      </Swiper>
+    </SwiperComponentStyled>
   );
 };
 
-const SwiperComponentStyled = styled.div``;
+const SwiperComponentStyled = styled.div`
+  .swiper-slide {
+    height: 100%;
+  }
+`;

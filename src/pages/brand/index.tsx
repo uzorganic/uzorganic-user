@@ -7,6 +7,7 @@ import { FixedIcon } from '@/layouts/Fixed/Icon';
 import { FixedLanguage } from '@/layouts/Fixed/Language';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
+import { Version1Footer } from '@/layouts/Footer/Version1';
 import styled from 'styled-components';
 
 const BrandPage = () => {
@@ -20,30 +21,35 @@ const BrandPage = () => {
       <FixedLanguage top right />
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
-      <SwiperComponent effect="fade" mousewheel direction="horizontal">
+      <SwiperComponent
+        effect="fade"
+        mousewheel
+        direction="horizontal"
+        navigation
+      >
         <ImageOverlayChild
           src="/images/brand/1.jpg"
           width="100%"
           height="100vh"
           centerVertical
           centerHorizontal
+          className="first"
         >
-          <div className="first">
-            <ImageOverlayChild
-              src="/images/logo/logo.svg"
-              width="46.875rem"
-              height="4.875rem"
-            />
-          </div>
+          <ImageOverlayChild
+            src="/images/logo/logo.svg"
+            width="46.875rem"
+            height="4.875rem"
+          />
+          <div className="next__button">→</div>
         </ImageOverlayChild>
+
         <ImageOverlayChild
           src="/images/brand/2.jpg"
           width="100%"
           height="100dvh"
-          right={'3.75rem'}
-          bottom={'11.25rem'}
+          className="second"
         >
-          <div className="second">
+          <div className="text__container">
             <h1 className="title">
               {locale === 'en'
                 ? "I'm Organic's Philosophy"
@@ -75,15 +81,17 @@ const BrandPage = () => {
               )}
             </p>
           </div>
+
+          <div className="next__button">→</div>
         </ImageOverlayChild>
+
         <ImageOverlayChild
           src="/images/brand/3.jpg"
           width="100%"
           height="100dvh"
-          right={'3.75rem'}
-          bottom={'11.25rem'}
+          className="second"
         >
-          <div className="second">
+          <div className="text__container">
             <h1 className="title">
               {locale === 'en'
                 ? 'Product Quality and Reliability'
@@ -119,7 +127,10 @@ const BrandPage = () => {
               )}
             </p>
           </div>
+
+          <div className="next__button">→</div>
         </ImageOverlayChild>
+
         <ImageOverlayChild
           src="/images/brand/4.jpg"
           width="100%"
@@ -170,28 +181,120 @@ const BrandPage = () => {
                 )}
               </p>
             </div>
+            <div className="next__button">→</div>
           </div>
         </ImageOverlayChild>
+
         <ImageOverlayChild
           src="/images/brand/5.jpg"
           width="100%"
           height="100dvh"
           centerVertical
           centerHorizontal
-        ></ImageOverlayChild>
+          className="forth"
+        >
+          <div className="text__container">
+            <h1 className="title">
+              {locale === 'en'
+                ? 'Partnership with MEHRIGIYO'
+                : 'MEHRIGIYO와의 파트너십'}
+            </h1>
+            <p className="description">
+              {locale === 'en' ? (
+                <>
+                  Our partnership with MEHRIGIYO in Uzbekistan is a key pillar
+                  of I&apos;m Organic. By strengthening our skincare product
+                  line with MEHRIGIYO&rsquo;s healthy organic ingredients, we
+                  develop exceptional products using superior technology.
+                  <br />
+                  <br />
+                  Additionally, we promote sustainable development through
+                  collaboration with local communities. We promise to continue
+                  developing new products to offer to our customers.
+                </>
+              ) : (
+                <>
+                  우즈베키스탄의 MEHRIGIYO 회사와의 파트너십은 아임 오가닉의
+                  중요한 축입니다.
+                  <br />
+                  MEHRIGIYO의 건강한 유기농 원료로 스킨케어 제품 라인을
+                  강화하고,
+                  <br />
+                  우수한 기술로 뛰어난 제품을 개발하고 있습니다.
+                  <br />
+                  <br />
+                  또한, 지역 사회와의 협력을 통해 지속 가능한 개발을 촉진하고
+                  있으며,
+                  <br />
+                  앞으로도 지속적으로 새로운 제품을 개발하여 고객에게 제공할
+                  것을 약속합니다.
+                </>
+              )}
+            </p>
+          </div>
+
+          <div className="next__button">→</div>
+        </ImageOverlayChild>
+
         <ImageOverlayChild
           src="/images/brand/6.png"
           width="100%"
           height="100dvh"
           centerVertical
           centerHorizontal
-        ></ImageOverlayChild>
+          className="fifth"
+        >
+          <div className="description">
+            {locale === 'en' ? (
+              <>
+                I&apos;m Organic is a company that goes beyond simply making
+                products, realizing values that are beneficial to both nature
+                and people. Our journey is with all who seek skin health and
+                beauty within the cycle of nature. Experience nature&apos;s
+                gifts with I&apos;m Organic and enjoy radiant days with healthy
+                skin.
+              </>
+            ) : (
+              <>
+                아임 오가닉은 단순히 제품을 만드는 것을 넘어, 자연과 사람
+                모두에게 이로운 가치를 실현하는 기업입니다.
+                <br />
+                저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을
+                추구하는 모든 이들과 함께합니다.
+                <br />
+                아임 오가닉과 함께 자연의 선물을 경험하고, 건강한 피부로 빛나는
+                하루를 만나보세요.
+              </>
+            )}
+          </div>
+          <ImageOverlayChild
+            src="/images/logo/logo.svg"
+            width="46.875rem"
+            height="4.875rem"
+          />
+        </ImageOverlayChild>
       </SwiperComponent>
+
+      <Version1Footer />
     </BrandPageStyled>
   );
 };
 
 const BrandPageStyled = styled.div`
+  .next__button {
+    position: absolute;
+    right: 6.25rem;
+    bottom: 5rem;
+
+    color: #fff;
+    z-index: 100;
+
+    font-size: 3.75rem;
+    font-family: 'NotoSansKR-Medium';
+
+    cursor: pointer;
+  }
+
   .title {
     font-size: 4.75rem;
   }
@@ -205,26 +308,45 @@ const BrandPageStyled = styled.div`
   }
 
   .first {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    .children {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .second {
-    display: flex;
-    flex-direction: column;
+    .children {
+      position: relative;
 
-    width: 73rem;
+      height: 100%;
 
-    gap: 3.75rem;
+      .text__container {
+        position: absolute;
+        right: 3.75rem;
+        bottom: 11.25rem;
 
-    color: #fff;
-    font-family: 'NotoSansKR-Medium';
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-    @media (max-width: 960px) {
-      width: 53rem;
+        gap: 3.75rem;
+
+        width: 73rem;
+
+        color: #fff;
+        font-family: 'NotoSansKR-Medium';
+
+        @media (max-width: 960px) {
+          width: 53rem;
+        }
+      }
     }
   }
 
@@ -262,6 +384,52 @@ const BrandPageStyled = styled.div`
 
         width: 50%;
         height: 100%;
+      }
+    }
+  }
+
+  .forth {
+    .children {
+      position: relative;
+
+      height: 100%;
+
+      .text__container {
+        position: absolute;
+        right: 5rem;
+        bottom: 19.375rem;
+
+        width: 73rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 3.75rem;
+
+        color: #fff;
+        font-family: 'NotoSansKR-Medium';
+      }
+    }
+  }
+
+  .fifth {
+    .children {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      gap: 2.5rem;
+
+      height: 100%;
+
+      .description {
+        color: #fff;
+        text-align: center;
+        line-height: 5rem;
       }
     }
   }

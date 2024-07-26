@@ -1,4 +1,3 @@
-import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { LavenderDescription } from '@/contents/LavenderDescription';
 import { LavenderInteraction } from '@/contents/LavenderInteraction';
 import { FixedIcon } from '@/layouts/Fixed/Icon';

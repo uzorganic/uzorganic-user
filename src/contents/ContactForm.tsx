@@ -13,7 +13,7 @@ export const ContactForm = () => {
 
   return (
     <ContactFormStyled>
-      <Image src="/images/main/5.png" alt="5" fill sizes="100%" priority />
+      <Image src="/images/main/5.jpg" alt="5" fill sizes="100%" priority />
 
       <div className="center">
         <h1 className="title">

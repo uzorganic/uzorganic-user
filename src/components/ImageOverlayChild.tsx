@@ -89,16 +89,19 @@ const ImageOverlayChildStyled = styled.div<{
   .children {
     position: absolute;
 
-    width: 100%;
+    /* width: 100%; */
 
     top: ${({ $top }) => $top};
     bottom: ${({ $bottom }) => $bottom};
     left: ${({ $left }) => $left};
     right: ${({ $right }) => $right};
 
-    ${({ $centerVertical }) =>
-      $centerVertical && 'top: 50%; transform: translateY(-50%);'}
-    ${({ $centerHorizontal }) =>
-      $centerHorizontal && 'left: 50%; transform: translateX(-50%);'}
+    ${({ $centerVertical }) => $centerVertical && 'top: 50%;'}
+    ${({ $centerHorizontal }) => $centerHorizontal && 'left: 50%;'}
+
+    ${({ $centerVertical, $centerHorizontal }) =>
+      $centerVertical &&
+      $centerHorizontal &&
+      'transform: translate(-50%, -50%);'}
   }
 `;

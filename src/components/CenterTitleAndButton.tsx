@@ -4,9 +4,11 @@ import styled from 'styled-components';
 
 interface Props {
   imageSrc: string;
-  title: string;
-  description: string;
+  title: string | React.ReactNode;
+  description: string | React.ReactNode;
   buttonComponent: React.ReactNode;
+
+  className?: string;
 }
 
 export const CenterTitleAndButton = ({
@@ -14,9 +16,10 @@ export const CenterTitleAndButton = ({
   title,
   description,
   buttonComponent,
+  className,
 }: Props) => {
   return (
-    <CenterTitleAndButtonStyled>
+    <CenterTitleAndButtonStyled className={className}>
       <FullScreenImage src={imageSrc} alt="image" />
 
       <div className="center">
@@ -30,7 +33,7 @@ export const CenterTitleAndButton = ({
 
 const CenterTitleAndButtonStyled = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 
   .center {
@@ -47,14 +50,25 @@ const CenterTitleAndButtonStyled = styled.div`
     z-index: 1;
 
     h1 {
+      display: flex;
+      justify-content: center;
+
       color: #fff;
       font-size: 5rem;
-      font-family: 'Noto Sans KR-Bold';
+      font-family: 'NotoSansKR-Bold';
+
+      @media (max-width: 960px) {
+        font-size: 8rem;
+      }
     }
 
     p {
       color: #fff;
       font-size: 1.75rem;
+
+      @media (max-width: 960px) {
+        font-size: 2.5rem;
+      }
     }
 
     .button__container {

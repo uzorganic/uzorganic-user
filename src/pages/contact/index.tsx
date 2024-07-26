@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const ContactPage = () => {
   return (
-    <ContactPageStyled>
+    <>
       <MenuButton top left />
       <FixedLogo className="logo" top centerHorizontal />
       <FixedLanguage top right />
@@ -17,17 +17,9 @@ const ContactPage = () => {
       <ContactForm />
 
       <Version1Footer />
-    </ContactPageStyled>
+    </>
   );
 };
-
-const ContactPageStyled = styled.div`
-  @media (max-width: 960px) {
-    .logo {
-      top: calc(var(--fixed-padding) + 0.5rem);
-    }
-  }
-`;
 
 ContactPage.layout = (page: React.ReactNode) => page;
 

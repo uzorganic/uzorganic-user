@@ -1,76 +1,29 @@
-import { useEffect, useState } from 'react';
-
 import { useRouter } from 'next/router';
 
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
+import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
 import styled from 'styled-components';
 
 export const LavenderInteraction = () => {
   const router = useRouter();
   const { locale } = router;
 
-  const [currentSection, setCurrentSection] = useState(1);
-  const [sectionCount, setSectionCount] = useState(0);
-  const [windowHeight, setWindowHeight] = useState(0);
-
-  useEffect(() => {
-    const scrollHandler = () => {
-      const scrollY = window.scrollY;
-
-      // if (window.innerWidth > 960) {
-      if (scrollY < window.innerHeight / 3) {
-        setCurrentSection(1);
-      } else {
-        setCurrentSection(2);
-      }
-      // } else {
-      //   if (scrollY < window.innerHeight / 3) {
-      //     setCurrentSection(1);
-      //   } else if (scrollY < (window.innerHeight / 3) * 2) {
-      //     setCurrentSection(2);
-      //   } else {
-      //     setCurrentSection(3);
-      //   }
-      // }
-    };
-
-    const sections = document.querySelectorAll('.section');
-    if (window.innerWidth < 960) {
-      setSectionCount(sections.length);
-    } else {
-      setSectionCount(sections.length - 1);
-    }
-
-    setWindowHeight(window.innerHeight);
-
-    window.addEventListener('scroll', scrollHandler);
-
-    return () => {
-      window.removeEventListener('scroll', scrollHandler);
-    };
-  }, []);
-
   return (
-    <LavenderInteractionStyled
-      $sectionCount={sectionCount}
-      $windowHeight={windowHeight}
-    >
-      <div className="background__image">
+    <LavenderInteractionStyled>
+      <SwiperComponent effect="fade" mousewheel direction="vertical">
         <ImageOverlayChild
           src="/images/main/9.jpg"
           width="100%"
-          height="100vh"
-        />
-      </div>
-
-      <div className="content">
-        <div className={`section ${currentSection === 1 ? 'in' : 'out'}`}>
-          <div className="intro">
-            <h1 className="fade move first">LAVENDER</h1>
-            <h2 className="fade move first">
+          height="100dvh"
+          centerVertical
+          centerHorizontal
+        >
+          <div className="first">
+            <h1 className="title">LAVENDER</h1>
+            <h2 className="sub">
               {locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'}
             </h2>
-            <p className="fade move second">
+            <p className="description">
               {locale === 'en' ? (
                 <>
                   We have discovered strength and healing properties in
@@ -86,14 +39,20 @@ export const LavenderInteraction = () => {
               )}
             </p>
           </div>
-        </div>
+        </ImageOverlayChild>
 
-        <div className={`section ${currentSection === 2 ? 'in' : 'out'}`}>
-          <div className="last">
-            <h1 className="fade move first">
+        <ImageOverlayChild
+          src="/images/main/9.jpg"
+          width="100%"
+          height="100vh"
+          centerVertical
+          centerHorizontal
+        >
+          <div className="second">
+            <h1 className="title">
               {locale === 'en' ? 'The Power of Lavender' : '라벤더의 힘'}
             </h1>
-            <p className="fade move second">
+            <p className="description">
               {locale === 'en' ? (
                 <>
                   Lavender is an herb native to the Mediterranean region, named
@@ -115,58 +74,8 @@ export const LavenderInteraction = () => {
                 </>
               )}
             </p>
-            <div className="fade move third item__list">
-              <div className="item">
-                <div className="ellipse" />
-                <h2>BODY / SKIN</h2>
-                <p>
-                  {locale === 'en' ? (
-                    <>
-                      Anti-inflammatory and antibacterial effects,
-                      <br />
-                      relief of arthritis and muscle pain
-                    </>
-                  ) : (
-                    '항염 및 항균 작용, 관절염, 근육통증 완화'
-                  )}
-                </p>
-              </div>
-              <div className="item">
-                <div className="ellipse" />
-                <h2>HAIR</h2>
-                <p>
-                  {locale === 'en' ? (
-                    <>
-                      Promotes blood circulation in the scalp,
-                      <br />
-                      strengthens hair, and adds shine{' '}
-                    </>
-                  ) : (
-                    '두피 혈액 순환 촉진, 모발 강화 및 윤기'
-                  )}
-                </p>
-              </div>
-              <div className="item">
-                <div className="ellipse" />
-                <h2>MIND</h2>
-                <p>
-                  {locale === 'en' ? (
-                    <>
-                      Calms the mind and body, <br />
-                      improves mood, alleviates insomnia{' '}
-                    </>
-                  ) : (
-                    '심신 진정 및 기분 개선, 불면증 완화'
-                  )}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* <div className={`section ${currentSection === 3 ? 'in' : 'out'}`}>
-          <div className="final">
-            <div className="fade move third item__list">
+            <div className="item__list">
               <div className="item">
                 <div className="ellipse" />
                 <h2>BODY / SKIN</h2>
@@ -213,202 +122,104 @@ export const LavenderInteraction = () => {
               </div>
             </div>
           </div>
-        </div> */}
-      </div>
+        </ImageOverlayChild>
+      </SwiperComponent>
     </LavenderInteractionStyled>
   );
 };
 
-const LavenderInteractionStyled = styled.div<{
-  $sectionCount: number;
-  $windowHeight: number;
-}>`
-  position: relative;
+const LavenderInteractionStyled = styled.div`
+  color: white;
+  text-align: center;
 
-  height: ${({ $sectionCount, $windowHeight }) => {
-    return `calc(100vh + ${$sectionCount * ($windowHeight / 3)}px)`;
-  }};
+  .first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  .background__image {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    .title {
+      font-size: 5rem;
+      font-family: 'NotoSansKR-Bold';
+      margin: 0;
+      letter-spacing: 0.1em;
+    }
+
+    .sub {
+      font-size: 2rem;
+      margin: 0;
+
+      margin-bottom: 3rem;
+    }
+
+    .description {
+      font-size: 2rem;
+      font-family: 'NotoSansKR-Medium';
+      margin: 0;
+    }
   }
 
-  .content {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    width: 100%;
-    height: ${({ $sectionCount, $windowHeight }) => {
-      return `calc(100vh + ${$sectionCount * ($windowHeight / 3)}px)`;
-    }};
+    .title {
+      font-size: 3.5rem;
+      font-family: 'NotoSansKR-Bold';
+      margin: 0;
 
-    .section {
-      position: sticky;
-      top: 0;
-      left: 0;
+      margin-bottom: 3rem;
+    }
 
-      width: 100%;
-      height: 100vh;
+    .description {
+      font-size: 1.875rem;
+      font-family: 'NotoSansKR-Medium';
+      line-height: 4.125rem;
+      margin: 0;
 
+      margin-bottom: 5rem;
+    }
+
+    .item__list {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      gap: 6.25rem;
 
-      color: white;
-      text-align: center;
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
-      .intro {
-        h1 {
-          font-size: 5rem;
-          font-family: 'NotoSansKR-Bold';
-          margin: 0;
-          letter-spacing: 0.1em;
-        }
+        gap: 1.125rem;
 
         h2 {
-          font-size: 2rem;
-          margin: 0;
-
-          margin-bottom: 3rem;
-        }
-
-        p {
-          font-size: 2rem;
-          font-family: 'NotoSansKR-Medium';
-          margin: 0;
-        }
-      }
-
-      .last,
-      .final {
-        h1 {
-          font-size: 3.5rem;
+          font-size: 1.875rem;
           font-family: 'NotoSansKR-Bold';
           margin: 0;
-
-          margin-bottom: 3rem;
         }
+
+        .ellipse {
+          width: 0.625rem;
+          height: 0.625rem;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+    }
+
+    @media (max-width: 960px) {
+      .item__list {
+        display: flex;
+        flex-direction: column;
 
         p {
-          font-size: 1.875rem;
-          font-family: 'NotoSansKR-Medium';
-          line-height: 4.125rem;
           margin: 0;
-
-          margin-bottom: 5rem;
         }
 
-        .item__list {
-          display: flex;
-          justify-content: center;
-          gap: 6.25rem;
-
-          .item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-            gap: 1.125rem;
-
-            h2 {
-              font-size: 1.875rem;
-              font-family: 'NotoSansKR-Bold';
-              margin: 0;
-            }
-
-            .ellipse {
-              width: 0.625rem;
-              height: 0.625rem;
-              border-radius: 50%;
-              background-color: white;
-            }
-          }
-        }
-
-        @media (max-width: 960px) {
-          .item__list {
-            display: flex;
-            flex-direction: column;
-
-            p {
-              margin: 0;
-            }
-
-            gap: 4.875rem;
-          }
-        }
-      }
-
-      .fade {
-        opacity: 0;
-      }
-
-      .move {
-        transform: translateY(-3.125rem);
-      }
-
-      &.in {
-        .fade.move {
-          animation:
-            fadeIn 1s forwards,
-            moveIn 1s forwards;
-
-          &.first {
-            /* animation-delay: 0.3s; */
-          }
-
-          &.second {
-            animation-delay: 0.3s;
-          }
-
-          &.third {
-            animation-delay: 0.8s;
-          }
-        }
-      }
-
-      &.out {
-        display: none;
-      }
-    }
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-    }
-  }
-
-  @keyframes moveIn {
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes moveOut {
-    to {
-      transform: translateY(3.125rem);
-    }
-  }
-
-  @media (max-width: 960px) {
-    .section {
-      &.in {
-        .item__list.pc {
-          display: none;
-        }
+        gap: 4.875rem;
       }
     }
   }

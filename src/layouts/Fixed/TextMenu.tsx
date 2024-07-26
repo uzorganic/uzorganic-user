@@ -11,8 +11,10 @@ export const FixedTextMenu = () => {
       <p onClick={() => router.push('/store')}>
         {locale === 'en' ? 'STORE' : '스토어'}
       </p>
-      {/* <p onClick={() => router.push('/store/1')}>갤러리</p>
-      <p onClick={() => router.push('/brand')}>브랜드</p> */}
+      {/* <p onClick={() => router.push('/store/1')}>갤러리</p> */}
+      <p onClick={() => router.push('/brand')}>
+        {locale === 'en' ? 'BRAND' : '브랜드'}
+      </p>
       <p onClick={() => router.push('/lavender')}>
         {locale === 'en' ? 'LAVENDER' : '라벤더'}
       </p>

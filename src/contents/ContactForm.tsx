@@ -18,7 +18,7 @@ export const ContactForm = () => {
       <div className="center">
         <h1 className="title">
           {locale === 'en' ? (
-            'We will respond'
+            'We will respond with utmost care'
           ) : (
             <>
               정성을 다해
@@ -72,10 +72,7 @@ export const ContactForm = () => {
         </div>
 
         <div className="button__container">
-          <HoverArrowButton
-            text={locale === 'en' ? 'Send' : '보내기'}
-            width="33.75rem"
-          />
+          <HoverArrowButton text={locale === 'en' ? 'SEND' : '보내기'} />
         </div>
       </div>
 
@@ -105,6 +102,8 @@ const ContactFormStyled = styled.div`
     transform: translate(-50%, -50%);
     text-align: center;
 
+    width: 100%;
+
     display: flex;
     flex-direction: column;
 
@@ -120,7 +119,11 @@ const ContactFormStyled = styled.div`
 
     .form__container {
       display: flex;
+      justify-content: center;
+
       gap: 1.25rem;
+
+      padding: 0 10rem;
 
       margin-bottom: 2.25rem;
 
@@ -149,12 +152,6 @@ const ContactFormStyled = styled.div`
         font-size: 1.25rem;
       }
     }
-
-    .button__container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 
   .footer__container {
@@ -176,10 +173,6 @@ const ContactFormStyled = styled.div`
 
   @media (max-width: 768px) {
     .center {
-      .title {
-        font-size: 3rem;
-      }
-
       .form__container {
         flex-direction: column;
 

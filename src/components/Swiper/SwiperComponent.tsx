@@ -13,6 +13,7 @@ import {
   Navigation,
   Pagination,
 } from 'swiper/modules';
+import { SwiperOptions } from 'swiper/types';
 
 interface Props {
   children: React.ReactNode[] | React.ReactNode;
@@ -32,6 +33,8 @@ interface Props {
   pagination?: boolean;
   paginationType?: 'bullets' | 'fraction' | 'progressbar' | 'custom';
   customPagination?: string;
+
+  options?: SwiperOptions;
 
   className?: string;
 }
@@ -54,6 +57,8 @@ export const SwiperComponent = ({
   pagination = false,
   paginationType = 'bullets',
   customPagination,
+
+  options,
 
   className,
 }: Props) => {
@@ -88,6 +93,7 @@ export const SwiperComponent = ({
             }
           : false
       }
+      {...options}
       className={className}
     >
       {Array.isArray(children) ? (

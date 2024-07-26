@@ -27,7 +27,7 @@ export const HoverArrowButton = ({
       $color={color}
       onClick={onClick}
     >
-      <p>{text} </p>
+      <p>{text}</p>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
         <div className="hover__arrow__button__container">
@@ -49,17 +49,21 @@ const HoverArrowButtonStyled = styled.div<{ width?: string; $color: string }>`
 
   border: 0.125rem solid ${({ $color }) => $color};
 
-  padding: 1rem 5rem;
+  padding: 0.5rem 5rem;
 
   p {
+    padding-right: 2rem;
+
     color: ${({ $color }) => $color};
-    font-size: 1.5rem;
+
+    font-size: 1.75rem;
+    letter-spacing: 0.1rem;
   }
 
   .standard__arrow__button {
     position: absolute;
     top: 50%;
-    right: 1.5rem;
+    right: 2rem;
     transform: translateY(-50%);
 
     color: ${({ $color }) => $color};

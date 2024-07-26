@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import Instagram from '@/assets/images/icons/instagram.svg';
 import Mail from '@/assets/images/icons/mail.svg';
 import Youtube from '@/assets/images/icons/youtube.svg';
@@ -11,13 +13,19 @@ interface Props {
   hoverColor?: string;
 
   gap?: string;
+
+  className?: string;
 }
 
 export const SnsList = ({
   color = '#fff',
   hoverColor = '#000',
   gap = '1rem',
+
+  className,
 }: Props) => {
+  const router = useRouter();
+
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const handleMouseEnter = (icon: string) => {
@@ -29,11 +37,17 @@ export const SnsList = ({
   };
 
   return (
-    <SnsListStyled $color={color} $hoverColor={hoverColor} $gap={gap}>
+    <SnsListStyled
+      className={className}
+      $color={color}
+      $hoverColor={hoverColor}
+      $gap={gap}
+    >
       <div
         className={`icon ${hoveredIcon === 'mail' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('mail')}
         onMouseLeave={handleMouseLeave}
+        onClick={() => router.push('/contact')}
       >
         <Mail />
       </div>
@@ -42,6 +56,9 @@ export const SnsList = ({
         className={`icon ${hoveredIcon === 'instagram' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('instagram')}
         onMouseLeave={handleMouseLeave}
+        onClick={() =>
+          window.open('https://www.instagram.com/safocosmetics.uz/')
+        }
       >
         <Instagram />
       </div>
@@ -49,6 +66,7 @@ export const SnsList = ({
         className={`icon ${hoveredIcon === 'youtube' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('youtube')}
         onMouseLeave={handleMouseLeave}
+        onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
       >
         <Youtube />
       </div>

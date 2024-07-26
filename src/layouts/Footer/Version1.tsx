@@ -37,8 +37,8 @@ export const Version1Footer = () => {
       >
         <ImageOverlayChild
           src="/images/footer/arrow_forward.svg"
-          width="2.25rem"
-          height="7.75rem"
+          width="1.5rem"
+          height="5rem"
         />
       </div>
     </FooterStyled>
@@ -105,8 +105,14 @@ const FooterStyled = styled.footer`
     position: absolute;
 
     top: 2.25rem;
-    right: 2.5rem;
+    right: 3rem;
+
+    opacity: 0.5;
 
     cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 `;

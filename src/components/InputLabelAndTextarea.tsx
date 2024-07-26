@@ -9,6 +9,7 @@ export const InputLabelAndTextarea = ({ label, placeholder }: Props) => {
   return (
     <InputLabelAndTextareaStyled>
       <p>{label}</p>
+      <div className="vertical__line" />
       <textarea id="textarea" placeholder={placeholder} />
     </InputLabelAndTextareaStyled>
   );
@@ -16,7 +17,6 @@ export const InputLabelAndTextarea = ({ label, placeholder }: Props) => {
 
 const InputLabelAndTextareaStyled = styled.div`
   display: flex;
-  justify-content: center;
   align-items: self-start;
   gap: 1.875rem;
 
@@ -32,6 +32,7 @@ const InputLabelAndTextareaStyled = styled.div`
     text-align: justify;
 
     width: 6rem;
+    margin-right: 2rem;
 
     color: #fff;
     font-size: 1.75rem;
@@ -43,6 +44,13 @@ const InputLabelAndTextareaStyled = styled.div`
       display: inline-block;
       width: 100%;
     }
+  }
+
+  .vertical__line {
+    width: 0.125rem;
+    height: 2rem;
+
+    background-color: #fff;
   }
 
   textarea {

@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 
 import { SnsList } from '@/components/SnsList';
 import { FixedChild } from '@/layouts/Fixed/Child';
-import { FixedLogo } from '@/layouts/Fixed/Logo';
 import styled from 'styled-components';
 
 interface Props {
@@ -16,11 +15,19 @@ export const Menu = ({ open, setOpen }: Props) => {
   const router = useRouter();
   const { locale } = router;
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth <= 960) {
+      setIsMobile(true);
+    }
+  }, []);
+
   const [active, setActive] = useState(0);
 
   const menuList = [
     { name: '스토어', enName: 'STORE', path: '/store' },
-    // { name: '브랜드', path: '/brand' },
+    { name: '브랜드', enName: 'BRAND', path: '/brand' },
     // { name: '갤러리', path: '/gallery' },
     { name: '라벤더', enName: 'LAVENDER', path: '/lavender' },
     { name: '문의하기', enName: 'CONTACT', path: '/contact' },
@@ -38,12 +45,11 @@ export const Menu = ({ open, setOpen }: Props) => {
 
   return (
     <MenuStyled open={open} onClick={() => setOpen(!open)}>
-      <FixedLogo top left />
-
-      <FixedChild bottom left>
-        <SnsList color="#929292" hoverColor="#484036" />
-      </FixedChild>
-
+      {isMobile || (
+        <FixedChild bottom left>
+          <SnsList color="#929292" hoverColor="#484036" />
+        </FixedChild>
+      )}
       <div className="menu__list">
         {menuList.map((item, index) => (
           <div
@@ -54,6 +60,12 @@ export const Menu = ({ open, setOpen }: Props) => {
             {locale === 'en' ? item.enName : item.name}
           </div>
         ))}
+        <SnsList
+          className="sns__list"
+          color="#929292"
+          hoverColor="#484036"
+          gap="5rem"
+        />
       </div>
     </MenuStyled>
   );
@@ -97,6 +109,18 @@ const MenuStyled = styled.div<{
     .active {
       font-family: 'NotoSansKR-ExtraBold';
       border-bottom: 0.5rem solid #9f7bac;
+    }
+
+    @media (max-width: 960px) {
+      .sns__list {
+        margin-top: 3rem;
+        .icon {
+          svg {
+            width: 3rem;
+            height: 3rem;
+          }
+        }
+      }
     }
   }
 `;

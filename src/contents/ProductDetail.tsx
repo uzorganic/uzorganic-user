@@ -33,8 +33,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         <>
           <p>두피에 쌓인 각질과 여러 오염 물질을</p>
           <div className="one__line">
-            <h3>자극 없이 깨끗하게 클렌징</h3>
-            <p>해주는 두피 청정 샴푸입니다.</p>
+            <p>자극 없이 깨끗하게 클렌징 해주는 두피 청정 샴푸입니다.</p>
           </div>
         </>
       ),
@@ -57,8 +56,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
             비타민 E와 영양소가 풍부한 식물성 오일이 샴푸 후 부스스한 모발에
           </p>
           <div className="one__line">
-            <h3>윤기 코팅막을 형성</h3>
-            <p>해 수분과 차분함을 더해줍니다.</p>
+            <p>윤기 코팅막을 형성해 수분과 차분함을 더해줍니다.</p>
           </div>
         </>
       ),
@@ -75,13 +73,13 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     3: {
       title: '프롬 라벤더 헤어 미스트',
       enTitle: 'From Lavender Hair Mist',
-      router: '4',
+      router: '3',
       content: (
         <>
           <div className="one__line">
-            <p>산뜻한 워터 입자로 모발 사이사이에&nbsp;</p>
-            <h3>촘촘하게 영양을 공급</h3>
-            <p>해 줍니다.</p>
+            <p>
+              산뜻한 워터 입자로 모발 사이사이에 촘촘하게 영양을 공급해 줍니다.
+            </p>
           </div>
           <p>
             드라이 후 또는 모발이 건조할 때 수시로 사용하여 수분을 보충해
@@ -102,13 +100,13 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     4: {
       title: '프롬 라벤더 오일',
       enTitle: 'From Lavender Oil',
-      router: '3',
+      router: '4',
       content: (
         <>
           <div className="one__line">
-            <p>7가지 식물성 오일이&nbsp;</p>
-            <h3>수분과 영양을 모발 속 깊은 곳까지</h3>
-            <p>채워줍니다.</p>
+            <p>
+              7가지 식물성 오일이 수분과 영양을 모발 속 깊은 곳까지 채워줍니다.
+            </p>
           </div>
           <p>젖은 모발 또는 건조된 모발에 소량만으로도 뭉치지 않고</p>
           <p>자연스러운 윤기를 더해줍니다.</p>
@@ -299,7 +297,8 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           <ImageOverlayChild
             src={`/images/store/product${id}/1_0.jpg`}
             width="100%"
-            height={`calc(100vh - ${headerHeight}px)`}
+            objectFit="cover"
+            height="71.25rem"
           />
 
           {locale === 'ko' ? (
@@ -368,14 +367,14 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           </h2>
           <HoverArrowButton
             className="arrow__button"
-            text={locale === 'ko' ? '구매하러 가기' : 'Go to purchase'}
+            text={locale === 'ko' ? '구매하러 가기' : 'GO TO BUY'}
             color="#403b35"
             width={locale === 'ko' ? '17rem' : '20rem'}
             padding="0.5rem 1.5rem"
           />
           <div className="product__detail" onClick={() => setIsShow1(!isShow1)}>
             <span>{isShow1 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '제품정보' : 'Product information'}</p>
+            <p>{locale === 'ko' ? '제품정보' : 'Information'}</p>
           </div>
           {isShow1 && (
             <div className="product__detail__content">
@@ -402,7 +401,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                   <div>
                     Uzbekistan
                     <br />
-                    Herb Therapy with Cosmetics Co., Ltd.
+                    Herb Therapy with Cosmetics
                   </div>
                 </>
               )}

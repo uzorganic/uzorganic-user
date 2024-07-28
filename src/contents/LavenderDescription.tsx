@@ -14,7 +14,7 @@ export const LavenderDescription = () => {
           className="description__image"
           src="/images/lavender/1.png"
           width="100%"
-          height="100vh"
+          height="71.25rem"
         />
       </div>
       <div className="left">
@@ -60,8 +60,6 @@ export const LavenderDescription = () => {
 const LavenderDescriptionStyled = styled.div`
   display: flex;
   align-items: center;
-
-  height: 100vh;
 
   background: #f3f0eb;
 

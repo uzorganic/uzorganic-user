@@ -8,6 +8,8 @@ interface Props {
   width?: string;
   height?: string;
 
+  objectFit?: 'cover' | 'contain';
+
   brightness?: number;
 
   children?: React.ReactNode;
@@ -30,6 +32,8 @@ export const ImageOverlayChild = ({
   width = '2rem',
   height = '2rem',
 
+  objectFit = 'cover',
+
   brightness = 1,
 
   children,
@@ -48,6 +52,7 @@ export const ImageOverlayChild = ({
       className={className}
       width={width}
       height={height}
+      $objectFit={objectFit}
       $brightness={brightness}
       $top={top}
       $bottom={bottom}
@@ -66,6 +71,8 @@ const ImageOverlayChildStyled = styled.div<{
   width: string;
   height: string;
 
+  $objectFit: 'cover' | 'contain';
+
   $brightness: number;
 
   $top: string | undefined;
@@ -81,7 +88,7 @@ const ImageOverlayChildStyled = styled.div<{
   height: ${({ height }) => height};
 
   img {
-    object-fit: cover;
+    object-fit: ${({ $objectFit }) => $objectFit};
 
     filter: brightness(${({ $brightness }) => $brightness});
   }

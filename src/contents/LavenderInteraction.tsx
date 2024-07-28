@@ -52,6 +52,8 @@ export const LavenderInteraction = ({ options }: Props) => {
                 </>
               )}
             </p>
+
+            <div className="next__button">→</div>
           </div>
         </ImageOverlayChild>
 
@@ -231,6 +233,20 @@ const LavenderInteractionStyled = styled.div`
   color: white;
   text-align: center;
 
+  .next__button {
+    position: absolute;
+    right: 6.25rem;
+    bottom: 5rem;
+
+    color: #fff;
+    z-index: 100;
+
+    font-size: 3.75rem;
+    font-family: 'NotoSansKR-Medium';
+
+    cursor: pointer;
+  }
+
   .children {
     width: 100%;
   }
@@ -240,6 +256,8 @@ const LavenderInteractionStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    height: 100vh;
 
     .title {
       font-size: 5rem;

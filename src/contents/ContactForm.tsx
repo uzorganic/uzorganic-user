@@ -13,7 +13,16 @@ export const ContactForm = () => {
 
   return (
     <ContactFormStyled>
-      <Image src="/images/main/5.jpg" alt="5" fill sizes="100%" priority />
+      <Image
+        src="/images/main/5.jpg"
+        alt="5"
+        fill
+        sizes="100%"
+        priority
+        style={{
+          objectFit: 'cover',
+        }}
+      />
 
       <div className="center">
         <h1 className="title">
@@ -21,8 +30,7 @@ export const ContactForm = () => {
             'We will respond with utmost care'
           ) : (
             <>
-              정성을 다해
-              <br />
+              정성을 다해 <br />
               답변해 드리겠습니다
             </>
           )}

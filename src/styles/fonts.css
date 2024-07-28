@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'NotoSansKR-ExtraBold';
   src: url('/fonts/NotoSansKR-ExtraBold.ttf') format('truetype');
-  font-weight: 8--;
+  font-weight: 800;
   font-style: normal;
 }
 @font-face {

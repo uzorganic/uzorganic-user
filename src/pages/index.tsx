@@ -32,11 +32,10 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              'OUR FIRST NATURE'
+              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인
-                <br />
+                아임오가닉의 풍부한 경험으로 세계적인 <br />
                 천연물 기업으로 나아가겠습니다.
               </>
             )
@@ -44,6 +43,7 @@ const Home = () => {
           buttonComponent={
             <HoverArrowButton
               text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
               onClick={() => router.push('/brand')}
             />
           }
@@ -60,11 +60,10 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              'OUR FIRST NATURE'
+              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인
-                <br />
+                아임오가닉의 풍부한 경험으로 세계적인 <br />
                 천연물 기업으로 나아가겠습니다.
               </>
             )
@@ -72,6 +71,7 @@ const Home = () => {
           buttonComponent={
             <HoverArrowButton
               text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
               onClick={() => router.push('/brand')}
             />
           }
@@ -88,11 +88,10 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              'OUR FIRST NATURE'
+              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인
-                <br />
+                아임오가닉의 풍부한 경험으로 세계적인 <br />
                 천연물 기업으로 나아가겠습니다.
               </>
             )
@@ -100,6 +99,7 @@ const Home = () => {
           buttonComponent={
             <HoverArrowButton
               text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
               onClick={() => router.push('/brand')}
             />
           }

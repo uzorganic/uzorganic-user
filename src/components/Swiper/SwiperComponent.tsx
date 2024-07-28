@@ -118,7 +118,11 @@ export const SwiperComponent = ({
 };
 
 const SwiperComponentStyled = styled.div`
-  .swiper-slide {
-    height: 100%;
+  .swiper-wrapper {
+    height: 100% !important;
+
+    .swiper-slide {
+      height: 100%;
+    }
   }
 `;

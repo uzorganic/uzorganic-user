@@ -19,7 +19,6 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   const [active, setActive] = useState(0);
 
   const [iShow, setIShow] = useState(false);
-  console.log(iShow);
 
   useEffect(() => {
     const scrollHandler = () => {

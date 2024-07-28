@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Arrow from '@/assets/icons/arrow.svg';
 
 import styled from 'styled-components';
 
@@ -7,6 +7,8 @@ interface Props {
 
   width?: string;
   color?: string;
+
+  padding?: string;
 
   onClick?: () => void;
 
@@ -17,6 +19,7 @@ export const HoverArrowButton = ({
   text,
   width,
   color = '#fff',
+  padding = '0.5rem 5rem',
   onClick,
   className,
 }: Props) => {
@@ -25,20 +28,27 @@ export const HoverArrowButton = ({
       className={className}
       width={width}
       $color={color}
+      $padding={padding}
       onClick={onClick}
     >
       <p>{text}</p>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
         <div className="hover__arrow__button__container">
-          <Image src="/images/assets/arrow.svg" alt="Arrow" fill />
+          {/* <Image src="/images/assets/arrow.svg" alt="Arrow" fill /> */}
+          <Arrow />
         </div>
       </div>
     </HoverArrowButtonStyled>
   );
 };
 
-const HoverArrowButtonStyled = styled.div<{ width?: string; $color: string }>`
+const HoverArrowButtonStyled = styled.div<{
+  width?: string;
+  $color: string;
+
+  $padding: string;
+}>`
   position: relative;
 
   display: inline-block;
@@ -49,7 +59,7 @@ const HoverArrowButtonStyled = styled.div<{ width?: string; $color: string }>`
 
   border: 0.125rem solid ${({ $color }) => $color};
 
-  padding: 0.5rem 5rem;
+  padding: ${({ $padding }) => $padding};
 
   p {
     padding-right: 2rem;
@@ -100,6 +110,8 @@ const HoverArrowButtonStyled = styled.div<{ width?: string; $color: string }>`
         display: flex;
         justify-content: center;
         align-items: center;
+
+        color: ${({ $color }) => $color};
       }
     }
   }

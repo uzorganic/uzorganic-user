@@ -249,7 +249,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       enHowToUse:
         'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
       firstHeight: '196.25rem',
-      secondHeight: '225.142.5rem',
+      secondHeight: '142.5rem',
     },
     {
       title: '라벤더 솔루션 마스크',

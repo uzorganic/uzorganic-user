@@ -75,14 +75,14 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     enTitle: 'From Lavender Treatment',
     img: '/images/store/shampoo2.png',
   };
-  const dummyProduct3 = {
-    id: 3,
+  const dummyProduct4 = {
+    id: 4,
     title: '프롬 라벤더 헤어 오일',
     enTitle: 'From Lavender Hair Oil',
     img: '/images/store/oil1.png',
   };
-  const dummyProduct4 = {
-    id: 4,
+  const dummyProduct3 = {
+    id: 3,
     title: '프롬 라벤더 헤어 미스트',
     enTitle: 'From Lavender Hair Mist',
     img: '/images/store/oil2.png',
@@ -94,8 +94,8 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     img: '/images/store/mask1.png',
   };
   const dummyProductList = [
-    [dummyProduct1, dummyProduct2, dummyProduct4, dummyProduct3, dummyProduct5],
-    [dummyProduct1, dummyProduct2, dummyProduct4, dummyProduct3],
+    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4, dummyProduct5],
+    [dummyProduct1, dummyProduct2, dummyProduct3, dummyProduct4],
     [dummyProduct5],
   ];
 

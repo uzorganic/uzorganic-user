@@ -16,10 +16,13 @@ const BrandPage = () => {
   const router = useRouter();
   const { locale } = router;
 
+  const [windowHeight, setWindowHeight] = useState(0);
+
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 960);
+    setWindowHeight(window.innerHeight);
   };
 
   useEffect(() => {
@@ -31,6 +34,8 @@ const BrandPage = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  if (windowHeight === 0) return null;
 
   return (
     <BrandPageStyled>
@@ -48,7 +53,7 @@ const BrandPage = () => {
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_1.jpg' : '/images/brand/1.jpg'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           centerVertical
           centerHorizontal
           className="first"

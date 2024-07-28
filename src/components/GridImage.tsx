@@ -37,6 +37,14 @@ export const GridImage = ({ productList }: Props) => {
           <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
         </div>
       ))}
+
+      {productList.length < 3 &&
+        Array.from({ length: 3 - productList.length }).map((_, index) => (
+          <div className="item empty" key={index}>
+            <div className="image"></div>
+            <p className="title"></p>
+          </div>
+        ))}
     </GridImageStyled>
   );
 };
@@ -44,14 +52,10 @@ export const GridImage = ({ productList }: Props) => {
 const GridImageStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6.25rem;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  gap: 4rem;
 
   @media (max-width: 960px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .item {
@@ -60,13 +64,8 @@ const GridImageStyled = styled.div`
     .image {
       position: relative;
 
-      width: 31.25rem;
-      height: 40.625rem;
-
-      @media (max-width: 1200px) {
-        /* width: 100%;
-        height: 31.25rem; */
-      }
+      width: 24rem;
+      height: 31.25rem;
 
       @media (max-width: 960px) {
         width: 100%;
@@ -78,7 +77,12 @@ const GridImageStyled = styled.div`
       margin-top: 1.875rem;
       padding-left: 0.625rem;
 
-      font-size: 1.875rem;
+      font-size: 1.5rem;
+      font-family: 'NotoSansKR-Regular';
     }
+  }
+
+  .empty {
+    cursor: default;
   }
 `;

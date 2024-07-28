@@ -42,6 +42,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
 
   const dummyCategory1 = {
     img: '/images/store/1.png',
+    moImg: '/images/store/1-mo.jpeg',
     title: 'All',
     enTitle: 'All',
     description: '자연에서 온 순수함을 담다',
@@ -49,6 +50,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyCategory2 = {
     img: '/images/store/2.png',
+    moImg: '/images/store/1-mo.jpeg',
     title: '헤어케어 ',
     enTitle: 'Hair Care',
     description: '자연의 힘으로, 건강한 모발을',
@@ -56,6 +58,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyCategory3 = {
     img: '/images/store/3.png',
+    moImg: '/images/store/1-mo.jpeg',
     title: '스킨케어',
     enTitle: 'Skin Care',
     description: '건강한 피부를 위한 선택',
@@ -110,24 +113,48 @@ export const StoreLayout = ({ headerHeight }: Props) => {
       </p>
       <div className="content">
         <div className="left">
-          <div className="banner">
-            <ImageWithOverlay
-              img={dummyCategoryList[active].img}
-              leftTop={
-                <div className={`banner__text ${iShow ? 'show' : ''}`}>
-                  <p className="title">
-                    {locale === 'ko'
-                      ? dummyCategoryList[active].title
-                      : dummyCategoryList[active].enTitle}
-                  </p>
-                  <p className="description">
-                    {locale === 'ko'
-                      ? dummyCategoryList[active].description
-                      : dummyCategoryList[active].enDescription}
-                  </p>
-                </div>
-              }
-            />
+          <div className="pc">
+            <div className="banner">
+              <ImageWithOverlay
+                img={dummyCategoryList[active].img}
+                leftTop={
+                  <div className={`banner__text ${iShow ? 'show' : ''}`}>
+                    <p className="title">
+                      {locale === 'ko'
+                        ? dummyCategoryList[active].title
+                        : dummyCategoryList[active].enTitle}
+                    </p>
+                    <p className="description">
+                      {locale === 'ko'
+                        ? dummyCategoryList[active].description
+                        : dummyCategoryList[active].enDescription}
+                    </p>
+                  </div>
+                }
+              />
+            </div>
+          </div>
+
+          <div className="mo">
+            <div className="banner">
+              <ImageWithOverlay
+                img={dummyCategoryList[active].moImg}
+                leftTop={
+                  <div className={`banner__text ${iShow ? 'show' : ''}`}>
+                    <p className="title">
+                      {locale === 'ko'
+                        ? dummyCategoryList[active].title
+                        : dummyCategoryList[active].enTitle}
+                    </p>
+                    <p className="description">
+                      {locale === 'ko'
+                        ? dummyCategoryList[active].description
+                        : dummyCategoryList[active].enDescription}
+                    </p>
+                  </div>
+                }
+              />
+            </div>
           </div>
         </div>
         <div className="right">
@@ -162,6 +189,8 @@ const StoreLayoutStyle = styled.div<{
     color: #484036;
     font-size: 3.125rem;
     line-height: 3.625rem;
+
+    font-family: 'Oranienbaum-Regular', sans-serif;
   }
 
   .all {
@@ -183,6 +212,30 @@ const StoreLayoutStyle = styled.div<{
       width: 31.25%;
       height: ${({ $headerHeight }) =>
         $headerHeight && `calc(100vh - ${$headerHeight}px - 5rem)`};
+
+      .pc {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+      }
+
+      .mo {
+        display: none;
+      }
+
+      @media (max-width: 960px) {
+        .pc {
+          display: none;
+        }
+
+        .mo {
+          display: block;
+
+          width: 100%;
+          height: 100%;
+        }
+      }
 
       .banner {
         position: relative;
@@ -265,6 +318,24 @@ const StoreLayoutStyle = styled.div<{
             color: #000;
           }
         }
+      }
+    }
+
+    @media (max-width: 960px) {
+      flex-direction: column;
+      gap: 0;
+
+      .left {
+        width: 100%;
+        height: 31.25rem;
+
+        margin-bottom: 2.6rem;
+      }
+
+      .right {
+        z-index: 5;
+
+        background-color: var(--content-main-color);
       }
     }
   }

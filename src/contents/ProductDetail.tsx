@@ -526,11 +526,12 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
     .sub__title {
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       margin-top: 1.25rem;
 
       p {
-        font-size: 1.125rem;
+        font-size: 1.5rem;
       }
 
       span {
@@ -590,6 +591,7 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
 
       div {
         font-size: 1.125rem;
+        font-family: 'NotoSansKR-Regular';
       }
     }
   }

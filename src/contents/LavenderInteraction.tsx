@@ -33,11 +33,11 @@ export const LavenderInteraction = ({ options }: Props) => {
           centerHorizontal
         >
           <div className="first">
-            <h1 className="title">LAVENDER</h1>
-            <h2 className="sub">
+            <h1 className="title fade move 1st">LAVENDER</h1>
+            <h2 className="sub fade move 1st">
               {locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'}
             </h2>
-            <p className="description">
+            <p className="description fade move 2en">
               {locale === 'en' ? (
                 <>
                   We have discovered strength and healing properties in
@@ -65,10 +65,10 @@ export const LavenderInteraction = ({ options }: Props) => {
           centerHorizontal
         >
           <div className="second">
-            <h1 className="title">
+            <h1 className="title fade fade move 1st">
               {locale === 'en' ? 'The Power of Lavender' : '라벤더의 힘'}
             </h1>
-            <p className="description">
+            <p className="description fade move 2nd">
               {locale === 'en' ? (
                 <>
                   Lavender is an herb native to the Mediterranean region, named
@@ -91,7 +91,7 @@ export const LavenderInteraction = ({ options }: Props) => {
               )}
             </p>
 
-            <div className="item__list">
+            <div className="item__list fade move 3rd">
               <div className="item">
                 <div className="ellipse" />
                 <h2>BODY / SKIN</h2>
@@ -243,6 +243,20 @@ const LavenderInteractionStyled = styled.div`
 
     font-size: 3.75rem;
     font-family: 'NotoSansKR-Medium';
+
+    animation: shake 2s infinite;
+
+    @keyframes shake {
+      0% {
+        transform: translateX(-1rem);
+      }
+      50% {
+        transform: translateX(1rem);
+      }
+      100% {
+        transform: translateX(-1rem);
+      }
+    }
 
     cursor: pointer;
   }

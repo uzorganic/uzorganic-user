@@ -336,6 +336,20 @@ const BrandPageStyled = styled.div`
     font-size: 3.75rem;
     font-family: 'NotoSansKR-Medium';
 
+    animation: shake 2s infinite;
+
+    @keyframes shake {
+      0% {
+        transform: translateX(-1rem);
+      }
+      50% {
+        transform: translateX(1rem);
+      }
+      100% {
+        transform: translateX(-1rem);
+      }
+    }
+
     cursor: pointer;
   }
 

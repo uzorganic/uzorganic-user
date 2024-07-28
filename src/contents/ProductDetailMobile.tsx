@@ -512,15 +512,16 @@ const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
     .sub__title {
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       margin-top: 1.25rem;
 
       p {
-        font-size: 1.125rem;
+        font-size: 2rem;
       }
 
       span {
-        font-size: 1.375rem;
+        font-size: 1.5rem;
       }
     }
 

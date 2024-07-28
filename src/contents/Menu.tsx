@@ -15,14 +15,6 @@ export const Menu = ({ open, setOpen }: Props) => {
   const router = useRouter();
   const { locale } = router;
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    if (window.innerWidth <= 960) {
-      setIsMobile(true);
-    }
-  }, []);
-
   const [active, setActive] = useState(0);
 
   const menuList = [
@@ -45,11 +37,6 @@ export const Menu = ({ open, setOpen }: Props) => {
 
   return (
     <MenuStyled open={open} onClick={() => setOpen(!open)}>
-      {isMobile || (
-        <FixedChild bottom left>
-          <SnsList color="#929292" hoverColor="#484036" />
-        </FixedChild>
-      )}
       <div className="menu__list">
         {menuList.map((item, index) => (
           <div
@@ -84,7 +71,7 @@ const MenuStyled = styled.div<{
   width: 100%;
   height: 100%;
 
-  background-color: rgba(243, 240, 235, 0.85);
+  background-color: rgba(243, 240, 235, 0.95);
 
   .menu__list {
     display: flex;
@@ -114,6 +101,7 @@ const MenuStyled = styled.div<{
     @media (max-width: 960px) {
       .sns__list {
         margin-top: 3rem;
+
         .icon {
           svg {
             width: 3rem;

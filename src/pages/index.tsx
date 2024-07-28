@@ -152,7 +152,7 @@ const Home = () => {
 
       <CenterTitleAndButton
         className="Youtube"
-        imageSrc="/images/main/4.png"
+        imageSrc="/images/main/0.jpg"
         title={locale === 'en' ? 'YouTube' : '유튜브'}
         description={
           locale === 'en' ? (

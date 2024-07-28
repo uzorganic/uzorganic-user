@@ -150,7 +150,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '적당량의 샴푸를 손에 덜어 충분히 젖은 두피와 모발에 거품을 낸 뒤 골고루 마사지한 후 미온수로 깨끗이 헹궈줍니다.',
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
-      firstHeight: '220.313rem',
+      firstHeight: '236.25rem',
       secondHeight: '166.25rem',
     },
     {

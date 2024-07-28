@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -6,6 +6,7 @@ import { CenterTitleAndButton } from '@/components/CenterTitleAndButton';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
+import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
 import { ContactForm } from '@/contents/ContactForm';
 import { HomeLayout } from '@/layouts/HomeLayout';
 import { YoutubeFilled } from '@ant-design/icons';
@@ -16,6 +17,82 @@ const Home = () => {
   const { locale } = router;
 
   const [isHover, setIsHover] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
+  const [isScrollUp, setIsScrollUp] = useState(false);
+  const [isScrollDown, setIsScrollDown] = useState(false);
+  const [currentScroll, setCurrentScroll] = useState(0);
+
+  useEffect(() => {
+    const onSlideChange = () => {
+      if (isScroll) {
+        return;
+      }
+
+      if (window.scrollY > currentScroll) {
+        setIsScrollDown(true);
+        setIsScrollUp(false);
+      } else {
+        setIsScrollDown(false);
+        setIsScrollUp(true);
+      }
+
+      setCurrentScroll(window.scrollY);
+
+      if (isScrollDown) {
+        if (
+          window.scrollY % window.innerHeight > 10 &&
+          window.scrollY % window.innerHeight < 50
+        ) {
+          setIsScroll(true);
+          window.scrollTo({
+            top:
+              window.innerHeight *
+              (Math.floor(window.scrollY / window.innerHeight) + 1),
+            behavior: 'smooth',
+          });
+        }
+      }
+
+      if (isScrollUp) {
+        if (
+          window.scrollY % window.innerHeight > window.innerHeight - 50 &&
+          window.scrollY % window.innerHeight < window.innerHeight - 10
+        ) {
+          setIsScroll(true);
+          window.scrollTo({
+            top:
+              window.innerHeight *
+              Math.floor(window.scrollY / window.innerHeight),
+            behavior: 'smooth',
+          });
+        }
+      }
+    };
+
+    window.addEventListener('scroll', onSlideChange);
+
+    return () => {
+      window.removeEventListener('scroll', onSlideChange);
+    };
+  }, [currentScroll, isScroll, isScrollDown, isScrollUp]);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (
+        window.scrollY % window.innerHeight < 5 ||
+        window.scrollY % window.innerHeight > window.innerHeight - 5 ||
+        window.scrollY + window.innerHeight >= document.body.scrollHeight
+      ) {
+        setIsScroll(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
 
   return (
     <HomeLayoutStyled>
@@ -26,7 +103,7 @@ const Home = () => {
           title={
             <ImageOverlayChild
               src="/images/logo/logo.svg"
-              width="46.875rem"
+              width="48rem"
               height="4.875rem"
             />
           }
@@ -59,7 +136,7 @@ const Home = () => {
           title={
             <ImageOverlayChild
               src="/images/logo/logo.svg"
-              width="46.875rem"
+              width="48rem"
               height="4.875rem"
             />
           }
@@ -92,7 +169,7 @@ const Home = () => {
           title={
             <ImageOverlayChild
               src="/images/logo/logo.svg"
-              width="46.875rem"
+              width="48rem"
               height="4.875rem"
             />
           }
@@ -120,20 +197,6 @@ const Home = () => {
           }
         />
       </FractionSwiper>
-
-      {/* <CenterTitleAndButton
-        imageSrc="/images/main/2.png"
-        title="회사 소개"
-        description="I’m ORGANIC의 풍부한 경험으로 세계적인 천연물 기업으로 나아가겠습니다."
-        buttonComponent={<HoverArrowButton text="바로가기" />}
-      /> */}
-
-      {/* <CenterTitleAndButton
-        imageSrc="/images/main/3.png"
-        title="특허 / 인증"
-        description="여러 분야의 전문가들이 만나 확실한 제품을 만듭니다."
-        buttonComponent={<HoverArrowButton text="바로가기" />}
-      /> */}
 
       <CenterTitleAndButton
         className="Lavender"

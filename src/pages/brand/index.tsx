@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
@@ -35,12 +34,21 @@ const BrandPage = () => {
     };
   }, []);
 
+  const onSlideChange = () => {
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
+
+    setTimeout(() => {
+      document.body.style.overflow = 'auto';
+    }, 1000);
+  };
+
   if (windowHeight === 0) return null;
 
   return (
     <BrandPageStyled>
       <MenuButton top left />
-      <FixedLogo top centerHorizontal />
+      <FixedLogo className="header__logo" top centerHorizontal />
       <FixedLanguage top right />
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
@@ -49,8 +57,18 @@ const BrandPage = () => {
         mousewheel
         direction="horizontal"
         navigation
-        pagination
-        paginationType="custom"
+        options={{
+          onSlideChange(swiper) {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            });
+
+            if (swiper.activeIndex === 5) {
+              onSlideChange();
+            }
+          },
+        }}
       >
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_1.jpg' : '/images/brand/1.jpg'}
@@ -61,12 +79,12 @@ const BrandPage = () => {
           className="first"
         >
           <ImageOverlayChild
+            className="fade move animate1"
             src="/images/logo/logo.svg"
             width="46.875rem"
             height="4.875rem"
           />
 
-          <div className="swiper-pagination">hi</div>
           <div className="next__button">→</div>
         </ImageOverlayChild>
 
@@ -77,12 +95,12 @@ const BrandPage = () => {
           className="second"
         >
           <div className="text__container">
-            <h1 className="title">
+            <h1 className="title fade move animate1">
               {locale === 'en'
                 ? "I'm Organic's Philosophy"
                 : '아임 오가닉의 철학'}
             </h1>
-            <p className="description">
+            <p className="description fade move animate2">
               {locale === 'en' ? (
                 <>
                   I&apos;m Organic is a company that manufactures organic oils
@@ -106,7 +124,7 @@ const BrandPage = () => {
             </p>
           </div>
 
-          <div className="swiper-pagination">hi</div>
+          <div className="prev__button">←</div>
           <div className="next__button">→</div>
         </ImageOverlayChild>
 
@@ -117,12 +135,12 @@ const BrandPage = () => {
           className="second"
         >
           <div className="text__container">
-            <h1 className="title">
+            <h1 className="title fade move animate1">
               {locale === 'en'
                 ? 'Product Quality and Reliability'
                 : '제품의 품질과 신뢰성'}
             </h1>
-            <p className="description">
+            <p className="description fade move animate2">
               {locale === 'en' ? (
                 <>
                   Believing in and respecting the power of nature, I&apos;m
@@ -149,6 +167,7 @@ const BrandPage = () => {
             </p>
           </div>
 
+          <div className="prev__button">←</div>
           <div className="next__button">→</div>
         </ImageOverlayChild>
 
@@ -169,7 +188,7 @@ const BrandPage = () => {
               )}
             </div>
             <div className="right">
-              <h1 className="title">
+              <h1 className="title fade move animate1">
                 {locale === 'en' ? (
                   'Ethical Certification and Sustainable Development'
                 ) : (
@@ -179,7 +198,7 @@ const BrandPage = () => {
                   </>
                 )}
               </h1>
-              <p className="description">
+              <p className="description fade move animate2">
                 {locale === 'en' ? (
                   <>
                     I&apos;m Organic realizes ethical and sustainable values
@@ -201,6 +220,7 @@ const BrandPage = () => {
                 )}
               </p>
             </div>
+            <div className="prev__button">←</div>
             <div className="next__button">→</div>
           </div>
         </ImageOverlayChild>
@@ -214,12 +234,12 @@ const BrandPage = () => {
           className="forth"
         >
           <div className="text__container">
-            <h1 className="title">
+            <h1 className="title fade move animate1">
               {locale === 'en'
                 ? 'Partnership with MEHRIGIYO'
                 : 'MEHRIGIYO와의 파트너십'}
             </h1>
-            <p className="description">
+            <p className="description fade move animate2">
               {locale === 'en' ? (
                 <>
                   Our partnership with MEHRIGIYO in Uzbekistan is a key pillar
@@ -247,44 +267,8 @@ const BrandPage = () => {
             </p>
           </div>
 
+          <div className="prev__button">←</div>
           <div className="next__button">→</div>
-        </ImageOverlayChild>
-
-        <ImageOverlayChild
-          src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
-          width="100%"
-          height={`${windowHeight}px`}
-          centerVertical
-          centerHorizontal
-          className="fifth"
-        >
-          <div className="description">
-            {locale === 'en' ? (
-              <>
-                I&apos;m Organic is a company that goes beyond simply making
-                products, realizing values that are beneficial to both nature
-                and people. Our journey is with all who seek skin health and
-                beauty within the cycle of nature. Experience nature&apos;s
-                gifts with I&apos;m Organic and enjoy radiant days with healthy
-                skin.
-              </>
-            ) : (
-              <>
-                아임 오가닉은 단순히 제품을 만드는 것을 넘어, 자연과 사람
-                모두에게 이로운 가치를 실현하는 기업입니다. <br />
-                저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을
-                추구하는 모든 이들과 함께합니다. <br />
-                아임 오가닉과 함께 자연의 선물을 경험하고, 건강한 피부로 빛나는
-                하루를 만나보세요.
-              </>
-            )}
-          </div>
-          <ImageOverlayChild
-            src="/images/logo/logo.svg"
-            width="46.875rem"
-            height="4.875rem"
-          />
-          <div className="next__button reverse">←</div>
         </ImageOverlayChild>
 
         <ImageOverlayChild
@@ -296,7 +280,7 @@ const BrandPage = () => {
           className="fifth"
           key={'fifth'}
         >
-          <div className="description">
+          <div className="description fade move animate1">
             {locale === 'en' ? (
               <>
                 I&apos;m Organic is a company that goes beyond simply making
@@ -318,11 +302,12 @@ const BrandPage = () => {
             )}
           </div>
           <ImageOverlayChild
+            className="fade move animate2"
             src="/images/logo/logo.svg"
             width="46.875rem"
             height="4.875rem"
           />
-          <div className="next__button reverse">←</div>
+          <div className="prev__button">←</div>
         </ImageOverlayChild>
       </SwiperComponent>
 
@@ -332,10 +317,10 @@ const BrandPage = () => {
 };
 
 const BrandPageStyled = styled.div`
-  .swiper-pagination {
-    position: absolute;
-    bottom: 5rem;
-    left: 6.25rem;
+  @media (max-width: 960px) {
+    .header__logo {
+      top: calc(var(--fixed-padding) + 0.5rem);
+    }
   }
 
   .next__button {
@@ -343,31 +328,67 @@ const BrandPageStyled = styled.div`
     right: 6.25rem;
     bottom: 5rem;
 
+    width: fit-content;
+
+    padding: 0 1.5rem;
+
     color: #fff;
     z-index: 100;
 
     font-size: 3.75rem;
     font-family: 'NotoSansKR-Medium';
 
-    animation: shake 2s infinite;
+    &:hover {
+      animation: shake 2s infinite;
+    }
 
     @keyframes shake {
       0% {
-        transform: translateX(-1rem);
+        transform: translateX(0);
       }
       50% {
         transform: translateX(1rem);
       }
       100% {
-        transform: translateX(-1rem);
+        transform: translateX(0rem);
       }
     }
 
     cursor: pointer;
   }
 
-  .reverse {
+  .prev__button {
+    position: absolute;
     left: 6.25rem;
+    bottom: 5rem;
+
+    width: fit-content;
+
+    padding: 0 1.5rem;
+
+    color: #fff;
+    z-index: 100;
+
+    font-size: 3.75rem;
+    font-family: 'NotoSansKR-Medium';
+
+    &:hover {
+      animation: reverseShake 2s infinite;
+    }
+
+    @keyframes reverseShake {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-1rem);
+      }
+      100% {
+        transform: translateX(0rem);
+      }
+    }
+
+    cursor: pointer;
   }
 
   .title {
@@ -494,7 +515,7 @@ const BrandPageStyled = styled.div`
       .text__container {
         position: absolute;
         right: 5rem;
-        bottom: 19.375rem;
+        bottom: 12.375rem;
 
         width: 73rem;
 
@@ -551,6 +572,58 @@ const BrandPageStyled = styled.div`
           display: none;
         }
       }
+    }
+  }
+
+  .fade {
+    opacity: 0;
+  }
+
+  .move {
+    transform: translateY(-3.125rem);
+  }
+
+  .swiper-slide-active {
+    .fade.move {
+      animation:
+        fadeIn 1s forwards,
+        moveIn 1s forwards;
+
+      &.animate1 {
+        /* animation-delay: 0.3s; */
+      }
+
+      &.animate2 {
+        animation-delay: 0.3s;
+      }
+
+      &.animate3 {
+        animation-delay: 0.8s;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes moveIn {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes moveOut {
+    to {
+      transform: translateY(3.125rem);
     }
   }
 `;

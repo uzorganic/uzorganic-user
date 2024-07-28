@@ -93,13 +93,13 @@ export const SwiperComponent = ({
                 clickable: true,
                 type: paginationType,
                 el: '.swiper-pagination',
-                //     renderCustom: (swiper, current, total) => {
-                //       return customPagination
-                //         ? customPagination
-                //         : `
-                // <span class="swiper-pagination-current">${current}</span>
-                // `;
-                //     },
+                renderCustom: (swiper, current, total) => {
+                  return customPagination
+                    ? customPagination
+                    : `
+                <span class="swiper-pagination">${current}</span>
+                `;
+                },
               }
             : false
         }

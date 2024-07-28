@@ -8,18 +8,26 @@ import styled from 'styled-components';
 
 const ContactPage = () => {
   return (
-    <>
+    <ContactPageStyled>
       <MenuButton top left />
-      <FixedLogo className="logo" top centerHorizontal />
+      <FixedLogo className="header__logo" top centerHorizontal />
       <FixedLanguage top right />
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
       <ContactForm />
 
       <Version1Footer />
-    </>
+    </ContactPageStyled>
   );
 };
+
+const ContactPageStyled = styled.div`
+  @media (max-width: 960px) {
+    .header__logo {
+      top: calc(var(--fixed-padding) + 0.5rem);
+    }
+  }
+`;
 
 ContactPage.layout = (page: React.ReactNode) => page;
 

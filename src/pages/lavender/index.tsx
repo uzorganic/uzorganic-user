@@ -11,7 +11,7 @@ const LavenderPage = () => {
   return (
     <LavenderPageStyled>
       <MenuButton top left />
-      <FixedLogo className="logo" top centerHorizontal />
+      <FixedLogo className="header__logo" top centerHorizontal />
       <FixedLanguage top right />
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
@@ -25,7 +25,7 @@ const LavenderPage = () => {
 
 const LavenderPageStyled = styled.div`
   @media (max-width: 960px) {
-    .logo {
+    .header__logo {
       top: calc(var(--fixed-padding) + 0.5rem);
     }
   }

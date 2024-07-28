@@ -77,8 +77,10 @@ const GridImageStyled = styled.div`
       margin-top: 1.875rem;
       padding-left: 0.625rem;
 
+      color: #484036;
+
       font-size: 1.5rem;
-      font-family: 'NotoSansKR-Regular';
+      font-family: 'NotoSansKR-Bold';
     }
   }
 

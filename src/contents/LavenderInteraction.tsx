@@ -41,8 +41,9 @@ export const LavenderInteraction = ({ options }: Props) => {
               {locale === 'en' ? (
                 <>
                   We have discovered strength and healing properties in
-                  lavender, which blooms peacefully even under the scorching
-                  summer sun.
+                  lavender,
+                  <br />
+                  which blooms peacefully even under the scorching summer sun.
                 </>
               ) : (
                 <>
@@ -362,6 +363,50 @@ const LavenderInteractionStyled = styled.div`
 
         gap: 4.875rem;
       }
+    }
+  }
+
+  .swiper-slide-active {
+    .fade.move {
+      animation:
+        fadeIn 1s forwards,
+        moveIn 1s forwards;
+
+      &.first {
+        /* animation-delay: 0.3s; */
+      }
+
+      &.second {
+        animation-delay: 0.3s;
+      }
+
+      &.third {
+        animation-delay: 0.8s;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes moveIn {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes moveOut {
+    to {
+      transform: translateY(3.125rem);
     }
   }
 `;

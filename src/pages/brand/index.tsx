@@ -49,6 +49,8 @@ const BrandPage = () => {
         mousewheel
         direction="horizontal"
         navigation
+        pagination
+        paginationType="custom"
       >
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_1.jpg' : '/images/brand/1.jpg'}
@@ -63,13 +65,15 @@ const BrandPage = () => {
             width="46.875rem"
             height="4.875rem"
           />
+
+          <div className="swiper-pagination">hi</div>
           <div className="next__button">→</div>
         </ImageOverlayChild>
 
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_2.jpg' : '/images/brand/2.jpg'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           className="second"
         >
           <div className="text__container">
@@ -102,13 +106,14 @@ const BrandPage = () => {
             </p>
           </div>
 
+          <div className="swiper-pagination">hi</div>
           <div className="next__button">→</div>
         </ImageOverlayChild>
 
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_3.jpg' : '/images/brand/3.jpg'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           className="second"
         >
           <div className="text__container">
@@ -150,7 +155,7 @@ const BrandPage = () => {
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_4.jpg' : '/images/brand/4.jpg'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           className="third"
         >
           <div className="third__item">
@@ -203,7 +208,7 @@ const BrandPage = () => {
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_5.jpg' : '/images/brand/5.jpg'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           centerVertical
           centerHorizontal
           className="forth"
@@ -248,7 +253,7 @@ const BrandPage = () => {
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           centerVertical
           centerHorizontal
           className="fifth"
@@ -279,12 +284,13 @@ const BrandPage = () => {
             width="46.875rem"
             height="4.875rem"
           />
+          <div className="next__button reverse">←</div>
         </ImageOverlayChild>
 
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
           width="100%"
-          height="100vh"
+          height={`${windowHeight}px`}
           centerVertical
           centerHorizontal
           className="fifth"
@@ -316,6 +322,7 @@ const BrandPage = () => {
             width="46.875rem"
             height="4.875rem"
           />
+          <div className="next__button reverse">←</div>
         </ImageOverlayChild>
       </SwiperComponent>
 
@@ -325,6 +332,12 @@ const BrandPage = () => {
 };
 
 const BrandPageStyled = styled.div`
+  .swiper-pagination {
+    position: absolute;
+    bottom: 5rem;
+    left: 6.25rem;
+  }
+
   .next__button {
     position: absolute;
     right: 6.25rem;
@@ -351,6 +364,10 @@ const BrandPageStyled = styled.div`
     }
 
     cursor: pointer;
+  }
+
+  .reverse {
+    left: 6.25rem;
   }
 
   .title {

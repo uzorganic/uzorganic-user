@@ -32,11 +32,16 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
+              <>
+                With our extensive experience,
+                <br />
+                I’m ORGANIC will continue to grow as a company in harmony with
+                nature.
+              </>
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인 <br />
-                천연물 기업으로 나아가겠습니다.
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
               </>
             )
           }
@@ -60,11 +65,16 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
+              <>
+                With our extensive experience,
+                <br />
+                I’m ORGANIC will continue to grow as a company in harmony with
+                nature.
+              </>
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인 <br />
-                천연물 기업으로 나아가겠습니다.
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
               </>
             )
           }
@@ -88,11 +98,16 @@ const Home = () => {
           }
           description={
             locale === 'en' ? (
-              "With our extensive experience, I'm ORGANIC will grow into a world-leading natural products company"
+              <>
+                With our extensive experience,
+                <br />
+                I’m ORGANIC will continue to grow as a company in harmony with
+                nature.
+              </>
             ) : (
               <>
-                아임오가닉의 풍부한 경험으로 세계적인 <br />
-                천연물 기업으로 나아가겠습니다.
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
               </>
             )
           }

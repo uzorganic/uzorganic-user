@@ -18,6 +18,10 @@ export const StoreLayout = ({ headerHeight }: Props) => {
 
   const [active, setActive] = useState(0);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [active]);
+
   const [iShow, setIShow] = useState(false);
 
   useEffect(() => {
@@ -42,7 +46,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
 
   const dummyCategory1 = {
     img: '/images/store/1.png',
-    moImg: '/images/store/1-mo.jpeg',
+    moImg: '/images/store/1-mo.jpg',
     title: 'All',
     enTitle: 'All',
     description: '자연에서 온 순수함을 담다',
@@ -50,7 +54,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyCategory2 = {
     img: '/images/store/2.png',
-    moImg: '/images/store/1-mo.jpeg',
+    moImg: '/images/store/2-mo.jpg',
     title: '헤어케어 ',
     enTitle: 'Hair Care',
     description: '자연의 힘으로, 건강한 모발을',
@@ -58,7 +62,7 @@ export const StoreLayout = ({ headerHeight }: Props) => {
   };
   const dummyCategory3 = {
     img: '/images/store/3.png',
-    moImg: '/images/store/1-mo.jpeg',
+    moImg: '/images/store/3-mo.jpg',
     title: '스킨케어',
     enTitle: 'Skin Care',
     description: '건강한 피부를 위한 선택',
@@ -134,7 +138,8 @@ export const StoreLayout = ({ headerHeight }: Props) => {
               />
             </div>
           </div>
-
+        </div>
+        <div className="right">
           <div className="mo">
             <div className="banner">
               <ImageWithOverlay
@@ -156,11 +161,11 @@ export const StoreLayout = ({ headerHeight }: Props) => {
               />
             </div>
           </div>
-        </div>
-        <div className="right">
+
           <div className="category">
             <CategoryList active={active} setActive={setActive} />
           </div>
+
           <div className="product">
             <GridImage productList={dummyProductList[active]} />
           </div>
@@ -191,6 +196,10 @@ const StoreLayoutStyle = styled.div<{
     line-height: 3.625rem;
 
     font-family: 'Oranienbaum-Regular', sans-serif;
+
+    @media (max-width: 960px) {
+      margin-bottom: 2.5rem;
+    }
   }
 
   .all {
@@ -220,21 +229,8 @@ const StoreLayoutStyle = styled.div<{
         height: 100%;
       }
 
-      .mo {
-        display: none;
-      }
-
       @media (max-width: 960px) {
-        .pc {
-          display: none;
-        }
-
-        .mo {
-          display: block;
-
-          width: 100%;
-          height: 100%;
-        }
+        display: none;
       }
 
       .banner {
@@ -278,6 +274,10 @@ const StoreLayoutStyle = styled.div<{
 
       flex: 1;
 
+      .mo {
+        display: none;
+      }
+
       .category {
         position: sticky;
         top: ${({ $headerHeight }) =>
@@ -290,6 +290,14 @@ const StoreLayoutStyle = styled.div<{
         transform: translateY(-2.6rem);
 
         background-color: var(--content-main-color);
+
+        @media (max-width: 960px) {
+          padding-left: 1rem;
+
+          p {
+            font-size: 2rem;
+          }
+        }
       }
 
       .product {
@@ -319,29 +327,69 @@ const StoreLayoutStyle = styled.div<{
           }
         }
       }
+
+      @media (max-width: 960px) {
+        .mo {
+          position: sticky;
+          top: ${({ $headerHeight }) =>
+            $headerHeight && `calc(${$headerHeight}px + 2.5rem)`};
+
+          display: block;
+
+          height: 31.25rem;
+
+          transform: translateY(-2.6rem);
+
+          z-index: 1;
+
+          .banner {
+            width: 100%;
+            height: 100%;
+
+            .banner__text {
+              display: flex;
+              flex-direction: column;
+
+              padding: 1.25rem 2.5rem;
+
+              opacity: 0;
+
+              color: #fff;
+
+              .title {
+                font-size: 3.125rem;
+                font-family: 'Oranienbaum-Regular', sans-serif;
+                line-height: 3.625rem;
+              }
+
+              .description {
+                font-size: 1.25rem;
+              }
+            }
+
+            .show {
+              opacity: 1;
+
+              transition: opacity 0.5s;
+            }
+          }
+        }
+
+        .category {
+          top: ${({ $headerHeight }) =>
+            $headerHeight && `calc(${$headerHeight}px + 2.5rem + 31.25rem)`};
+        }
+      }
     }
 
     @media (max-width: 960px) {
       flex-direction: column;
       gap: 0;
-
-      .left {
-        width: 100%;
-        height: 31.25rem;
-
-        margin-bottom: 2.6rem;
-      }
-
-      .right {
-        z-index: 5;
-
-        background-color: var(--content-main-color);
-      }
     }
   }
 
   .footer__gap {
-    height: 25rem;
+    height: 10rem;
 
     @media (max-width: 960px) {
       height: 0;

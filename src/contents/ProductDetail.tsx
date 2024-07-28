@@ -152,6 +152,139 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '적당량의 샴푸를 손에 덜어 충분히 젖은 두피와 모발에 거품을 낸 뒤 골고루 마사지한 후 미온수로 깨끗이 헹궈줍니다.',
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
+      firstHeight: '220.313rem',
+      secondHeight: '166.25rem',
+    },
+    {
+      title: '프롬 라벤더 트리트먼트',
+      enTitle: 'FROM LAVENDER TREATMENT',
+      effect: '모발강화 · 부드러움 · 딥케어',
+      enEffect: 'Hair strengthening · Softness · Deep care',
+      capacity: '200ml',
+      description: (
+        <>
+          힘없는 모근부터 갈라진 모발 끝까지.
+          <br />
+          수분과 영양을 탄탄하게 채워주는
+          <br />
+          모발 집중 영양 관리 라벤더 트리트먼트
+        </>
+      ),
+      enDescription:
+        'A hair-focused nutrition management lavender treatment that fills hair with moisture and nutrition from weak roots to split ends',
+      ingredients:
+        '라벤더수(20,580ppm), 아르간커넬오일, 해바라기오일, 18가지 자연유래 추출물, 글리세린, 라벤더오일(1,000ppm)',
+      enIngredients:
+        'Lavender Water(20,580ppm), Argan Kernel Oil, Sunflower Oil, 18 kinds of natural extracts, Glycerin, Lavender Oil(1,000ppm)',
+      howToUse:
+        '샴푸 후 가볍게 물기를 제거한 후 적당량을 손에 덜어 두피를 제외한 모발 전체에 골고루 펴 발라줍니다. 3-5분 후에 깨끗이 헹구어 냅니다.',
+      enHowToUse:
+        'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
+      firstHeight: '208.75rem',
+      secondHeight: '225.625rem',
+    },
+    {
+      title: '프롬 라벤더 헤어 미스트',
+      enTitle: (
+        <>
+          FROM LAVENDER
+          <br />
+          HAIR MIST
+        </>
+      ),
+      effect: '유·수분밸런스 · 정전기방지 · 수분공급',
+      enEffect: 'Oil and moisture balance · Anti-static · Moisture supply',
+      capacity: '100ml',
+      description: (
+        <>
+          언제어디서나 간편하게
+          <br />
+          윤기 & 영양을 충전해주는
+          <br />
+          라벤더 헤어 미스트
+        </>
+      ),
+      enDescription:
+        'A lavender hair mist that easily replenishes gloss and nutrition anytime, anywhere',
+      ingredients:
+        '라벤더수(20,580ppm), 20가지 자연유래 추출물, 라벤더오일(1,500ppm)',
+      enIngredients:
+        'Lavender Water(20,580ppm), 20 kinds of natural extracts, Lavender Oil(1,500ppm)',
+      howToUse:
+        '모발이 부스스하거나 건조하게 느껴질 때 2~3회 가볍게 흔들어 적당량을 분사한 후 흡수시켜 줍니다.',
+      enHowToUse:
+        'When your hair feels frizzy or dry, shake it lightly 2-3 times, spray an appropriate amount, and absorb it.',
+      firstHeight: '203.125rem',
+      secondHeight: '142.5rem',
+    },
+    {
+      title: '프롬 라벤더 헤어 오일',
+      enTitle: (
+        <>
+          FROM LAVENDER
+          <br />
+          HAIR OIL
+        </>
+      ),
+      effect: '모발영양 · 모발회복도움 · 자연윤기',
+      enEffect: 'Hair nutrition · Hair recovery aid · Natural shine',
+      capacity: '50ml',
+      description: (
+        <>
+          수분과 영양을 모발 속 깊은 곳까지 채워
+          <br />
+          한 올 한 올 매끈하게 윤기를 더해주는
+          <br />
+          라벤더 헤어 오일
+        </>
+      ),
+      enDescription:
+        'A lavender hair oil that fills hair with moisture and nutrition to the depths of the hair, adding smooth shine to each strand',
+      ingredients:
+        '아나토씨오일, 동백나무씨오일, 아르간커넬오일, 호호바씨오일, 해바라기씨오일, 들콩오일, 라벤더오일(2,00ppm)',
+      enIngredients:
+        'Anatto Seed Oil, Camellia Seed Oil, Argan Kernel Oil, Jojoba Seed Oil, Sunflower Seed Oil, Meadowfoam Seed Oil, Lavender Oil(2,00ppm)',
+      howToUse:
+        '샴푸 후 가볍게 물기를 제거하고, 젖은 모발이나 건조된 모발에 적당량을 덜어 모발 전체에 골고루 펴 발라줍니다. 건조할 때 자주 덧발라주세요.',
+      enHowToUse:
+        'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
+      firstHeight: '196.25rem',
+      secondHeight: '225.142.5rem',
+    },
+    {
+      title: '라벤더 솔루션 마스크',
+      enTitle: 'LAVENDER SOLUTION MASK',
+      effect: '모발영양 · 모발회복도움 · 자연윤기',
+      enEffect: 'Hair nutrition · Hair recovery aid · Natural shine',
+      capacity: '200ml X 5ea',
+      description: (
+        <>
+          민감해진 피부를 집중적으로 진정시키며
+          <br />
+          콜라겐 부스팅 성분을 더한
+          <br />
+          솔루션 마스크
+        </>
+      ),
+      enDescription:
+        'A solution mask that soothes sensitive skin intensively and contains collagen-boosting ingredients',
+      ingredients:
+        '아나토씨오일, 동백나무씨오일, 아르간커넬오일, 호호바씨오일, 해바라기씨오일, 들콩오일, 라벤더오일(2,00ppm)',
+      enIngredients:
+        'Anatto Seed Oil, Camellia Seed Oil, Argan Kernel Oil, Jojoba Seed Oil, Sunflower Seed Oil, Meadowfoam Seed Oil, Lavender Oil(2,00ppm)',
+      howToUse: (
+        <>
+          1. 세안 후, 화장수로 피부 결을 정돈해 줍니다.
+          <br />
+          2. 마스크를 얼굴 모양에 맞춰 약 15~20분 동안 고르게 밀착시켜줍니다.
+          <br />
+          3. 마스크를 떼어내고, 남은 에센스는 가볍게 두드려 흡수시켜줍니다.
+        </>
+      ),
+      enHowToUse:
+        'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
+      firstHeight: '208.75rem',
+      secondHeight: '225.625rem',
     },
   ];
 
@@ -164,7 +297,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       <div className="top">
         <div className="left">
           <ImageOverlayChild
-            src="/images/store/product1/1_0.jpg"
+            src={`/images/store/product${id}/1_0.jpg`}
             width="100%"
             height={`calc(100vh - ${headerHeight}px)`}
           />
@@ -185,29 +318,29 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src="/images/store/product1/1_1.jpg"
+              src={`/images/store/product${id}/1_1.jpg`}
               width="100%"
-              height="220.313rem"
+              height={dummyProduct[id - 1].firstHeight}
             />
           ) : (
             <ImageOverlayChild
-              src="/images/store/product1/1_2.jpg"
+              src={`/images/store/product${id}/1_2.jpg`}
               width="100%"
-              height="220.313rem"
+              height={dummyProduct[id - 1].firstHeight}
             />
           )}
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src="/images/store/product1/1_3.jpg"
+              src={`/images/store/product${id}/1_3.jpg`}
               width="100%"
-              height="166.25rem"
+              height={dummyProduct[id - 1].secondHeight}
             />
           ) : (
             <ImageOverlayChild
-              src="/images/store/product1/1_4.jpg"
+              src={`/images/store/product${id}/1_4.jpg`}
               width="100%"
-              height="166.25rem"
+              height={dummyProduct[id - 1].secondHeight}
             />
           )}
         </div>

@@ -30,5 +30,6 @@ const StoreDetailStyled = styled.div`
     }
   }
 `;
+StoreDetail.layoutFillColor = 'black';
 
 export default StoreDetail;

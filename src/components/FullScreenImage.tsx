@@ -7,22 +7,31 @@ interface Props {
   alt: string;
 
   height?: string;
+  objectFit?: 'cover' | 'contain';
 }
 
-export const FullScreenImage = ({ src, alt, height = '100vh' }: Props) => {
+export const FullScreenImage = ({
+  src,
+  alt,
+  height = '100vh',
+  objectFit = 'cover',
+}: Props) => {
   return (
-    <FullScreenImageStyled height={height}>
+    <FullScreenImageStyled height={height} $objectFit={objectFit}>
       <Image className="image" src={src} alt={alt} fill sizes="100%" priority />
     </FullScreenImageStyled>
   );
 };
 
-const FullScreenImageStyled = styled.div<{ height: string }>`
+const FullScreenImageStyled = styled.div<{
+  height: string;
+  $objectFit?: 'cover' | 'contain';
+}>`
   position: relative;
 
   height: ${({ height }) => height};
 
   .image {
-    object-fit: cover;
+    object-fit: ${({ $objectFit }) => $objectFit};
   }
 `;

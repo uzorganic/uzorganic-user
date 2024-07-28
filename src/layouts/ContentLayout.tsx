@@ -41,7 +41,6 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
           headerHeight,
         })}
       </div>
-      <div className="footer__gap" />
 
       <Version1Footer />
     </ContentLayoutStyled>
@@ -63,13 +62,5 @@ const ContentLayoutStyled = styled.div<{
   .content__layout {
     margin-top: ${({ $headerHeight }) => $headerHeight}px;
     /* margin-top: calc(2.75rem + var(--fixed-padding) * 2); */
-  }
-
-  .footer__gap {
-    height: 25rem;
-
-    @media (max-width: 960px) {
-      height: 0;
-    }
   }
 `;

@@ -14,7 +14,7 @@ interface Props {
   className?: string;
 }
 
-export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
+export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
   const router = useRouter();
   const { id } = router.query as unknown as { id: number };
 
@@ -136,9 +136,9 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       description: (
         <>
           자연에서 온 라벤더수와 라벤더 오일을 담아
-          <br />
+          {/* <br /> */}
           건강한 두피와 모발 컨디션을 조성해주는
-          <br />
+          {/* <br /> */}
           두피 청정 라벤더 샴푸
         </>
       ),
@@ -160,194 +160,193 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
   }
 
   return (
-    <ProductDetailStyle $headerHeight={headerHeight} className={className}>
-      <div className="top">
-        <div className="left">
-          <ImageOverlayChild
-            src="/images/store/product1/1_0.jpg"
-            width="100%"
-            height={`calc(100vh - ${headerHeight}px)`}
-          />
+    <ProductDetailMobileStyle
+      $headerHeight={headerHeight}
+      className={className}
+    >
+      <ImageOverlayChild
+        src="/images/store/product1/1_0.jpg"
+        width="100%"
+        height={`calc(100vh - ${headerHeight}px)`}
+      />
 
-          {locale === 'ko' ? (
-            <ImageOverlayChild
-              src="/images/store/all_ditail_header.jpg"
-              width="100%"
-              height="108.25rem"
-            />
-          ) : (
-            <ImageOverlayChild
-              src="/images/store/all_ditail_header_en.jpg"
-              width="100%"
-              height="108.25rem"
-            />
-          )}
-
-          {locale === 'ko' ? (
-            <ImageOverlayChild
-              src="/images/store/product1/1_1.jpg"
-              width="100%"
-              height="220.313rem"
-            />
-          ) : (
-            <ImageOverlayChild
-              src="/images/store/product1/1_2.jpg"
-              width="100%"
-              height="220.313rem"
-            />
-          )}
-
-          {locale === 'ko' ? (
-            <ImageOverlayChild
-              src="/images/store/product1/1_3.jpg"
-              width="100%"
-              height="166.25rem"
-            />
-          ) : (
-            <ImageOverlayChild
-              src="/images/store/product1/1_4.jpg"
-              width="100%"
-              height="166.25rem"
-            />
-          )}
+      <div className="text">
+        <h1>
+          {locale === 'ko'
+            ? dummyProduct[id - 1].title
+            : dummyProduct[id - 1].enTitle}
+        </h1>
+        <div className="sub__title">
+          <p>
+            {locale === 'ko'
+              ? dummyProduct[id - 1].effect
+              : dummyProduct[id - 1].enEffect}
+          </p>
+          <span>{dummyProduct[id - 1].capacity}</span>
         </div>
+        <div className="line" />
 
-        <div className="right">
-          <h1>
-            {locale === 'ko'
-              ? dummyProduct[id - 1].title
-              : dummyProduct[id - 1].enTitle}
-          </h1>
-          <div className="sub__title">
-            <p>
-              {locale === 'ko'
-                ? dummyProduct[id - 1].effect
-                : dummyProduct[id - 1].enEffect}
-            </p>
-            <span>{dummyProduct[id - 1].capacity}</span>
-          </div>
-          <div className="line" />
-
-          <h2>
-            {locale === 'ko'
-              ? dummyProduct[id - 1].description
-              : dummyProduct[id - 1].enDescription}
-          </h2>
+        <h2>
+          {locale === 'ko'
+            ? dummyProduct[id - 1].description
+            : dummyProduct[id - 1].enDescription}
+        </h2>
+        <div className="arrow__button">
           <HoverArrowButton
-            className="arrow__button"
             text={locale === 'ko' ? '구매하러 가기' : 'Go to purchase'}
             color="#403b35"
-            width={locale === 'ko' ? '17rem' : '20rem'}
-            padding="0.5rem 1.5rem"
+            width="100%"
+            padding="1.5rem 1.5rem"
           />
-          <div className="product__detail" onClick={() => setIsShow1(!isShow1)}>
-            <span>{isShow1 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '제품정보' : 'Product information'}</p>
+        </div>
+        <div className="product__detail" onClick={() => setIsShow1(!isShow1)}>
+          <span>{isShow1 ? '-' : '+'}</span>
+          <p>{locale === 'ko' ? '제품정보' : 'Product information'}</p>
+        </div>
+        {isShow1 && (
+          <div className="product__detail__content">
+            {locale === 'ko' ? (
+              <>
+                <div>
+                  제조국
+                  <br />
+                  제조사 및 책임판매업자
+                </div>
+                <div>
+                  우즈베키스탄
+                  <br />
+                  (주) 허브테라피 위드 코스메틱스
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  Country of manufacture
+                  <br />
+                  Manufacturer and responsible seller
+                </div>
+                <div>
+                  Uzbekistan
+                  <br />
+                  Herb Therapy with Cosmetics Co., Ltd.
+                </div>
+              </>
+            )}
           </div>
-          {isShow1 && (
+        )}
+        <div className="product__detail" onClick={() => setIsShow2(!isShow2)}>
+          <span>{isShow2 ? '-' : '+'}</span>
+          <p>{locale === 'ko' ? '주요성분' : 'Main ingredients'}</p>
+        </div>
+        {isShow2 && (
+          <>
             <div className="product__detail__content">
-              {locale === 'ko' ? (
-                <>
-                  <div>
-                    제조국
-                    <br />
-                    제조사 및 책임판매업자
-                  </div>
-                  <div>
-                    우즈베키스탄
-                    <br />
-                    (주) 허브테라피 위드 코스메틱스
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div>
-                    Country of manufacture
-                    <br />
-                    Manufacturer and responsible seller
-                  </div>
-                  <div>
-                    Uzbekistan
-                    <br />
-                    Herb Therapy with Cosmetics Co., Ltd.
-                  </div>
-                </>
-              )}
+              <div>
+                {locale === 'ko'
+                  ? dummyProduct[id - 1].ingredients
+                  : dummyProduct[id - 1].enIngredients}
+              </div>
             </div>
-          )}
-          <div className="product__detail" onClick={() => setIsShow2(!isShow2)}>
-            <span>{isShow2 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '주요성분' : 'Main ingredients'}</p>
-          </div>
-          {isShow2 && (
-            <>
-              <div className="product__detail__content">
-                <div>
-                  {locale === 'ko'
-                    ? dummyProduct[id - 1].ingredients
-                    : dummyProduct[id - 1].enIngredients}
-                </div>
-              </div>
-            </>
-          )}
-          <div className="product__detail" onClick={() => setIsShow3(!isShow3)}>
-            <span>{isShow3 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '사용법' : 'How to use'}</p>
-          </div>
-          {isShow3 && (
-            <>
-              <div className="product__detail__content">
-                <div>
-                  {locale === 'ko'
-                    ? dummyProduct[id - 1].howToUse
-                    : dummyProduct[id - 1].enHowToUse}
-                </div>
-              </div>
-            </>
-          )}
+          </>
+        )}
+        <div className="product__detail" onClick={() => setIsShow3(!isShow3)}>
+          <span>{isShow3 ? '-' : '+'}</span>
+          <p>{locale === 'ko' ? '사용법' : 'How to use'}</p>
         </div>
+        {isShow3 && (
+          <>
+            <div className="product__detail__content">
+              <div>
+                {locale === 'ko'
+                  ? dummyProduct[id - 1].howToUse
+                  : dummyProduct[id - 1].enHowToUse}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
-      <div className="bottom">
-        <div className="left">
-          <FullScreenImage src="/images/store/4.png" alt="4" height="100%" />
-        </div>
+      {locale === 'ko' ? (
+        <ImageOverlayChild
+          src="/images/store/all_ditail_header.jpg"
+          width="100%"
+          height="90rem"
+        />
+      ) : (
+        <ImageOverlayChild
+          src="/images/store/all_ditail_header_en.jpg"
+          width="100%"
+          height="90rem"
+        />
+      )}
 
-        <div className="right">
-          <h1>{locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}</h1>
+      {locale === 'ko' ? (
+        <ImageOverlayChild
+          src="/images/store/product1/1_1.jpg"
+          width="100%"
+          height="220.313rem"
+        />
+      ) : (
+        <ImageOverlayChild
+          src="/images/store/product1/1_2.jpg"
+          width="100%"
+          height="220.313rem"
+        />
+      )}
 
-          <h2 className="space">
-            {locale === 'ko'
-              ? '두피 청정 라벤더 솔루션'
-              : 'SCALP CLEAN LAVENDER SOLUTION'}
-          </h2>
+      {locale === 'ko' ? (
+        <ImageOverlayChild
+          src="/images/store/product1/1_3.jpg"
+          width="100%"
+          height="150rem"
+        />
+      ) : (
+        <ImageOverlayChild
+          src="/images/store/product1/1_4.jpg"
+          width="100%"
+          height="150rem"
+        />
+      )}
 
-          <div className="line" />
+      <ImageOverlayChild
+        className="together__top"
+        src="/images/store/5.png"
+        width="100%"
+        height="100vh"
+        top="4rem"
+        centerHorizontal
+      ></ImageOverlayChild>
 
-          <div className="step__container">
-            {Object.entries(step).map(([key, value]) => (
-              <StepTypography
-                key={key}
-                step={parseInt(key)}
-                title={locale === 'ko' ? value.title : value.enTitle}
-                id={value.router}
-                content={locale === 'ko' ? value.content : value.enContent}
-              />
-            ))}
-          </div>
+      <div className="text">
+        <h1>{locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}</h1>
+
+        <h2 className="space">
+          {locale === 'ko'
+            ? '두피 청정 라벤더 솔루션'
+            : 'SCALP CLEAN LAVENDER SOLUTION'}
+        </h2>
+
+        <div className="line" />
+
+        <div className="step__container">
+          {Object.entries(step).map(([key, value]) => (
+            <StepTypography
+              key={key}
+              step={parseInt(key)}
+              title={locale === 'ko' ? value.title : value.enTitle}
+              id={value.router}
+              content={locale === 'ko' ? value.content : value.enContent}
+            />
+          ))}
         </div>
       </div>
-    </ProductDetailStyle>
+    </ProductDetailMobileStyle>
   );
 };
 
-const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
+const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
   display: flex;
   flex-direction: column;
-
-  .top {
-    display: flex;
-  }
 
   .bottom {
     display: flex;
@@ -363,26 +362,13 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
     }
   }
 
-  .left {
+  .text {
     display: flex;
     flex-direction: column;
 
-    width: 59.375%;
-    height: auto;
-  }
-
-  .right {
-    position: sticky;
-    top: ${({ $headerHeight }) => $headerHeight}px;
-
-    display: flex;
-    flex-direction: column;
-
-    width: 40.625%;
-    /* height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`}; */
     height: fit-content;
 
-    padding: 0rem 7.5rem;
+    padding: 5rem 7.5rem;
 
     color: #403b35;
 

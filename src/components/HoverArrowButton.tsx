@@ -63,6 +63,7 @@ const HoverArrowButtonStyled = styled.div<{
 
   p {
     padding-right: 2rem;
+    text-align: center;
 
     color: ${({ $color }) => $color};
 

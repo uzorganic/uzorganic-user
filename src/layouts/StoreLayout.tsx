@@ -142,6 +142,8 @@ export const StoreLayout = ({ headerHeight }: Props) => {
           </div>
         </div>
       </div>
+
+      <div className="footer__gap" />
     </StoreLayoutStyle>
   );
 };
@@ -264,6 +266,14 @@ const StoreLayoutStyle = styled.div<{
           }
         }
       }
+    }
+  }
+
+  .footer__gap {
+    height: 25rem;
+
+    @media (max-width: 960px) {
+      height: 0;
     }
   }
 `;

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import { GoTop } from './Fixed/GoTop';
 import { Version1Footer } from './Footer/Version1';
 import { LogoWithMenuAndSearch } from './Header/LogoWithMenuAndSearch';
 
-import { Footer } from 'antd/es/layout/layout';
 import styled from 'styled-components';
 
 interface Props {
@@ -41,6 +41,7 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
           headerHeight,
         })}
       </div>
+      <GoTop bottom right />
 
       <Version1Footer />
     </ContentLayoutStyled>

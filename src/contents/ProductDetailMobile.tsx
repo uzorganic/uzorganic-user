@@ -337,48 +337,44 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
             padding="1.5rem 1.5rem"
           />
         </div>
-        <div className="product__detail" onClick={() => setIsShow1(!isShow1)}>
+        <div className="info" onClick={() => setIsShow1(!isShow1)}>
           <span>{isShow1 ? '-' : '+'}</span>
           <p>{locale === 'ko' ? '제품정보' : 'Information'}</p>
         </div>
         {isShow1 && (
-          <div className="product__detail__content">
+          <div className="info__section">
             {locale === 'ko' ? (
               <>
-                <div>
-                  제조국
-                  <br />
-                  제조사 및 책임판매업자
+                <div className="info__item">
+                  <h3>제조국</h3>
+                  <p>우즈베키스탄</p>
                 </div>
-                <div>
-                  우즈베키스탄
-                  <br />
-                  (주) 허브테라피 위드 코스메틱스
+                <div className="info__item">
+                  <h3>제조사 및 책임판매업자</h3>
+                  <p>(주)허브테라피 위드 코스메틱스</p>
                 </div>
               </>
             ) : (
               <>
-                <div>
-                  Country of manufacture
-                  <br />
-                  Manufacturer and responsible seller
+                <div className="info__item">
+                  <h3>Country of manufacture</h3>
+                  <p>Uzbekistan</p>
                 </div>
-                <div>
-                  Uzbekistan
-                  <br />
-                  Herb Therapy with Cosmetics
+                <div className="info__item">
+                  <h3>Manufacturer and responsible seller</h3>
+                  <p>HERBTHERAPY WITH COSMETICS</p>
                 </div>
               </>
             )}
           </div>
         )}
-        <div className="product__detail" onClick={() => setIsShow2(!isShow2)}>
+        <div className="info" onClick={() => setIsShow2(!isShow2)}>
           <span>{isShow2 ? '-' : '+'}</span>
           <p>{locale === 'ko' ? '주요성분' : 'Main ingredients'}</p>
         </div>
         {isShow2 && (
           <>
-            <div className="product__detail__content">
+            <div className="info__section">
               <div>
                 {locale === 'ko'
                   ? dummyProduct[id - 1].ingredients
@@ -387,13 +383,13 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
             </div>
           </>
         )}
-        <div className="product__detail" onClick={() => setIsShow3(!isShow3)}>
+        <div className="info" onClick={() => setIsShow3(!isShow3)}>
           <span>{isShow3 ? '-' : '+'}</span>
           <p>{locale === 'ko' ? '사용법' : 'How to use'}</p>
         </div>
         {isShow3 && (
           <>
-            <div className="product__detail__content">
+            <div className="info__section">
               <div>
                 {locale === 'ko'
                   ? dummyProduct[id - 1].howToUse
@@ -554,7 +550,7 @@ const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
       margin: 1.25rem 0;
     }
 
-    .product__detail {
+    .info {
       display: flex;
       gap: 0.5rem;
 
@@ -579,14 +575,29 @@ const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
       }
     }
 
-    .product__detail__content {
+    .info__section {
       display: flex;
+      flex-direction: column;
       gap: 0.5rem;
 
       margin: 0.5rem 2rem;
 
-      div {
-        font-size: 1.125rem;
+      font-size: 1.125rem;
+      font-family: 'NotoSansKR-Regular';
+
+      .info__item {
+        display: flex;
+        gap: 1rem;
+
+        h3 {
+          font-size: 1.125rem;
+          font-family: 'NotoSansKR-Bold';
+        }
+
+        p {
+          font-size: 1.125rem;
+          font-family: 'NotoSansKR-Regular';
+        }
       }
     }
   }

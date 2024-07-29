@@ -138,6 +138,7 @@ const Home = () => {
               src="/images/logo/logo.svg"
               width="48rem"
               height="4.875rem"
+              objectFit="contain"
             />
           }
           description={
@@ -172,6 +173,7 @@ const Home = () => {
               src="/images/logo/logo.svg"
               width="48rem"
               height="4.875rem"
+              objectFit="contain"
             />
           }
           description={

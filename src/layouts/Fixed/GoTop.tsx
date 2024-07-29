@@ -36,6 +36,8 @@ export const GoTop = ({
         centerVertical={centerVertical}
         centerHorizontal={centerHorizontal}
         disable={open}
+        width="3rem"
+        height="3rem"
         onClick={() =>
           window.scrollTo({
             top: 0,

@@ -272,7 +272,7 @@ const BrandPage = () => {
         </ImageOverlayChild>
 
         <ImageOverlayChild
-          src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.png'}
+          src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.jpg'}
           width="100%"
           height={`${windowHeight}px`}
           centerVertical

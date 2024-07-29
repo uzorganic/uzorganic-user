@@ -118,7 +118,7 @@ export const LavenderInteraction = ({ options }: Props) => {
               )}
             </p>
 
-            <div className="item__list fade move animate3">
+            {/* <div className="item__list fade move animate3">
               <div className="item">
                 <div className="ellipse" />
                 <h2>BODY / SKIN</h2>
@@ -163,7 +163,7 @@ export const LavenderInteraction = ({ options }: Props) => {
                   )}
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </ImageOverlayChild>
       </SwiperComponent>

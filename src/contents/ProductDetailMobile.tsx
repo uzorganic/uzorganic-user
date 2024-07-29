@@ -143,6 +143,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           두피 청정 라벤더 샴푸
         </>
       ),
+      link: '/store/1',
       enDescription:
         'A scalp clean lavender shampoo that creates a healthy scalp and hair condition with natural lavender water and lavender oil',
       ingredients:
@@ -171,6 +172,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           모발 집중 영양 관리 라벤더 트리트먼트
         </>
       ),
+      link: '/store/1',
       enDescription:
         'A hair-focused nutrition management lavender treatment that fills hair with moisture and nutrition from weak roots to split ends',
       ingredients:
@@ -205,6 +207,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           라벤더 헤어 미스트
         </>
       ),
+      link: '/store/1',
       enDescription:
         'A lavender hair mist that easily replenishes gloss and nutrition anytime, anywhere',
       ingredients:
@@ -239,6 +242,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           라벤더 헤어 오일
         </>
       ),
+      link: '/store/1',
       enDescription:
         'A lavender hair oil that fills hair with moisture and nutrition to the depths of the hair, adding smooth shine to each strand',
       ingredients:
@@ -271,6 +275,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           솔루션 마스크
         </>
       ),
+      link: '/store/1',
       enDescription:
         'A solution mask that soothes sensitive skin intensively and contains collagen-boosting ingredients',
       ingredients:
@@ -335,6 +340,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
             color="#403b35"
             width="100%"
             padding="1.5rem 1.5rem"
+            onClick={() => window.open(dummyProduct[id - 1].link)}
           />
         </div>
         <div className="info" onClick={() => setIsShow1(!isShow1)}>

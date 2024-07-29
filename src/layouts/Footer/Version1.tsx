@@ -24,15 +24,15 @@ export const Version1Footer = () => {
         <div className="company__info">
           {locale === 'en' ? (
             <>
-              <p>COMPANY</p>
-              <p>AGREEMENT</p>
-              <p>PRIVACY POLICY</p>
+              <p onClick={() => router.push('/brand')}>COMPANY</p>
+              {/* <p>AGREEMENT</p>
+              <p>PRIVACY POLICY</p> */}
             </>
           ) : (
             <>
-              <p>회사소개</p>
-              <p>이용약관</p>
-              <p>개인정보처리방침</p>
+              <p onClick={() => router.push('/brand')}>회사소개</p>
+              {/* <p>이용약관</p>
+              <p>개인정보처리방침</p> */}
             </>
           )}
         </div>
@@ -92,6 +92,8 @@ const FooterStyled = styled.footer`
 
         display: flex;
         gap: 1.25rem;
+
+        cursor: pointer;
       }
     }
   }

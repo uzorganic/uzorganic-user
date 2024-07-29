@@ -6,7 +6,6 @@ import { CenterTitleAndButton } from '@/components/CenterTitleAndButton';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
-import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
 import { ContactForm } from '@/contents/ContactForm';
 import { HomeLayout } from '@/layouts/HomeLayout';
 import { YoutubeFilled } from '@ant-design/icons';
@@ -248,7 +247,7 @@ const Home = () => {
         }
       />
 
-      <ContactForm />
+      {/* <ContactForm /> */}
     </HomeLayoutStyled>
   );
 };

@@ -259,6 +259,8 @@ const HomeLayoutStyled = styled.div`
       .description {
         display: flex;
         flex-direction: column;
+
+        margin-top: 1.5rem;
       }
     }
   }

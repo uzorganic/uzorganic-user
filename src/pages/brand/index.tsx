@@ -112,13 +112,19 @@ const BrandPage = () => {
                 </>
               ) : (
                 <>
-                  아임 오가닉은 자연의 힘으로 피부 건강을 책임지는 유기농 오일
-                  및 천연 제품을 제조하는 기업입니다. <br />
-                  저희의 이야기는 자연을 존중하고 자연의 시간을 따르는 깊은
-                  철학에서 시작됩니다. <br />
-                  자연이 제공하는 최고의 선물을 담아내기 위해 최선을 다하고
-                  있으며, <br />
-                  이는 저희의 모든 제품에 고스란히 반영되어 있습니다.
+                  <p>
+                    허브테라피 위드 코스메틱은 아임 오가닉 브랜드로 우즈벡에
+                    진출했습니다.
+                  </p>
+                  <ul>
+                    <li>한국에서 20년 연구 개발</li>
+                    <li>자신있는 제품 기술</li>
+                    <li>안전한 성분</li>
+                  </ul>
+                  <p>
+                    자연의 시간을 존중하는 기업이며 이는 아임 오가닉 제품에
+                    고스란히 반영되고 있습니다.
+                  </p>
                 </>
               )}
             </p>
@@ -135,12 +141,12 @@ const BrandPage = () => {
           className="second"
         >
           <div className="text__container">
-            <h1 className="title fade move animate1">
+            <h1 className="title center fade move animate1">
               {locale === 'en'
                 ? 'Product Quality and Reliability'
                 : '제품의 품질과 신뢰성'}
             </h1>
-            <p className="description fade move animate2">
+            <p className="description center fade move animate2">
               {locale === 'en' ? (
                 <>
                   Believing in and respecting the power of nature, I&apos;m
@@ -158,10 +164,10 @@ const BrandPage = () => {
                   자연에서 얻은 최고 품질의 재료들만을 사용하여 제품을
                   처방합니다. <br />
                   이러한 접근 방식은 피부에 순하면서도 효과적인 제품을 만들어
-                  내는 저희의 핵심 원칙입니다. <br />
-                  저희는 고객의 피부가 본연의 건강함을 되찾고 유지할 수 있도록
-                  돕기 위해 <br />
-                  끊임없이 연구하고 노력하겠습니다.
+                  내는 <br />
+                  저희의 핵심 원칙입니다. 저희는 고객의 피부가 본연의 건강함을
+                  되찾고 <br />
+                  유지할 수 있도록 돕기 위해 끊임없이 연구하고 노력하겠습니다.
                 </>
               )}
             </p>
@@ -177,69 +183,57 @@ const BrandPage = () => {
           height={`${windowHeight}px`}
           className="third"
         >
-          <div className="third__item">
-            <div className="left">
-              {isMobile || (
-                <ImageOverlayChild
-                  src="/images/brand/7.png"
-                  width="37.25rem"
-                  height="29.25rem"
-                />
+          <div className="text__container">
+            <h1 className="title fade move animate1">
+              {locale === 'en' ? (
+                'Ethical Certification and Sustainable Development'
+              ) : (
+                <>
+                  윤리적 인증과 <br />
+                  지속 가능한 발전
+                </>
               )}
-            </div>
-            <div className="right">
-              <h1 className="title fade move animate1">
-                {locale === 'en' ? (
-                  'Ethical Certification and Sustainable Development'
-                ) : (
-                  <>
-                    윤리적 인증과 <br />
-                    지속 가능한 발전
-                  </>
-                )}
-              </h1>
-              <p className="description fade move animate2">
-                {locale === 'en' ? (
-                  <>
-                    I&apos;m Organic realizes ethical and sustainable values
-                    with products that are certified organic, vegan, and halal.
-                    We are committed to not conducting animal testing and to not
-                    using animal-derived ingredients, protecting the environment
-                    and respecting the rights of all living beings.
-                  </>
-                ) : (
-                  <>
-                    아임 오가닉은 유기농, 비건 및 할랄 인증을 받은 제품으로,{' '}
-                    <br />
-                    윤리적이고 지속 가능한 가치를 실현하고 있습니다. <br />
-                    저희는 동물 실험을 하지 않으며, 동물성 성분을 사용하지 않는
-                    것을 <br />
-                    원칙으로 삼아 환경을 보호하고 모든 생명체의 권리를 존중하고
-                    있습니다.
-                  </>
-                )}
-              </p>
-            </div>
-            <div className="prev__button">←</div>
-            <div className="next__button">→</div>
+            </h1>
+            <p className="description fade move animate2">
+              {locale === 'en' ? (
+                <>
+                  I&apos;m Organic realizes ethical and sustainable values with
+                  products that are certified organic, vegan, and halal. We are
+                  committed to not conducting animal testing and to not using
+                  animal-derived ingredients, protecting the environment and
+                  respecting the rights of all living beings.
+                </>
+              ) : (
+                <>
+                  아임 오가닉은 유기농, 비건 및 할랄 인증을 받은 제품으로,{' '}
+                  <br />
+                  윤리적이고 지속 가능한 가치를 실현하고 있습니다. <br />
+                  저희는 동물 실험을 하지 않으며, 동물성 성분을 사용하지 않는
+                  것을 <br />
+                  원칙으로 삼아 환경을 보호하고 모든 생명체의 권리를 존중하고
+                  있습니다.
+                </>
+              )}
+            </p>
           </div>
+
+          <div className="prev__button">←</div>
+          <div className="next__button">→</div>
         </ImageOverlayChild>
 
         <ImageOverlayChild
           src={isMobile ? '/images/brand/mb_5.jpg' : '/images/brand/5.jpg'}
           width="100%"
           height={`${windowHeight}px`}
-          centerVertical
-          centerHorizontal
           className="forth"
         >
           <div className="text__container">
-            <h1 className="title fade move animate1">
+            <h1 className="title center fade move animate1">
               {locale === 'en'
                 ? 'Partnership with MEHRIGIYO'
                 : 'MEHRIGIYO와의 파트너십'}
             </h1>
-            <p className="description fade move animate2">
+            <p className="description center fade move animate2">
               {locale === 'en' ? (
                 <>
                   Our partnership with MEHRIGIYO in Uzbekistan is a key pillar
@@ -257,11 +251,12 @@ const BrandPage = () => {
                   중요한 축입니다. <br />
                   MEHRIGIYO의 건강한 유기농 원료로 스킨케어 제품 라인을
                   강화하고, <br />
-                  우수한 기술로 뛰어난 제품을 개발하고 있습니다. <br /> <br />
+                  우수한 기술로 뛰어난 제품을 개발하고 있습니다. <br />
+                  <br />
                   또한, 지역 사회와의 협력을 통해 지속 가능한 개발을 촉진하고
                   있으며, <br />
                   앞으로도 지속적으로 새로운 제품을 개발하여 고객에게 제공할
-                  것을 약속합니다.
+                  것을 약속합니다. <br />
                 </>
               )}
             </p>
@@ -396,11 +391,19 @@ const BrandPageStyled = styled.div`
   }
 
   .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     font-size: 1.8rem;
 
     font-family: Noto Sans;
     letter-spacing: -0.05%;
     line-height: 3.75rem;
+
+    ul {
+      padding-left: 2.5rem;
+    }
   }
 
   .first {
@@ -425,16 +428,14 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        right: 3.75rem;
-        bottom: 11.25rem;
+        right: 2.5rem;
+        bottom: 16rem;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         gap: 3.75rem;
-
-        width: 73rem;
 
         color: #fff;
         font-family: 'NotoSansKR-Medium';
@@ -443,7 +444,13 @@ const BrandPageStyled = styled.div`
           br {
             display: none;
           }
-          width: 53rem;
+          right: 0;
+
+          padding: 0 2.5rem;
+
+          .center {
+            text-align: center;
+          }
         }
       }
     }
@@ -451,56 +458,31 @@ const BrandPageStyled = styled.div`
 
   .third {
     .children {
-      width: 100%;
-      height: 100%;
-    }
+      position: relative;
 
-    .third__item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 100%;
       height: 100%;
 
-      color: #fff;
-      font-family: 'NotoSansKR-Medium';
+      .text__container {
+        position: absolute;
+        left: 6.25rem;
+        bottom: 16rem;
 
-      .left {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        width: 50%;
-        height: 100%;
-      }
-
-      .right {
         display: flex;
         flex-direction: column;
         justify-content: center;
+
         gap: 3.75rem;
 
-        width: 50%;
-        height: 100%;
-      }
+        color: #fff;
+        font-family: 'NotoSansKR-Medium';
 
-      @media (max-width: 960px) {
-        flex-direction: column;
-
-        .left {
-          width: 100%;
-          height: 50%;
-          padding-top: 15rem;
-        }
-
-        .right {
-          width: 100%;
-          height: 50%;
+        @media (max-width: 960px) {
+          /* br {
+            display: none;
+          } */
+          left: 0;
 
           padding: 0 2.5rem;
-
-          gap: 1.875rem;
         }
       }
     }
@@ -514,10 +496,9 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        right: 5rem;
-        bottom: 12.375rem;
-
-        width: 73rem;
+        right: 2.5rem;
+        top: 50%;
+        transform: translateY(-50%);
 
         display: flex;
         flex-direction: column;
@@ -532,15 +513,22 @@ const BrandPageStyled = styled.div`
           br {
             display: none;
           }
+          position: relative;
 
-          .title {
-            font-size: 4.5rem;
-          }
-
+          top: 0;
+          transform: none;
           right: 0;
 
-          width: 100%;
+          justify-content: end;
+
+          height: 100%;
+
           padding: 0 2.5rem;
+          padding-bottom: 15rem;
+
+          .center {
+            text-align: center;
+          }
         }
       }
     }

@@ -320,7 +320,7 @@ const BrandPageStyled = styled.div`
 
   .next__button {
     position: absolute;
-    right: 6.25rem;
+    right: 5rem;
     bottom: 5rem;
 
     width: fit-content;
@@ -354,7 +354,7 @@ const BrandPageStyled = styled.div`
 
   .prev__button {
     position: absolute;
-    left: 6.25rem;
+    left: 5rem;
     bottom: 5rem;
 
     width: fit-content;
@@ -435,6 +435,7 @@ const BrandPageStyled = styled.div`
         flex-direction: column;
         justify-content: center;
 
+        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;
@@ -471,6 +472,7 @@ const BrandPageStyled = styled.div`
         flex-direction: column;
         justify-content: center;
 
+        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;
@@ -504,6 +506,7 @@ const BrandPageStyled = styled.div`
         flex-direction: column;
         justify-content: center;
 
+        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;

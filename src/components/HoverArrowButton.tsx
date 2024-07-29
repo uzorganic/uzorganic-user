@@ -35,7 +35,6 @@ export const HoverArrowButton = ({
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
         <div className="hover__arrow__button__container">
-          {/* <Image src="/images/assets/arrow.svg" alt="Arrow" fill /> */}
           <Arrow />
         </div>
       </div>
@@ -58,6 +57,7 @@ const HoverArrowButtonStyled = styled.div<{
   cursor: pointer;
 
   border: 0.125rem solid ${({ $color }) => $color};
+  transition: border 0.3s;
 
   padding: ${({ $padding }) => $padding};
 
@@ -90,6 +90,8 @@ const HoverArrowButtonStyled = styled.div<{
     border: 0.125rem solid transparent;
     border-bottom: 0.125rem solid ${({ $color }) => $color};
 
+    transition: border 0.3s;
+
     .standard__arrow__button {
       display: none;
       opacity: 0;
@@ -114,6 +116,24 @@ const HoverArrowButtonStyled = styled.div<{
 
         color: ${({ $color }) => $color};
       }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;

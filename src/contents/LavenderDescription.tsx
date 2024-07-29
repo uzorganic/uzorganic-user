@@ -74,7 +74,7 @@ const LavenderDescriptionStyled = styled.div`
 
     width: 50%;
 
-    padding: 0 6.5rem;
+    padding: 0 5.5rem;
 
     color: #484036;
 
@@ -96,6 +96,7 @@ const LavenderDescriptionStyled = styled.div`
       margin: 0;
 
       margin-top: 3.75rem;
+      line-height: 3rem;
     }
   }
 

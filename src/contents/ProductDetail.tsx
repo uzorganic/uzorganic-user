@@ -129,7 +129,11 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       title: '프롬 라벤더 샴푸',
       enTitle: 'FROM LAVENDER SHAMPOO',
       effect: '두피각질완화 · 진정 · 딥클렌징',
-      enEffect: 'Scalp keratin relief · Soothing · Deep cleansing',
+      enEffect: (
+        <>
+          Scalp keratin relief · Soothing <br />· Deep cleansing
+        </>
+      ),
       capacity: '200ml',
       description: (
         <>
@@ -253,7 +257,11 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       title: '라벤더 솔루션 마스크',
       enTitle: 'LAVENDER SOLUTION MASK',
       effect: '모발영양 · 모발회복도움 · 자연윤기',
-      enEffect: 'Hair nutrition · Hair recovery aid · Natural shine',
+      enEffect: (
+        <>
+          Hair nutrition · Hair recovery aid <br />· Natural shine
+        </>
+      ),
       capacity: '200ml X 5ea',
       description: (
         <>
@@ -535,6 +543,8 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
       }
 
       span {
+        white-space: nowrap;
+
         font-size: 1.375rem;
       }
     }
@@ -552,6 +562,8 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
       font-size: 1.75rem;
 
       margin: 1.25rem 0;
+
+      line-height: 3rem;
     }
 
     .arrow__button {

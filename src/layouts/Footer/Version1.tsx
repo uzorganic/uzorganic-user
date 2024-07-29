@@ -1,9 +1,14 @@
+import { useRouter } from 'next/router';
+
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { SnsList } from '@/components/SnsList';
 import styled from 'styled-components';
 
 export const Version1Footer = () => {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <FooterStyled>
       <ImageOverlayChild
@@ -13,20 +18,30 @@ export const Version1Footer = () => {
         height="26.25rem"
       >
         <div className="sns__container">
-          <SnsList color="#f2efe9" hoverColor="#eee" gap="3.75rem" />
+          <SnsList color="#f2efe9" hoverColor="#484036" gap="3.75rem" />
         </div>
         <div className="email">uzorganic@naver.com</div>
         <div className="company__info">
-          <p>회사소개</p>
-          <p>이용약관</p>
-          <p>개인정보처리방침</p>
+          {locale === 'en' ? (
+            <>
+              <p>COMPANY</p>
+              <p>AGREEMENT</p>
+              <p>PRIVACY POLICY</p>
+            </>
+          ) : (
+            <>
+              <p>회사소개</p>
+              <p>이용약관</p>
+              <p>개인정보처리방침</p>
+            </>
+          )}
         </div>
       </ImageOverlayChild>
       <div className="logo">
         <FullScreenImage src="/images/logo/logo.svg" alt="logo" height="100%" />
       </div>
 
-      <div
+      {/* <div
         className="go__top"
         onClick={() => {
           window.scrollTo({
@@ -40,7 +55,7 @@ export const Version1Footer = () => {
           width="1.5rem"
           height="5rem"
         />
-      </div>
+      </div> */}
     </FooterStyled>
   );
 };

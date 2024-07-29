@@ -15,7 +15,7 @@ interface Props {
 
 export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
   const router = useRouter();
-  const { locale, pathname, query, asPath } = router;
+  const { locale, asPath } = router;
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -99,6 +99,11 @@ const LogoWithMenuAndSearchStyled = styled.div<{
     width: 2.75rem;
     height: 2.75rem;
 
+    @media (max-width: 960px) {
+      width: 4rem;
+      height: 4rem;
+    }
+
     filter: ${({ $fillColor }) =>
       $fillColor === 'white' ? 'invert(0)' : 'invert(1)'};
 
@@ -109,20 +114,29 @@ const LogoWithMenuAndSearchStyled = styled.div<{
     display: flex;
 
     gap: 1.25rem;
-  }
 
-  .language {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .language {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    color: ${({ $fillColor }) => ($fillColor === 'white' ? '#fff' : '#000')};
-    font-size: 0.875rem;
-    font-family: 'NotoSansKR-Medium';
+      color: ${({ $fillColor }) => ($fillColor === 'white' ? '#fff' : '#000')};
+      font-size: 0.875rem;
+      font-family: 'NotoSansKR-Medium';
 
-    .image__wrapper {
-      width: 2.5rem;
-      height: 2.5rem;
+      @media (max-width: 960px) {
+        font-size: 1rem;
+      }
+
+      .image__wrapper {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        @media (max-width: 960px) {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
     }
   }
 
@@ -136,5 +150,10 @@ const LogoWithMenuAndSearchStyled = styled.div<{
       $fillColor === 'white' ? 'invert(0)' : 'invert(1)'};
 
     cursor: pointer;
+
+    @media (max-width: 960px) {
+      width: 29.25rem;
+      height: 3rem;
+    }
   }
 `;

@@ -105,15 +105,15 @@ const Home = () => {
               src="/images/logo/logo.svg"
               width="48rem"
               height="4.875rem"
+              objectFit="contain"
             />
           }
           description={
             locale === 'en' ? (
               <>
-                With our extensive experience,
-                <br />
-                I’m ORGANIC will continue to grow as a company in harmony with
-                nature.
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
               </>
             ) : (
               <>
@@ -143,10 +143,11 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                With our extensive experience,
-                <br />
-                I’m ORGANIC will continue to grow as a company in harmony with
-                nature.
+                <>
+                  With our extensive experience, <br />
+                  I’m ORGANIC will continue to grow
+                  <p>as a company in harmony with nature.</p>
+                </>
               </>
             ) : (
               <>
@@ -176,10 +177,11 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                With our extensive experience,
-                <br />
-                I’m ORGANIC will continue to grow as a company in harmony with
-                nature.
+                <>
+                  With our extensive experience, <br />
+                  I’m ORGANIC will continue to grow
+                  <p>as a company in harmony with nature.</p>
+                </>
               </>
             ) : (
               <>
@@ -252,8 +254,9 @@ const Home = () => {
 const HomeLayoutStyled = styled.div`
   .Logo {
     .center {
-      h1 {
-        margin-bottom: 2rem;
+      .description {
+        display: flex;
+        flex-direction: column;
       }
     }
   }

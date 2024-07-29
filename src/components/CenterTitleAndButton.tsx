@@ -24,7 +24,7 @@ export const CenterTitleAndButton = ({
 
       <div className="center">
         <h1>{title}</h1>
-        <p>{description}</p>
+        <div className="description">{description}</div>
         <div className="button__container">{buttonComponent}</div>
       </div>
     </CenterTitleAndButtonStyled>
@@ -62,7 +62,7 @@ const CenterTitleAndButtonStyled = styled.div`
       }
     }
 
-    p {
+    .description {
       color: #fff;
       font-size: 1.75rem;
 

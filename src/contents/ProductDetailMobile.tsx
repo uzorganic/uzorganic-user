@@ -293,8 +293,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
       ),
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
-      firstHeight: '793.5rem',
-      secondHeight: '0',
+      firstHeight: '223.125rem',
+      secondHeight: '205.625rem',
     },
   ];
 
@@ -408,9 +408,13 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
 
       {locale === 'ko' ? (
         <ImageOverlayChild
-          src="/images/store/all_ditail_header.jpg"
+          src={
+            id == 5
+              ? '/images/store/mask_ditail.jpg'
+              : '/images/store/all_ditail_header.jpg'
+          }
           width="100%"
-          height="90rem"
+          height={id == 5 ? '335.625rem' : '108.25rem'}
         />
       ) : (
         <ImageOverlayChild
@@ -450,37 +454,43 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
         />
       )}
 
-      <ImageOverlayChild
-        className="together__top"
-        src="/images/store/5.png"
-        width="100%"
-        height="70rem"
-        centerHorizontal
-      ></ImageOverlayChild>
+      {id != 5 && (
+        <>
+          <ImageOverlayChild
+            className="together__top"
+            src="/images/store/5.png"
+            width="100%"
+            height="70rem"
+            centerHorizontal
+          ></ImageOverlayChild>
 
-      <div className="text">
-        <h1>{locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}</h1>
+          <div className="text">
+            <h1>
+              {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
+            </h1>
 
-        <h2 className="space">
-          {locale === 'ko'
-            ? '두피 청정 라벤더 솔루션'
-            : 'SCALP CLEAN LAVENDER SOLUTION'}
-        </h2>
+            <h2 className="space">
+              {locale === 'ko'
+                ? '두피 청정 라벤더 솔루션'
+                : 'SCALP CLEAN LAVENDER SOLUTION'}
+            </h2>
 
-        <div className="line" />
+            <div className="line" />
 
-        <div className="step__container">
-          {Object.entries(step).map(([key, value]) => (
-            <StepTypography
-              key={key}
-              step={parseInt(key)}
-              title={locale === 'ko' ? value.title : value.enTitle}
-              id={value.router}
-              content={locale === 'ko' ? value.content : value.enContent}
-            />
-          ))}
-        </div>
-      </div>
+            <div className="step__container">
+              {Object.entries(step).map(([key, value]) => (
+                <StepTypography
+                  key={key}
+                  step={parseInt(key)}
+                  title={locale === 'ko' ? value.title : value.enTitle}
+                  id={value.router}
+                  content={locale === 'ko' ? value.content : value.enContent}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </ProductDetailMobileStyle>
   );
 };

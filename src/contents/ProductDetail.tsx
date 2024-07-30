@@ -306,8 +306,8 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           absorbed.
         </>
       ),
-      firstHeight: '793.5rem',
-      secondHeight: '0',
+      firstHeight: '233.125rem',
+      secondHeight: '215.625rem',
     },
   ];
 
@@ -328,9 +328,13 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src="/images/store/all_ditail_header.jpg"
+              src={
+                id == 5
+                  ? '/images/store/mask_ditail.jpg'
+                  : '/images/store/all_ditail_header.jpg'
+              }
               width="100%"
-              height="108.25rem"
+              height={id == 5 ? '335.625rem' : '108.25rem'}
             />
           ) : (
             <ImageOverlayChild

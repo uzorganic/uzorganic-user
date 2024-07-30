@@ -95,7 +95,7 @@ const Home = () => {
 
   return (
     <HomeLayoutStyled>
-      <FractionSwiper effect="fade">
+      <FractionSwiper effect="fade" className="pc">
         <CenterTitleAndButton
           className="Logo"
           imageSrc="/images/main/1.png"
@@ -201,8 +201,114 @@ const Home = () => {
         />
       </FractionSwiper>
 
+      <FractionSwiper effect="fade" className="mo">
+        <CenterTitleAndButton
+          className="Logo"
+          imageSrc="/images/main/1_mb.jpg"
+          title={
+            <ImageOverlayChild
+              src="/images/logo/logo.svg"
+              width="48rem"
+              height="4.875rem"
+              objectFit="contain"
+            />
+          }
+          description={
+            locale === 'en' ? (
+              <>
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
+              </>
+            ) : (
+              <>
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
+              </>
+            )
+          }
+          buttonComponent={
+            <HoverArrowButton
+              text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
+              onClick={() => router.push('/brand')}
+            />
+          }
+        />
+        <CenterTitleAndButton
+          className="Logo"
+          imageSrc="/images/main/2_mb.jpg"
+          title={
+            <ImageOverlayChild
+              src="/images/logo/logo.svg"
+              width="48rem"
+              height="4.875rem"
+              objectFit="contain"
+            />
+          }
+          description={
+            locale === 'en' ? (
+              <>
+                <>
+                  With our extensive experience, <br />
+                  I’m ORGANIC will continue to grow
+                  <p>as a company in harmony with nature.</p>
+                </>
+              </>
+            ) : (
+              <>
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
+              </>
+            )
+          }
+          buttonComponent={
+            <HoverArrowButton
+              text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
+              onClick={() => router.push('/brand')}
+            />
+          }
+        />
+        <CenterTitleAndButton
+          className="Logo"
+          imageSrc="/images/main/3_mb.jpg"
+          title={
+            <ImageOverlayChild
+              src="/images/logo/logo.svg"
+              width="48rem"
+              height="4.875rem"
+              objectFit="contain"
+            />
+          }
+          description={
+            locale === 'en' ? (
+              <>
+                <>
+                  With our extensive experience, <br />
+                  I’m ORGANIC will continue to grow
+                  <p>as a company in harmony with nature.</p>
+                </>
+              </>
+            ) : (
+              <>
+                아임오가닉은 풍부한 경험으로 <br />
+                자연과 함께하는 기업으로 나가겠습니다.
+              </>
+            )
+          }
+          buttonComponent={
+            <HoverArrowButton
+              text={locale === 'en' ? 'MORE' : 'MORE'}
+              color="#fff"
+              onClick={() => router.push('/brand')}
+            />
+          }
+        />
+      </FractionSwiper>
+
       <CenterTitleAndButton
-        className="Lavender"
+        className="Lavender pc"
         imageSrc="/images/main/9.jpg"
         title="LAVENDER"
         description={
@@ -217,8 +323,54 @@ const Home = () => {
       />
 
       <CenterTitleAndButton
-        className="Youtube"
+        className="Lavender mo"
+        imageSrc="/images/main/9_mb.jpg"
+        title="LAVENDER"
+        description={
+          locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'
+        }
+        buttonComponent={
+          <HoverArrowButton
+            text={locale === 'en' ? 'MORE' : 'MORE'}
+            onClick={() => router.push('/lavender')}
+          />
+        }
+      />
+
+      <CenterTitleAndButton
+        className="Youtube pc"
         imageSrc="/images/main/0.jpg"
+        title={locale === 'en' ? 'YouTube' : '유튜브'}
+        description={
+          locale === 'en' ? (
+            'Check out the latest news on YouTube!'
+          ) : (
+            <>
+              유튜브에서 최신 소식을
+              <br />
+              확인해보세요!
+            </>
+          )
+        }
+        buttonComponent={
+          <YoutubeFilled
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+            style={{
+              fontSize: '8rem',
+              color: isHover ? '#BC1515' : '#fff',
+              cursor: 'pointer',
+            }}
+            onClick={() =>
+              window.open('https://www.youtube.com/@user-vd6fe1ev3v')
+            }
+          />
+        }
+      />
+
+      <CenterTitleAndButton
+        className="Youtube mo"
+        imageSrc="/images/main/0_mb.jpg"
         title={locale === 'en' ? 'YouTube' : '유튜브'}
         description={
           locale === 'en' ? (
@@ -253,6 +405,14 @@ const Home = () => {
 };
 
 const HomeLayoutStyled = styled.div`
+  .pc {
+    display: block;
+  }
+
+  .mo {
+    display: none;
+  }
+
   .Logo {
     .center {
       .description {
@@ -287,6 +447,14 @@ const HomeLayoutStyled = styled.div`
 
   @media (max-width: 960px) {
     br {
+      display: block;
+    }
+
+    .pc {
+      display: none;
+    }
+
+    .mo {
       display: block;
     }
   }

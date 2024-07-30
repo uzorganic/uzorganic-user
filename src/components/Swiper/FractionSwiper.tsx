@@ -13,6 +13,7 @@ interface Props {
   autoplay?: boolean;
   loop?: boolean;
   effect?: 'slide' | 'fade';
+  className?: string;
 }
 
 export const FractionSwiper = ({
@@ -20,9 +21,10 @@ export const FractionSwiper = ({
   autoplay = true,
   loop = true,
   effect = 'slide',
+  className,
 }: Props) => {
   return (
-    <FractionSwiperStyled>
+    <FractionSwiperStyled className={className}>
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         loop={loop}
@@ -33,7 +35,6 @@ export const FractionSwiper = ({
           nextEl: '.next__button',
           prevEl: '.prev__button',
         }}
-        className="mySwiper"
       >
         {Array.isArray(children) ? (
           children.map((child, index) => (

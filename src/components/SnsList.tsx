@@ -66,7 +66,10 @@ export const SnsList = ({
         className={`icon ${hoveredIcon === 'youtube' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('youtube')}
         onMouseLeave={handleMouseLeave}
-        onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
+        // onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
+        onClick={() =>
+          window.open('https://www.instagram.com/safocosmetics.uz/')
+        }
       >
         <Youtube />
       </div>

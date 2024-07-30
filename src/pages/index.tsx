@@ -8,7 +8,7 @@ import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
 import { ContactForm } from '@/contents/ContactForm';
 import { HomeLayout } from '@/layouts/HomeLayout';
-import { YoutubeFilled } from '@ant-design/icons';
+import { InstagramFilled, YoutubeFilled } from '@ant-design/icons';
 import styled from 'styled-components';
 
 const Home = () => {
@@ -54,8 +54,8 @@ const Home = () => {
 
       if (isScrollUp) {
         if (
-          window.scrollY % window.innerHeight > window.innerHeight - 50 &&
-          window.scrollY % window.innerHeight < window.innerHeight - 10
+          window.scrollY % window.innerHeight > window.innerHeight - 100 &&
+          window.scrollY % window.innerHeight < window.innerHeight - 2
         ) {
           setIsScroll(true);
           window.scrollTo({
@@ -340,29 +340,29 @@ const Home = () => {
       <CenterTitleAndButton
         className="Youtube pc"
         imageSrc="/images/main/0.jpg"
-        title={locale === 'en' ? 'YouTube' : '유튜브'}
+        title={locale === 'en' ? 'Instagram' : '인스타그램'}
         description={
           locale === 'en' ? (
-            'Check out the latest news on YouTube!'
+            'Check out the latest news on Instagram!'
           ) : (
             <>
-              유튜브에서 최신 소식을
+              인스타그램에서 최신 소식을
               <br />
               확인해보세요!
             </>
           )
         }
         buttonComponent={
-          <YoutubeFilled
+          <InstagramFilled
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             style={{
               fontSize: '8rem',
-              color: isHover ? '#BC1515' : '#fff',
+              color: isHover ? '#9f7bac' : '#fff',
               cursor: 'pointer',
             }}
             onClick={() =>
-              window.open('https://www.youtube.com/@user-vd6fe1ev3v')
+              window.open('https://www.instagram.com/safocosmetics.uz/')
             }
           />
         }
@@ -371,29 +371,29 @@ const Home = () => {
       <CenterTitleAndButton
         className="Youtube mo"
         imageSrc="/images/main/0_mb.jpg"
-        title={locale === 'en' ? 'YouTube' : '유튜브'}
+        title={locale === 'en' ? 'Instagram' : '인스타그램'}
         description={
           locale === 'en' ? (
-            'Check out the latest news on YouTube!'
+            'Check out the latest news on Instagram!'
           ) : (
             <>
-              유튜브에서 최신 소식을
+              인스타그램에서 최신 소식을
               <br />
               확인해보세요!
             </>
           )
         }
         buttonComponent={
-          <YoutubeFilled
+          <InstagramFilled
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             style={{
               fontSize: '8rem',
-              color: isHover ? '#BC1515' : '#fff',
+              color: isHover ? '#9f7bac' : '#fff',
               cursor: 'pointer',
             }}
             onClick={() =>
-              window.open('https://www.youtube.com/@user-vd6fe1ev3v')
+              window.open('https://www.instagram.com/safocosmetics.uz/')
             }
           />
         }
@@ -448,6 +448,12 @@ const HomeLayoutStyled = styled.div`
   @media (max-width: 960px) {
     br {
       display: block;
+    }
+
+    .center {
+      h1 {
+        white-space: nowrap;
+      }
     }
 
     .pc {

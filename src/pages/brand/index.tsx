@@ -205,7 +205,7 @@ const BrandPage = () => {
           <div className="text__container">
             <h1 className="title fade move animate1">
               {locale === 'en' ? (
-                'Ethical Certification and Sustainable Development'
+                <>Ethical Certification and Sustainable Development</>
               ) : (
                 <>
                   윤리적 인증과 <br />
@@ -516,6 +516,8 @@ const BrandPageStyled = styled.div`
 
         gap: 3.75rem;
 
+        max-width: 58.75rem;
+
         color: #fff;
         font-family: 'NotoSansKR-Medium';
 
@@ -524,8 +526,6 @@ const BrandPageStyled = styled.div`
             display: none;
           } */
           left: 0;
-
-          max-width: 58.75rem;
 
           padding: 0 2.5rem;
         }
@@ -551,6 +551,7 @@ const BrandPageStyled = styled.div`
 
         gap: 3.75rem;
 
+        max-width: 58.75rem;
         color: #fff;
         font-family: 'NotoSansKR-Medium';
 
@@ -572,8 +573,6 @@ const BrandPageStyled = styled.div`
           top: 0;
           transform: none;
           right: 0;
-
-          max-width: 58.75rem;
 
           justify-content: end;
 

@@ -503,6 +503,8 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
   display: flex;
   flex-direction: column;
 
+  padding-top: 4.75rem;
+
   .top {
     display: flex;
   }
@@ -531,7 +533,7 @@ const ProductDetailStyle = styled.div<{ $headerHeight: number }>`
 
   .right {
     position: sticky;
-    top: ${({ $headerHeight }) => $headerHeight}px;
+    top: ${({ $headerHeight }) => 'calc(' + $headerHeight + 'px + 4.75rem)'};
 
     display: flex;
     flex-direction: column;

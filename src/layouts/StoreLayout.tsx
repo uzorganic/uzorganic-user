@@ -15,12 +15,23 @@ interface Props {
 export const StoreLayout = ({ headerHeight }: Props) => {
   const router = useRouter();
   const { locale } = router;
+  const { category } = router.query;
 
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [active]);
+
+  useEffect(() => {
+    if (category === '1') {
+      setActive(1);
+    } else if (category === '2') {
+      setActive(2);
+    } else {
+      setActive(0);
+    }
+  }, [category]);
 
   const [iShow, setIShow] = useState(false);
 

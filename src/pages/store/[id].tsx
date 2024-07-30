@@ -1,3 +1,4 @@
+import { CategoryListBar } from '@/components/CategoryListBar';
 import { ProductDetail } from '@/contents/ProductDetail';
 import { ProductDetailMobile } from '@/contents/ProductDetailMobile';
 import styled from 'styled-components';
@@ -8,17 +9,36 @@ interface Props {
 
 const StoreDetail = ({ headerHeight = 0 }: Props) => {
   return (
-    <StoreDetailStyled>
-      <ProductDetailMobile headerHeight={headerHeight} className="mobile" />
+    <StoreDetailStyled $headerHeight={headerHeight}>
+      <div className="category__list">
+        <CategoryListBar />
+      </div>
+
       <ProductDetail headerHeight={headerHeight} className="desktop" />
+      <ProductDetailMobile headerHeight={headerHeight} className="mobile" />
     </StoreDetailStyled>
   );
 };
 
-const StoreDetailStyled = styled.div`
+const StoreDetailStyled = styled.div<{ $headerHeight: number }>`
   max-width: 1920px;
 
   margin: 0 auto;
+
+  .category__list {
+    position: fixed;
+    top: ${({ $headerHeight }) => $headerHeight}px;
+    z-index: 10;
+
+    display: flex;
+    width: 100%;
+
+    padding: 2rem;
+
+    transform: translateY(-2rem);
+
+    background-color: var(--content-main-color);
+  }
 
   .mobile {
     display: none;

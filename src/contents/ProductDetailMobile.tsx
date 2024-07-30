@@ -425,7 +425,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
               : '/images/store/all_ditail_header_en.jpg'
           }
           width="100%"
-          height={id == 5 ? '335.625rem' : '90.25rem'}
+          height={id == 5 ? '274.625rem' : '90.25rem'}
           objectFit="contain"
         />
       )}
@@ -508,6 +508,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
 const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
   display: flex;
   flex-direction: column;
+
+  padding-top: 4.75rem;
 
   .bottom {
     display: flex;

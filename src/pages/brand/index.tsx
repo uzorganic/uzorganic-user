@@ -158,13 +158,21 @@ const BrandPage = () => {
             <p className="description center right__margin fade move animate2">
               {locale === 'en' ? (
                 <>
-                  Believing in and respecting the power of nature, I&apos;m
-                  Organic rigorously excludes synthetic preservatives and
-                  formulates products using only the highest quality ingredients
-                  derived from nature. This approach is our core principle,
-                  creating products that are gentle yet effective on the skin.
+                  Believing in and respecting the power of nature,
+                  <br />
+                  I&apos;m Organic rigorously excludes synthetic preservatives
+                  and formulates products
+                  <br />
+                  using only the highest quality ingredients derived from
+                  nature. This approach is
+                  <br />
+                  our core principle, creating products that are gentle yet
+                  effective on the skin.
+                  <br />
                   we continuously research and strive to help our
-                  customers&apos; skin regain and maintain its natural health.
+                  customers&apos; skin regain and
+                  <br />
+                  maintain its natural health.
                 </>
               ) : (
                 <>
@@ -444,7 +452,7 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        right: 5rem;
+        right: 5%;
         bottom: 15%;
 
         display: flex;
@@ -457,7 +465,7 @@ const BrandPageStyled = styled.div`
         font-family: 'NotoSansKR-Medium';
 
         .right__margin {
-          margin-right: 6em;
+          margin-right: 2em;
         }
 
         .mo {

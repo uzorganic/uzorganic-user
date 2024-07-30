@@ -103,17 +103,26 @@ const BrandPage = () => {
             <p className="description fade move animate2">
               {locale === 'en' ? (
                 <>
-                  I&apos;m Organic is a company that manufactures organic oils
-                  and natural products that take responsibility for skin health
-                  with the power of nature. Our story begins with a deep
-                  philosophy that respects nature and follows its timing. We
-                  strive to capture the best gifts nature has to offer,
-                  reflected in every product.
+                  <p>
+                    Herbtherapy with Cosmetics has expanded to Uzbekistan under
+                    the <br />
+                    I&apos;m ORGANIC brand.
+                  </p>
+                  <ul>
+                    <li>20 years of research and development in Korea</li>
+                    <li>Confident product technology</li>
+                    <li>Safe ingredients</li>
+                  </ul>
+                  <p>
+                    We are a company that respects the time of nature, and this
+                    is fully reflected in I&apos;m Organic products.
+                  </p>
                 </>
               ) : (
                 <>
                   <p>
-                    허브테라피 위드 코스메틱은 아임 오가닉 브랜드로 우즈벡에
+                    허브테라피 위드 코스메틱은 아임 오가닉 브랜드로 우즈벡에{' '}
+                    <br className="mo" />
                     진출했습니다.
                   </p>
                   <ul>
@@ -160,13 +169,14 @@ const BrandPage = () => {
               ) : (
                 <>
                   자연이 가진 힘을 믿고 존중하는 아임 오가닉은 합성 방부제를
-                  철저히 배제하고, <br />
-                  자연에서 얻은 최고 품질의 재료들만을 사용하여 제품을
-                  처방합니다. <br />
-                  이러한 접근 방식은 피부에 순하면서도 효과적인 제품을 만들어
-                  내는 <br />
-                  저희의 핵심 원칙입니다. 저희는 고객의 피부가 본연의 건강함을
-                  되찾고 <br />
+                  철저히 <br className="mo" />
+                  배제하고, <br />
+                  자연에서 얻은 최고 품질의 재료들만 사용하여 제품을 처방합니다.{' '}
+                  <br className="mo" />
+                  <br />
+                  이러한 방식은 피부에 순하면서도 효과적인 제품을 만들어 내는
+                  핵심 <br className="mo" />
+                  원칙입니다. <br /> 저희는 고객의 피부가 본연의 건강함을 되찾고
                   유지할 수 있도록 돕기 위해 끊임없이 연구하고 노력하겠습니다.
                 </>
               )}
@@ -248,15 +258,19 @@ const BrandPage = () => {
               ) : (
                 <>
                   우즈베키스탄의 MEHRIGIYO 회사와의 파트너십은 아임 오가닉의
-                  중요한 축입니다. <br />
-                  MEHRIGIYO의 건강한 유기농 원료로 스킨케어 제품 라인을
+                  중요한 <br className="mo" /> 축입니다. <br />
+                  MEHRIGIYO의 건강한 유기농 원료로 스킨케어 제품 라인을{' '}
+                  <br className="mo" />
                   강화하고, <br />
                   우수한 기술로 뛰어난 제품을 개발하고 있습니다. <br />
                   <br />
+                  <br className="mo" />
                   또한, 지역 사회와의 협력을 통해 지속 가능한 개발을 촉진하고
                   있으며, <br />
+                  <br className="mo" />
                   앞으로도 지속적으로 새로운 제품을 개발하여 고객에게 제공할
-                  것을 약속합니다. <br />
+                  것을 <br className="mo" />
+                  약속합니다.
                 </>
               )}
             </p>
@@ -288,11 +302,13 @@ const BrandPage = () => {
             ) : (
               <>
                 아임 오가닉은 단순히 제품을 만드는 것을 넘어, 자연과 사람
-                모두에게 이로운 가치를 실현하는 기업입니다. <br />
-                저희의 여정은 자연의 순환 속에서 피부의 건강과 아름다움을
-                추구하는 모든 이들과 함께합니다. <br />
-                아임 오가닉과 함께 자연의 선물을 경험하고, 건강한 피부로 빛나는
-                하루를 만나보세요.
+                모두에게 <br className="mo" />
+                이로운 가치를 실현하는 기업입니다. <br />
+                저희의 여정은 자연의 순환 속에서 <br className="mo" />
+                피부의 건강과 아름다움을 추구하는 모든 이들과 함께합니다. <br />
+                아임 오가닉과 <br className="mo" />
+                함께 자연의 선물을 경험하고, 건강한 피부로 빛나는 하루를
+                만나보세요.
               </>
             )}
           </div>
@@ -398,7 +414,6 @@ const BrandPageStyled = styled.div`
     font-size: 1.8rem;
 
     font-family: Noto Sans;
-    letter-spacing: -0.05%;
     line-height: 3.75rem;
 
     ul {
@@ -429,7 +444,7 @@ const BrandPageStyled = styled.div`
       .text__container {
         position: absolute;
         right: 2.5rem;
-        bottom: 16rem;
+        bottom: 15%;
 
         display: flex;
         flex-direction: column;
@@ -441,10 +456,19 @@ const BrandPageStyled = styled.div`
         color: #fff;
         font-family: 'NotoSansKR-Medium';
 
+        .mo {
+          display: none;
+        }
+
         @media (max-width: 960px) {
           br {
             display: none;
           }
+
+          .mo {
+            display: block;
+          }
+
           right: 0;
 
           padding: 0 2.5rem;
@@ -466,7 +490,7 @@ const BrandPageStyled = styled.div`
       .text__container {
         position: absolute;
         left: 6.25rem;
-        bottom: 16rem;
+        bottom: 15%;
 
         display: flex;
         flex-direction: column;
@@ -512,10 +536,19 @@ const BrandPageStyled = styled.div`
         color: #fff;
         font-family: 'NotoSansKR-Medium';
 
+        .mo {
+          display: none;
+        }
+
         @media (max-width: 960px) {
           br {
             display: none;
           }
+
+          .mo {
+            display: block;
+          }
+
           position: relative;
 
           top: 0;
@@ -550,17 +583,24 @@ const BrandPageStyled = styled.div`
 
       height: 100%;
 
+      padding: 0 2.5rem;
+
       .description {
         color: #fff;
         text-align: center;
         line-height: 5rem;
       }
+      .mo {
+        display: none;
+      }
 
       @media (max-width: 960px) {
-        padding: 0 2.5rem;
-
         br {
           display: none;
+        }
+
+        .mo {
+          display: block;
         }
       }
     }

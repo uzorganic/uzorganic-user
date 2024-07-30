@@ -411,7 +411,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           src={
             id == 5
               ? '/images/store/mask_ditail.jpg'
-              : '/images/store/all_ditail_header.jpg'
+              : '/images/store/mask_ditail_en.jpg'
           }
           width="100%"
           height={id == 5 ? '335.625rem' : '108.25rem'}

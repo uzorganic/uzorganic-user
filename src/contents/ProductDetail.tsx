@@ -338,9 +338,13 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
             />
           ) : (
             <ImageOverlayChild
-              src="/images/store/all_ditail_header_en.jpg"
+              src={
+                id == 5
+                  ? '/images/store/mask_ditail_en.jpg'
+                  : '/images/store/all_ditail_header_en.jpg'
+              }
               width="100%"
-              height="108.25rem"
+              height={id == 5 ? '335.625rem' : '108.25rem'}
             />
           )}
 

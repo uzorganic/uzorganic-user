@@ -121,8 +121,8 @@ const BrandPage = () => {
               ) : (
                 <>
                   <p>
-                    허브테라피 위드 코스메틱은 아임 오가닉 브랜드로 우즈벡에{' '}
-                    <br className="mo" />
+                    허브테라피 위드 코스메틱은 아임 오가닉 브랜드로
+                    우즈베키스탄에 <br className="mo" />
                     진출했습니다.
                   </p>
                   <ul>
@@ -155,7 +155,7 @@ const BrandPage = () => {
                 ? 'Product Quality and Reliability'
                 : '제품의 품질과 신뢰성'}
             </h1>
-            <p className="description center fade move animate2">
+            <p className="description center right__margin fade move animate2">
               {locale === 'en' ? (
                 <>
                   Believing in and respecting the power of nature, I&apos;m
@@ -177,7 +177,8 @@ const BrandPage = () => {
                   이러한 방식은 피부에 순하면서도 효과적인 제품을 만들어 내는
                   핵심 <br className="mo" />
                   원칙입니다. <br /> 저희는 고객의 피부가 본연의 건강함을 되찾고
-                  유지할 수 있도록 돕기 위해 끊임없이 연구하고 노력하겠습니다.
+                  유지할 수 있도록 돕기 위해 <br />
+                  끊임없이 연구하고 노력하겠습니다.
                 </>
               )}
             </p>
@@ -443,18 +444,21 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        right: 2.5rem;
+        right: 5rem;
         bottom: 15%;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
 
-        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;
         font-family: 'NotoSansKR-Medium';
+
+        .right__margin {
+          margin-right: 6em;
+        }
 
         .mo {
           display: none;
@@ -463,6 +467,12 @@ const BrandPageStyled = styled.div`
         @media (max-width: 960px) {
           br {
             display: none;
+          }
+
+          max-width: 58.75rem;
+
+          .right__margin {
+            margin-right: 0;
           }
 
           .mo {
@@ -489,14 +499,13 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        left: 6.25rem;
+        left: 15rem;
         bottom: 15%;
 
         display: flex;
         flex-direction: column;
         justify-content: center;
 
-        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;
@@ -507,6 +516,8 @@ const BrandPageStyled = styled.div`
             display: none;
           } */
           left: 0;
+
+          max-width: 58.75rem;
 
           padding: 0 2.5rem;
         }
@@ -522,7 +533,7 @@ const BrandPageStyled = styled.div`
 
       .text__container {
         position: absolute;
-        right: 2.5rem;
+        right: 15rem;
         top: 50%;
         transform: translateY(-50%);
 
@@ -530,7 +541,6 @@ const BrandPageStyled = styled.div`
         flex-direction: column;
         justify-content: center;
 
-        max-width: 58.75rem;
         gap: 3.75rem;
 
         color: #fff;
@@ -554,6 +564,8 @@ const BrandPageStyled = styled.div`
           top: 0;
           transform: none;
           right: 0;
+
+          max-width: 58.75rem;
 
           justify-content: end;
 

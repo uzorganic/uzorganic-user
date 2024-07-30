@@ -287,13 +287,25 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         <>
           1. 세안 후, 화장수로 피부 결을 정돈해 줍니다.
           <br />
-          2. 마스크를 얼굴 모양에 맞춰 약 15~20분 동안 고르게 밀착시켜줍니다.
+          2. 마스크의 필름을 제거한 후 얼굴에 맞춰 밀착시켜줍니다
           <br />
-          3. 마스크를 떼어내고, 남은 에센스는 가볍게 두드려 흡수시켜줍니다.
+          3. 15~20분 후 마스크를 떼어냅니다
+          <br />
+          4. 얼굴에 남은 에센스는 가볍게 두드려 흡수시켜줍니다.
         </>
       ),
-      enHowToUse:
-        'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
+      enHowToUse: (
+        <>
+          1. After washing face, condition skin by using skin toner.
+          <br />
+          2. After removing the film of the mask, fit it tightly to your face.
+          <br />
+          3. Remove the mask after 15 to 20 minutes.
+          <br />
+          4. Lightly tap the remaining essence on the face to allow it to be
+          absorbed.
+        </>
+      ),
       firstHeight: '793.5rem',
       secondHeight: '0',
     },
@@ -442,35 +454,39 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         </div>
       </div>
 
-      <div className="bottom">
-        <div className="left">
-          <FullScreenImage src="/images/store/4.png" alt="4" height="100%" />
-        </div>
+      {id != 5 && (
+        <div className="bottom">
+          <div className="left">
+            <FullScreenImage src="/images/store/4.png" alt="4" height="100%" />
+          </div>
 
-        <div className="right">
-          <h1>{locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}</h1>
+          <div className="right">
+            <h1>
+              {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
+            </h1>
 
-          <h2 className="space">
-            {locale === 'ko'
-              ? '두피 청정 라벤더 솔루션'
-              : 'SCALP CLEAN LAVENDER SOLUTION'}
-          </h2>
+            <h2 className="space">
+              {locale === 'ko'
+                ? '두피 청정 라벤더 솔루션'
+                : 'SCALP CLEAN LAVENDER SOLUTION'}
+            </h2>
 
-          <div className="line" />
+            <div className="line" />
 
-          <div className="step__container">
-            {Object.entries(step).map(([key, value]) => (
-              <StepTypography
-                key={key}
-                step={parseInt(key)}
-                title={locale === 'ko' ? value.title : value.enTitle}
-                id={value.router}
-                content={locale === 'ko' ? value.content : value.enContent}
-              />
-            ))}
+            <div className="step__container">
+              {Object.entries(step).map(([key, value]) => (
+                <StepTypography
+                  key={key}
+                  step={parseInt(key)}
+                  title={locale === 'ko' ? value.title : value.enTitle}
+                  id={value.router}
+                  content={locale === 'ko' ? value.content : value.enContent}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </ProductDetailStyle>
   );
 };

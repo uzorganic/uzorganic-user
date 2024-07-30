@@ -155,7 +155,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
       firstHeight: '220.313rem',
-      secondHeight: '166.25rem',
+      secondHeight: '156.25rem',
     },
     {
       title: '프롬 라벤더 트리트먼트',
@@ -183,8 +183,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
         '샴푸 후 가볍게 물기를 제거한 후 적당량을 손에 덜어 두피를 제외한 모발 전체에 골고루 펴 발라줍니다. 3-5분 후에 깨끗이 헹구어 냅니다.',
       enHowToUse:
         'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
-      firstHeight: '208.75rem',
-      secondHeight: '225.625rem',
+      firstHeight: '198.75rem',
+      secondHeight: '205.625rem',
     },
     {
       title: '프롬 라벤더 헤어 미스트',
@@ -218,8 +218,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
         '모발이 부스스하거나 건조하게 느껴질 때 2~3회 가볍게 흔들어 적당량을 분사한 후 흡수시켜 줍니다.',
       enHowToUse:
         'When your hair feels frizzy or dry, shake it lightly 2-3 times, spray an appropriate amount, and absorb it.',
-      firstHeight: '203.125rem',
-      secondHeight: '142.5rem',
+      firstHeight: '193.125rem',
+      secondHeight: '138.5rem',
     },
     {
       title: '프롬 라벤더 헤어 오일',
@@ -253,8 +253,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
         '샴푸 후 가볍게 물기를 제거하고, 젖은 모발이나 건조된 모발에 적당량을 덜어 모발 전체에 골고루 펴 발라줍니다. 건조할 때 자주 덧발라주세요.',
       enHowToUse:
         'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
-      firstHeight: '196.25rem',
-      secondHeight: '145.142.5rem',
+      firstHeight: '190.25rem',
+      secondHeight: '138.142.5rem',
     },
     {
       title: '라벤더 솔루션 마스크',
@@ -293,8 +293,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
       ),
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
-      firstHeight: '223.125rem',
-      secondHeight: '205.625rem',
+      firstHeight: '220.125rem',
+      secondHeight: '195.625rem',
     },
   ];
 
@@ -411,10 +411,11 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           src={
             id == 5
               ? '/images/store/mask_ditail.jpg'
-              : '/images/store/mask_ditail_en.jpg'
+              : '/images/store/all_ditail_header.jpg'
           }
           width="100%"
-          height={id == 5 ? '335.625rem' : '108.25rem'}
+          height={id == 5 ? '274.625rem' : '90.25rem'}
+          objectFit="contain"
         />
       ) : (
         <ImageOverlayChild
@@ -424,7 +425,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
               : '/images/store/all_ditail_header_en.jpg'
           }
           width="100%"
-          height={id == 5 ? '335.625rem' : '108.25rem'}
+          height={id == 5 ? '335.625rem' : '90.25rem'}
+          objectFit="contain"
         />
       )}
 
@@ -434,6 +436,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           width="100%"
           height={`
             ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
+          objectFit="contain"
         />
       ) : (
         <ImageOverlayChild
@@ -441,6 +444,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           width="100%"
           height={`
             ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
+          objectFit="contain"
         />
       )}
 
@@ -449,12 +453,14 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           src={`/images/store/product${id}/1_3.jpg`}
           width="100%"
           height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
+          objectFit="contain"
         />
       ) : (
         <ImageOverlayChild
           src={`/images/store/product${id}/1_4.jpg`}
           width="100%"
           height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
+          objectFit="contain"
         />
       )}
 

@@ -7,6 +7,7 @@ import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
 import { ContactForm } from '@/contents/ContactForm';
+import { FixedScrollButton } from '@/layouts/Fixed/ScrollButton';
 import { HomeLayout } from '@/layouts/HomeLayout';
 import { InstagramFilled, YoutubeFilled } from '@ant-design/icons';
 import styled from 'styled-components';
@@ -21,9 +22,11 @@ const Home = () => {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [currentScroll, setCurrentScroll] = useState(0);
 
+  const [temp, setTemp] = useState(false);
+
   useEffect(() => {
     const onSlideChange = () => {
-      if (isScroll) {
+      if (isScroll || temp) {
         return;
       }
 
@@ -73,10 +76,14 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', onSlideChange);
     };
-  }, [currentScroll, isScroll, isScrollDown, isScrollUp]);
+  }, [currentScroll, isScroll, isScrollDown, isScrollUp, temp]);
 
   useEffect(() => {
     const checkScroll = () => {
+      if (temp) {
+        return;
+      }
+
       if (
         window.scrollY % window.innerHeight < 5 ||
         window.scrollY % window.innerHeight > window.innerHeight - 5 ||
@@ -91,10 +98,12 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', checkScroll);
     };
-  }, []);
+  }, [temp]);
 
   return (
     <HomeLayoutStyled>
+      <FixedScrollButton isScroll={temp} setIsScroll={setTemp} />
+
       <FractionSwiper effect="fade" className="pc">
         <CenterTitleAndButton
           className="Logo"

@@ -16,7 +16,6 @@ export const HomeLayout = ({ children }: Props) => {
       <FixedLanguage top right />
       {/* <FixedSearch /> */}
       <FixedTextMenu />
-      {/* <FixedScrollButton /> */}
       {children}
       <Version1Footer />
     </>

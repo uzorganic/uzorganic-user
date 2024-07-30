@@ -293,8 +293,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
       ),
       enHowToUse:
         'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
-      firstHeight: '208.75rem',
-      secondHeight: '225.625rem',
+      firstHeight: '793.5rem',
+      secondHeight: '0',
     },
   ];
 

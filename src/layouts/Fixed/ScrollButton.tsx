@@ -68,14 +68,14 @@ const ScrollButtonStyled = styled.div`
   align-items: center;
   flex-direction: column;
 
-  gap: 2rem;
+  gap: 1.5rem;
 
   .scroll__button__container {
     height: 1.5rem;
 
     .scroll__button {
-      width: calc(2rem / 3 * 2);
-      height: calc(2rem / 3 * 2);
+      width: calc(1.5rem / 3 * 2);
+      height: calc(1.5rem / 3 * 2);
 
       border-radius: 25%;
 
@@ -86,18 +86,41 @@ const ScrollButtonStyled = styled.div`
       transition: 0.2s;
 
       &.active {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
         background-color: #aaa;
 
         transition: 0.2s;
       }
 
       &:hover {
-        width: 2rem;
-        height: 2rem;
+        width: 1.5rem;
+        height: 1.5rem;
 
         transition: 0.2s;
+      }
+    }
+  }
+
+  @media (max-width: 960px) {
+    gap: 2rem;
+
+    .scroll__button__container {
+      height: 1.5rem;
+
+      .scroll__button {
+        width: calc(2rem / 3 * 2);
+        height: calc(2rem / 3 * 2);
+
+        &.active {
+          width: 2rem;
+          height: 2rem;
+        }
+
+        &:hover {
+          width: 2rem;
+          height: 2rem;
+        }
       }
     }
   }

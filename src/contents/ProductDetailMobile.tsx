@@ -259,10 +259,10 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
     {
       title: '라벤더 솔루션 마스크',
       enTitle: 'LAVENDER SOLUTION MASK',
-      effect: '모발영양 · 모발회복도움 · 자연윤기',
+      effect: '피부진정 및 수분 공급 • 피부 장벽 강화',
       enEffect: (
         <>
-          Hair nutrition · Hair recovery aid <br />· Natural shine
+          Skin soothing & Hydration <br />• Strengthen Skin Barrier
         </>
       ),
       capacity: '200ml X 5ea',

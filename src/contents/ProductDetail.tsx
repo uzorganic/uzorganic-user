@@ -260,10 +260,10 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     {
       title: '라벤더 솔루션 마스크',
       enTitle: 'LAVENDER SOLUTION MASK',
-      effect: '피부진정 및 수분 공급 • 피부 장벽 강화',
+      effect: '피부진정 및 수분 공급 · 피부 장벽 강화',
       enEffect: (
         <>
-          Skin soothing & Hydration <br />• Strengthen Skin Barrier
+          Skin soothing & Hydration <br />· Strengthen Skin Barrier
         </>
       ),
       capacity: '200ml X 5ea',
@@ -375,6 +375,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
               height={dummyProduct[id - 1].secondHeight}
             />
           )}
+
+          {id == 3 &&
+            (locale === 'ko' ? (
+              <ImageOverlayChild
+                src={`/images/store/product${id}/mist_test.jpeg`}
+                width="100%"
+                height={'101.25rem'}
+              />
+            ) : (
+              <ImageOverlayChild
+                src={`/images/store/product${id}/mist_test.jpeg`}
+                width="100%"
+                height={'101.25rem'}
+              />
+            ))}
         </div>
 
         <div className="right">

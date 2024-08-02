@@ -376,20 +376,35 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
             />
           )}
 
-          {id == 3 &&
-            (locale === 'ko' ? (
-              <ImageOverlayChild
-                src={`/images/store/product${id}/mist_test.jpeg`}
-                width="100%"
-                height={'101.25rem'}
-              />
-            ) : (
-              <ImageOverlayChild
-                src={`/images/store/product${id}/mist_test.jpeg`}
-                width="100%"
-                height={'101.25rem'}
-              />
-            ))}
+          {locale === 'ko' ? (
+            <ImageOverlayChild
+              src={`/images/store/product${id}/1_5.jpg`}
+              width="100%"
+              height={
+                [
+                  '109.875rem',
+                  '107.375rem',
+                  '101.25rem',
+                  '88.125rem',
+                  '94.375rem',
+                ][id - 1]
+              }
+            />
+          ) : (
+            <ImageOverlayChild
+              src={`/images/store/product${id}/1_6.jpg`}
+              width="100%"
+              height={
+                [
+                  '115.625rem',
+                  '115.625rem',
+                  '115.625rem',
+                  '88.125rem',
+                  '94.375rem',
+                ][id - 1]
+              }
+            />
+          )}
         </div>
 
         <div className="right">

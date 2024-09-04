@@ -79,7 +79,10 @@ export const ContactForm = () => {
       <div className="center">
         <h1 className="title">
           {locale === 'en' ? (
-            'We will respond with utmost care'
+            <>
+              We will respond with <br />
+               utmost care
+            </>
           ) : (
             <>
               정성을 다해 <br />
@@ -279,7 +282,7 @@ const ContactFormStyled = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 960px) {
     .center {
       .form__container {
         flex-direction: column;

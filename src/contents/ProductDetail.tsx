@@ -151,10 +151,32 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '라벤더수(20,580ppm), 나이아신아마이드, 덱스판테놀, 12가지 자연유래 추출물, 식물유래 계면활성제, 라벤더오일(4,000ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), Niacinamide, Dexpanthenol, 12 kinds of natural extracts, Plant-derived surfactants, Lavender Oil(4,000ppm)',
-      howToUse:
-        '적당량의 샴푸를 손에 덜어 충분히 젖은 두피와 모발에 거품을 낸 뒤 골고루 마사지한 후 미온수로 깨끗이 헹궈줍니다.',
-      enHowToUse:
-        'Take an appropriate amount of shampoo in your hand, lather it on your scalp and hair thoroughly, massage it evenly, and rinse it clean with lukewarm water.',
+      howToUse: (
+        <>
+          1. 먼저 머리를 부드럽게 빗어 주세요. <br />
+          2. 온수로 두피와 모발을 충분히 적신 뒤 약 1분간 흡수될 수 있도록
+          준비해 주세요.
+          <br />
+          3. 적당량의 샴푸(약 200SUM 동전 크기)를 손에 덜어 거품을 낸 후, 충분히
+          젖은 두피와 모발에 골고루 도포하고 부드럽게 마사지해 주세요.
+          <br />
+          4. 1~3분간 유지한 뒤, 미온수로 깨끗이 헹궈 주세요.
+        </>
+      ),
+      enHowToUse: (
+        <>
+          1. Gently brush your hair before washing. <br />
+          2. Wet your scalp and hair thoroughly with warm water to prepare it
+          for cleansing for about 1 minute.
+          <br />
+          3. Pump an appropriate amount of shampoo (about the size of a 200SUM
+          coin) into your hands, lather, and apply evenly to your damp scalp and
+          hair. Massage gently.
+          <br />
+          4. Leave it on for 1–3 minutes, then rinse thoroughly with lukewarm
+          water.
+        </>
+      ),
       firstHeight: '236.25rem',
       secondHeight: '166.25rem',
     },
@@ -180,10 +202,30 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '라벤더수(20,580ppm), 아르간커넬오일, 해바라기오일, 18가지 자연유래 추출물, 글리세린, 라벤더오일(1,000ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), Argan Kernel Oil, Sunflower Oil, 18 kinds of natural extracts, Glycerin, Lavender Oil(1,000ppm)',
-      howToUse:
-        '샴푸 후 가볍게 물기를 제거한 후 적당량을 손에 덜어 두피를 제외한 모발 전체에 골고루 펴 발라줍니다. 3-5분 후에 깨끗이 헹구어 냅니다.',
-      enHowToUse:
-        'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
+      howToUse: (
+        <>
+          1. 샴푸로 깨끗이 세정한 후, 물기를 가볍게 제거해 주세요.
+          <br />
+          2. 적당량 (약 200SUM 동전 크기)을 펌핑하여 두피를 제외한 모발 전체에
+          고르게 발라 주세요.
+          <br />
+          3. 1~3분간 유지한 뒤, 미온수로 깨끗이 헹궈 주세요.
+          <br />
+          4. 뜨겁지 않은 바람으로 머리를 말려 주세요.
+        </>
+      ),
+      enHowToUse: (
+        <>
+          1. After thoroughly cleansing your hair with shampoo, gently remove
+          excess water.
+          <br />
+          2. Pump an appropriate amount and evenly distribute it throughout your
+          hair, avoiding the scalp.
+          <br />
+          3. Dry with warm (not hot) air and apply a suitable amount again to
+          dry hair for added nourishment.
+        </>
+      ),
       firstHeight: '208.75rem',
       secondHeight: '225.625rem',
     },
@@ -215,10 +257,26 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '라벤더수(20,580ppm), 20가지 자연유래 추출물, 라벤더오일(1,500ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), 20 kinds of natural extracts, Lavender Oil(1,500ppm)',
-      howToUse:
-        '모발이 부스스하거나 건조하게 느껴질 때 2~3회 가볍게 흔들어 적당량을 분사한 후 흡수시켜 줍니다.',
-      enHowToUse:
-        'When your hair feels frizzy or dry, shake it lightly 2-3 times, spray an appropriate amount, and absorb it.',
+      howToUse: (
+        <>
+          1. 사용전 가볍게 흔들어주세요.
+          <br />
+          2. 눈가를 피해 모발 부분을 향해 분사하여 흡수시켜주세요.
+          <br />
+          3. 샴푸 후 젖은 모발 또는 마른 모발 모두 사용 가능하며 푸석하고 건조할
+          때마다 수시로 뿌려주세요.
+        </>
+      ),
+      enHowToUse: (
+        <>
+          1. Shake lightly before use.
+          <br />
+          2. Spray onto the hair, avoiding the eye area, and allow it to absorb.
+          <br />
+          3. Can be used on both damp and dry hair after shampooing. Reapply as
+          needed whenever hair feels dry or frizzy.
+        </>
+      ),
       firstHeight: '203.125rem',
       secondHeight: '142.5rem',
     },
@@ -250,10 +308,28 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
         '아나토씨오일, 동백나무씨오일, 아르간커넬오일, 호호바씨오일, 해바라기씨오일, 들콩오일, 라벤더오일(2,00ppm)',
       enIngredients:
         'Anatto Seed Oil, Camellia Seed Oil, Argan Kernel Oil, Jojoba Seed Oil, Sunflower Seed Oil, Meadowfoam Seed Oil, Lavender Oil(2,00ppm)',
-      howToUse:
-        '샴푸 후 가볍게 물기를 제거하고, 젖은 모발이나 건조된 모발에 적당량을 덜어 모발 전체에 골고루 펴 발라줍니다. 건조할 때 자주 덧발라주세요.',
-      enHowToUse:
-        'After shampooing, remove excess moisture lightly, take an appropriate amount in your hand, apply it evenly to the entire hair except the scalp, and rinse it clean after 3-5 minutes.',
+      howToUse: (
+        <>
+          1. 샴푸 클렌징을 꼼꼼하게 한 후 물기를 가볍게 제거해 주세요.
+          <br />
+          2. 적당량을 펌핑해 두피를 제외한 모발 전체에 골고루 펴 발라주세요.
+          <br />
+          3. 뜨겁지 않은 바람으로 드라이한 후 마른 모발에 한번 더 적당량을
+          도포해줍니다.
+        </>
+      ),
+      enHowToUse: (
+        <>
+          1. After thoroughly cleansing your hair with shampoo, gently remove
+          excess water.
+          <br />
+          2. Pump an appropriate amount and evenly apply it to your hair,
+          avoiding the scalp.
+          <br />
+          3. Dry with warm (not hot) air, then apply a suitable amount again to
+          dry hair for added care.
+        </>
+      ),
       firstHeight: '196.25rem',
       secondHeight: '142.5rem',
     },
@@ -280,9 +356,9 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       enDescription:
         'A solution mask that soothes sensitive skin intensively and contains collagen-boosting ingredients',
       ingredients:
-        '아나토씨오일, 동백나무씨오일, 아르간커넬오일, 호호바씨오일, 해바라기씨오일, 들콩오일, 라벤더오일(2,00ppm)',
+        '라벤더워터(20,580ppm), 베타-글루칸, 나이아신아마이드, 판테놀, 파파야추출물, 캐모마일추출물, 라벤더오일(100ppm)',
       enIngredients:
-        'Anatto Seed Oil, Camellia Seed Oil, Argan Kernel Oil, Jojoba Seed Oil, Sunflower Seed Oil, Meadowfoam Seed Oil, Lavender Oil(2,00ppm)',
+        'Lavender water(20,580ppm), Beta-glucan, Niacinamide, Panthenol, Papaya fruit extract, Chamomile flower extract, Lavender oil(100ppm)',
       howToUse: (
         <>
           1. 세안 후, 화장수로 피부 결을 정돈해 줍니다.

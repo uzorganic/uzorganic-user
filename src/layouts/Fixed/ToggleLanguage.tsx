@@ -15,7 +15,7 @@ interface Props {
   invert?: boolean;
 }
 
-export const FixedLanguage = ({
+export const FixedToggleLanguage = ({
   top = false,
   bottom = false,
   left = false,
@@ -29,7 +29,7 @@ export const FixedLanguage = ({
   const { locale } = router;
 
   return (
-    <FixedLanguageStyled $invert={invert}>
+    <FixedToggleLanguageStyled $invert={invert}>
       <FixedIcon
         className="public"
         src="/images/icons/public.svg"
@@ -49,11 +49,11 @@ export const FixedLanguage = ({
       >
         <div className="language">{locale === 'ko' ? 'EN' : 'KO'}</div>
       </FixedIcon>
-    </FixedLanguageStyled>
+    </FixedToggleLanguageStyled>
   );
 };
 
-const FixedLanguageStyled = styled.div<{
+const FixedToggleLanguageStyled = styled.div<{
   $invert?: boolean;
 }>`
   .public {

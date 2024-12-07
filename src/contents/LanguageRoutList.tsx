@@ -47,7 +47,7 @@ export const LanguageRoutList = ({ open, setOpen, id }: Props) => {
                 return;
               }
 
-              window.location.href = `https://${item.path}/${pathname}`;
+              window.location.href = `https://${item.path}/${asPath}`;
             }}
           >
             {item.name}

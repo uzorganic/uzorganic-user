@@ -28,7 +28,7 @@ const StoreDetailStyled = styled.div<{ $headerHeight: number }>`
   .category__list {
     position: fixed;
     top: ${({ $headerHeight }) => $headerHeight}px;
-    z-index: 10;
+    z-index: 5;
 
     display: flex;
     width: 100%;

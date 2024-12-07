@@ -64,4 +64,8 @@ const ContentLayoutStyled = styled.div<{
     margin-top: ${({ $headerHeight }) => $headerHeight}px;
     /* margin-top: calc(2.75rem + var(--fixed-padding) * 2); */
   }
+
+  .go__top {
+    z-index: 5;
+  }
 `;

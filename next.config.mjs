@@ -56,6 +56,7 @@ const nextConfig = {
   i18n: {
     locales: ['en', 'ko'],
     defaultLocale: 'ko',
+    localeDetection: false,
 
     // domains: [
     //   {

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { LanguageRoutList } from '@/contents/LanguageRoutList';
 import { Menu } from '@/contents/Menu';
 import styled from 'styled-components';
 
@@ -18,6 +19,7 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
   const { locale, asPath } = router;
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
 
   return (
     <LogoWithMenuAndSearchStyled className={className} $fillColor={fillColor}>
@@ -47,7 +49,7 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
 
       <div className="right">
         <div className="language">
-          <Link
+          {/* <Link
             href={asPath}
             locale={locale === 'en' ? 'ko' : 'en'}
             style={{ textDecoration: 'none' }}
@@ -62,7 +64,21 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
               />
             </div>
             <div className="language">{locale === 'ko' ? 'EN' : 'KO'}</div>
-          </Link>
+          </Link> */}
+          <div
+            className="image__wrapper"
+            onClick={() => {
+              setLanguageOpen(!languageOpen);
+            }}
+          >
+            <Image
+              src="/images/icons/public.svg"
+              alt="Language"
+              fill
+              sizes="100%"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </div>
         {/* <div className="image__wrapper">
           <Image
@@ -76,6 +92,11 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
       </div>
 
       <Menu open={menuOpen} setOpen={setMenuOpen} />
+      <LanguageRoutList
+        open={languageOpen}
+        setOpen={setLanguageOpen}
+        id={router.query.id as string}
+      />
     </LogoWithMenuAndSearchStyled>
   );
 };

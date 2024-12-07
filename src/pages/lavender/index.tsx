@@ -1,9 +1,10 @@
 import { LavenderDescription } from '@/contents/LavenderDescription';
 import { LavenderInteraction } from '@/contents/LavenderInteraction';
 import { FixedIcon } from '@/layouts/Fixed/Icon';
-import { FixedLanguage } from '@/layouts/Fixed/Language';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
+import { FixedRouteLanguage } from '@/layouts/Fixed/RouteLanguage';
+import { FixedToggleLanguage } from '@/layouts/Fixed/ToggleLanguage';
 import { Version1Footer } from '@/layouts/Footer/Version1';
 import styled from 'styled-components';
 
@@ -12,7 +13,8 @@ const LavenderPage = () => {
     <LavenderPageStyled>
       <MenuButton top left />
       <FixedLogo className="header__logo" top centerHorizontal />
-      <FixedLanguage top right />
+      <FixedRouteLanguage top right />
+      {/* <FixedToggleLanguage top right /> */}
       {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
       <LavenderInteraction />

@@ -50,7 +50,7 @@ export const FixedRouteLanguage = ({
           setOpen(!open);
         }}
       >
-        {/* <div className="language">{locale === 'uz' ? 'EN' : 'UZ'}</div> */}
+        <div className="language">Language</div>
       </FixedIcon>
 
       <LanguageRoutList open={open} setOpen={setOpen} />

@@ -79,6 +79,7 @@ export const LogoWithMenuAndSearch = ({ className, fillColor }: Props) => {
               style={{ objectFit: 'contain' }}
             />
           </div>
+          <div className="language">Language</div>
         </div>
         {/* <div className="image__wrapper">
           <Image

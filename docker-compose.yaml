@@ -1,0 +1,11 @@
+name: uzorganic
+
+services:
+  web:
+    build: .
+    container_name: uzorganic-front
+    tty: true
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/root/uzorganic-user

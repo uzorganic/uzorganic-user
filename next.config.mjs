@@ -54,7 +54,7 @@ const nextConfig = {
   },
 
   i18n: {
-    locales: ['en', 'ko'],
+    locales: ['en', 'ko', 'uz'],
     defaultLocale: 'ko',
     localeDetection: false,
 

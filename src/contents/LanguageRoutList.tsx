@@ -18,13 +18,15 @@ export const LanguageRoutList = ({ open, setOpen, id }: Props) => {
   const [active, setActive] = useState(0);
 
   const languageList = [
-    { name: 'KO', path: 'uzorganic.com' },
-    { name: 'UZ', path: 'uz.uzorganic.com' },
+    { name: 'KO', path: '' },
+    { name: 'UZ', path: '' },
     { name: 'EN', path: '' },
   ];
 
   useEffect(() => {
-    if (locale === 'en') {
+    if (locale === 'uz') {
+      setActive(1);
+    } else if (locale === 'en') {
       setActive(2);
     } else {
       setActive(0);
@@ -41,13 +43,19 @@ export const LanguageRoutList = ({ open, setOpen, id }: Props) => {
             onClick={() => {
               setActive(index);
 
-              if (index === 2) {
+              if (index === 0) {
+                router.push({ pathname, query }, asPath, { locale: 'ko' });
+
+                return;
+              } else if (index === 1) {
+                router.push({ pathname, query }, asPath, { locale: 'uz' });
+
+                return;
+              } else if (index === 2) {
                 router.push({ pathname, query }, asPath, { locale: 'en' });
 
                 return;
               }
-
-              window.location.href = `https://${item.path}/${asPath}`;
             }}
           >
             {item.name}

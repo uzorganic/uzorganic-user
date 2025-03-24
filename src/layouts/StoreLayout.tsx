@@ -60,24 +60,30 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     moImg: '/images/store/1-mo.jpg',
     title: 'All',
     enTitle: 'All',
+    uzTitle: 'Hammasi',
     description: '자연에서 온 순수함을 담다',
     enDescription: 'Embracing the Purity of Nature',
+    uzDescription: 'Tabiatning sofligini mujassam etgan',
   };
   const dummyCategory2 = {
     img: '/images/store/2.png',
     moImg: '/images/store/2-mo.jpg',
     title: '헤어케어 ',
     enTitle: 'Hair Care',
+    uzTitle: 'Soch parvarishi',
     description: '자연의 힘으로, 건강한 모발을',
     enDescription: 'Healthy Hair Powered by Nature',
+    uzDescription: "Tabiat qudratidan kuch olgan sog'lom sochlar",
   };
   const dummyCategory3 = {
     img: '/images/store/3.png',
     moImg: '/images/store/3-mo.jpg',
     title: '스킨케어',
     enTitle: 'Skin Care',
+    uzTitle: 'Teri parvarishi',
     description: '건강한 피부를 위한 선택',
     enDescription: 'The Choice for Healthy Skin',
+    uzDescription: 'Sog‘lom teri uchun eng yaxshi tanlov',
   };
   const dummyCategoryList = [dummyCategory1, dummyCategory2, dummyCategory3];
 
@@ -85,30 +91,35 @@ export const StoreLayout = ({ headerHeight }: Props) => {
     id: 1,
     title: '프롬 라벤더 샴푸',
     enTitle: 'From Lavender Shampoo',
+    uzTitle: 'Lavandali shampun',
     img: '/images/store/shampoo1.png',
   };
   const dummyProduct2 = {
     id: 2,
     title: '프롬 라벤더 트리트먼트',
     enTitle: 'From Lavender Treatment',
+    uzTitle: 'Lavandali balzam',
     img: '/images/store/shampoo2.png',
   };
   const dummyProduct4 = {
     id: 4,
     title: '프롬 라벤더 헤어 오일',
     enTitle: 'From Lavender Hair Oil',
+    uzTitle: 'Lavandali soch yog‘',
     img: '/images/store/oil1.png',
   };
   const dummyProduct3 = {
     id: 3,
     title: '프롬 라벤더 헤어 미스트',
     enTitle: 'From Lavender Hair Mist',
+    uzTitle: 'Lavandali soch sprey',
     img: '/images/store/oil2.png',
   };
   const dummyProduct5 = {
     id: 5,
     title: '라벤더 솔루션 마스크팩',
     enTitle: 'Lavender Solution Mask Pack',
+    uzTitle: 'Lavandali namlantiruvchi niqob',
     img: '/images/store/mask1.png',
   };
   const dummyProductList = [
@@ -124,7 +135,9 @@ export const StoreLayout = ({ headerHeight }: Props) => {
       >
         {locale === 'ko'
           ? dummyCategoryList[active].title
-          : dummyCategoryList[active].enTitle}
+          : locale === 'uz'
+            ? dummyCategoryList[active].uzTitle
+            : dummyCategoryList[active].enTitle}
       </p>
       <div className="content">
         <div className="left">
@@ -137,12 +150,16 @@ export const StoreLayout = ({ headerHeight }: Props) => {
                     <p className="title">
                       {locale === 'ko'
                         ? dummyCategoryList[active].title
-                        : dummyCategoryList[active].enTitle}
+                        : locale === 'uz'
+                          ? dummyCategoryList[active].uzTitle
+                          : dummyCategoryList[active].enTitle}
                     </p>
                     <p className="description">
                       {locale === 'ko'
                         ? dummyCategoryList[active].description
-                        : dummyCategoryList[active].enDescription}
+                        : locale === 'uz'
+                          ? dummyCategoryList[active].uzDescription
+                          : dummyCategoryList[active].enDescription}
                     </p>
                   </div>
                 }
@@ -160,12 +177,16 @@ export const StoreLayout = ({ headerHeight }: Props) => {
                     <p className="title">
                       {locale === 'ko'
                         ? dummyCategoryList[active].title
-                        : dummyCategoryList[active].enTitle}
+                        : locale === 'uz'
+                          ? dummyCategoryList[active].uzTitle
+                          : dummyCategoryList[active].enTitle}
                     </p>
                     <p className="description">
                       {locale === 'ko'
                         ? dummyCategoryList[active].description
-                        : dummyCategoryList[active].enDescription}
+                        : locale === 'uz'
+                          ? dummyCategoryList[active].uzDescription
+                          : dummyCategoryList[active].enDescription}
                     </p>
                   </div>
                 }

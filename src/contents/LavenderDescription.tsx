@@ -21,9 +21,11 @@ export const LavenderDescription = () => {
         <h1>
           {locale === 'en'
             ? 'FROM LAVENDER HAIR LINE'
-            : '프롬 라벤더 헤어 라인'}
+            : locale === 'uz'
+              ? "Lavandali soch uchun to'plami"
+              : '프롬 라벤더 헤어 라인'}
         </h1>
-        {locale === 'en' || <p>FROM LAVENDER HAIR LINE</p>}
+        {locale === 'en' || locale === 'uz' || <p>FROM LAVENDER HAIR LINE</p>}
         <h2>
           {locale === 'en' ? (
             <>
@@ -37,6 +39,15 @@ export const LavenderDescription = () => {
               The From Lavender Hair Line captures the vitality of nature
               <br />
               to make your daily hair care routine special.
+            </>
+          ) : locale === 'uz' ? (
+            <>
+              {`Xushbo'y va 100% tabiiy lavanda ifori sochlaringizni sog'lom
+              qiladi. Lavandaning tinchlantiruvchi ta'siri va xushbo'y hidi
+              stressni yengillashtiradi va bosh terisini mayinlik bilan
+              tinchlantiradi shuningdek sochlarni mayin va porloq qiladi.
+              Lavandali soch uchun to'plami tabiatning hayotiyligini o'z ichiga
+              olib kundalik soch parvarishini o'ziga xos qiladi.`}
             </>
           ) : (
             <>

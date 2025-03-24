@@ -28,6 +28,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     1: {
       title: '프롬 라벤더 샴푸',
       enTitle: 'From Lavender Shampoo',
+      uzTitle: 'Lavandali Shampun',
       router: '1',
       content: (
         <>
@@ -45,10 +46,19 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           </p>
         </>
       ),
+      uzContent: (
+        <>
+          <p>
+            {`Bosh terisini tozalovchi shampun o'lik hujayralarni va xar xil
+            kirlarni bosh terisidan mayinlik bilan tozalaydi.`}
+          </p>
+        </>
+      ),
     },
     2: {
       title: '프롬 라벤더 트리트먼트',
       enTitle: 'From Lavender Treatment',
+      uzTitle: 'Lavandali balzam',
       router: '2',
       content: (
         <>
@@ -69,10 +79,20 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           </p>
         </>
       ),
+      uzContent: (
+        <>
+          <p>
+            {`E vitamini va ozuqaviy moddalar bilan boyitilgan bu o'simlik moyi
+            bilan ishlov berish shampundan keyin sochlarga yorqinlik baxsh
+            etadi, ularni namlaydi va tekis qiladi.`}
+          </p>
+        </>
+      ),
     },
     3: {
       title: '프롬 라벤더 헤어 미스트',
       enTitle: 'From Lavender Hair Mist',
+      uzTitle: 'Lavandali soch spreyi',
       router: '3',
       content: (
         <>
@@ -96,10 +116,22 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           </p>
         </>
       ),
+      uzContent: (
+        <>
+          <div className="one__line">
+            <p>
+              {`O'zining tetiklashtiruvchi suv ko'rinishidagi tuzilishi bilan bu
+              soch moyi har bir soch tolasini chuqur oziqlanishini ta'minlaydi.
+              Sochlarni quritgandan so'ng foydalanish tavsiya etiladi.`}
+            </p>
+          </div>
+        </>
+      ),
     },
     4: {
       title: '프롬 라벤더 오일',
       enTitle: 'From Lavender Oil',
+      uzTitle: 'Lavandali soch moyi',
       router: '4',
       content: (
         <>
@@ -121,6 +153,18 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           </p>
         </>
       ),
+      uzContent: (
+        <>
+          <div className="one__line">
+            <p>
+              {`Soch moyi tarkibida 7 turdagi o'simlik moylari mavjud bo'lib, ular
+              sochlarni chuqur namlantiradi va oziqlantiradi. Soch moyidan kam
+              miqdorda nam yoki quruq sochlarga foydalanish sochlarni hech
+              qanday chigallarsiz tabiiy yorqinlik bilan ta'minlaydi.`}
+            </p>
+          </div>
+        </>
+      ),
     },
   };
 
@@ -128,10 +172,17 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     {
       title: '프롬 라벤더 샴푸',
       enTitle: 'FROM LAVENDER SHAMPOO',
+      uzTitle: 'Lavandali shampun',
       effect: '두피각질완화 · 진정 · 딥클렌징',
       enEffect: (
         <>
           Scalp keratin relief · Soothing <br />· Deep cleansing
+        </>
+      ),
+      uzEffect: (
+        <>
+          {`Bosh terisini qazg'oqdan tozalovchi`}
+          <br />· Tinchlantiruvchi · Chuqur tozalovchi
         </>
       ),
       capacity: '200ml',
@@ -147,10 +198,19 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       link: '/store/1',
       enDescription:
         'A scalp clean lavender shampoo that creates a healthy scalp and hair condition with natural lavender water and lavender oil',
+      uzDescription: (
+        <>
+          Ushbu shampun tabiiy lavanda gidrolati (gul suvi) va lavanda efir moyi
+          aralashmasi yordamida bosh terisi va sochlarni sog‘lom holatda
+          saqlashga yordam beradi.
+        </>
+      ),
       ingredients:
         '라벤더수(20,580ppm), 나이아신아마이드, 덱스판테놀, 12가지 자연유래 추출물, 식물유래 계면활성제, 라벤더오일(4,000ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), Niacinamide, Dexpanthenol, 12 kinds of natural extracts, Plant-derived surfactants, Lavender Oil(4,000ppm)',
+      uzIngredients:
+        'Lavanda suvi (20,580 ppm), niatsinamid, deksapantenol, 12 turdagi tabiiy ekstraktlar, o‘simlikdan olingan surfaktantlar, lavanda moyi (4,000 ppm)',
       howToUse: (
         <>
           1. 먼저 머리를 부드럽게 빗어 주세요. <br />
@@ -177,14 +237,18 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           water.
         </>
       ),
+      uzHowToUse:
+        'Kaftingizga yetarli miqdorda shampun oling, uni bosh terisi va sochlarga yaxshilab ko‘pirtirib surting, bir tekis massaj qiling va iliq suv bilan yaxshilab yuvib tashlang.',
       firstHeight: '236.25rem',
       secondHeight: '166.25rem',
     },
     {
       title: '프롬 라벤더 트리트먼트',
       enTitle: 'FROM LAVENDER TREATMENT',
+      uzTitle: 'Lavandali balzam',
       effect: '모발강화 · 부드러움 · 딥케어',
       enEffect: 'Hair strengthening · Softness · Deep care',
+      uzEffect: 'Sochlarni mustahkamlash · Yumshoqlik · Chuqur parvarish',
       capacity: '200ml',
       description: (
         <>
@@ -198,10 +262,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       link: '/store/1',
       enDescription:
         'A hair-focused nutrition management lavender treatment that fills hair with moisture and nutrition from weak roots to split ends',
+      uzDescription: (
+        <>
+          Soch ildizidan to‘kilib ketgan soch uchigacha.
+          <br />
+          Sochlarni namlik va ozuqa moddalar bilan to‘ldiruvchi
+          <br />
+          lavanda balzami
+        </>
+      ),
       ingredients:
         '라벤더수(20,580ppm), 아르간커넬오일, 해바라기오일, 18가지 자연유래 추출물, 글리세린, 라벤더오일(1,000ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), Argan Kernel Oil, Sunflower Oil, 18 kinds of natural extracts, Glycerin, Lavender Oil(1,000ppm)',
+      uzIngredients:
+        'Lavanda suvi (20,580 ppm), argan yong‘og‘i yog‘i, kungaboqar yog‘i, 18 turdagi tabiiy ekstraktlar, glitserin, lavanda yog‘i (1,000 ppm)',
       howToUse: (
         <>
           1. 샴푸로 깨끗이 세정한 후, 물기를 가볍게 제거해 주세요.
@@ -226,6 +301,8 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           dry hair for added nourishment.
         </>
       ),
+      uzHowToUse:
+        'Shampundan keyin sochlarni yaxshilab tozalang va ortiqcha suvni olib tashlang. Balzamni sochlarga teng ravishda surting, 1-3 daqiqa davomida qoldiring va iliq suv bilan yaxshilab yuvib tashlang.',
       firstHeight: '208.75rem',
       secondHeight: '225.625rem',
     },
@@ -238,8 +315,10 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           HAIR MIST
         </>
       ),
+      uzTitle: 'Lavandali soch spreyi',
       effect: '유·수분밸런스 · 정전기방지 · 수분공급',
       enEffect: 'Oil and moisture balance · Anti-static · Moisture supply',
+      uzEffect: 'Yog‘ va namlik balansi · Antistatik · Namlik ta’minoti',
       capacity: '100ml',
       description: (
         <>
@@ -253,10 +332,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       link: '/store/1',
       enDescription:
         'A lavender hair mist that easily replenishes gloss and nutrition anytime, anywhere',
+      uzDescription: (
+        <>
+          Har qanday vaqtda va har qanday joyda
+          <br />
+          sochlaringizga yorqinlik va ozuqa moddalarini
+          <br />
+          qaytaruvchi lavanda soch spreyi
+        </>
+      ),
       ingredients:
         '라벤더수(20,580ppm), 20가지 자연유래 추출물, 라벤더오일(1,500ppm)',
       enIngredients:
         'Lavender Water(20,580ppm), 20 kinds of natural extracts, Lavender Oil(1,500ppm)',
+      uzIngredients:
+        'Lavanda suvi (20,580 ppm), 20 turdagi tabiiy ekstraktlar, lavanda yog‘i (1,500 ppm)',
       howToUse: (
         <>
           1. 사용전 가볍게 흔들어주세요.
@@ -277,6 +367,8 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           needed whenever hair feels dry or frizzy.
         </>
       ),
+      uzHowToUse:
+        'Foydalanishdan oldin yengil silkiting. Ko‘zlardan saqlaning va sochlarga purkash orqali so‘rilishini ta’minlang. Shampundan keyin nam yoki quruq sochlarga qo‘llash mumkin. Sochlar quruq yoki to‘kilganida qayta qo‘llang.',
       firstHeight: '203.125rem',
       secondHeight: '142.5rem',
     },
@@ -289,8 +381,10 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           HAIR OIL
         </>
       ),
+      uzTitle: 'Lavandali soch moyi',
       effect: '모발영양 · 모발회복도움 · 자연윤기',
       enEffect: 'Hair nutrition · Hair recovery aid · Natural shine',
+      uzEffect: 'Soch oziqlanishi · Sochni tiklashga yordam · Tabiiy yorqinlik',
       capacity: '50ml',
       description: (
         <>
@@ -304,10 +398,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       link: '/store/1',
       enDescription:
         'A lavender hair oil that fills hair with moisture and nutrition to the depths of the hair, adding smooth shine to each strand',
+      uzDescription: (
+        <>
+          Sochlarni chuqur namlantiruvchi va oziqlantiruvchi
+          <br />
+          har bir soch tolasi uchun silliq yorqinlik
+          <br />
+          qo‘shuvchi lavanda soch moyi
+        </>
+      ),
       ingredients:
         '아나토씨오일, 동백나무씨오일, 아르간커넬오일, 호호바씨오일, 해바라기씨오일, 들콩오일, 라벤더오일(2,00ppm)',
       enIngredients:
         'Anatto Seed Oil, Camellia Seed Oil, Argan Kernel Oil, Jojoba Seed Oil, Sunflower Seed Oil, Meadowfoam Seed Oil, Lavender Oil(2,00ppm)',
+      uzIngredients:
+        'Anatto urug‘i yog‘i, kameliya urug‘i yog‘i, argan yong‘og‘i yog‘i, jojoba urug‘i yog‘i, kungaboqar urug‘i yog‘i, lavanda yog‘i (2,00 ppm)',
       howToUse: (
         <>
           1. 샴푸 클렌징을 꼼꼼하게 한 후 물기를 가볍게 제거해 주세요.
@@ -330,16 +435,25 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           dry hair for added care.
         </>
       ),
+      uzHowToUse:
+        'Shampundan keyin sochlarni yaxshilab tozalang va ortiqcha suvni olib tashlang. Soch moyini sochlarga teng ravishda surting, sochlarni issiq bo‘lmagan havo bilan quriting va quruq sochlarga yana bir marta surting.',
       firstHeight: '196.25rem',
       secondHeight: '142.5rem',
     },
     {
       title: '라벤더 솔루션 마스크',
       enTitle: 'LAVENDER SOLUTION MASK',
+      uzTitle: 'Lavanda yechim niqobi',
       effect: '피부진정 및 수분 공급 · 피부 장벽 강화',
       enEffect: (
         <>
           Skin soothing & Hydration <br />· Strengthen Skin Barrier
+        </>
+      ),
+      uzEffect: (
+        <>
+          Teri tinchlantiruvchi va namlantiruvchi
+          <br />· Teri to‘sig‘ini mustahkamlash
         </>
       ),
       capacity: '200ml X 5ea',
@@ -355,10 +469,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       link: '/store/1',
       enDescription:
         'A solution mask that soothes sensitive skin intensively and contains collagen-boosting ingredients',
+      uzDescription: (
+        <>
+          Nozik terini intensiv tinchlantiruvchi
+          <br />
+          va kollagenni kuchaytiruvchi ingredientlarni
+          <br />
+          o‘z ichiga olgan yechim niqobi
+        </>
+      ),
       ingredients:
         '라벤더워터(20,580ppm), 베타-글루칸, 나이아신아마이드, 판테놀, 파파야추출물, 캐모마일추출물, 라벤더오일(100ppm)',
       enIngredients:
         'Lavender water(20,580ppm), Beta-glucan, Niacinamide, Panthenol, Papaya fruit extract, Chamomile flower extract, Lavender oil(100ppm)',
+      uzIngredients:
+        'Lavanda suvi (20,580 ppm), beta-glyukan, niatsinamid, pantenol, papayya meva ekstrakti, romashka gul ekstrakti, lavanda yog‘i (100 ppm)',
       howToUse: (
         <>
           1. 세안 후, 화장수로 피부 결을 정돈해 줍니다.
@@ -382,6 +507,8 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           absorbed.
         </>
       ),
+      uzHowToUse:
+        'Yuzingizni yuvgandan so‘ng, terini toner bilan tozalang. Niqobning plyonkasini olib tashlagandan so‘ng, uni yuzingizga mahkam joylashtiring. 15-20 daqiqadan so‘ng niqobni olib tashlang. Yuzda qolgan essentsiyani yengil urib, so‘rilishini ta’minlang.',
       firstHeight: '233.125rem',
       secondHeight: '215.625rem',
     },
@@ -396,7 +523,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       <div className="top">
         <div className="left">
           <ImageOverlayChild
-            src={`/images/store/product${id}/1_0.jpg`}
+            src={`/images/store/product${id}/main.jpg`}
             width="100%"
             objectFit="cover"
             height="71.25rem"
@@ -408,6 +535,16 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                 id == 5
                   ? '/images/store/mask_ditail.jpg'
                   : '/images/store/all_ditail_header.jpg'
+              }
+              width="100%"
+              height={id == 5 ? '335.625rem' : '108.25rem'}
+            />
+          ) : locale === 'uz' ? (
+            <ImageOverlayChild
+              src={
+                id == 5
+                  ? '/images/store/mask_ditail_uz.jpg'
+                  : '/images/store/all_ditail_header_uz.jpg'
               }
               width="100%"
               height={id == 5 ? '335.625rem' : '108.25rem'}
@@ -426,13 +563,19 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_1.jpg`}
+              src={`/images/store/product${id}/1_ko.jpg`}
+              width="100%"
+              height={dummyProduct[id - 1].firstHeight}
+            />
+          ) : locale === 'uz' ? (
+            <ImageOverlayChild
+              src={`/images/store/product${id}/1_uz.jpg`}
               width="100%"
               height={dummyProduct[id - 1].firstHeight}
             />
           ) : (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_2.jpg`}
+              src={`/images/store/product${id}/1_en.jpg`}
               width="100%"
               height={dummyProduct[id - 1].firstHeight}
             />
@@ -440,13 +583,19 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_3.jpg`}
+              src={`/images/store/product${id}/2_ko.jpg`}
+              width="100%"
+              height={dummyProduct[id - 1].secondHeight}
+            />
+          ) : locale === 'uz' ? (
+            <ImageOverlayChild
+              src={`/images/store/product${id}/2_uz.jpg`}
               width="100%"
               height={dummyProduct[id - 1].secondHeight}
             />
           ) : (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_4.jpg`}
+              src={`/images/store/product${id}/2_en.jpg`}
               width="100%"
               height={dummyProduct[id - 1].secondHeight}
             />
@@ -455,6 +604,12 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           {locale === 'ko' ? (
             <ImageOverlayChild
               src={'/images/store/all_detail_footer.jpg'}
+              width="100%"
+              height={'71.25rem'}
+            />
+          ) : locale === 'uz' ? (
+            <ImageOverlayChild
+              src={'/images/store/all_detail_footer_uz.jpg'}
               width="100%"
               height={'71.25rem'}
             />
@@ -468,7 +623,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
 
           {locale === 'ko' ? (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_5.jpg`}
+              src={`/images/store/product${id}/3_ko.jpg`}
               width="100%"
               height={
                 [
@@ -480,9 +635,23 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                 ][id - 1]
               }
             />
+          ) : locale === 'uz' ? (
+            <ImageOverlayChild
+              src={`/images/store/product${id}/3_uz.jpg`}
+              width="100%"
+              height={
+                [
+                  '115.625rem',
+                  '115.625rem',
+                  '115.625rem',
+                  '88.125rem',
+                  '94.375rem',
+                ][id - 1]
+              }
+            />
           ) : (
             <ImageOverlayChild
-              src={`/images/store/product${id}/1_6.jpg`}
+              src={`/images/store/product${id}/3_en.jpg`}
               width="100%"
               height={
                 [
@@ -501,13 +670,17 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           <h1>
             {locale === 'ko'
               ? dummyProduct[id - 1].title
-              : dummyProduct[id - 1].enTitle}
+              : locale === 'uz'
+                ? dummyProduct[id - 1].uzTitle
+                : dummyProduct[id - 1].enTitle}
           </h1>
           <div className="sub__title">
             <p>
               {locale === 'ko'
                 ? dummyProduct[id - 1].effect
-                : dummyProduct[id - 1].enEffect}
+                : locale === 'uz'
+                  ? dummyProduct[id - 1].uzEffect
+                  : dummyProduct[id - 1].enEffect}
             </p>
             <span>{dummyProduct[id - 1].capacity}</span>
           </div>
@@ -516,19 +689,35 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           <h2>
             {locale === 'ko'
               ? dummyProduct[id - 1].description
-              : dummyProduct[id - 1].enDescription}
+              : locale === 'uz'
+                ? dummyProduct[id - 1].uzDescription
+                : dummyProduct[id - 1].enDescription}
           </h2>
           <HoverArrowButton
             className="arrow__button"
-            text={locale === 'ko' ? '구매하러 가기' : 'GO TO BUY'}
+            text={
+              locale === 'ko'
+                ? '구매하러 가기'
+                : locale === 'uz'
+                  ? 'Sotib olish'
+                  : 'GO TO BUY'
+            }
             color="#403b35"
-            width={locale === 'ko' ? '17rem' : '20rem'}
+            width={
+              locale === 'ko' ? '17rem' : locale === 'uz' ? '17rem' : '20rem'
+            }
             padding="0.5rem 1.5rem"
-            onClick={() => window.open(dummyProduct[id - 1].link)}
+            // onClick={() => window.open(dummyProduct[id - 1].link)}
           />
           <div className="info" onClick={() => setIsShow1(!isShow1)}>
             <span>{isShow1 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '제품정보' : 'Information'}</p>
+            <p>
+              {locale === 'ko'
+                ? '제품정보'
+                : locale === 'uz'
+                  ? "Ma'lumot"
+                  : 'Information'}
+            </p>
           </div>
           {isShow1 && (
             <div className="info__section">
@@ -541,6 +730,17 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                   <div className="info__item">
                     <h3>제조사 및 책임판매업자</h3>
                     <p>(주)허브테라피 위드 코스메틱스</p>
+                  </div>
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  <div className="info__item">
+                    <h3>Ishlab chiqarilgan mamlakat</h3>
+                    <p>O‘zbekiston</p>
+                  </div>
+                  <div className="info__item">
+                    <h3>{`Ishlab chiqaruvchi va mas'ul sotuvchi`}</h3>
+                    <p>HERBTHERAPY WITH COSMETICS</p>
                   </div>
                 </>
               ) : (
@@ -559,13 +759,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
           )}
           <div className="info" onClick={() => setIsShow2(!isShow2)}>
             <span>{isShow2 ? '-' : '+'}</span>
-            <p>{locale === 'ko' ? '주요성분' : 'Main ingredients'}</p>
+            <p>
+              {locale === 'ko'
+                ? '주요성분'
+                : locale === 'uz'
+                  ? 'Asosiy tarkibiy qismlar'
+                  : 'Main ingredients'}
+            </p>
           </div>
           {isShow2 && (
             <div className="info__section">
               {locale === 'ko'
                 ? dummyProduct[id - 1].ingredients
-                : dummyProduct[id - 1].enIngredients}
+                : locale === 'uz'
+                  ? dummyProduct[id - 1].uzIngredients
+                  : dummyProduct[id - 1].enIngredients}
             </div>
           )}
           <div className="info" onClick={() => setIsShow3(!isShow3)}>
@@ -576,7 +784,9 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
             <div className="info__section">
               {locale === 'ko'
                 ? dummyProduct[id - 1].howToUse
-                : dummyProduct[id - 1].enHowToUse}
+                : locale === 'uz'
+                  ? dummyProduct[id - 1].uzHowToUse
+                  : dummyProduct[id - 1].enHowToUse}
             </div>
           )}
         </div>
@@ -585,18 +795,28 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
       {id != 5 && (
         <div className="bottom">
           <div className="left">
-            <FullScreenImage src="/images/store/4.png" alt="4" height="100%" />
+            <FullScreenImage
+              src="/images/store/use_together.png"
+              alt="4"
+              height="100%"
+            />
           </div>
 
           <div className="right">
             <h1>
-              {locale === 'ko' ? '함께 사용해보세요' : 'USE TOGETHER WITH'}
+              {locale === 'ko'
+                ? '함께 사용해보세요'
+                : locale === 'uz'
+                  ? "Birgalikda sinab ko'ring"
+                  : 'USE TOGETHER WITH'}
             </h1>
 
             <h2 className="space">
               {locale === 'ko'
                 ? '두피 청정 라벤더 솔루션'
-                : 'SCALP CLEAN LAVENDER SOLUTION'}
+                : locale === 'uz'
+                  ? 'Bosh Terisini Tozalovchi Lavanda Eritmasi'
+                  : 'SCALP CLEAN LAVENDER SOLUTION'}
             </h2>
 
             <div className="line" />
@@ -606,9 +826,21 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                 <StepTypography
                   key={key}
                   step={parseInt(key)}
-                  title={locale === 'ko' ? value.title : value.enTitle}
+                  title={
+                    locale === 'ko'
+                      ? value.title
+                      : locale === 'uz'
+                        ? value.uzTitle
+                        : value.enTitle
+                  }
                   id={value.router}
-                  content={locale === 'ko' ? value.content : value.enContent}
+                  content={
+                    locale === 'ko'
+                      ? value.content
+                      : locale === 'uz'
+                        ? value.uzContent
+                        : value.enContent
+                  }
                 />
               ))}
             </div>

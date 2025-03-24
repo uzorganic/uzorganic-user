@@ -123,6 +123,13 @@ const Home = () => {
                 I’m ORGANIC will continue to grow
                 <p>as a company in harmony with nature.</p>
               </>
+            ) : locale === 'uz' ? (
+              <>
+                {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
+                <br />
+                {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+                etmoqda.`}
+              </>
             ) : (
               <>
                 아임오가닉은 풍부한 경험으로 <br />
@@ -132,7 +139,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -152,11 +161,16 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
+              </>
+            ) : locale === 'uz' ? (
+              <>
+                {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
+                <br />
+                {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+                etmoqda.`}
               </>
             ) : (
               <>
@@ -167,7 +181,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -187,11 +203,16 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
+              </>
+            ) : locale === 'uz' ? (
+              <>
+                {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
+                <br />
+                {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+                etmoqda.`}
               </>
             ) : (
               <>
@@ -202,7 +223,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -229,6 +252,14 @@ const Home = () => {
                 I’m ORGANIC will continue to grow
                 <p>as a company in harmony with nature.</p>
               </>
+            ) : locale === 'uz' ? (
+              <>
+                {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan
+                uyg'unlashgan,`}{' '}
+                <br />
+                {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+                etmoqda.`}
+              </>
             ) : (
               <>
                 아임오가닉은 풍부한 경험으로 <br />
@@ -238,7 +269,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -258,11 +291,17 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
+              </>
+            ) : locale === 'uz' ? (
+              <>
+                {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan
+                uyg'unlashgan,`}{' '}
+                <br />
+                {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+                etmoqda.`}
               </>
             ) : (
               <>
@@ -273,7 +312,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -293,11 +334,19 @@ const Home = () => {
           description={
             locale === 'en' ? (
               <>
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
+                With our extensive experience, <br />
+                I’m ORGANIC will continue to grow
+                <p>as a company in harmony with nature.</p>
+              </>
+            ) : locale === 'uz' ? (
+              <>
+                {
+                  "Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,"
+                }
+                <br />
+                {
+                  'mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom etmoqda.'
+                }
               </>
             ) : (
               <>
@@ -308,7 +357,9 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={locale === 'en' ? 'MORE' : 'MORE'}
+              text={
+                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+              }
               color="#fff"
               onClick={() => router.push('/brand')}
             />
@@ -321,11 +372,17 @@ const Home = () => {
         imageSrc="/images/main/9.jpg"
         title="LAVENDER"
         description={
-          locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'
+          locale === 'en'
+            ? 'OUR FIRST NATURE'
+            : locale === 'uz'
+              ? "bizning tabiatdan olingan birinchi o'simligimiz"
+              : '우리의 첫번째 자연,'
         }
         buttonComponent={
           <HoverArrowButton
-            text={locale === 'en' ? 'MORE' : 'MORE'}
+            text={
+              locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+            }
             onClick={() => router.push('/lavender')}
           />
         }
@@ -336,11 +393,17 @@ const Home = () => {
         imageSrc="/images/main/9_mb.jpg"
         title="LAVENDER"
         description={
-          locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'
+          locale === 'en'
+            ? 'OUR FIRST NATURE'
+            : locale === 'uz'
+              ? "bizning borlig'imiz,"
+              : '우리의 첫번째 자연,'
         }
         buttonComponent={
           <HoverArrowButton
-            text={locale === 'en' ? 'MORE' : 'MORE'}
+            text={
+              locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
+            }
             onClick={() => router.push('/lavender')}
           />
         }
@@ -349,10 +412,18 @@ const Home = () => {
       <CenterTitleAndButton
         className="Youtube pc"
         imageSrc="/images/main/0.jpg"
-        title={locale === 'en' ? 'Instagram' : '인스타그램'}
+        title={
+          locale === 'en'
+            ? 'Instagram'
+            : locale === 'uz'
+              ? 'Instagram'
+              : '인스타그램'
+        }
         description={
           locale === 'en' ? (
             'Check out the latest news on Instagram!'
+          ) : locale === 'uz' ? (
+            <>{`Instagramdagi so'ngi yangiliklar bilan tanishing!`}</>
           ) : (
             <>
               인스타그램에서 최신 소식을
@@ -380,10 +451,18 @@ const Home = () => {
       <CenterTitleAndButton
         className="Youtube mo"
         imageSrc="/images/main/0_mb.jpg"
-        title={locale === 'en' ? 'Instagram' : '인스타그램'}
+        title={
+          locale === 'en'
+            ? 'Instagram'
+            : locale === 'uz'
+              ? 'Instagram'
+              : '인스타그램'
+        }
         description={
           locale === 'en' ? (
             'Check out the latest news on Instagram!'
+          ) : locale === 'uz' ? (
+            <>{`Instagramdagi so'ngi yangiliklar bilan tanishing!`}</>
           ) : (
             <>
               인스타그램에서 최신 소식을

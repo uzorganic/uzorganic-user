@@ -100,7 +100,9 @@ const BrandPage = () => {
             <h1 className="title fade move animate1">
               {locale === 'en'
                 ? "I'm Organic's Philosophy"
-                : '아임 오가닉의 철학'}
+                : locale === 'uz'
+                  ? "I'm ORGANIC falsafasi"
+                  : '아임 오가닉의 철학'}
             </h1>
             <p className="description fade move animate2">
               {locale === 'en' ? (
@@ -118,6 +120,22 @@ const BrandPage = () => {
                   <p>
                     We are a company that respects the time of nature, and this
                     is fully reflected in I&apos;m Organic products.
+                  </p>
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  <p>
+                    {`HERBTHERAPY WITH COSMETICS kompaniyasi O'zbekistonga I'm
+                    ORGANIC brendi ostida kirib keldi.`}
+                  </p>
+                  <ul>
+                    <li>Koreyada 20 yillik tadqiqotlar va ishlanmalar</li>
+                    <li>Ishonchli mahsulot texnologiyasi</li>
+                    <li>Xavfsiz ingredientlar</li>
+                  </ul>
+                  <p>
+                    {`Bu tabiatning ananalarini qadrlab kelayotgan kompaniya va bu
+                    I'm organic mahsulotlarida aks etadi.`}
                   </p>
                 </>
               ) : (
@@ -155,7 +173,9 @@ const BrandPage = () => {
             <h1 className="title center fade move animate1">
               {locale === 'en'
                 ? 'Product Quality and Reliability'
-                : '제품의 품질과 신뢰성'}
+                : locale === 'uz'
+                  ? 'Mahsulot sifati va ishonchliligi'
+                  : '제품의 품질과 신뢰성'}
             </h1>
             <p className="description center right__margin fade move animate2">
               {locale === 'en' ? (
@@ -175,6 +195,25 @@ const BrandPage = () => {
                   customers&apos; skin regain and
                   <br />
                   maintain its natural health.
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  {`Tabiatning kuchiga ishongan va tabiatni qadrlaydigan`}
+                  <br />
+                  {`I'm ORGANIC kimyoviy konservantlarni yaxshilab chiqarib
+                  tashlaydi`}
+                  <br />
+                  {`va faqat tabiatdan olingan eng yuqori sifatli materiallardan`}
+                  <br />
+                  {`foydalangan holda mahsulotlarni ishlab chiqaradi.`}
+                  <br />
+                  {`Bunday usul teri uchun yumshoq va samarali`}
+                  <br />
+                  {`mahsulotni yaratishning asosiy printsipidir.`}
+                  <br />
+                  {`Biz teringizni tiklash va tabiiy sog'lig'ini saqlashga yordam`}
+                  <br />
+                  {`berish uchun doimiy izlanishlar olib boramiz.`}
                 </>
               ) : (
                 <>
@@ -208,6 +247,8 @@ const BrandPage = () => {
             <h1 className="title fade move animate1">
               {locale === 'en' ? (
                 <>Ethical Certification and Sustainable Development</>
+              ) : locale === 'uz' ? (
+                <>{`Etik sertifikatlash va barqaror rivojlanish`}</>
               ) : (
                 <>
                   윤리적 인증과 <br />
@@ -223,6 +264,16 @@ const BrandPage = () => {
                   committed to not conducting animal testing and to not using
                   animal-derived ingredients, protecting the environment and
                   respecting the rights of all living beings.
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  {`I'm ORGANIC organik, vegan va halol sertifikatlangan mahsulotlar
+                  bilan axloqiy va barqaror qadriyatlarni amalga oshiradi.`}
+                  <br />
+                  {`Biz hayvonlar ustida sinov o'tkazmaslik va hayvonlardan olingan
+                  ingredientlardan foydalanmaslik majburiyatini olganmiz, atrof-muhitni
+                  muhofaza qilish va barcha tirik mavjudotlarning huquqlarini hurmat
+                  qilish.`}
                 </>
               ) : (
                 <>
@@ -252,7 +303,9 @@ const BrandPage = () => {
             <h1 className="title center fade move animate1">
               {locale === 'en'
                 ? 'Partnership with MEHRIGIYO'
-                : 'MEHRIGIYO와의 파트너십'}
+                : locale === 'uz'
+                  ? 'MEHRIGIYO bilan hamkorlik'
+                  : 'MEHRIGIYO와의 파트너십'}
             </h1>
             <p className="description center fade move animate2">
               {locale === 'en' ? (
@@ -265,6 +318,23 @@ const BrandPage = () => {
                   Additionally, we promote sustainable development through
                   collaboration with local communities. We promise to continue
                   developing new products to offer to our customers.
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  {`O'zbekistondagi MEHRIGIYO bilan hamkorligimiz I'm ORGANICning
+                  asosiy ustunlaridan biridir.`}
+                  <br />
+                  {`MEHRIGIYOning sog'lom organik ingredientlari bilan terini parvarish
+                  qilish mahsulotlar qatorini mustahkamlash orqali biz yuqori
+                  texnologiyalardan foydalangan holda ajoyib mahsulotlarni ishlab
+                  chiqaramiz.`}
+                  <br />
+                  <br />
+                  {`Bundan tashqari, biz mahalliy hamjamiyatlar bilan hamkorlik orqali
+                  barqaror rivojlanishni rag'batlantiramiz.`}
+                  <br />
+                  {`Biz mijozlarimizga taqdim etish uchun yangi mahsulotlarni ishlab
+                  chiqarishni davom ettirishga va'da beramiz.`}
                 </>
               ) : (
                 <>
@@ -309,6 +379,18 @@ const BrandPage = () => {
                 beauty within the cycle of nature. Experience nature&apos;s
                 gifts with I&apos;m Organic and enjoy radiant days with healthy
                 skin.
+              </>
+            ) : locale === 'uz' ? (
+              <>
+                {`I'm ORGANIC - bu mahsulot ishlab chiqarishdan tashqari, tabiat va
+                odamlar uchun foydali bo'lgan qadriyatlarni amalga oshiradigan
+                kompaniya.`}
+                <br />
+                {`Bizning sayohatimiz tabiat tsiklida terining sog'lig'i va
+                go'zalligini izlayotganlarning barchasi bilan birga.`}
+                <br />
+                {`I'm ORGANIC bilan tabiat in'omlarini boshdan kechiring va sog'lom
+                teri bilan yorqin kunlardan bahramand bo'ling.`}
               </>
             ) : (
               <>

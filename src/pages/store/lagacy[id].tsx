@@ -1205,7 +1205,7 @@ const StoreDetail = ({ headerHeight = 0 }: Props) => {
           <div className="forth pc">
             <div className="left">
               <FullScreenImage
-                src="/images/store/4.png"
+                src="/images/store/use_together.png"
                 alt="4"
                 height="100%"
               />

@@ -40,7 +40,11 @@ export const ProductInfo = ({
           window.open(link, '_blank');
         }}
       >
-        {locale === 'ko' ? '구매하러 가기' : 'Go to buy'}
+        {locale === 'ko'
+          ? '구매하러 가기'
+          : locale === 'uz'
+            ? 'Sotib olish'
+            : 'Go to buy'}
         <span>→</span>
       </div>
     </ProductInfoStyled>

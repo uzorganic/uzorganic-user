@@ -61,7 +61,11 @@ export const LavenderInteraction = ({ options }: Props) => {
           <div className="first">
             <h1 className="title fade move animate1">LAVENDER</h1>
             <h2 className="sub fade move animate1">
-              {locale === 'en' ? 'OUR FIRST NATURE' : '우리의 첫번째 자연,'}
+              {locale === 'en'
+                ? 'OUR FIRST NATURE'
+                : locale === 'uz'
+                  ? "Bizning tabiatdan olingan birinchi o'simligimiz,"
+                  : '우리의 첫번째 자연,'}
             </h2>
             <p className="description fade move animate2">
               {locale === 'en' ? (
@@ -70,6 +74,11 @@ export const LavenderInteraction = ({ options }: Props) => {
                   lavender,
                   <br />
                   which blooms peacefully even under the scorching summer sun.
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  Yozning issiq quyoshi ostida tinchgina gullaydigan lavanda
+                  gulidan kuch va shifo topdik.
                 </>
               ) : (
                 <>
@@ -93,7 +102,11 @@ export const LavenderInteraction = ({ options }: Props) => {
         >
           <div className="second">
             <h1 className="title fade fade move animate1">
-              {locale === 'en' ? 'The Power of Lavender' : '라벤더의 힘'}
+              {locale === 'en'
+                ? 'The Power of Lavender'
+                : locale === 'uz'
+                  ? 'Lavanda kuchi'
+                  : '라벤더의 힘'}
             </h1>
             <p className="description fade move animate2">
               {locale === 'en' ? (
@@ -104,6 +117,18 @@ export const LavenderInteraction = ({ options }: Props) => {
                   For centuries, it has been widely used for medicinal and
                   cosmetic purposes and continues to be utilized in various
                   forms today.
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  {`Lavanda O'rta Yer dengizi mintaqasida o'sadigan o't bo'lib,`}
+                  <br />
+                  {`uning nomi qadimgi rimliklarning hammom suvida ishlatilishidan
+                  kelib chiqqan.`}
+                  <br />
+                  {`U asrlar davomida dorivor va kosmetik maqsadlarda keng
+                  qo'llanilgan`}
+                  <br />
+                  {`va bugungi kunda ham turli xil sohalarda qo'llanilib kelmoqda.`}
                 </>
               ) : (
                 <>

@@ -30,6 +30,16 @@ export const Version1Footer = () => {
                 PRIVACY POLICY
               </p>
             </>
+          ) : locale === 'uz' ? (
+            <>
+              <p onClick={() => router.push('/brand')}>
+                Kompaniya bilan tanishuv
+              </p>
+              {/* <p>Foydalanish shartlari</p> */}
+              <p onClick={() => router.push('/privacy_policy')}>
+                Maxfiylik Siyosati
+              </p>
+            </>
           ) : (
             <>
               <p onClick={() => router.push('/brand')}>회사소개</p>

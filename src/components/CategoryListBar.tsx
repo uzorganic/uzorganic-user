@@ -25,14 +25,17 @@ export const CategoryListBar = ({}: Props) => {
     {
       title: '모두보기',
       enTitle: 'All',
+      uzTitle: 'Hammasi',
     },
     {
       title: '헤어케어',
       enTitle: 'Hair Care',
+      uzTitle: 'Soch parvarishi',
     },
     {
       title: '스킨케어',
       enTitle: 'Skin Care',
+      uzTitle: 'Teri parvarishi',
     },
   ];
 
@@ -46,7 +49,13 @@ export const CategoryListBar = ({}: Props) => {
             router.push(`/store?category=${index}`);
           }}
         >
-          <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
+          <p className="title">
+            {locale === 'ko'
+              ? item.title
+              : locale === 'uz'
+                ? item.uzTitle
+                : item.enTitle}
+          </p>
           <div className="underline" />
         </div>
       ))}

@@ -17,14 +17,17 @@ export const CategoryList = ({ active, setActive }: Props) => {
     {
       title: '모두보기',
       enTitle: 'All',
+      uzTitle: 'Hammasi',
     },
     {
       title: '헤어케어',
       enTitle: 'Hair Care',
+      uzTitle: 'Soch parvarishi',
     },
     {
       title: '스킨케어',
       enTitle: 'Skin Care',
+      uzTitle: 'Teri parvarishi',
     },
   ];
 
@@ -36,7 +39,13 @@ export const CategoryList = ({ active, setActive }: Props) => {
           key={index}
           onClick={() => setActive(index)}
         >
-          <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
+          <p className="title">
+            {locale === 'ko'
+              ? item.title
+              : locale === 'uz'
+                ? item.uzTitle
+                : item.enTitle}
+          </p>
           <div className="underline" />
         </div>
       ))}

@@ -18,11 +18,31 @@ export const Menu = ({ open, setOpen }: Props) => {
   const [active, setActive] = useState(0);
 
   const menuList = [
-    { name: '스토어', enName: 'STORE', path: '/store' },
-    { name: '브랜드', enName: 'BRAND', path: '/brand' },
+    {
+      name: 'Do‘kon',
+      enName: 'STORE',
+      uzName: "Do'kon",
+      path: '/store',
+    },
+    {
+      name: 'Brend',
+      enName: 'BRAND',
+      uzName: 'Brend',
+      path: '/brand',
+    },
     // { name: '갤러리', path: '/gallery' },
-    { name: '라벤더', enName: 'LAVENDER', path: '/lavender' },
-    { name: '문의하기', enName: 'CONTACT', path: '/contact' },
+    {
+      name: 'Lavanda',
+      enName: 'LAVENDER',
+      uzName: 'Lavanda',
+      path: '/lavender',
+    },
+    {
+      name: 'Biz bilan Aloqa',
+      enName: 'CONTACT',
+      uzName: 'Biz bilan Aloqa',
+      path: '/contact',
+    },
   ];
 
   useEffect(() => {
@@ -44,7 +64,11 @@ export const Menu = ({ open, setOpen }: Props) => {
             className={`item ${index === active ? 'active' : ''}`}
             onClick={() => router.push(item.path)}
           >
-            {locale === 'en' ? item.enName : item.name}
+            {locale === 'en'
+              ? item.enName
+              : locale === 'uz'
+                ? item.uzName
+                : item.name}
           </div>
         ))}
         <SnsList

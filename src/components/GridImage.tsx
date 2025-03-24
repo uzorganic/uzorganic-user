@@ -8,6 +8,7 @@ interface Props {
     id: number;
     title: string;
     enTitle: string;
+    uzTitle: string;
     img: string;
   }[];
 }
@@ -34,7 +35,13 @@ export const GridImage = ({ productList }: Props) => {
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <p className="title">{locale === 'ko' ? item.title : item.enTitle}</p>
+          <p className="title">
+            {locale === 'ko'
+              ? item.title
+              : locale === 'uz'
+                ? item.uzTitle
+                : item.enTitle}
+          </p>
         </div>
       ))}
 

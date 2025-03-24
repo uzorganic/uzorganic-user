@@ -9,17 +9,21 @@ export const FixedTextMenu = () => {
   return (
     <FixedTextMenuStyled>
       <p onClick={() => router.push('/store')}>
-        {locale === 'en' ? 'STORE' : '스토어'}
+        {locale === 'en' ? 'STORE' : locale === 'uz' ? "Do'kon" : '스토어'}
       </p>
       {/* <p onClick={() => router.push('/store/1')}>갤러리</p> */}
       <p onClick={() => router.push('/brand')}>
-        {locale === 'en' ? 'BRAND' : '브랜드'}
+        {locale === 'en' ? 'BRAND' : locale === 'uz' ? 'Brend' : '브랜드'}
       </p>
       <p onClick={() => router.push('/lavender')}>
-        {locale === 'en' ? 'LAVENDER' : '라벤더'}
+        {locale === 'en' ? 'LAVENDER' : locale === 'uz' ? 'Lavanda' : '라벤더'}
       </p>
       <p onClick={() => router.push('/contact')}>
-        {locale === 'en' ? 'CONTACT US' : '문의하기'}
+        {locale === 'en'
+          ? 'CONTACT US'
+          : locale === 'uz'
+            ? 'Biz bilan Aloqa'
+            : '문의하기'}
       </p>
     </FixedTextMenuStyled>
   );

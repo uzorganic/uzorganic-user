@@ -12,7 +12,8 @@
     "svgr",
     "swiper",
     "tanstack",
-    "trivago"
+    "trivago",
+    "uzorganic"
   ],
   "search.exclude": {
     "**/.yarn": true,

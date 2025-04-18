@@ -19,26 +19,26 @@ export const Menu = ({ open, setOpen }: Props) => {
 
   const menuList = [
     {
-      name: 'Do‘kon',
+      name: '스토어',
       enName: 'STORE',
       uzName: "Do'kon",
       path: '/store',
     },
     {
-      name: 'Brend',
+      name: '브랜드',
       enName: 'BRAND',
       uzName: 'Brend',
       path: '/brand',
     },
     // { name: '갤러리', path: '/gallery' },
     {
-      name: 'Lavanda',
+      name: '라벤더',
       enName: 'LAVENDER',
       uzName: 'Lavanda',
       path: '/lavender',
     },
     {
-      name: 'Biz bilan Aloqa',
+      name: '문의하기',
       enName: 'CONTACT',
       uzName: 'Biz bilan Aloqa',
       path: '/contact',
@@ -64,11 +64,11 @@ export const Menu = ({ open, setOpen }: Props) => {
             className={`item ${index === active ? 'active' : ''}`}
             onClick={() => router.push(item.path)}
           >
-            {locale === 'en'
-              ? item.enName
+            {locale === 'ko'
+              ? item.name
               : locale === 'uz'
                 ? item.uzName
-                : item.name}
+                : item.enName}
           </div>
         ))}
         <SnsList

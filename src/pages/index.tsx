@@ -442,7 +442,7 @@ const Home = () => {
               cursor: 'pointer',
             }}
             onClick={() =>
-              window.open('https://www.instagram.com/safocosmetics.uz/')
+              window.open('https://www.instagram.com/im_organic_official')
             }
           />
         }
@@ -481,7 +481,7 @@ const Home = () => {
               cursor: 'pointer',
             }}
             onClick={() =>
-              window.open('https://www.instagram.com/safocosmetics.uz/')
+              window.open('https://www.instagram.com/im_organic_official')
             }
           />
         }

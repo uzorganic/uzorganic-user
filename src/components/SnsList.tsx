@@ -57,7 +57,7 @@ export const SnsList = ({
         onMouseEnter={() => handleMouseEnter('instagram')}
         onMouseLeave={handleMouseLeave}
         onClick={() =>
-          window.open('https://www.instagram.com/safocosmetics.uz/')
+          window.open('https://www.instagram.com/im_organic_official')
         }
       >
         <Instagram />
@@ -68,7 +68,7 @@ export const SnsList = ({
         onMouseLeave={handleMouseLeave}
         // onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
         onClick={() =>
-          window.open('https://www.instagram.com/safocosmetics.uz/')
+          window.open('https://www.instagram.com/im_organic_official')
         }
       >
         <Youtube />

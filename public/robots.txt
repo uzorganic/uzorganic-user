@@ -1,0 +1,32 @@
+# 모든 검색 엔진 크롤러에 대한 규칙
+User-agent: *
+Allow: /
+Allow: /products/
+Allow: /categories/
+Allow: /blog/
+Allow: /about/
+Allow: /contact/
+
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /myaccount/
+Disallow: /login/
+Disallow: /register/
+Disallow: /api/
+Disallow: /temp/
+Disallow: /*?search=
+Disallow: /*?sort=
+Disallow: /*?filter=
+
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+Sitemap: https://uzorganic.com/sitemap.xml
+

@@ -1,23 +1,14 @@
-# 모든 검색 엔진 크롤러에 대한 규칙
+# I'm ORGANIC - 검색 엔진 크롤링 규칙
 User-agent: *
 Allow: /
-Allow: /products/
-Allow: /categories/
-Allow: /blog/
-Allow: /about/
+Allow: /brand/
+Allow: /lavender/
+Allow: /store/
 Allow: /contact/
-
-Disallow: /admin/
-Disallow: /checkout/
-Disallow: /cart/
-Disallow: /myaccount/
-Disallow: /login/
-Disallow: /register/
-Disallow: /api/
-Disallow: /temp/
-Disallow: /*?search=
-Disallow: /*?sort=
-Disallow: /*?filter=
+Allow: /privacy_policy/
+Allow: /en/
+Allow: /uz/
+Allow: /ko/
 
 Allow: /*.js$
 Allow: /*.css$

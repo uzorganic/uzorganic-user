@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
+import { SEO } from '@/components/SEO';
 import { StepTypography } from '@/components/StepTypography';
 import styled from 'styled-components';
 
@@ -194,7 +195,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           두피 청정 라벤더 샴푸
         </>
       ),
-      link: '/store/1',
+      link: 'https://uzum.uz/uz/product/shampun-1615771',
       enDescription:
         'A scalp clean lavender shampoo that creates a healthy scalp and hair condition with natural lavender water and lavender oil',
       uzDescription: (
@@ -258,7 +259,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           모발 집중 영양 관리 라벤더 트리트먼트
         </>
       ),
-      link: '/store/1',
+      link: 'https://uzum.uz/uz/product/tritment-1615714',
       enDescription:
         'A hair-focused nutrition management lavender treatment that fills hair with moisture and nutrition from weak roots to split ends',
       uzDescription: (
@@ -328,7 +329,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           라벤더 헤어 미스트
         </>
       ),
-      link: '/store/1',
+      link: 'https://uzum.uz/uz/product/soch-parfyumi-1609507',
       enDescription:
         'A lavender hair mist that easily replenishes gloss and nutrition anytime, anywhere',
       uzDescription: (
@@ -394,7 +395,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           라벤더 헤어 오일
         </>
       ),
-      link: '/store/1',
+      link: 'https://uzum.uz/uz/product/soch-yogi-1615800',
       enDescription:
         'A lavender hair oil that fills hair with moisture and nutrition to the depths of the hair, adding smooth shine to each strand',
       uzDescription: (
@@ -465,7 +466,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           솔루션 마스크
         </>
       ),
-      link: '/store/1',
+      link: 'https://uzum.uz/uz/product/yuz-niqobi-upakovka-1615841',
       enDescription:
         'A solution mask that soothes sensitive skin intensively and contains collagen-boosting ingredients',
       uzDescription: (
@@ -518,338 +519,360 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
   }
 
   return (
-    <ProductDetailMobileStyle
-      $headerHeight={headerHeight}
-      className={className}
-    >
-      <ImageOverlayChild
-        src={`/images/store/product${id}/main.jpg`}
-        width="100%"
-        height={`calc(100vh - ${headerHeight}px)`}
-      />
-
-      <div className="text">
-        <h1>
-          {locale === 'ko'
-            ? dummyProduct[id - 1].title
-            : locale === 'uz'
-              ? dummyProduct[id - 1].uzTitle
-              : dummyProduct[id - 1].enTitle}
-        </h1>
-        <div className="sub__title">
-          <p>
-            {locale === 'ko'
-              ? dummyProduct[id - 1].effect
+    <>
+      <SEO
+        title={
+          ("I'm Organic - " +
+            (locale === 'ko'
+              ? dummyProduct[id - 1].title
               : locale === 'uz'
-                ? dummyProduct[id - 1].uzEffect
-                : dummyProduct[id - 1].enEffect}
-          </p>
-          <span>{dummyProduct[id - 1].capacity}</span>
-        </div>
-        <div className="line" />
-
-        <h2>
-          {locale === 'ko'
+                ? dummyProduct[id - 1].uzTitle
+                : dummyProduct[id - 1].enTitle)) as string
+        }
+        description={
+          (locale === 'ko'
             ? dummyProduct[id - 1].description
             : locale === 'uz'
               ? dummyProduct[id - 1].uzDescription
-              : dummyProduct[id - 1].enDescription}
-        </h2>
-        <div className="arrow__button">
-          <HoverArrowButton
-            text={
-              locale === 'ko'
-                ? '구매하러 가기'
+              : dummyProduct[id - 1].enDescription) as string
+        }
+        url={`https://uzorganic.com/product/${id}`}
+      />
+      <ProductDetailMobileStyle
+        $headerHeight={headerHeight}
+        className={className}
+      >
+        <ImageOverlayChild
+          src={`/images/store/product${id}/main.jpg`}
+          width="100%"
+          height={`calc(100vh - ${headerHeight}px)`}
+        />
+
+        <div className="text">
+          <h1>
+            {locale === 'ko'
+              ? dummyProduct[id - 1].title
+              : locale === 'uz'
+                ? dummyProduct[id - 1].uzTitle
+                : dummyProduct[id - 1].enTitle}
+          </h1>
+          <div className="sub__title">
+            <p>
+              {locale === 'ko'
+                ? dummyProduct[id - 1].effect
                 : locale === 'uz'
-                  ? 'Sotib olish'
-                  : 'GO TO BUY'
-            }
-            color="#403b35"
-            width="100%"
-            padding="1.5rem 1.5rem"
-            // onClick={() => window.open(dummyProduct[id - 1].link)}
-          />
-        </div>
-        <div className="info" onClick={() => setIsShow1(!isShow1)}>
-          <span>{isShow1 ? '-' : '+'}</span>
-          <p>
-            {locale === 'ko'
-              ? '제품정보'
-              : locale === 'uz'
-                ? "Ma'lumot"
-                : 'Information'}
-          </p>
-        </div>
-        {isShow1 && (
-          <div className="info__section">
-            {locale === 'ko' ? (
-              <>
-                <div className="info__item">
-                  <h3>제조국</h3>
-                  <p>우즈베키스탄</p>
-                </div>
-                <div className="info__item">
-                  <h3>제조사 및 책임판매업자</h3>
-                  <p>(주)허브테라피 위드 코스메틱스</p>
-                </div>
-              </>
-            ) : locale === 'uz' ? (
-              <>
-                <div className="info__item">
-                  <h3>Ishlab chiqarilgan mamlakat</h3>
-                  <p>O‘zbekiston</p>
-                </div>
-                <div className="info__item">
-                  <h3>{`Ishlab chiqaruvchi va mas'ul sotuvchi`}</h3>
-                  <p>HERBTHERAPY WITH COSMETICS</p>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="info__item">
-                  <h3>Country of manufacture</h3>
-                  <p>Uzbekistan</p>
-                </div>
-                <div className="info__item">
-                  <h3>Manufacturer and responsible seller</h3>
-                  <p>HERBTHERAPY WITH COSMETICS</p>
-                </div>
-              </>
-            )}
+                  ? dummyProduct[id - 1].uzEffect
+                  : dummyProduct[id - 1].enEffect}
+            </p>
+            <span>{dummyProduct[id - 1].capacity}</span>
           </div>
-        )}
-        <div className="info" onClick={() => setIsShow2(!isShow2)}>
-          <span>{isShow2 ? '-' : '+'}</span>
-          <p>
+          <div className="line" />
+
+          <h2>
             {locale === 'ko'
-              ? '주요성분'
+              ? dummyProduct[id - 1].description
               : locale === 'uz'
-                ? 'Asosiy tarkibiy qismlar'
-                : 'Main ingredients'}
-          </p>
-        </div>
-        {isShow2 && (
-          <>
-            <div className="info__section">
-              <div>
-                {locale === 'ko'
-                  ? dummyProduct[id - 1].ingredients
+                ? dummyProduct[id - 1].uzDescription
+                : dummyProduct[id - 1].enDescription}
+          </h2>
+          <div className="arrow__button">
+            <HoverArrowButton
+              text={
+                locale === 'ko'
+                  ? '구매하러 가기'
                   : locale === 'uz'
-                    ? dummyProduct[id - 1].uzIngredients
-                    : dummyProduct[id - 1].enIngredients}
-              </div>
-            </div>
-          </>
-        )}
-        <div className="info" onClick={() => setIsShow3(!isShow3)}>
-          <span>{isShow3 ? '-' : '+'}</span>
-          <p>
-            {locale === 'ko'
-              ? '사용법'
-              : locale === 'uz'
-                ? 'Qo‘llash usuli'
-                : 'How to use'}
-          </p>
-        </div>
-        {isShow3 && (
-          <>
+                    ? 'Sotib olish'
+                    : 'GO TO BUY'
+              }
+              color="#403b35"
+              width="100%"
+              padding="1.5rem 1.5rem"
+              onClick={() => window.open(dummyProduct[id - 1].link)}
+            />
+          </div>
+          <div className="info" onClick={() => setIsShow1(!isShow1)}>
+            <span>{isShow1 ? '-' : '+'}</span>
+            <p>
+              {locale === 'ko'
+                ? '제품정보'
+                : locale === 'uz'
+                  ? "Ma'lumot"
+                  : 'Information'}
+            </p>
+          </div>
+          {isShow1 && (
             <div className="info__section">
-              <div>
-                {locale === 'ko'
-                  ? dummyProduct[id - 1].howToUse
-                  : locale === 'uz'
-                    ? dummyProduct[id - 1].uzHowToUse
-                    : dummyProduct[id - 1].enHowToUse}
-              </div>
+              {locale === 'ko' ? (
+                <>
+                  <div className="info__item">
+                    <h3>제조국</h3>
+                    <p>우즈베키스탄</p>
+                  </div>
+                  <div className="info__item">
+                    <h3>제조사 및 책임판매업자</h3>
+                    <p>(주)허브테라피 위드 코스메틱스</p>
+                  </div>
+                </>
+              ) : locale === 'uz' ? (
+                <>
+                  <div className="info__item">
+                    <h3>Ishlab chiqarilgan mamlakat</h3>
+                    <p>O‘zbekiston</p>
+                  </div>
+                  <div className="info__item">
+                    <h3>{`Ishlab chiqaruvchi va mas'ul sotuvchi`}</h3>
+                    <p>HERBTHERAPY WITH COSMETICS</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="info__item">
+                    <h3>Country of manufacture</h3>
+                    <p>Uzbekistan</p>
+                  </div>
+                  <div className="info__item">
+                    <h3>Manufacturer and responsible seller</h3>
+                    <p>HERBTHERAPY WITH COSMETICS</p>
+                  </div>
+                </>
+              )}
             </div>
-          </>
-        )}
-      </div>
+          )}
+          <div className="info" onClick={() => setIsShow2(!isShow2)}>
+            <span>{isShow2 ? '-' : '+'}</span>
+            <p>
+              {locale === 'ko'
+                ? '주요성분'
+                : locale === 'uz'
+                  ? 'Asosiy tarkibiy qismlar'
+                  : 'Main ingredients'}
+            </p>
+          </div>
+          {isShow2 && (
+            <>
+              <div className="info__section">
+                <div>
+                  {locale === 'ko'
+                    ? dummyProduct[id - 1].ingredients
+                    : locale === 'uz'
+                      ? dummyProduct[id - 1].uzIngredients
+                      : dummyProduct[id - 1].enIngredients}
+                </div>
+              </div>
+            </>
+          )}
+          <div className="info" onClick={() => setIsShow3(!isShow3)}>
+            <span>{isShow3 ? '-' : '+'}</span>
+            <p>
+              {locale === 'ko'
+                ? '사용법'
+                : locale === 'uz'
+                  ? 'Qo‘llash usuli'
+                  : 'How to use'}
+            </p>
+          </div>
+          {isShow3 && (
+            <>
+              <div className="info__section">
+                <div>
+                  {locale === 'ko'
+                    ? dummyProduct[id - 1].howToUse
+                    : locale === 'uz'
+                      ? dummyProduct[id - 1].uzHowToUse
+                      : dummyProduct[id - 1].enHowToUse}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
 
-      {locale === 'ko' ? (
-        <ImageOverlayChild
-          src={
-            id == 5
-              ? '/images/store/mask_ditail.jpg'
-              : '/images/store/all_ditail_header.jpg'
-          }
-          width="100%"
-          height={id == 5 ? '274.625rem' : '90.25rem'}
-          objectFit="contain"
-        />
-      ) : locale === 'uz' ? (
-        <ImageOverlayChild
-          src={
-            id == 5
-              ? '/images/store/mask_ditail_uz.jpg'
-              : '/images/store/all_ditail_header_uz.jpg'
-          }
-          width="100%"
-          height={id == 5 ? '274.625rem' : '90.25rem'}
-          objectFit="contain"
-        />
-      ) : (
-        <ImageOverlayChild
-          src={
-            id == 5
-              ? '/images/store/mask_ditail_en.jpg'
-              : '/images/store/all_ditail_header_en.jpg'
-          }
-          width="100%"
-          height={id == 5 ? '274.625rem' : '90.25rem'}
-          objectFit="contain"
-        />
-      )}
-
-      {locale === 'ko' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/1_ko.jpg`}
-          width="100%"
-          height={`
-            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
-          objectFit="contain"
-        />
-      ) : locale === 'uz' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/1_uz.jpg`}
-          width="100%"
-          height={`
-            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
-          objectFit="contain"
-        />
-      ) : (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/1_en.jpg`}
-          width="100%"
-          height={`
-            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
-          objectFit="contain"
-        />
-      )}
-
-      {locale === 'ko' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/2_ko.jpg`}
-          width="100%"
-          height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
-          objectFit="contain"
-        />
-      ) : locale === 'uz' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/2_uz.jpg`}
-          width="100%"
-          height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
-          objectFit="contain"
-        />
-      ) : (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/2_en.jpg`}
-          width="100%"
-          height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
-          objectFit="contain"
-        />
-      )}
-
-      {locale === 'ko' ? (
-        <ImageOverlayChild
-          src={'/images/store/all_detail_footer.jpg'}
-          width="100%"
-          height={'57rem'}
-        />
-      ) : locale === 'uz' ? (
-        <ImageOverlayChild
-          src={'/images/store/all_detail_footer_uz.jpg'}
-          width="100%"
-          height={'57rem'}
-        />
-      ) : (
-        <ImageOverlayChild
-          src={'/images/store/all_detail_footer_en.jpg'}
-          width="100%"
-          height={'57rem'}
-        />
-      )}
-
-      {locale === 'ko' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/3_ko.jpg`}
-          width="100%"
-          height={['87.9rem', '85.9rem', '81rem', '70.5rem', '75.5rem'][id - 1]}
-        />
-      ) : locale === 'uz' ? (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/3_uz.jpg`}
-          width="100%"
-          height={
-            ['92.5rem', '92.5rem', '92.5rem', '70.5rem', '75.5rem'][id - 1]
-          }
-        />
-      ) : (
-        <ImageOverlayChild
-          src={`/images/store/product${id}/3_en.jpg`}
-          width="100%"
-          height={
-            ['92.5rem', '92.5rem', '92.5rem', '70.5rem', '75.5rem'][id - 1]
-          }
-        />
-      )}
-
-      {id != 5 && (
-        <>
+        {locale === 'ko' ? (
           <ImageOverlayChild
-            className="together__top"
-            src="/images/store/use_together_mo.png"
+            src={
+              id == 5
+                ? '/images/store/mask_ditail.jpg'
+                : '/images/store/all_ditail_header.jpg'
+            }
             width="100%"
-            height="70rem"
-            centerHorizontal
-          ></ImageOverlayChild>
+            height={id == 5 ? '274.625rem' : '90.25rem'}
+            objectFit="contain"
+          />
+        ) : locale === 'uz' ? (
+          <ImageOverlayChild
+            src={
+              id == 5
+                ? '/images/store/mask_ditail_uz.jpg'
+                : '/images/store/all_ditail_header_uz.jpg'
+            }
+            width="100%"
+            height={id == 5 ? '274.625rem' : '90.25rem'}
+            objectFit="contain"
+          />
+        ) : (
+          <ImageOverlayChild
+            src={
+              id == 5
+                ? '/images/store/mask_ditail_en.jpg'
+                : '/images/store/all_ditail_header_en.jpg'
+            }
+            width="100%"
+            height={id == 5 ? '274.625rem' : '90.25rem'}
+            objectFit="contain"
+          />
+        )}
 
-          <div className="text">
-            <h1>
-              {locale === 'ko'
-                ? '함께 사용해보세요'
-                : locale === 'uz'
-                  ? "Birgalikda sinab ko'ring"
-                  : 'USE TOGETHER WITH'}
-            </h1>
+        {locale === 'ko' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/1_ko.jpg`}
+            width="100%"
+            height={`
+            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
+            objectFit="contain"
+          />
+        ) : locale === 'uz' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/1_uz.jpg`}
+            width="100%"
+            height={`
+            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
+            objectFit="contain"
+          />
+        ) : (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/1_en.jpg`}
+            width="100%"
+            height={`
+            ${parseInt(dummyProduct[id - 1].firstHeight) - 30}rem`}
+            objectFit="contain"
+          />
+        )}
 
-            <h2 className="space">
-              {locale === 'ko'
-                ? '두피 청정 라벤더 솔루션'
-                : locale === 'uz'
-                  ? 'Bosh Terisini Tozalovchi Lavanda Eritmasi'
-                  : 'SCALP CLEAN LAVENDER SOLUTION'}
-            </h2>
+        {locale === 'ko' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/2_ko.jpg`}
+            width="100%"
+            height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
+            objectFit="contain"
+          />
+        ) : locale === 'uz' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/2_uz.jpg`}
+            width="100%"
+            height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
+            objectFit="contain"
+          />
+        ) : (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/2_en.jpg`}
+            width="100%"
+            height={`${parseInt(dummyProduct[id - 1].secondHeight) - 20}rem`}
+            objectFit="contain"
+          />
+        )}
 
-            <div className="line" />
+        {locale === 'ko' ? (
+          <ImageOverlayChild
+            src={'/images/store/all_detail_footer.jpg'}
+            width="100%"
+            height={'57rem'}
+          />
+        ) : locale === 'uz' ? (
+          <ImageOverlayChild
+            src={'/images/store/all_detail_footer_uz.jpg'}
+            width="100%"
+            height={'57rem'}
+          />
+        ) : (
+          <ImageOverlayChild
+            src={'/images/store/all_detail_footer_en.jpg'}
+            width="100%"
+            height={'57rem'}
+          />
+        )}
 
-            <div className="step__container">
-              {Object.entries(step).map(([key, value]) => (
-                <StepTypography
-                  key={key}
-                  step={parseInt(key)}
-                  title={
-                    locale === 'ko'
-                      ? value.title
-                      : locale === 'uz'
-                        ? value.uzTitle
-                        : value.enTitle
-                  }
-                  id={value.router}
-                  content={
-                    locale === 'ko'
-                      ? value.content
-                      : locale === 'uz'
-                        ? value.uzContent
-                        : value.enContent
-                  }
-                />
-              ))}
+        {locale === 'ko' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/3_ko.jpg`}
+            width="100%"
+            height={
+              ['87.9rem', '85.9rem', '81rem', '70.5rem', '75.5rem'][id - 1]
+            }
+          />
+        ) : locale === 'uz' ? (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/3_uz.jpg`}
+            width="100%"
+            height={
+              ['92.5rem', '92.5rem', '92.5rem', '70.5rem', '75.5rem'][id - 1]
+            }
+          />
+        ) : (
+          <ImageOverlayChild
+            src={`/images/store/product${id}/3_en.jpg`}
+            width="100%"
+            height={
+              ['92.5rem', '92.5rem', '92.5rem', '70.5rem', '75.5rem'][id - 1]
+            }
+          />
+        )}
+
+        {id != 5 && (
+          <>
+            <ImageOverlayChild
+              className="together__top"
+              src="/images/store/use_together_mo.png"
+              width="100%"
+              height="70rem"
+              centerHorizontal
+            ></ImageOverlayChild>
+
+            <div className="text">
+              <h1>
+                {locale === 'ko'
+                  ? '함께 사용해보세요'
+                  : locale === 'uz'
+                    ? "Birgalikda sinab ko'ring"
+                    : 'USE TOGETHER WITH'}
+              </h1>
+
+              <h2 className="space">
+                {locale === 'ko'
+                  ? '두피 청정 라벤더 솔루션'
+                  : locale === 'uz'
+                    ? 'Bosh Terisini Tozalovchi Lavanda Eritmasi'
+                    : 'SCALP CLEAN LAVENDER SOLUTION'}
+              </h2>
+
+              <div className="line" />
+
+              <div className="step__container">
+                {Object.entries(step).map(([key, value]) => (
+                  <StepTypography
+                    key={key}
+                    step={parseInt(key)}
+                    title={
+                      locale === 'ko'
+                        ? value.title
+                        : locale === 'uz'
+                          ? value.uzTitle
+                          : value.enTitle
+                    }
+                    id={value.router}
+                    content={
+                      locale === 'ko'
+                        ? value.content
+                        : locale === 'uz'
+                          ? value.uzContent
+                          : value.enContent
+                    }
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        </>
-      )}
-    </ProductDetailMobileStyle>
+          </>
+        )}
+      </ProductDetailMobileStyle>
+    </>
   );
 };
 

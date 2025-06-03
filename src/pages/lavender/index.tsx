@@ -1,3 +1,4 @@
+import { SEO } from '@/components/SEO';
 import { LavenderDescription } from '@/contents/LavenderDescription';
 import { LavenderInteraction } from '@/contents/LavenderInteraction';
 import { FixedIcon } from '@/layouts/Fixed/Icon';
@@ -10,18 +11,26 @@ import styled from 'styled-components';
 
 const LavenderPage = () => {
   return (
-    <LavenderPageStyled>
-      <MenuButton top left />
-      <FixedLogo className="header__logo" top centerHorizontal />
-      <FixedRouteLanguage top right />
-      {/* <FixedToggleLanguage top right /> */}
-      {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
+    <>
+      <SEO
+        title="I’m ORGANIC - Lavender"
+        description="Discover the soothing benefits of lavender with our organic products. Embrace nature's tranquility and enhance your well-being."
+        url="https://uzorganic.com/lavender"
+      />
 
-      <LavenderInteraction />
-      <LavenderDescription />
+      <LavenderPageStyled>
+        <MenuButton top left />
+        <FixedLogo className="header__logo" top centerHorizontal />
+        <FixedRouteLanguage top right />
+        {/* <FixedToggleLanguage top right /> */}
+        {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
-      <Version1Footer />
-    </LavenderPageStyled>
+        <LavenderInteraction />
+        <LavenderDescription />
+
+        <Version1Footer />
+      </LavenderPageStyled>
+    </>
   );
 };
 

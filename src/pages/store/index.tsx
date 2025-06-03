@@ -1,3 +1,4 @@
+import { SEO } from '@/components/SEO';
 import { StoreLayout } from '@/layouts/StoreLayout';
 
 interface Props {
@@ -5,7 +6,17 @@ interface Props {
 }
 
 const StorePage = ({ headerHeight }: Props) => {
-  return <StoreLayout headerHeight={headerHeight} />;
+  return (
+    <>
+      <SEO
+        title="I’m ORGANIC - Store"
+        description="Explore our store for a wide range of organic products. Embrace a healthier lifestyle with our carefully curated selection."
+        url="https://uzorganic.com/store"
+      />
+
+      <StoreLayout headerHeight={headerHeight} />
+    </>
+  );
 };
 
 StorePage.layoutFillColor = 'black';

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { FullScreenImage } from '@/components/FullScreenImage';
@@ -24,35 +25,27 @@ export const Version1Footer = () => {
         <div className="company__info">
           {locale === 'en' ? (
             <>
-              <p onClick={() => router.push('/brand')}>COMPANY</p>
+              <Link href="/brand">COMPANY</Link>
               {/* <p>AGREEMENT</p> */}
-              <p onClick={() => router.push('/privacy_policy')}>
-                PRIVACY POLICY
-              </p>
+              <Link href="/privacy_policy">PRIVACY POLICY</Link>
             </>
           ) : locale === 'uz' ? (
             <>
-              <p onClick={() => router.push('/brand')}>
-                Kompaniya bilan tanishuv
-              </p>
+              <Link href="/brand">Kompaniya bilan tanishuv</Link>
               {/* <p>Foydalanish shartlari</p> */}
-              <p onClick={() => router.push('/privacy_policy')}>
-                Maxfiylik Siyosati
-              </p>
+              <Link href="/privacy_policy">Maxfiylik Siyosati</Link>
             </>
           ) : (
             <>
-              <p onClick={() => router.push('/brand')}>회사소개</p>
+              <Link href="/brand">회사소개</Link>
               {/* <p>이용약관</p> */}
-              <p onClick={() => router.push('/privacy_policy')}>
-                개인정보처리방침
-              </p>
+              <Link href="/privacy_policy">개인정보처리방침</Link>
             </>
           )}
         </div>
       </ImageOverlayChild>
       <div className="logo">
-        <FullScreenImage src="/images/logo/logo.svg" alt="logo" height="100%" />
+        <FullScreenImage src="/images/logo/logo.svg" alt="" height="100%" />
       </div>
 
       {/* <div
@@ -101,13 +94,17 @@ const FooterStyled = styled.footer`
       }
 
       .company__info {
-        color: #fff;
-        font-size: 1.125rem;
-
         display: flex;
         gap: 1.25rem;
 
-        cursor: pointer;
+        a {
+          color: #fff;
+          font-size: 1.125rem;
+
+          text-decoration: none;
+
+          cursor: pointer;
+        }
       }
     }
   }

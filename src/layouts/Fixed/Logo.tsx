@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { FixedIcon } from './Icon';
 
@@ -25,13 +25,12 @@ export const FixedLogo = ({
 
   className,
 }: Props) => {
-  const router = useRouter();
-
   return (
-    <FixedLogoStyled>
+    <FixedLogoStyled href="/">
       <FixedIcon
         className={className}
         src="/images/logo/logo.svg"
+        alt="I’m ORGANIC"
         top={top}
         bottom={bottom}
         left={left}
@@ -40,14 +39,17 @@ export const FixedLogo = ({
         centerHorizontal={centerHorizontal}
         width="19.5rem"
         height="2rem"
-        onClick={() => router.push('/')}
       />
     </FixedLogoStyled>
   );
 };
 
-const FixedLogoStyled = styled.div`
+const FixedLogoStyled = styled(Link)`
   cursor: pointer;
+
+  .icon {
+    cursor: pointer;
+  }
 
   @media (max-width: 960px) {
     .icon {

@@ -25,13 +25,15 @@ export const HoverArrowButton = ({
 }: Props) => {
   return (
     <HoverArrowButtonStyled
+      // antd Form 안에서도 쓰이므로 submit 기본값을 명시적으로 끈다
+      type="button"
       className={className}
-      width={width}
+      $width={width}
       $color={color}
       $padding={padding}
       onClick={onClick}
     >
-      <p>{text}</p>
+      <span className="text">{text}</span>
       <span className="standard__arrow__button">→</span>
       <div className="hover__arrow__button">
         <div className="hover__arrow__button__container">
@@ -42,8 +44,8 @@ export const HoverArrowButton = ({
   );
 };
 
-const HoverArrowButtonStyled = styled.div<{
-  width?: string;
+const HoverArrowButtonStyled = styled.button<{
+  $width?: string;
   $color: string;
 
   $padding: string;
@@ -52,16 +54,21 @@ const HoverArrowButtonStyled = styled.div<{
 
   display: inline-block;
 
-  width: ${({ width }) => width || 'auto'};
+  width: ${({ $width }) => $width || 'auto'};
 
   cursor: pointer;
+
+  background: none;
+  font: inherit;
 
   border: 0.125rem solid ${({ $color }) => $color};
   transition: border 0.3s;
 
   padding: ${({ $padding }) => $padding};
 
-  p {
+  .text {
+    display: block;
+
     padding-right: 2rem;
     text-align: center;
 
@@ -116,24 +123,6 @@ const HoverArrowButtonStyled = styled.div<{
 
         color: ${({ $color }) => $color};
       }
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
     }
   }
 `;

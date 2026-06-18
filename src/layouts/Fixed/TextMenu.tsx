@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
@@ -8,28 +9,28 @@ export const FixedTextMenu = () => {
 
   return (
     <FixedTextMenuStyled>
-      <p onClick={() => router.push('/store')}>
+      <Link href="/store">
         {locale === 'en' ? 'STORE' : locale === 'uz' ? "Do'kon" : '스토어'}
-      </p>
-      {/* <p onClick={() => router.push('/store/1')}>갤러리</p> */}
-      <p onClick={() => router.push('/brand')}>
+      </Link>
+      {/* <Link href="/store/1">갤러리</Link> */}
+      <Link href="/brand">
         {locale === 'en' ? 'BRAND' : locale === 'uz' ? 'Brend' : '브랜드'}
-      </p>
-      <p onClick={() => router.push('/lavender')}>
+      </Link>
+      <Link href="/lavender">
         {locale === 'en' ? 'LAVENDER' : locale === 'uz' ? 'Lavanda' : '라벤더'}
-      </p>
-      <p onClick={() => router.push('/contact')}>
+      </Link>
+      <Link href="/contact">
         {locale === 'en'
           ? 'CONTACT US'
           : locale === 'uz'
             ? 'Biz bilan Aloqa'
             : '문의하기'}
-      </p>
+      </Link>
     </FixedTextMenuStyled>
   );
 };
 
-const FixedTextMenuStyled = styled.div`
+const FixedTextMenuStyled = styled.nav`
   position: fixed;
   top: calc(var(--fixed-padding) + 2rem + 1.875rem);
   left: var(--fixed-padding);
@@ -45,10 +46,12 @@ const FixedTextMenuStyled = styled.div`
 
   gap: 1rem;
 
-  p {
+  a {
     color: #fff;
     font-size: 1.5rem;
     font-family: 'NotoSansKR-Regular';
+
+    text-decoration: none;
 
     @media (max-width: 960px) {
       font-size: 2rem;

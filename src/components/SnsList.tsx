@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { Instagram, Mail, Youtube } from '@/components/Icons';
@@ -43,32 +44,40 @@ export const SnsList = ({
       $hoverColor={hoverColor}
       $gap={gap}
     >
-      <div
+      <Link
         className={`icon ${hoveredIcon === 'mail' ? 'hover' : ''}`}
+        href="/contact"
+        aria-label={locale === 'ko' ? '문의하기' : 'Contact us'}
         onMouseEnter={() => handleMouseEnter('mail')}
         onMouseLeave={handleMouseLeave}
-        onClick={() => router.push('/contact')}
       >
         <Mail />
-      </div>
+      </Link>
 
-      <div
+      <a
         className={`icon ${hoveredIcon === 'instagram' ? 'hover' : ''}`}
+        href={instagramUrl(locale)}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
         onMouseEnter={() => handleMouseEnter('instagram')}
         onMouseLeave={handleMouseLeave}
-        onClick={() => window.open(instagramUrl(locale))}
       >
         <Instagram />
-      </div>
-      <div
+      </a>
+      <a
         className={`icon ${hoveredIcon === 'youtube' ? 'hover' : ''}`}
+        // 유튜브 아이콘이지만 인스타그램으로 보내는 것은 의도된 임시 조치다(2026-08 확인).
+        // 유튜브를 다시 쓰게 되면 이 URL로: https://www.youtube.com/@user-vd6fe1ev3v
+        href={instagramUrl(locale)}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
         onMouseEnter={() => handleMouseEnter('youtube')}
         onMouseLeave={handleMouseLeave}
-        // onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
-        onClick={() => window.open(instagramUrl(locale))}
       >
         <Youtube />
-      </div>
+      </a>
     </SnsListStyled>
   );
 };
@@ -83,6 +92,8 @@ const SnsListStyled = styled.div<{
 
   .icon {
     position: relative;
+
+    display: block;
 
     width: 2.125rem;
     height: 2.125rem;

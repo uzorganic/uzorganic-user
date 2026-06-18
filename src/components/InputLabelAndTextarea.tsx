@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 import styled from 'styled-components';
 
 interface Props {
@@ -15,12 +17,14 @@ export const InputLabelAndTextarea = ({
   value,
   setValue,
 }: Props) => {
+  const id = useId();
+
   return (
     <InputLabelAndTextareaStyled>
-      <p>{label}</p>
+      <label htmlFor={id}>{label}</label>
       <div className="vertical__line" />
       <textarea
-        id="textarea"
+        id={id}
         placeholder={placeholder}
         value={value || ''}
         onChange={e => setValue && setValue(e.target.value)}
@@ -42,7 +46,7 @@ const InputLabelAndTextareaStyled = styled.div`
 
   border-radius: 0.5rem;
 
-  p {
+  label {
     text-align: justify;
 
     width: 6rem;

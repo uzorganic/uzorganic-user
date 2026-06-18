@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 import styled from 'styled-components';
 
 interface Props {
@@ -17,13 +19,16 @@ export const InputLabelAndInput = ({
   value,
   setValue,
 }: Props) => {
+  // 한 폼에 여러 개가 붙으므로 id를 고정하면 중복된다
+  const id = useId();
+
   return (
     <InputLabelAndInputStyled>
-      <p>{label}</p>
+      <label htmlFor={id}>{label}</label>
       <div className="vertical__line" />
       <input
         type={inputType}
-        id="input"
+        id={id}
         placeholder={placeholder}
         value={value || ''}
         onChange={e => setValue && setValue(e.target.value)}
@@ -45,7 +50,7 @@ const InputLabelAndInputStyled = styled.div`
 
   border-radius: 0.5rem;
 
-  p {
+  label {
     text-align: justify;
 
     width: 8rem;

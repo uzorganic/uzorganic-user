@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { PrivacyPolicy } from './PrivacyPolicy';
@@ -9,10 +8,24 @@ import { instance } from '@/api/axios';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';
 import { InputLabelAndTextarea } from '@/components/InputLabelAndTextarea';
+import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Checkbox, Form, message, Modal } from 'antd';
 import styled from 'styled-components';
 
-export const ContactForm = () => {
+interface ContactValues {
+  name?: string;
+  phone?: string;
+  email?: string;
+  content?: string;
+  agree?: boolean;
+}
+
+interface Props {
+  // /contact 에서는 이 제목이 페이지 h1, 메인에서는 한 섹션이라 h2.
+  titleTag?: 'h1' | 'h2';
+}
+
+export const ContactForm = ({ titleTag: Title = 'h1' }: Props) => {
   const router = useRouter();
   const { locale } = router;
 
@@ -22,7 +35,7 @@ export const ContactForm = () => {
 
   const [messageApi, contextHolder] = message.useMessage();
 
-  const sendContact = async (values: any) => {
+  const sendContact = async (values: ContactValues) => {
     try {
       await instance.post('/contact', values);
 
@@ -47,7 +60,7 @@ export const ContactForm = () => {
     }
   };
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: ContactValues) => {
     if (!values.name || !values.phone || !values.email || !values.content) {
       messageApi.error(
         locale === 'en'
@@ -73,19 +86,15 @@ export const ContactForm = () => {
 
   return (
     <ContactFormStyled>
-      <Image
+      <ResponsiveImage
+        className="background"
         src="/images/main/5.jpg"
-        alt="5"
-        fill
-        sizes="100%"
-        priority
-        style={{
-          objectFit: 'cover',
-        }}
+        mobileSrc="/images/main/5_mb.jpg"
+        alt=""
       />
 
       <div className="center">
-        <h1 className="title">
+        <Title className="title">
           {locale === 'en' ? (
             <>
               We will respond with <br />
@@ -103,7 +112,7 @@ export const ContactForm = () => {
               답변해 드리겠습니다
             </>
           )}
-        </h1>
+        </Title>
 
         <Form
           form={form}
@@ -240,6 +249,10 @@ const ContactFormStyled = styled.div`
   align-items: center;
 
   height: 100vh;
+
+  .background {
+    object-fit: cover;
+  }
 
   .center {
     position: absolute;

@@ -5,6 +5,9 @@ import styled from 'styled-components';
 interface Props {
   src: string;
 
+  // 장식용 아이콘이 기본. 곁에 텍스트가 없는 아이콘에만 값을 넘긴다.
+  alt?: string;
+
   children?: React.ReactNode;
 
   top?: boolean;
@@ -27,6 +30,8 @@ interface Props {
 export const FixedIcon = ({
   src,
 
+  alt = '',
+
   children,
 
   top = false,
@@ -47,6 +52,10 @@ export const FixedIcon = ({
 }: Props) => {
   return (
     <FixedLogoStyled
+      // 클릭 가능한 아이콘은 키보드로도 닿아야 한다.
+      // ponytail: form 안에서 쓸 일이 생기면 type="button"을 붙여야 submit을 안 한다
+      // (styled-components의 as 타입이 type을 안 받아서 지금은 생략).
+      as={onClick ? 'button' : undefined}
       className={className}
       $top={top}
       $bottom={bottom}
@@ -54,13 +63,13 @@ export const FixedIcon = ({
       $right={right}
       $centerVertical={centerVertical}
       $centerHorizontal={centerHorizontal}
-      width={width}
-      height={height}
+      $width={width}
+      $height={height}
       $disable={disable}
       onClick={onClick}
     >
       <div className="icon">
-        <Image src={src} alt="Icon" fill sizes="100%" priority />
+        <Image src={src} alt={alt} fill sizes="100%" priority />
       </div>
       {children}
     </FixedLogoStyled>
@@ -75,14 +84,19 @@ const FixedLogoStyled = styled.div<{
   $centerVertical: boolean;
   $centerHorizontal: boolean;
 
-  width: string;
-  height: string;
+  $width: string;
+  $height: string;
 
   $disable: boolean;
 
   onClick?: () => void;
 }>`
   display: ${({ $disable }) => ($disable ? 'none' : 'block')};
+
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
 
   position: fixed;
 
@@ -102,8 +116,8 @@ const FixedLogoStyled = styled.div<{
   .icon {
     position: relative;
 
-    width: ${({ width }) => width};
-    height: ${({ height }) => height};
+    width: ${({ $width }) => $width};
+    height: ${({ $height }) => $height};
 
     cursor: ${({ onClick }) => (onClick ? 'pointer' : 'default')};
 

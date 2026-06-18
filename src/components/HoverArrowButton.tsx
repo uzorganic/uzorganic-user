@@ -1,4 +1,4 @@
-import Arrow from '@/assets/icons/arrow.svg';
+import { Arrow } from '@/components/Icons';
 
 import styled from 'styled-components';
 

@@ -2,9 +2,7 @@ import { useState } from 'react';
 
 import { useRouter } from 'next/router';
 
-import Instagram from '@/assets/images/icons/instagram.svg';
-import Mail from '@/assets/images/icons/mail.svg';
-import Youtube from '@/assets/images/icons/youtube.svg';
+import { Instagram, Mail, Youtube } from '@/components/Icons';
 import { instagramUrl } from '@/constants/sns';
 
 import styled from 'styled-components';

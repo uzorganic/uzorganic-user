@@ -44,15 +44,6 @@ const nextConfig = {
     styledComponents: true,
   },
 
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
-  },
-
   i18n: {
     locales: ['en', 'ko', 'uz'],
     defaultLocale: 'ko',

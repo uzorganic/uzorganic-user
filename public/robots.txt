@@ -1,23 +1,5 @@
 # I'm ORGANIC - 검색 엔진 크롤링 규칙
 User-agent: *
 Allow: /
-Allow: /brand/
-Allow: /lavender/
-Allow: /store/
-Allow: /contact/
-Allow: /privacy_policy/
-Allow: /en/
-Allow: /uz/
-Allow: /ko/
-
-Allow: /*.js$
-Allow: /*.css$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.webp$
 
 Sitemap: https://uzorganic.com/sitemap.xml
-

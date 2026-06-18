@@ -1,11 +1,29 @@
-name: uzorganic
-
 services:
-  web:
-    build: .
-    container_name: uzorganic-front
-    tty: true
-    ports:
-      - '3000:3000'
+  uzorganic-user:
+    build:
+      context: .
+    image: trixie-slim:uv-nvm-bun
+    container_name: uzorganic-user
+    environment:
+      - DISPLAY=${DISPLAY:-host.docker.internal:0}
+      - QT_X11_NO_MITSHM=1
     volumes:
       - .:/root/uzorganic-user
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host
+    ipc: host
+    tty: true
+
+  uzorganic-user-gpu:
+    extends:
+      service: uzorganic-user
+    container_name: uzorganic-user-gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    profiles:
+      - gpu

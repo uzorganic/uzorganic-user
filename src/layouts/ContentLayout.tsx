@@ -37,7 +37,7 @@ export const ContentLayout = ({ children, fillColor = 'white' }: Props) => {
         <LogoWithMenuAndSearch fillColor={fillColor} />
       </div>
       <div className="content__layout">
-        {React.cloneElement(children as React.ReactElement, {
+        {React.cloneElement(children as React.ReactElement<any>, {
           headerHeight,
         })}
       </div>

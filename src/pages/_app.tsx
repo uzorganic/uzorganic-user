@@ -12,6 +12,8 @@ import { antdThemeConfig } from '@/theme/config';
 import { ConfigProvider } from 'antd';
 import koKR from 'antd/locale/ko_KR';
 
+import type { JSX } from "react";
+
 type AppPropsWithLayout = AppProps & {
   Component: {
     layout: (page: React.ReactNode) => JSX.Element;

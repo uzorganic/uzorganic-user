@@ -57,6 +57,7 @@ export const LavenderInteraction = ({ options }: Props) => {
           height="100vh"
           centerVertical
           centerHorizontal
+          priority
         >
           <div className="first">
             <h1 className="title fade move animate1">LAVENDER</h1>

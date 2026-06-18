@@ -102,6 +102,7 @@ const BrandPage = () => {
             centerVertical
             centerHorizontal
             className="first"
+            priority
           >
             <ImageOverlayChild
               className="fade move animate1"

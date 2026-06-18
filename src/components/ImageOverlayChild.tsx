@@ -5,12 +5,18 @@ import styled from 'styled-components';
 interface Props {
   src: string;
 
+  // 장식용 이미지가 기본. 내용을 전달하는 이미지에만 값을 넘긴다.
+  alt?: string;
+
   width?: string;
   height?: string;
 
   objectFit?: 'cover' | 'contain';
 
   brightness?: number;
+
+  // 화면 최상단(LCP) 이미지에만 true. 기본 lazy.
+  priority?: boolean;
 
   children?: React.ReactNode;
 
@@ -21,13 +27,13 @@ interface Props {
   centerVertical?: boolean;
   centerHorizontal?: boolean;
 
-  onClick?: () => void;
-
   className?: string;
 }
 
 export const ImageOverlayChild = ({
   src,
+
+  alt = '',
 
   width = '2rem',
   height = '2rem',
@@ -35,6 +41,8 @@ export const ImageOverlayChild = ({
   objectFit = 'cover',
 
   brightness = 1,
+
+  priority = false,
 
   children,
 
@@ -61,7 +69,7 @@ export const ImageOverlayChild = ({
       $centerVertical={centerVertical}
       $centerHorizontal={centerHorizontal}
     >
-      <Image src={src} alt="Image" fill sizes="100%" priority />
+      <Image src={src} alt={alt} fill sizes="100%" priority={priority} />
       <div className="children">{children}</div>
     </ImageOverlayChildStyled>
   );

@@ -4,26 +4,43 @@ import styled from 'styled-components';
 
 interface Props {
   imageSrc: string;
+  // 모바일 전용 크롭본. 있으면 <picture>로 한 장만 내려받는다.
+  mobileImageSrc?: string;
   title: string | React.ReactNode;
   description: string | React.ReactNode;
   buttonComponent: React.ReactNode;
+
+  // 한 페이지에 h1은 하나. 나머지 섹션은 h2로 내린다.
+  titleTag?: 'h1' | 'h2';
+
+  // 화면 최상단(LCP) 이미지에만 true. 기본 lazy.
+  priority?: boolean;
 
   className?: string;
 }
 
 export const CenterTitleAndButton = ({
   imageSrc,
+  mobileImageSrc,
   title,
   description,
   buttonComponent,
+  titleTag: Title = 'h1',
+  priority = false,
   className,
 }: Props) => {
   return (
     <CenterTitleAndButtonStyled className={className}>
-      <FullScreenImage src={imageSrc} alt="image" />
+      {/* 배경 사진은 장식용이라 alt는 빈 값 */}
+      <FullScreenImage
+        src={imageSrc}
+        alt=""
+        mobileSrc={mobileImageSrc}
+        priority={priority}
+      />
 
       <div className="center">
-        <h1>{title}</h1>
+        <Title>{title}</Title>
         <div className="description">{description}</div>
         <div className="button__container">{buttonComponent}</div>
       </div>
@@ -49,7 +66,8 @@ const CenterTitleAndButtonStyled = styled.div`
 
     z-index: 1;
 
-    h1 {
+    h1,
+    h2 {
       display: flex;
       justify-content: center;
 

@@ -9,7 +9,6 @@ import { FixedIcon } from '@/layouts/Fixed/Icon';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
 import { FixedRouteLanguage } from '@/layouts/Fixed/RouteLanguage';
-import { FixedToggleLanguage } from '@/layouts/Fixed/ToggleLanguage';
 import { Version1Footer } from '@/layouts/Footer/Version1';
 import styled from 'styled-components';
 
@@ -76,7 +75,6 @@ const BrandPage = () => {
         <MenuButton top left />
         <FixedLogo className="header__logo" top centerHorizontal />
         <FixedRouteLanguage top right />
-        {/* <FixedToggleLanguage top right /> */}
         {/* <FixedIcon src="/images/icons/search.svg" top right /> */}
 
         <SwiperComponent

@@ -119,7 +119,6 @@ const Home = () => {
               ? "Tabiat va barqarorlikni qabul qilgan I’m ORGANICga xush kelibsiz. Organik mahsulotlarimizni kashf eting va yashil kelajak sari sayohatimizga qo'shiling."
               : '자연과 지속 가능성을 포용하는 아임오가닉에 오신 것을 환영합니다. 우리의 유기농 제품을 발견하고 더 푸른 미래를 향한 여정에 동참하세요.'
         }
-        url="https://uzorganic.com"
       />
 
       <HomeLayoutStyled>

@@ -14,7 +14,6 @@ const ContactPage = () => {
       <SEO
         title="I’m ORGANIC - Contact Us"
         description="Get in touch with us for any inquiries or support regarding our organic products."
-        url="https://uzorganic.com/contact"
       />
       <ContactPageStyled>
         <MenuButton top left />

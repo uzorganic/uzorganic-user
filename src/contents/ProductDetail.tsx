@@ -537,7 +537,6 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
               ? dummyProduct[id - 1].uzDescription
               : dummyProduct[id - 1].enDescription) as string
         }
-        url={`https://uzorganic.com/product/${id}`}
       />
 
       <ProductDetailStyle $headerHeight={headerHeight} className={className}>

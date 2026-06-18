@@ -15,7 +15,6 @@ const LavenderPage = () => {
       <SEO
         title="I’m ORGANIC - Lavender"
         description="Discover the soothing benefits of lavender with our organic products. Embrace nature's tranquility and enhance your well-being."
-        url="https://uzorganic.com/lavender"
       />
 
       <LavenderPageStyled>

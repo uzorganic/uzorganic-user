@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
-import { SEO } from '@/components/SEO';
 import { StepTypography } from '@/components/StepTypography';
 import styled from 'styled-components';
 
@@ -520,24 +519,8 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
 
   return (
     <>
-      <SEO
-        title={
-          ("I'm Organic - " +
-            (locale === 'ko'
-              ? dummyProduct[id - 1].title
-              : locale === 'uz'
-                ? dummyProduct[id - 1].uzTitle
-                : dummyProduct[id - 1].enTitle)) as string
-        }
-        description={
-          (locale === 'ko'
-            ? dummyProduct[id - 1].description
-            : locale === 'uz'
-              ? dummyProduct[id - 1].uzDescription
-              : dummyProduct[id - 1].enDescription) as string
-        }
-        url={`https://uzorganic.com/product/${id}`}
-      />
+      {/* SEO 는 같은 페이지에 함께 렌더되는 ProductDetail 이 담당한다.
+          여기서도 넣으면 head 태그가 중복된다. */}
       <ProductDetailMobileStyle
         $headerHeight={headerHeight}
         className={className}

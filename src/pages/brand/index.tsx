@@ -45,27 +45,32 @@ const BrandPage = () => {
     }, 1000);
   };
 
-  if (windowHeight === 0) return null;
+  // windowHeight 는 클라이언트에서만 측정된다. SEO 를 가드 앞에서 만들어 두고
+  // 가드에서도 함께 반환해야 서버 렌더 HTML에 title/canonical/hreflang 이 실린다.
+  const seo = (
+    <SEO
+      title={
+        locale === 'en'
+          ? "I'm Organic - Brand"
+          : locale === 'uz'
+            ? "I'm ORGANIC - Brend"
+            : "I'm Organic - Brand"
+      }
+      description={
+        locale === 'en'
+          ? 'Welcome to I’m Organic, where we embrace nature and sustainability. Discover our organic products and join us on a journey towards a greener future.'
+          : locale === 'uz'
+            ? "I'm ORGANICga xush kelibsiz, biz tabiat va barqarorlikni qabul qilamiz. Organik mahsulotlarimizni kashf eting va yashil kelajak sari sayohatimizga qo'shiling."
+            : '자연과 지속 가능성을 포용하는 아임오가닉에 오신 것을 환영합니다. 우리의 유기농 제품을 발견하고 더 푸른 미래를 향한 여정에 동참하세요.'
+      }
+    />
+  );
+
+  if (windowHeight === 0) return seo;
 
   return (
     <>
-      <SEO
-        title={
-          locale === 'en'
-            ? "I'm Organic - Brand"
-            : locale === 'uz'
-              ? "I'm ORGANIC - Brend"
-              : "I'm Organic - Brand"
-        }
-        description={
-          locale === 'en'
-            ? 'Welcome to I’m Organic, where we embrace nature and sustainability. Discover our organic products and join us on a journey towards a greener future.'
-            : locale === 'uz'
-              ? "I'm ORGANICga xush kelibsiz, biz tabiat va barqarorlikni qabul qilamiz. Organik mahsulotlarimizni kashf eting va yashil kelajak sari sayohatimizga qo'shiling."
-              : '자연과 지속 가능성을 포용하는 아임오가닉에 오신 것을 환영합니다. 우리의 유기농 제품을 발견하고 더 푸른 미래를 향한 여정에 동참하세요.'
-        }
-        url="https://uzorganic.com/brand"
-      />
+      {seo}
 
       <BrandPageStyled>
         <MenuButton top left />

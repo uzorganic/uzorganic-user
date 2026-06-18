@@ -11,7 +11,6 @@ const StorePage = ({ headerHeight }: Props) => {
       <SEO
         title="I’m ORGANIC - Store"
         description="Explore our store for a wide range of organic products. Embrace a healthier lifestyle with our carefully curated selection."
-        url="https://uzorganic.com/store"
       />
 
       <StoreLayout headerHeight={headerHeight} />

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Instagram from '@/assets/images/icons/instagram.svg';
 import Mail from '@/assets/images/icons/mail.svg';
 import Youtube from '@/assets/images/icons/youtube.svg';
+import { instagramUrl } from '@/constants/sns';
 
 import styled from 'styled-components';
 
@@ -25,6 +26,7 @@ export const SnsList = ({
   className,
 }: Props) => {
   const router = useRouter();
+  const { locale } = router;
 
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
@@ -56,9 +58,7 @@ export const SnsList = ({
         className={`icon ${hoveredIcon === 'instagram' ? 'hover' : ''}`}
         onMouseEnter={() => handleMouseEnter('instagram')}
         onMouseLeave={handleMouseLeave}
-        onClick={() =>
-          window.open('https://www.instagram.com/im_organic_official')
-        }
+        onClick={() => window.open(instagramUrl(locale))}
       >
         <Instagram />
       </div>
@@ -67,9 +67,7 @@ export const SnsList = ({
         onMouseEnter={() => handleMouseEnter('youtube')}
         onMouseLeave={handleMouseLeave}
         // onClick={() => window.open('https://www.youtube.com/@user-vd6fe1ev3v')}
-        onClick={() =>
-          window.open('https://www.instagram.com/im_organic_official')
-        }
+        onClick={() => window.open(instagramUrl(locale))}
       >
         <Youtube />
       </div>

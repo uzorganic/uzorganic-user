@@ -7,6 +7,7 @@ import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { SEO } from '@/components/SEO';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
+import { instagramUrl } from '@/constants/sns';
 import { ContactForm } from '@/contents/ContactForm';
 import { FixedScrollButton } from '@/layouts/Fixed/ScrollButton';
 import { HomeLayout } from '@/layouts/HomeLayout';
@@ -485,9 +486,7 @@ const Home = () => {
                 color: isHover ? '#9f7bac' : '#fff',
                 cursor: 'pointer',
               }}
-              onClick={() =>
-                window.open('https://www.instagram.com/im_organic_official')
-              }
+              onClick={() => window.open(instagramUrl(locale))}
             />
           }
         />
@@ -524,9 +523,7 @@ const Home = () => {
                 color: isHover ? '#9f7bac' : '#fff',
                 cursor: 'pointer',
               }}
-              onClick={() =>
-                window.open('https://www.instagram.com/im_organic_official')
-              }
+              onClick={() => window.open(instagramUrl(locale))}
             />
           }
         />

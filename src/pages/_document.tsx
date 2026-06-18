@@ -10,9 +10,9 @@ import Document, {
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { ServerStyleSheet } from 'styled-components';
 
-export default function MyDocument() {
+export default function MyDocument({ __NEXT_DATA__ }: DocumentProps) {
   return (
-    <Html lang="en">
+    <Html lang={__NEXT_DATA__.locale ?? 'ko'}>
       <Head />
       <body>
         <Main />

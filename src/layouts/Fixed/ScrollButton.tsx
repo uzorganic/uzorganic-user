@@ -1,12 +1,34 @@
+import { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 
 interface Props {
   sections: HTMLElement[];
-  current: number;
   onSelect: (section: HTMLElement) => void;
 }
 
-export const FixedScrollButton = ({ sections, current, onSelect }: Props) => {
+export const FixedScrollButton = ({ sections, onSelect }: Props) => {
+  // 현재 섹션은 점 표시에만 쓰이므로 여기서 들고 있는다.
+  // 페이지가 들고 있으면 섹션을 지날 때마다 페이지 전체가 다시 그려진다.
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!sections.length) return;
+
+    // 화면 세로 중앙선을 지나는 섹션이 현재 섹션.
+    // 위아래 -50% 로 루트를 한 줄로 만들면 항상 한 섹션만 걸린다.
+    const observer = new IntersectionObserver(
+      entries => {
+        const hit = entries.find(entry => entry.isIntersecting);
+        if (hit) setCurrent(sections.indexOf(hit.target as HTMLElement));
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+    sections.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [sections]);
+
   return (
     <ScrollButtonStyled>
       {sections.map((section, i) => (

@@ -28,7 +28,7 @@ const Home = () => {
   const [isHover, setIsHover] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const { sections, current, goTo } = useSnapScroll(containerRef);
+  const { sections, goTo } = useSnapScroll(containerRef);
 
   const more = locale === 'uz' ? "Ko'proq" : 'MORE';
 
@@ -75,11 +75,7 @@ const Home = () => {
       <SnapScroll />
 
       {/* position: fixed 라 DOM 위치는 무관하다. 컨테이너 자식은 섹션만 남긴다 */}
-      <FixedScrollButton
-        sections={sections}
-        current={current}
-        onSelect={goTo}
-      />
+      <FixedScrollButton sections={sections} onSelect={goTo} />
 
       <HomeLayoutStyled ref={containerRef}>
         <FractionSwiper effect="fade">

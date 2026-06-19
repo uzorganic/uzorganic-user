@@ -37,7 +37,7 @@ export const ProductInfo = ({
       <div
         className="buy__button"
         onClick={() => {
-          window.open(link, '_blank');
+          window.open(link, '_blank', 'noopener');
         }}
       >
         {locale === 'ko'

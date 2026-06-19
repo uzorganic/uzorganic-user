@@ -570,7 +570,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
               color="#403b35"
               width="100%"
               padding="1.5rem 1.5rem"
-              onClick={() => window.open(dummyProduct[id - 1].link)}
+              onClick={() => window.open(dummyProduct[id - 1].link, '_blank', 'noopener')}
             />
           </div>
           <div className="info" onClick={() => setIsShow1(!isShow1)}>

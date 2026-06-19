@@ -727,7 +727,7 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
                 locale === 'ko' ? '17rem' : locale === 'uz' ? '17rem' : '20rem'
               }
               padding="0.5rem 1.5rem"
-              onClick={() => window.open(dummyProduct[id - 1].link)}
+              onClick={() => window.open(dummyProduct[id - 1].link, '_blank', 'noopener')}
             />
             <div className="info" onClick={() => setIsShow1(!isShow1)}>
               <span>{isShow1 ? '-' : '+'}</span>

@@ -14,7 +14,7 @@ export const StepTypography = ({ step, title, id, content }: Props) => {
         STEP {step}.{' '}
         <span
           onClick={() => {
-            window.open(`${id}`);
+            window.open(`${id}`, '_blank', 'noopener');
           }}
         >
           {' '}

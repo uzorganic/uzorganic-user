@@ -3,25 +3,14 @@ import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 import { SNAP_LOCK_MS } from '@/constants/scroll';
 import styled from 'styled-components';
 import 'swiper/css';
-import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import {
-  Autoplay,
-  EffectFade,
-  Mousewheel,
-  Navigation,
-  Pagination,
-} from 'swiper/modules';
+import { EffectFade, Mousewheel, Navigation } from 'swiper/modules';
 
 interface Props {
   children: React.ReactNode[] | React.ReactNode;
 
   loop?: boolean;
-
-  autoplay?: boolean;
-  duration?: number;
 
   effect?: 'slide' | 'fade';
 
@@ -29,10 +18,6 @@ interface Props {
   direction?: 'horizontal' | 'vertical';
 
   navigation?: boolean;
-
-  pagination?: boolean;
-  paginationType?: 'bullets' | 'fraction' | 'progressbar' | 'custom';
-  customPagination?: string;
 
   options?: SwiperProps;
 
@@ -44,19 +29,12 @@ export const SwiperComponent = ({
 
   loop = false,
 
-  autoplay = false,
-  duration = 3000,
-
   effect = 'slide',
 
   mousewheel = false,
   direction = 'horizontal',
 
   navigation = false,
-
-  pagination = false,
-  paginationType = 'bullets',
-  customPagination,
 
   options,
 
@@ -65,11 +43,9 @@ export const SwiperComponent = ({
   return (
     <SwiperComponentStyled>
       <Swiper
-        modules={[Autoplay, EffectFade, Mousewheel, Navigation, Pagination]}
+        modules={[EffectFade, Mousewheel, Navigation]}
         slidesPerView={'auto'}
-        autoHeight={true}
         loop={loop}
-        autoplay={autoplay ? { delay: duration } : false}
         effect={effect}
         mousewheel={
           mousewheel
@@ -83,27 +59,13 @@ export const SwiperComponent = ({
             : false
         }
         direction={direction}
+        // ponytail: 클래스 셀렉터는 document 전역에서 찾는다(navigation.mjs 의 getEl).
+        // 한 페이지에 스와이퍼가 둘 이상 놓이면 버튼을 서로 뺏으므로 그때 ref 로 바꿀 것.
         navigation={
           navigation
             ? {
                 nextEl: '.next__button',
                 prevEl: '.prev__button',
-              }
-            : false
-        }
-        pagination={
-          pagination
-            ? {
-                clickable: true,
-                type: paginationType,
-                el: '.swiper-pagination',
-                renderCustom: (swiper, current, total) => {
-                  return customPagination
-                    ? customPagination
-                    : `
-                <span class="swiper-pagination">${current}</span>
-                `;
-                },
               }
             : false
         }

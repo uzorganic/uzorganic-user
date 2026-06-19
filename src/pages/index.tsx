@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -9,6 +9,7 @@ import { SEO } from '@/components/SEO';
 import { FractionSwiper } from '@/components/Swiper/FractionSwiper';
 import { instagramUrl } from '@/constants/sns';
 import { ContactForm } from '@/contents/ContactForm';
+import { useSnapScroll } from '@/hooks/useSnapScroll';
 import { FixedScrollButton } from '@/layouts/Fixed/ScrollButton';
 import { HomeLayout } from '@/layouts/HomeLayout';
 import { InstagramFilled } from '@ant-design/icons';
@@ -25,6 +26,9 @@ const Home = () => {
   const { locale } = router;
 
   const [isHover, setIsHover] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { sections, current, goTo } = useSnapScroll(containerRef);
 
   const more = locale === 'uz' ? "Ko'proq" : 'MORE';
 
@@ -70,9 +74,14 @@ const Home = () => {
 
       <SnapScroll />
 
-      <HomeLayoutStyled>
-        <FixedScrollButton />
+      {/* position: fixed 라 DOM 위치는 무관하다. 컨테이너 자식은 섹션만 남긴다 */}
+      <FixedScrollButton
+        sections={sections}
+        current={current}
+        onSelect={goTo}
+      />
 
+      <HomeLayoutStyled ref={containerRef}>
         <FractionSwiper effect="fade">
           {HERO_SLIDES.map(({ src, mobileSrc }, index) => (
             <CenterTitleAndButton
@@ -176,10 +185,19 @@ const Home = () => {
 };
 
 // createGlobalStyle 은 컴포넌트와 함께 붙었다 떨어지므로 메인 페이지에만 적용된다.
-// mandatory 는 ContactForm(100vh 안에 폼)이 낮은 화면에서 잘릴 때 접근 불가가 되므로 금지.
+// 터치는 관성 스크롤이 있어 CSS 스냅만으로 한 섹션씩 넘어간다.
+// 휠은 "가장 가까운" 지점으로 되돌아가 버리므로 useSnapScroll 이 직접 처리한다.
 const SnapScroll = createGlobalStyle`
-  html {
-    scroll-snap-type: y proximity;
+  @media (hover: none) {
+    html {
+      scroll-snap-type: y mandatory;
+    }
+
+    /* 입력창을 누르면 키보드가 뷰포트를 줄인다.
+       이때 브라우저의 focus 스크롤과 스냅이 싸워 입력창이 키보드에 가린다. */
+    html:has(input:focus, textarea:focus) {
+      scroll-snap-type: none;
+    }
   }
 `;
 
@@ -187,6 +205,8 @@ const HomeLayoutStyled = styled.div`
   /* 직계 자식이 각 섹션. FixedScrollButton 은 position: fixed 라 스냅 대상이 아니다 */
   > * {
     scroll-snap-align: start;
+    /* 한 번의 스크롤로 두 섹션을 건너뛰지 못하게 막는다 */
+    scroll-snap-stop: always;
   }
 
   .Logo {

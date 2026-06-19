@@ -1,5 +1,6 @@
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react';
 
+import { SNAP_LOCK_MS } from '@/constants/scroll';
 import styled from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -74,7 +75,10 @@ export const SwiperComponent = ({
           mousewheel
             ? {
                 releaseOnEdges: true,
+                // 작은 델타도 한 칸은 넘어가야 하므로 낮게 둔다.
                 thresholdDelta: 10,
+                // 한 칸 넘긴 뒤 잠금. 없으면 트랙패드 관성이 여러 칸을 밀어 버린다.
+                thresholdTime: SNAP_LOCK_MS,
               }
             : false
         }

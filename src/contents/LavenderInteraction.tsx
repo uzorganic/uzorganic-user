@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import styled from 'styled-components';
 
 interface Props {
@@ -23,14 +24,7 @@ export const LavenderInteraction = ({ options }: Props) => {
     }
   };
 
-  const onSlideChange = () => {
-    document.body.style.overflow = 'hidden';
-    window.scrollTo(0, 0);
-
-    setTimeout(() => {
-      document.body.style.overflow = 'auto';
-    }, 1000);
-  };
+  const lockScroll = useScrollLock();
 
   return (
     <LavenderInteractionStyled {...options}>
@@ -40,9 +34,11 @@ export const LavenderInteraction = ({ options }: Props) => {
         direction="horizontal"
         navigation
         options={{
+          // 마지막 슬라이드에 닿은 관성이 그대로 아래 본문까지 밀고 가지 않게 끊는다.
           onSlideChange(swiper) {
-            if (swiper.activeIndex === 1) {
-              onSlideChange();
+            if (swiper.isEnd) {
+              window.scrollTo(0, 0);
+              lockScroll();
             }
           },
 

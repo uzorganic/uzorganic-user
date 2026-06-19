@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
 import { SEO } from '@/components/SEO';
 import { SwiperComponent } from '@/components/Swiper/SwiperComponent';
+import { useScrollLock } from '@/hooks/useScrollLock';
 import { FixedIcon } from '@/layouts/Fixed/Icon';
 import { FixedLogo } from '@/layouts/Fixed/Logo';
 import { MenuButton } from '@/layouts/Fixed/MenuButton';
@@ -35,14 +36,7 @@ const BrandPage = () => {
     };
   }, []);
 
-  const onSlideChange = () => {
-    document.body.style.overflow = 'hidden';
-    window.scrollTo(0, 0);
-
-    setTimeout(() => {
-      document.body.style.overflow = 'auto';
-    }, 1000);
-  };
+  const lockScroll = useScrollLock();
 
   // windowHeight 는 클라이언트에서만 측정된다. SEO 를 가드 앞에서 만들어 두고
   // 가드에서도 함께 반환해야 서버 렌더 HTML에 title/canonical/hreflang 이 실린다.
@@ -83,15 +77,20 @@ const BrandPage = () => {
           direction="horizontal"
           navigation
           options={{
+            // 끝 슬라이드에서 위로 굴리면 페이지가 아니라 슬라이드가 넘어간다.
+            // 푸터를 보던 화면이 그대로 남으므로 슬라이드가 바뀔 때마다 위로 되돌린다.
             onSlideChange(swiper) {
+              if (swiper.isEnd) {
+                // 부드러운 스크롤은 곧바로 걸리는 잠금에 잘려 중간에 멈춘다.
+                window.scrollTo(0, 0);
+                lockScroll();
+                return;
+              }
+
               window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
               });
-
-              if (swiper.activeIndex === 5) {
-                onSlideChange();
-              }
             },
           }}
         >

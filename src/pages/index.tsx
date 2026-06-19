@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -11,96 +11,43 @@ import { instagramUrl } from '@/constants/sns';
 import { ContactForm } from '@/contents/ContactForm';
 import { FixedScrollButton } from '@/layouts/Fixed/ScrollButton';
 import { HomeLayout } from '@/layouts/HomeLayout';
-import { InstagramFilled, YoutubeFilled } from '@ant-design/icons';
-import styled from 'styled-components';
+import { InstagramFilled } from '@ant-design/icons';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const HERO_SLIDES = [
+  { src: '/images/main/1.png', mobileSrc: '/images/main/1_mb.jpg' },
+  { src: '/images/main/2.jpg', mobileSrc: '/images/main/2_mb.jpg' },
+  { src: '/images/main/3.jpg', mobileSrc: '/images/main/3_mb.jpg' },
+];
 
 const Home = () => {
   const router = useRouter();
   const { locale } = router;
 
   const [isHover, setIsHover] = useState(false);
-  const [isScroll, setIsScroll] = useState(false);
-  const [isScrollUp, setIsScrollUp] = useState(false);
-  const [isScrollDown, setIsScrollDown] = useState(false);
-  const [currentScroll, setCurrentScroll] = useState(0);
 
-  const [temp, setTemp] = useState(false);
+  const more = locale === 'uz' ? "Ko'proq" : 'MORE';
 
-  useEffect(() => {
-    const onSlideChange = () => {
-      if (isScroll || temp) {
-        return;
-      }
-
-      if (window.scrollY > currentScroll) {
-        setIsScrollDown(true);
-        setIsScrollUp(false);
-      } else {
-        setIsScrollDown(false);
-        setIsScrollUp(true);
-      }
-
-      setCurrentScroll(window.scrollY);
-
-      if (isScrollDown) {
-        if (
-          window.scrollY % window.innerHeight > 10 &&
-          window.scrollY % window.innerHeight < 50
-        ) {
-          setIsScroll(true);
-          window.scrollTo({
-            top:
-              window.innerHeight *
-              (Math.floor(window.scrollY / window.innerHeight) + 1),
-            behavior: 'smooth',
-          });
-        }
-      }
-
-      if (isScrollUp) {
-        if (
-          window.scrollY % window.innerHeight > window.innerHeight - 100 &&
-          window.scrollY % window.innerHeight < window.innerHeight - 2
-        ) {
-          setIsScroll(true);
-          window.scrollTo({
-            top:
-              window.innerHeight *
-              Math.floor(window.scrollY / window.innerHeight),
-            behavior: 'smooth',
-          });
-        }
-      }
-    };
-
-    window.addEventListener('scroll', onSlideChange);
-
-    return () => {
-      window.removeEventListener('scroll', onSlideChange);
-    };
-  }, [currentScroll, isScroll, isScrollDown, isScrollUp, temp]);
-
-  useEffect(() => {
-    const checkScroll = () => {
-      if (temp) {
-        return;
-      }
-
-      if (
-        window.scrollY % window.innerHeight < 5 ||
-        window.scrollY % window.innerHeight > window.innerHeight - 5 ||
-        window.scrollY + window.innerHeight >= document.body.scrollHeight
-      ) {
-        setIsScroll(false);
-      }
-    };
-
-    window.addEventListener('scroll', checkScroll);
-
-    return () => {
-      window.removeEventListener('scroll', checkScroll);
-    };
-  }, [temp]);
+  const heroDescription =
+    locale === 'en' ? (
+      <>
+        With our extensive experience, <br />
+        I’m ORGANIC will continue to grow
+        <p>as a company in harmony with nature.</p>
+      </>
+    ) : locale === 'uz' ? (
+      <>
+        {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
+        <br />
+        {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
+      etmoqda.`}
+      </>
+    ) : (
+      <>
+        아임오가닉은 풍부한 경험으로 <br />
+        자연과 함께하는 기업으로 나가겠습니다.
+      </>
+    );
 
   return (
     <>
@@ -121,299 +68,46 @@ const Home = () => {
         }
       />
 
+      <SnapScroll />
+
       <HomeLayoutStyled>
-        <FixedScrollButton isScroll={temp} setIsScroll={setTemp} />
+        <FixedScrollButton />
 
-        <FractionSwiper effect="fade" className="pc">
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/1.png"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
-                  <br />
-                  {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
-                etmoqda.`}
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/2.jpg"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
-                  <br />
-                  {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
-                etmoqda.`}
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/3.jpg"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,`}{' '}
-                  <br />
-                  {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
-                etmoqda.`}
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
-        </FractionSwiper>
-
-        <FractionSwiper effect="fade" className="mo">
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/1_mb.jpg"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan
-                uyg'unlashgan,`}{' '}
-                  <br />
-                  {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
-                etmoqda.`}
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/2_mb.jpg"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {`Bizning boy tajribamiz orqali, I'm Organic tabiat bilan
-                uyg'unlashgan,`}{' '}
-                  <br />
-                  {`mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom
-                etmoqda.`}
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
-          <CenterTitleAndButton
-            className="Logo"
-            imageSrc="/images/main/3_mb.jpg"
-            title={
-              <ImageOverlayChild
-                src="/images/logo/logo.svg"
-                width="48rem"
-                height="4.875rem"
-                objectFit="contain"
-              />
-            }
-            description={
-              locale === 'en' ? (
-                <>
-                  With our extensive experience, <br />
-                  I’m ORGANIC will continue to grow
-                  <p>as a company in harmony with nature.</p>
-                </>
-              ) : locale === 'uz' ? (
-                <>
-                  {
-                    "Bizning boy tajribamiz orqali, I'm Organic tabiat bilan uyg'unlashgan,"
-                  }
-                  <br />
-                  {
-                    'mukammallikka intiluvchi kompaniya sifatida rivojlanishda davom etmoqda.'
-                  }
-                </>
-              ) : (
-                <>
-                  아임오가닉은 풍부한 경험으로 <br />
-                  자연과 함께하는 기업으로 나가겠습니다.
-                </>
-              )
-            }
-            buttonComponent={
-              <HoverArrowButton
-                text={
-                  locale === 'en'
-                    ? 'MORE'
-                    : locale === 'uz'
-                      ? "Ko'proq"
-                      : 'MORE'
-                }
-                color="#fff"
-                onClick={() => router.push('/brand')}
-              />
-            }
-          />
+        <FractionSwiper effect="fade">
+          {HERO_SLIDES.map(({ src, mobileSrc }, index) => (
+            <CenterTitleAndButton
+              key={src}
+              className="Logo"
+              titleTag={index === 0 ? 'h1' : 'h2'}
+              imageSrc={src}
+              mobileImageSrc={mobileSrc}
+              priority={index === 0}
+              title={
+                <ImageOverlayChild
+                  src="/images/logo/logo.svg"
+                  alt="I’m ORGANIC"
+                  width="48rem"
+                  height="4.875rem"
+                  objectFit="contain"
+                />
+              }
+              description={heroDescription}
+              buttonComponent={
+                <HoverArrowButton
+                  text={more}
+                  color="#fff"
+                  onClick={() => router.push('/brand')}
+                />
+              }
+            />
+          ))}
         </FractionSwiper>
 
         <CenterTitleAndButton
-          className="Lavender pc"
+          className="Lavender"
+          titleTag="h2"
           imageSrc="/images/main/9.jpg"
+          mobileImageSrc="/images/main/9_mb.jpg"
           title="LAVENDER"
           description={
             locale === 'en'
@@ -424,38 +118,17 @@ const Home = () => {
           }
           buttonComponent={
             <HoverArrowButton
-              text={
-                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
-              }
+              text={more}
               onClick={() => router.push('/lavender')}
             />
           }
         />
 
         <CenterTitleAndButton
-          className="Lavender mo"
-          imageSrc="/images/main/9_mb.jpg"
-          title="LAVENDER"
-          description={
-            locale === 'en'
-              ? 'OUR FIRST NATURE'
-              : locale === 'uz'
-                ? "bizning borlig'imiz,"
-                : '우리의 첫번째 자연,'
-          }
-          buttonComponent={
-            <HoverArrowButton
-              text={
-                locale === 'en' ? 'MORE' : locale === 'uz' ? "Ko'proq" : 'MORE'
-              }
-              onClick={() => router.push('/lavender')}
-            />
-          }
-        />
-
-        <CenterTitleAndButton
-          className="Youtube pc"
+          className="Instagram"
+          titleTag="h2"
           imageSrc="/images/main/0.jpg"
+          mobileImageSrc="/images/main/0_mb.jpg"
           title={
             locale === 'en'
               ? 'Instagram'
@@ -477,69 +150,43 @@ const Home = () => {
             )
           }
           buttonComponent={
-            <InstagramFilled
+            <a
+              href={instagramUrl(locale)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}
-              style={{
-                fontSize: '8rem',
-                color: isHover ? '#9f7bac' : '#fff',
-                cursor: 'pointer',
-              }}
-              onClick={() => window.open(instagramUrl(locale))}
-            />
+            >
+              <InstagramFilled
+                style={{
+                  fontSize: '8rem',
+                  color: isHover ? '#9f7bac' : '#fff',
+                  cursor: 'pointer',
+                }}
+              />
+            </a>
           }
         />
 
-        <CenterTitleAndButton
-          className="Youtube mo"
-          imageSrc="/images/main/0_mb.jpg"
-          title={
-            locale === 'en'
-              ? 'Instagram'
-              : locale === 'uz'
-                ? 'Instagram'
-                : '인스타그램'
-          }
-          description={
-            locale === 'en' ? (
-              'Check out the latest news on Instagram!'
-            ) : locale === 'uz' ? (
-              <>{`Instagramdagi so'ngi yangiliklar bilan tanishing!`}</>
-            ) : (
-              <>
-                인스타그램에서 최신 소식을
-                <br />
-                확인해보세요!
-              </>
-            )
-          }
-          buttonComponent={
-            <InstagramFilled
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              style={{
-                fontSize: '8rem',
-                color: isHover ? '#9f7bac' : '#fff',
-                cursor: 'pointer',
-              }}
-              onClick={() => window.open(instagramUrl(locale))}
-            />
-          }
-        />
-
-        <ContactForm />
+        <ContactForm titleTag="h2" />
       </HomeLayoutStyled>
     </>
   );
 };
 
-const HomeLayoutStyled = styled.div`
-  .pc {
-    display: block;
+// createGlobalStyle 은 컴포넌트와 함께 붙었다 떨어지므로 메인 페이지에만 적용된다.
+// mandatory 는 ContactForm(100vh 안에 폼)이 낮은 화면에서 잘릴 때 접근 불가가 되므로 금지.
+const SnapScroll = createGlobalStyle`
+  html {
+    scroll-snap-type: y proximity;
   }
+`;
 
-  .mo {
-    display: none;
+const HomeLayoutStyled = styled.div`
+  /* 직계 자식이 각 섹션. FixedScrollButton 은 position: fixed 라 스냅 대상이 아니다 */
+  > * {
+    scroll-snap-align: start;
   }
 
   .Logo {
@@ -555,14 +202,14 @@ const HomeLayoutStyled = styled.div`
 
   .Lavender {
     .center {
-      h1 {
+      h2 {
         font-family: 'NotoSansKR-Bold';
         letter-spacing: 0.05em;
       }
     }
   }
 
-  .Youtube {
+  .Instagram {
     .center {
       .button__container {
         margin-top: 1rem;
@@ -580,17 +227,10 @@ const HomeLayoutStyled = styled.div`
     }
 
     .center {
-      h1 {
+      h1,
+      h2 {
         white-space: nowrap;
       }
-    }
-
-    .pc {
-      display: none;
-    }
-
-    .mo {
-      display: block;
     }
   }
 `;

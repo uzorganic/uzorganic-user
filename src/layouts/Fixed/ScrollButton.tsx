@@ -1,62 +1,61 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components';
 
-interface ScrollButtonProps {
-  isScroll: boolean;
-  setIsScroll: (isScroll: boolean) => void;
-}
-
-export const FixedScrollButton = ({
-  isScroll,
-  setIsScroll,
-}: ScrollButtonProps) => {
-  const pageLength = 4;
+// 형제 노드가 곧 섹션이다. 개수를 상수로 박지 않고 실제 DOM에서 읽는다.
+// window.innerHeight 로 위치를 계산하면 모바일 주소창 때문에 100vh 와 어긋난다.
+export const FixedScrollButton = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [sections, setSections] = useState<HTMLElement[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const page = Math.floor(
-        (scrollY + window.innerHeight / 2) / window.innerHeight,
-      );
-      setCurrentPage(page);
-    };
+    const self = ref.current;
+    const siblings = Array.from(self?.parentElement?.children ?? []).filter(
+      (el): el is HTMLElement => el !== self && el instanceof HTMLElement,
+    );
+    setSections(siblings);
 
-    window.addEventListener('scroll', handleScroll);
+    // 화면 세로 중앙선을 지나는 섹션이 현재 섹션.
+    // 위아래 -50% 로 루트를 한 줄로 만들면 항상 한 섹션만 걸린다.
+    const observer = new IntersectionObserver(
+      entries => {
+        const hit = entries.find(entry => entry.isIntersecting);
+        if (hit) {
+          setCurrentPage(siblings.indexOf(hit.target as HTMLElement));
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+    siblings.forEach(el => observer.observe(el));
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <ScrollButtonStyled>
-      {Array.from({ length: pageLength }, (_, i) => (
-        <div
+    <ScrollButtonStyled ref={ref}>
+      {sections.map((section, i) => (
+        <button
           key={i}
+          type="button"
           className="scroll__button__container"
-          onClick={() => {
-            setIsScroll(true);
-
-            window.scrollTo({
-              top: window.innerHeight * i,
-              behavior: 'smooth',
-            });
-
-            setTimeout(() => {
-              setIsScroll(false);
-            }, 1000);
-          }}
+          aria-label={`${i + 1}번째 화면으로 이동`}
+          aria-current={currentPage === i}
+          onClick={() => section.scrollIntoView({ behavior: 'smooth' })}
         >
           <div
             className={`scroll__button ${currentPage === i ? 'active' : ''}`}
           />
-        </div>
+        </button>
       ))}
     </ScrollButtonStyled>
   );
 };
 
 const ScrollButtonStyled = styled.div`
+  /* 부모의 > * 스냅 규칙에 걸리지 않도록 명시적으로 제외 */
+  scroll-snap-align: none;
+
   position: fixed;
   bottom: var(--fixed-padding);
   right: var(--fixed-padding);
@@ -72,6 +71,10 @@ const ScrollButtonStyled = styled.div`
 
   .scroll__button__container {
     height: 1.5rem;
+
+    padding: 0;
+    background: none;
+    border: none;
 
     .scroll__button {
       width: calc(1.5rem / 3 * 2);

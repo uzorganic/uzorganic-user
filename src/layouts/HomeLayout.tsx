@@ -1,7 +1,5 @@
 import { FixedLogo } from './Fixed/Logo';
 import { FixedRouteLanguage } from './Fixed/RouteLanguage';
-import { FixedScrollButton } from './Fixed/ScrollButton';
-import { FixedSearch } from './Fixed/Search';
 import { FixedTextMenu } from './Fixed/TextMenu';
 import { Version1Footer } from './Footer/Version1';
 

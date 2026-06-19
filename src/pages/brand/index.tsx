@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import { useRouter } from 'next/router';
 
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
@@ -17,53 +15,26 @@ const BrandPage = () => {
   const router = useRouter();
   const { locale } = router;
 
-  const [windowHeight, setWindowHeight] = useState(0);
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth <= 960);
-    setWindowHeight(window.innerHeight);
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   const lockScroll = useScrollLock();
-
-  // windowHeight 는 클라이언트에서만 측정된다. SEO 를 가드 앞에서 만들어 두고
-  // 가드에서도 함께 반환해야 서버 렌더 HTML에 title/canonical/hreflang 이 실린다.
-  const seo = (
-    <SEO
-      title={
-        locale === 'en'
-          ? "I'm Organic - Brand"
-          : locale === 'uz'
-            ? "I'm ORGANIC - Brend"
-            : "I'm Organic - Brand"
-      }
-      description={
-        locale === 'en'
-          ? 'Welcome to I’m Organic, where we embrace nature and sustainability. Discover our organic products and join us on a journey towards a greener future.'
-          : locale === 'uz'
-            ? "I'm ORGANICga xush kelibsiz, biz tabiat va barqarorlikni qabul qilamiz. Organik mahsulotlarimizni kashf eting va yashil kelajak sari sayohatimizga qo'shiling."
-            : '자연과 지속 가능성을 포용하는 아임오가닉에 오신 것을 환영합니다. 우리의 유기농 제품을 발견하고 더 푸른 미래를 향한 여정에 동참하세요.'
-      }
-    />
-  );
-
-  if (windowHeight === 0) return seo;
 
   return (
     <>
-      {seo}
+      <SEO
+        title={
+          locale === 'en'
+            ? "I'm Organic - Brand"
+            : locale === 'uz'
+              ? "I'm ORGANIC - Brend"
+              : "I'm Organic - Brand"
+        }
+        description={
+          locale === 'en'
+            ? 'Welcome to I’m Organic, where we embrace nature and sustainability. Discover our organic products and join us on a journey towards a greener future.'
+            : locale === 'uz'
+              ? "I'm ORGANICga xush kelibsiz, biz tabiat va barqarorlikni qabul qilamiz. Organik mahsulotlarimizni kashf eting va yashil kelajak sari sayohatimizga qo'shiling."
+              : '자연과 지속 가능성을 포용하는 아임오가닉에 오신 것을 환영합니다. 우리의 유기농 제품을 발견하고 더 푸른 미래를 향한 여정에 동참하세요.'
+        }
+      />
 
       <BrandPageStyled>
         <MenuButton top left />
@@ -95,9 +66,10 @@ const BrandPage = () => {
           }}
         >
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_1.jpg' : '/images/brand/1.jpg'}
+            src="/images/brand/1.jpg"
+            mobileSrc="/images/brand/mb_1.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             centerVertical
             centerHorizontal
             className="first"
@@ -114,9 +86,10 @@ const BrandPage = () => {
           </ImageOverlayChild>
 
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_2.jpg' : '/images/brand/2.jpg'}
+            src="/images/brand/2.jpg"
+            mobileSrc="/images/brand/mb_2.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             className="second"
           >
             <div className="text__container">
@@ -127,7 +100,7 @@ const BrandPage = () => {
                     ? "I'm ORGANIC falsafasi"
                     : '아임 오가닉의 철학'}
               </h1>
-              <p className="description fade move animate2">
+              <div className="description fade move animate2">
                 {locale === 'en' ? (
                   <>
                     <p>
@@ -179,7 +152,7 @@ const BrandPage = () => {
                     </p>
                   </>
                 )}
-              </p>
+              </div>
             </div>
 
             <div className="prev__button">←</div>
@@ -187,9 +160,10 @@ const BrandPage = () => {
           </ImageOverlayChild>
 
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_3.jpg' : '/images/brand/3.jpg'}
+            src="/images/brand/3.jpg"
+            mobileSrc="/images/brand/mb_3.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             className="second"
           >
             <div className="text__container">
@@ -261,9 +235,10 @@ const BrandPage = () => {
           </ImageOverlayChild>
 
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_4.jpg' : '/images/brand/4.jpg'}
+            src="/images/brand/4.jpg"
+            mobileSrc="/images/brand/mb_4.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             className="third"
           >
             <div className="text__container">
@@ -317,9 +292,10 @@ const BrandPage = () => {
           </ImageOverlayChild>
 
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_5.jpg' : '/images/brand/5.jpg'}
+            src="/images/brand/5.jpg"
+            mobileSrc="/images/brand/mb_5.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             className="forth"
           >
             <div className="text__container">
@@ -385,9 +361,10 @@ const BrandPage = () => {
           </ImageOverlayChild>
 
           <ImageOverlayChild
-            src={isMobile ? '/images/brand/mb_6.jpg' : '/images/brand/6.jpg'}
+            src="/images/brand/6.jpg"
+            mobileSrc="/images/brand/mb_6.jpg"
             width="100%"
-            height={`${windowHeight}px`}
+            height="100vh"
             centerVertical
             centerHorizontal
             className="fifth"

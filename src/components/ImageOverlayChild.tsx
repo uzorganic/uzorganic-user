@@ -1,9 +1,12 @@
-import Image from 'next/image';
+import { ResponsiveImage } from './ResponsiveImage';
 
 import styled from 'styled-components';
 
 interface Props {
   src: string;
+
+  // 모바일 전용 크롭본(예: mb_1.jpg). 지정하면 <picture>로 뷰포트당 한 장만 내려받는다.
+  mobileSrc?: string;
 
   // 장식용 이미지가 기본. 내용을 전달하는 이미지에만 값을 넘긴다.
   alt?: string;
@@ -32,6 +35,7 @@ interface Props {
 
 export const ImageOverlayChild = ({
   src,
+  mobileSrc,
 
   alt = '',
 
@@ -69,7 +73,12 @@ export const ImageOverlayChild = ({
       $centerVertical={centerVertical}
       $centerHorizontal={centerHorizontal}
     >
-      <Image src={src} alt={alt} fill sizes="100%" priority={priority} />
+      <ResponsiveImage
+        src={src}
+        mobileSrc={mobileSrc}
+        alt={alt}
+        priority={priority}
+      />
       <div className="children">{children}</div>
     </ImageOverlayChildStyled>
   );

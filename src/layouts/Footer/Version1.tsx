@@ -68,6 +68,11 @@ export const Version1Footer = () => {
 };
 
 const FooterStyled = styled.footer`
+  /* mandatory 스냅에서 스냅 지점이 없는 꼬리 영역은 도달할 수 없게 된다.
+     푸터 아래끝을 화면 아래끝에 맞추면 그 지점이 곧 문서 끝이다. */
+  scroll-snap-align: end;
+  scroll-snap-stop: always;
+
   position: relative;
 
   display: flex;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -22,6 +22,26 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
   const [isShow1, setIsShow1] = useState(false);
   const [isShow2, setIsShow2] = useState(false);
   const [isShow3, setIsShow3] = useState(false);
+
+  // 상세 이미지가 화면 열 개분이라 위쪽 구매 버튼은 한 번 지나치면 되돌아가기 어렵다.
+  // 요약 블록이 위로 완전히 지나가면 하단 바가 대신 받는다.
+  const textRef = useRef<HTMLDivElement>(null);
+  const [isPastText, setIsPastText] = useState(false);
+
+  // headerHeight 가 오기 전에는 아래에서 null 을 반환해 요소가 없다. 값이 도착하면 다시 건다.
+  useEffect(() => {
+    const text = textRef.current;
+    if (!text) return;
+
+    // isIntersecting 만 보면 히어로에 가려 아직 안 내려온 상태도 "지나감"이 된다.
+    // 위쪽으로 빠져나갔을 때만 잡으려고 아래끝 좌표를 쓴다.
+    const observer = new IntersectionObserver(([entry]) =>
+      setIsPastText(entry.boundingClientRect.bottom <= 0),
+    );
+    observer.observe(text);
+
+    return () => observer.disconnect();
+  }, [headerHeight]);
 
   const step = {
     1: {
@@ -517,6 +537,17 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
     return null;
   }
 
+  // 본문 버튼과 하단 알약은 생김새만 다르다. 문구와 목적지는 한쪽만 바뀌는 일이 없도록 모아 둔다.
+  const buyText =
+    locale === 'ko'
+      ? '구매하러 가기'
+      : locale === 'uz'
+        ? 'Sotib olish'
+        : 'GO TO BUY';
+
+  const openStore = () =>
+    window.open(dummyProduct[id - 1].link, '_blank', 'noopener');
+
   return (
     <>
       {/* SEO 는 같은 페이지에 함께 렌더되는 ProductDetail 이 담당한다.
@@ -531,7 +562,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           height={`calc(100vh - ${headerHeight}px)`}
         />
 
-        <div className="text">
+        <div className="text" ref={textRef}>
           <h1>
             {locale === 'ko'
               ? dummyProduct[id - 1].title
@@ -560,17 +591,11 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
           </h2>
           <div className="arrow__button">
             <HoverArrowButton
-              text={
-                locale === 'ko'
-                  ? '구매하러 가기'
-                  : locale === 'uz'
-                    ? 'Sotib olish'
-                    : 'GO TO BUY'
-              }
+              text={buyText}
               color="#403b35"
               width="100%"
               padding="1.5rem 1.5rem"
-              onClick={() => window.open(dummyProduct[id - 1].link, '_blank', 'noopener')}
+              onClick={openStore}
             />
           </div>
           <div className="info" onClick={() => setIsShow1(!isShow1)}>
@@ -854,6 +879,19 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
             </div>
           </>
         )}
+
+        {/* 마지막 자식 + sticky bottom 이라 스크롤 내내 화면 아래에 떠 있다가
+            상세가 끝나는 지점에서 제자리에 안착한다. fixed 와 달리 흐름에서 자리를
+            차지하므로 푸터를 가리지 않게 할 보정이 필요 없다. */}
+        <div className={`buy__bar ${isPastText ? 'visible' : ''}`}>
+          <HoverArrowButton
+            className="pill"
+            text={buyText}
+            color="#f3f0eb"
+            padding="0.75rem 2rem"
+            onClick={openStore}
+          />
+        </div>
       </ProductDetailMobileStyle>
     </>
   );
@@ -864,6 +902,94 @@ const ProductDetailMobileStyle = styled.div<{ $headerHeight: number }>`
   flex-direction: column;
 
   padding-top: 4.75rem;
+
+  .buy__bar {
+    position: sticky;
+    /* 화면 아래끝에 붙이지 않고 띄운다. GoTop 버튼과 같은 여백을 쓴다 */
+    bottom: var(--fixed-padding);
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 상세 이미지 끝과 푸터 사이에서 제자리에 앉을 때 숨 쉴 틈 */
+    margin: 1.25rem 0;
+
+    /* visibility 까지 꺼야 안 보이는 버튼에 탭 포커스가 걸리지 않는다 */
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 라벤더는 이 사이트에서 선과 호버로만 쓰였다. 면으로 칠하는 곳은 여기 하나뿐이다.
+       #9f7bac 원색은 크림 글씨와 3.09:1 이라 본문 크기 글씨에 못 쓴다.
+       같은 색상(hue 287도)에서 명도만 낮춰, 반투명이 가장 불리하게 깔리는 경우
+       (뒤가 흰색)에도 4.98:1 로 AA 를 넘긴다. 불투명하게 깔리면 6.85:1. */
+    .pill {
+      /* inline-block 은 글줄 기준이라 글꼴마다 아래로 치우친다. 축을 직접 잡는다 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 999rem;
+      border-color: rgba(102, 70, 111, 0.88);
+      background-color: rgba(102, 70, 111, 0.88);
+      /* 뒤에 깔린 상세 이미지가 글씨를 방해하지 않게 흐린다 */
+      backdrop-filter: blur(0.5rem);
+
+      box-shadow: 0 0.375rem 1rem rgba(64, 59, 53, 0.22);
+
+      /* 아래 .text 블록 규칙이 자손 선택자라 버튼 안 span 까지 잡는다.
+         padding 5rem 과 갈색 글씨가 그대로 내려와 알약을 부풀리고 글씨를 지운다.
+         ponytail: 여기서만 되돌린다. 뿌리는 .text 를 > .text 로 바꾸는 것이지만
+         그러면 본문 버튼 크기까지 같이 변한다. */
+      .text {
+        display: block;
+
+        padding: 0 1.75rem 0 0;
+
+        color: #f3f0eb;
+
+        font-size: 1.5rem;
+        /* 기본 normal 은 한글 글꼴에서 1.5 를 넘어 알약을 두껍게 만든다 */
+        line-height: 1.2;
+      }
+
+      .standard__arrow__button {
+        right: 1.5rem;
+
+        font-size: 1.25rem;
+      }
+
+      /* 알약은 테두리가 곧 면이라 테두리를 지우는 기본 호버가 어울리지 않는다 */
+      &:hover {
+        border-color: rgba(102, 70, 111, 0.88);
+
+        .standard__arrow__button {
+          display: block;
+          opacity: 1;
+        }
+
+        .hover__arrow__button {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .buy__bar {
+      transition: none;
+    }
+  }
 
   .bottom {
     display: flex;

@@ -4,12 +4,12 @@ import { useRouter } from 'next/router';
 
 import { PrivacyPolicy } from './PrivacyPolicy';
 
-import { instance } from '@/api/axios';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { InputLabelAndInput } from '@/components/InputLabelAndInput';
 import { InputLabelAndTextarea } from '@/components/InputLabelAndTextarea';
 import { ResponsiveImage } from '@/components/ResponsiveImage';
 import { Checkbox, Form, message, Modal } from 'antd';
+import axios from 'axios';
 import styled from 'styled-components';
 
 interface ContactValues {
@@ -37,7 +37,8 @@ export const ContactForm = ({ titleTag: Title = 'h1' }: Props) => {
 
   const sendContact = async (values: ContactValues) => {
     try {
-      await instance.post('/contact', values);
+      // 같은 배포 안의 API route. 여기서만 메일 API 키를 쥔다.
+      await axios.post('/api/contact', { ...values, locale });
 
       form.resetFields();
 
@@ -195,6 +196,17 @@ export const ContactForm = ({ titleTag: Title = 'h1' }: Props) => {
             </div>
           </div>
 
+          {/* 화면 밖에 숨긴 허니팟. 사람 눈에도 스크린리더에도 안 잡히고 봇만 채운다.
+              값이 차 있으면 서버가 메일을 보내지 않는다. */}
+          <Form.Item name="company" noStyle>
+            <input
+              className="honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+          </Form.Item>
+
           <div className="checkbox__container">
             <Form.Item name="agree" valuePropName="checked" noStyle>
               <Checkbox className="checkbox" />
@@ -274,6 +286,17 @@ const ContactFormStyled = styled.div`
       font-family: 'NotoSansKR-Bold';
 
       margin-bottom: 5rem;
+    }
+
+    /* display: none 은 일부 봇이 걸러낸다. 화면 밖으로 밀어내야 채워 넣는다. */
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
     }
 
     .form__container {

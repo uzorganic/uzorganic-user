@@ -5,19 +5,22 @@ import { useRouter } from 'next/router';
 import { FullScreenImage } from '@/components/FullScreenImage';
 import { HoverArrowButton } from '@/components/HoverArrowButton';
 import { ImageOverlayChild } from '@/components/ImageOverlayChild';
-import { SEO } from '@/components/SEO';
+import { SEO, toPlainText } from '@/components/SEO';
 import { StepTypography } from '@/components/StepTypography';
+import { localePath, SITE_URL } from '@/constants/site';
 import styled from 'styled-components';
 
 interface Props {
+  /** getStaticProps 가 확정해 준다. router.query 를 쓰면 프리렌더 시점에 비어 있다. */
+  id: number;
+
   headerHeight: number;
 
   className?: string;
 }
 
-export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
+export const ProductDetail = ({ id, headerHeight = 0, className }: Props) => {
   const router = useRouter();
-  const { id } = router.query as unknown as { id: number };
 
   const { locale } = router;
 
@@ -515,28 +518,48 @@ export const ProductDetail = ({ headerHeight = 0, className }: Props) => {
     },
   ];
 
-  if (!id || !headerHeight) {
+  const product = dummyProduct[id - 1];
+
+  if (!product) {
     return null;
   }
+
+  const name = toPlainText(
+    locale === 'ko'
+      ? product.title
+      : locale === 'uz'
+        ? product.uzTitle
+        : product.enTitle,
+  );
+
+  const productDescription = toPlainText(
+    locale === 'ko'
+      ? product.description
+      : locale === 'uz'
+        ? product.uzDescription
+        : product.enDescription,
+  );
+
+  // 모바일 컴포넌트와 같은 페이지에 함께 렌더되므로 메타는 여기 한 곳에서만 낸다.
+  // ponytail: 가격/재고 데이터가 없어 offers 는 넣지 않는다. 없는 값을 지어내면 구조화 데이터 위반이다.
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description: productDescription,
+    image: `${SITE_URL}/images/store/product${id}/main.jpg`,
+    url: `${SITE_URL}${localePath(locale ?? 'ko', `/store/${id}`)}`,
+    category: 'Cosmetics',
+    brand: { '@type': 'Brand', name: 'I’m ORGANIC' },
+  };
 
   return (
     <>
       <SEO
-        title={
-          ("I'm Organic - " +
-            (locale === 'ko'
-              ? dummyProduct[id - 1].title
-              : locale === 'uz'
-                ? dummyProduct[id - 1].uzTitle
-                : dummyProduct[id - 1].enTitle)) as string
-        }
-        description={
-          (locale === 'ko'
-            ? dummyProduct[id - 1].description
-            : locale === 'uz'
-              ? dummyProduct[id - 1].uzDescription
-              : dummyProduct[id - 1].enDescription) as string
-        }
+        title={`I'm Organic - ${name}`}
+        description={productDescription}
+        image={`/images/store/product${id}/main.jpg`}
+        jsonLd={productJsonLd}
       />
 
       <ProductDetailStyle $headerHeight={headerHeight} className={className}>

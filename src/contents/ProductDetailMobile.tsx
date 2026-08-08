@@ -8,14 +8,20 @@ import { StepTypography } from '@/components/StepTypography';
 import styled from 'styled-components';
 
 interface Props {
+  /** getStaticProps 가 확정해 준다. router.query 를 쓰면 프리렌더 시점에 비어 있다. */
+  id: number;
+
   headerHeight: number;
 
   className?: string;
 }
 
-export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
+export const ProductDetailMobile = ({
+  id,
+  headerHeight = 0,
+  className,
+}: Props) => {
   const router = useRouter();
-  const { id } = router.query as unknown as { id: number };
 
   const { locale } = router;
 
@@ -28,7 +34,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
   const textRef = useRef<HTMLDivElement>(null);
   const [isPastText, setIsPastText] = useState(false);
 
-  // headerHeight 가 오기 전에는 아래에서 null 을 반환해 요소가 없다. 값이 도착하면 다시 건다.
+  // headerHeight 는 클라이언트에서 뒤늦게 도착한다. 값이 바뀌면 관찰을 다시 건다.
   useEffect(() => {
     const text = textRef.current;
     if (!text) return;
@@ -533,7 +539,7 @@ export const ProductDetailMobile = ({ headerHeight = 0, className }: Props) => {
     },
   ];
 
-  if (!id || !headerHeight) {
+  if (!dummyProduct[id - 1]) {
     return null;
   }
 

@@ -1,0 +1,29 @@
+# I'm ORGANIC
+
+> Korean organic hair and skin care brand by HERBTHERAPY WITH COSMETICS, sold in
+> Uzbekistan and Korea. Lavender-based formulations, no synthetic preservatives,
+> 20 years of R&D in Korea.
+
+Site: https://uzorganic.com — Korean (default, no prefix), Uzbek (/uz), English (/en).
+Contact: uzorganic@naver.com
+
+## Pages
+
+- [Home](https://uzorganic.com/): brand intro, lavender story, Instagram, contact form.
+- [Brand](https://uzorganic.com/brand): philosophy, product quality, ethical certification, sustainability.
+- [Lavender](https://uzorganic.com/lavender): why lavender, sourcing and its role in the formulations.
+- [Store](https://uzorganic.com/store): full product list, categories Hair Care and Skin Care.
+- [Contact](https://uzorganic.com/contact): inquiry form.
+- [Privacy policy](https://uzorganic.com/privacy_policy)
+
+## Products
+
+- [From Lavender Shampoo](https://uzorganic.com/store/1): scalp purifying shampoo — exfoliation relief, soothing, deep cleansing.
+- [From Lavender Treatment](https://uzorganic.com/store/2): vitamin E plant-oil treatment — gloss coating, moisture, smoothness.
+- [From Lavender Hair Mist](https://uzorganic.com/store/3): watery mist — nourishment and moisture between washes.
+- [From Lavender Hair Oil](https://uzorganic.com/store/4): plant oil — hair nutrition, recovery aid, natural shine.
+- [Lavender Solution Mask Pack](https://uzorganic.com/store/5): sheet mask — lavender water, beta-glucan, niacinamide, panthenol.
+
+## Optional
+
+- [Sitemap](https://uzorganic.com/sitemap.xml): every page in all three locales with hreflang alternates.
